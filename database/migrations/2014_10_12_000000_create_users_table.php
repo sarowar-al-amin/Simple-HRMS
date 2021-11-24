@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->boolean('active');
-            $table->boolean('benched');
+            $table->boolean('active')->default(true);
+            $table->boolean('benched')->default(false);
             $table->string('SBU');
             $table->date('joining_date')->nullable();
             $table->date('confirmation_date')->nullable();
