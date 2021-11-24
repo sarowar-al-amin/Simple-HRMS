@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->boolean('active')->default(true);
             $table->boolean('benched')->default(false);
-            $table->string('SBU');
+            $table->string('sbu');
             $table->date('joining_date')->nullable();
             $table->date('confirmation_date')->nullable();
             $table->date('career_start_date')->nullable();
