@@ -157,10 +157,43 @@ class UserController extends Controller
             'sbu' => ['required'],
             'joining_date' => ['required'],
             'confirmation_date' => ['required'],
-            'career_start_date' => ['required']
+            'career_start_date' => ['required'],
+            'expertise' => ['required'],
+            'partner' => ['required'],
+            'employee_type' => ['required'],
+            'managerial_capacity' => ['required'],
+            'hr' => ['required'],
+            'employee_category' => ['required'],
+            'project_manager' => ['required'],
+            'blood_group' => ['required'],
+            'designation' => ['required'],
+            'level' => ['required'],
+            'project_name' => ['required']
         ]);
 
-        
+        $expertise = UserMetadata::where('user_id', $user->id)->where('key', 'expertise')->firstOrFail();
+        $partner = UserMetadata::where('user_id', $user->id)->where('key', 'partner')->firstOrFail();
+        $employeeType = UserMetadata::where('user_id', $user->id)->where('key', 'employee_type')->firstOrFail();
+        $managerialCapacity = UserMetadata::where('user_id', $user->id)->where('key', 'managerial_capacity')->firstOrFail();
+        $hr = UserMetadata::where('user_id', $user->id)->where('key', 'hr')->firstOrFail();
+        $employeeCategory = UserMetadata::where('user_id', $user->id)->where('key', 'employee_category')->firstOrFail();
+        $projectManager = UserMetadata::where('user_id', $user->id)->where('key', 'project_manager')->firstOrFail();
+        $bloodGroup = UserMetadata::where('user_id', $user->id)->where('key', 'blood_group')->firstOrFail();
+        $designation = UserMetadata::where('user_id', $user->id)->where('key', 'designation')->firstOrFail();
+        $level = UserMetadata::where('user_id', $user->id)->where('key', 'level')->firstOrFail();
+        $projectName = UserMetadata::where('user_id', $user->id)->where('key', 'project_name')->firstOrFail();
+
+        $expertise->update(['value' => $data['expertise']]);
+        $partner->update(['value' => $data['partner']]);
+        $employeeType->update(['value' => $data['employee_type']]);
+        $managerialCapacity->update(['value' => $data['managerial_capacity']]);
+        $hr->update(['value' => $data['hr']]);
+        $employeeCategory->update(['value' => $data['employee_category']]);
+        $projectManager->update(['value' => $data['project_manager']]);
+        $bloodGroup->update(['value' => $data['blood_group']]);
+        $designation->update(['value' => $data['designation']]);
+        $level->update(['value' => $data['level']]);
+        $projectName->update(['value' => $data['project_name']]);
 
         $user->update([
             'id' => $data['id'],
