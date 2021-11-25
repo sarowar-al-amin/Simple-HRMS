@@ -11,6 +11,9 @@ class UserMetadata extends Model
 
     protected $fillable = [
         'user_id',
+        'key',
         'value',
     ];
+    
+    public $timestamps = false;
 }

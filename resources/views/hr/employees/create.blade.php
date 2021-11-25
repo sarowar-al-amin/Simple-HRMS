@@ -34,10 +34,21 @@
             <x-adminlte-input name="role" label="Role" type="number" step="1" />
             <x-adminlte-input name="email" label="Email" type="email" />
             <x-adminlte-input name="password" label="Password" type="password" />
+            <x-adminlte-input name="expertise" label="Expertise" />
+            <x-adminlte-input name="partner" label="Partner" />
+            <x-adminlte-input name="employee_type" label="Employee Type" />
+            <x-adminlte-input name="managerial_capacity" label="Managerial Capacity" />
             <x-adminlte-input name="sbu" label="SBU"/>
+            <x-adminlte-input name="hr" label=HR />
             <x-adminlte-input-date name="joining_date" label="Joining Date" :config="$config" />
             <x-adminlte-input-date name="confirmation_date" label="Confirmation Date" :config="$config" />
             <x-adminlte-input-date name="career_start_date" label="Career Start Date" :config="$config" />
+            <x-adminlte-input name="employee_category" label="Employee Category" />
+            <x-adminlte-input name="project_manager" label="Project Manager" />
+            <x-adminlte-input name="blood_group" label="Blood Group" />
+            <x-adminlte-input name="designation" label="Designation" />
+            <x-adminlte-input name="level" label="Level" />
+            <x-adminlte-input name="project_name" label="Project Name" />
 
             <div class="d-flex justify-content-end">
                 <x-adminlte-button class="btn-flat justify-self-end" type="submit" label="Submit" theme="dark" icon="fas fa-lg fa-save"/>
