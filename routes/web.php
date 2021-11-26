@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HR\UserController;
+use App\Http\Controllers\SBUController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('users', UserController::class);
+Route::get('users/review/{id}', [UserController::class, 'review'])->name('employee-review');
+Route::get('sbu/index', [SBUController::class, 'index'])->name('sbu-list');
+Route::get('sbu/{name}', [SBUController::class, 'show'])->name('sbu-employee-list');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

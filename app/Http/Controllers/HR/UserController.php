@@ -217,4 +217,8 @@ class UserController extends Controller
 
         return redirect(route('users.index'));
     }
+
+    public function review($id){
+        return view('hr.employees.review');
+    }
 }

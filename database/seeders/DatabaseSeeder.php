@@ -25,5 +25,38 @@ class DatabaseSeeder extends Seeder
             'benched' => false,
             'SBU' => 'Raisul Islam'
         ]);
+
+        DB::table('users')->insert([
+            'id' => 'BS0943',
+            'role' => 4,
+            'name' => 'SBU',
+            'email' => 'sbu@gmail.com',
+            'password' => Hash::make('password'),
+            'active' => true,
+            'benched' => false,
+            'SBU' => 'Raisul Islam'
+        ]);
+
+        DB::table('users')->insert([
+            'id' => 'BS0944',
+            'role' => 4,
+            'name' => 'HR',
+            'email' => 'hr@gmail.com',
+            'password' => Hash::make('password'),
+            'active' => true,
+            'benched' => false,
+            'SBU' => 'Miftah Zaman'
+        ]);
+
+        DB::table('users')->insert([
+            'id' => 'BS0945',
+            'role' => 4,
+            'name' => 'Partner',
+            'email' => 'partner@gmail.com',
+            'password' => Hash::make('password'),
+            'active' => true,
+            'benched' => false,
+            'SBU' => 'Miftah Zaman'
+        ]);
     }
 }

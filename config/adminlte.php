@@ -259,11 +259,6 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-user',
         // ],
-        // [
-        //     'text' => 'change_password',
-        //     'url'  => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
         [
             'text'    => 'Employees',
             'icon'    => 'fas fa-fw fa-user',
@@ -303,6 +298,17 @@ return [
 
                 ],
             ],
+        ],
+        [
+            'text' => 'Appraisal',
+            'icon' => 'fas fa-fw fa-eye',
+            'submenu' => [
+                [
+                    'text' => 'SBU List',
+                    'route' => 'sbu-list',
+                    'icon' => 'fas fa-fw fa-list',
+                ]
+            ]
         ],
         // ['header' => 'labels'],
         // [
