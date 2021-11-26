@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HR\UserController;
+use App\Http\Controllers\QuarterController;
+use App\Http\Controllers\SalaryReviewController;
 use App\Http\Controllers\SBUController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,10 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('users', UserController::class);
+Route::resource('quarters', QuarterController::class);
+Route::resource('salary-reviews', SalaryReviewController::class);
+
+
 Route::get('users/review/{id}', [UserController::class, 'review'])->name('employee-review');
 Route::get('sbu/index', [SBUController::class, 'index'])->name('sbu-list');
 Route::get('sbu/{name}', [SBUController::class, 'show'])->name('sbu-employee-list');

@@ -307,6 +307,16 @@ return [
                     'text' => 'SBU List',
                     'route' => 'sbu-list',
                     'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Quarters',
+                    'route' => 'quarters.index',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Salary Reviews',
+                    'route' => 'salary-reviews.index',
+                    'icon' => 'fas fa-fw fa-list',
                 ]
             ]
         ],
