@@ -8,10 +8,21 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">
-        File Needed
+    <div class="card-header">
+      <h3 class="card-title">Collapsible Card Example</h3>
+      <div class="card-tools">
+        <!-- Collapse Button -->
+        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+      </div>
+      <!-- /.card-tools -->
     </div>
-</div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      The body of the card
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
 @stop
 
 @section('css')

@@ -33,7 +33,10 @@
               <td>{{ $quarter->start }}</td>
               <td>{{ $quarter->end }}</td>
               <td class="d-flex">
-                <a href="{{ route('quarters.edit', $quarter->id) }}">
+                <a href="{{ route('sbu-list') }}" class="mr-2">
+                  <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
+                </a>
+                <a href="{{ route('quarters.edit', $quarter->id) }}" class="mr-2"->
                   <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
                 </a>
                 <form action="{{ route('quarters.destroy', $quarter) }}" method="POST">

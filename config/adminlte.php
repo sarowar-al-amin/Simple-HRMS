@@ -303,11 +303,11 @@ return [
             'text' => 'Appraisal',
             'icon' => 'fas fa-fw fa-eye',
             'submenu' => [
-                [
-                    'text' => 'SBU List',
-                    'route' => 'sbu-list',
-                    'icon' => 'fas fa-fw fa-list',
-                ],
+                // [
+                //     'text' => 'SBU List',
+                //     'route' => 'sbu-list',
+                //     'icon' => 'fas fa-fw fa-list',
+                // ],
                 [
                     'text' => 'Quarters',
                     'route' => 'quarters.index',
