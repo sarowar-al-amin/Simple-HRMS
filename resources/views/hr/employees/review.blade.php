@@ -3,26 +3,13 @@
 @section('title', 'All Employees')
 
 @section('content_header')
-    <h1>SBU List</h1>
+    <h1>Employee Review</h1>
 @stop
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Collapsible Card Example</h3>
-      <div class="card-tools">
-        <!-- Collapse Button -->
-        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-      </div>
-      <!-- /.card-tools -->
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      The body of the card
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
+<livewire:employee-review.info-tab :employee="$employee"/>
+<livewire:employee-review.evaluation-tab :level="$level"/>
+<livewire:employee-review.final-tab />
 @stop
 
 @section('css')
@@ -30,4 +17,15 @@
 @stop
 
 @section('js')
+<script>
+  $(document).ready(() => {
+    $(function () {
+      $("#example1").DataTable({
+          "responsive": true, "lengthChange": false, "autoWidth": false,
+          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+    
+  });
+</script>
 @stop

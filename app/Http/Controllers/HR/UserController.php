@@ -219,6 +219,9 @@ class UserController extends Controller
     }
 
     public function review($id){
-        return view('hr.employees.review');
+        return view('hr.employees.review', [
+            'employee' => User::findOrFail($id),
+            'level' => config('employee_levels')[4]
+        ]);
     }
 }
