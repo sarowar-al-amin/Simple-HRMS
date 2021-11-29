@@ -311,21 +311,21 @@ return [
                 [
                     'text' => 'Quarters',
                     'route' => 'quarters.index',
-                    'icon' => 'fas fa-fw fa-list',
+                    'icon' => 'fas fa-fw fa-clock',
                 ],
                 [
                     'text' => 'Salary Reviews',
                     'route' => 'salary-reviews.index',
-                    'icon' => 'fas fa-fw fa-list',
+                    'icon' => 'fas fa-fw fa-search-dollar',
                 ]
             ]
         ],
-        // ['header' => 'labels'],
-        // [
-        //     'text'       => 'important',
-        //     'icon_color' => 'red',
-        //     'url'        => '#',
-        // ],
+        ['header' => 'Others'],
+        [
+            'text' => 'Level Hierarchy',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'route' => 'employee-levels',
+        ],
         // [
         //     'text'       => 'warning',
         //     'icon_color' => 'yellow',

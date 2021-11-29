@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeLevelController;
 use App\Http\Controllers\HR\UserController;
 use App\Http\Controllers\QuarterController;
 use App\Http\Controllers\SalaryReviewController;
@@ -32,3 +33,5 @@ Route::get('users/review/{id}', [UserController::class, 'review'])->name('employ
 Route::get('sbu/index', [SBUController::class, 'index'])->name('sbu-list');
 Route::get('sbu/{name}', [SBUController::class, 'show'])->name('sbu-employee-list');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('level-hierarchy/index', [EmployeeLevelController::class, 'index'])->name('employee-levels');
