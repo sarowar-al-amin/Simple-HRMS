@@ -9,7 +9,9 @@
 @section('content')
 <livewire:employee-review.info-tab :employee="$employee"/>
 <livewire:employee-review.evaluation-tab :level="$level"/>
+<livewire:employee-review.behaviour-tab />
 <livewire:employee-review.final-tab />
+<livewire:employee-review.comments-tab />
 @stop
 
 @section('css')
