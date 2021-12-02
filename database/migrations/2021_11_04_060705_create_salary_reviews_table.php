@@ -18,7 +18,6 @@ class CreateSalaryReviewsTable extends Migration
             $table->string('name');
             $table->date('start');
             $table->date('end');
-            $table->timestamps();
             $table->foreignId('quarter_id')->constrained()->cascadeOnDelete();
         });
     }

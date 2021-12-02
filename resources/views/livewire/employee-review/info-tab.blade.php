@@ -7,7 +7,7 @@
                     @break
                 @endif
                 <tr>
-                    <th>{{ $key }}</th>
+                    <th>{{ ucwords($key) }}</th>
                     <td>{{ $value }}</td>
                 </tr>
             @endforeach

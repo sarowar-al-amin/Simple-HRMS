@@ -23,6 +23,7 @@
           <th>Name</th>
           <th>Start</th>
           <th>End</th>
+          <th>XP</th>
           <th>Actions</th>
         </tr>
         </thead>
@@ -32,6 +33,7 @@
               <td>{{ $quarter->name }}</td>
               <td>{{ $quarter->start }}</td>
               <td>{{ $quarter->end }}</td>
+              <td>{{ $quarter->xp() }}</td>
               <td class="d-flex">
                 <a href="{{ route('sbu-list') }}" class="mr-2">
                   <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
@@ -53,6 +55,7 @@
           <th>Name</th>
           <th>Start</th>
           <th>End</th>
+          <th>XP</th>
           <th>Actions</th>
         </tr>
         </tfoot>
