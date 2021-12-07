@@ -12,6 +12,12 @@ class Quarter extends Model
     
     protected $guarded = [];
 
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $timestamps = false;
+
     public function getStartAttribute ($value) {
         return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
     }
@@ -26,7 +32,7 @@ class Quarter extends Model
         return number_format(($end-$start)/(86400*365), 2);
     }
 
-    public function salaryReview(){
-        return $this->hasOne(SalaryReview::class);
-    }
+    // public function salaryReview(){
+    //     return $this->hasOne(SalaryReview::class);
+    // }
 }
