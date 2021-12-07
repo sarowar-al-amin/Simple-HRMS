@@ -15,9 +15,9 @@ class SalaryReview extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
-    // public function quarter(){
-    //     return $this->belongsTo(Quarter::class);
-    // }
+    public function quarter(){
+        return $this->belongsTo(Quarter::class);
+    }
 }

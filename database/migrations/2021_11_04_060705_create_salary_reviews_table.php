@@ -18,7 +18,7 @@ class CreateSalaryReviewsTable extends Migration
             $table->date('start');
             $table->date('end');
             $table->string('quarter_id');
-            $table->foreign('quarter_id')->references('id')->on('quarters');
+            $table->foreign('quarter_id')->references('id')->on('quarters')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

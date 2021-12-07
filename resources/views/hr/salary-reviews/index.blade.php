@@ -18,44 +18,12 @@
     <!-- /.card-header -->
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Quarter</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Actions</th>
-          </tr>
-          </thead>
+          <livewire:salary-reviews.headings />
           <tbody>
-          @foreach ($salaryReviews as $salaryReview)
-            <tr>
-                <td>{{ $salaryReview->name }}</td>
-                <td>{{ $salaryReview->quarter->name }}</td>
-                <td>{{ $salaryReview->start }}</td>
-                <td>{{ $salaryReview->end }}</td>
-                <td class="d-flex">
-                  <a href="{{ route('salary-reviews.edit', $salaryReview->id) }}">
-                    <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
-                  </a>
-                  <form action="{{ route('salary-reviews.destroy', $salaryReview->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <x-adminlte-button type="submit" theme="danger" icon="fas fa-fw fa-trash-alt"/>
-                  </form>
-                </td>
-            </tr>
-          @endforeach
+            @foreach ($salaryReviews as $salaryReview)
+              <livewire:salary-reviews.salary-review-row :salaryReview="$salaryReview" />
+            @endforeach
           </tbody>
-          <tfoot>
-          <tr>
-            <th>Name</th>
-            <th>Quarter</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Actions</th>
-          </tr>
-          </tfoot>
         </table>
     
       </div>
@@ -65,29 +33,9 @@
 @stop
 
 @section('css')
-  
 @stop
 
 @section('js')
-
-
-{{-- <script src="../../plugins/jszip/jszip.min.js"></script> done
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script> done
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script> done
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script> done
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script> done
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script> done
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script> done
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script> done
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script> done
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> done
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> done
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script> done
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script> done --}}
 
 <script>
   // $(function () {

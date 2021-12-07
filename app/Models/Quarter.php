@@ -32,7 +32,7 @@ class Quarter extends Model
         return number_format(($end-$start)/(86400*365), 2);
     }
 
-    // public function salaryReview(){
-    //     return $this->hasOne(SalaryReview::class);
-    // }
+    public function salaryReview(){
+        return $this->hasOne(SalaryReview::class);
+    }
 }

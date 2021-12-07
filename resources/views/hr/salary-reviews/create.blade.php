@@ -22,56 +22,22 @@
         ];
     @endphp
 
-<div class="card card-dark col-8">
-    <div class="card-header"></div>
-    <div class="card-body">
-        <form action={{ route('salary-reviews.store') }} method="POST">
-            @csrf
-            <x-adminlte-input name="name" label="Name" placeholder="name" label-class="text-dark">
-                <x-slot name="prependSlot">
-                    <div class="input-group-text">
-                        <i class="fas fa-clock text-dark"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input>
-            
-            <x-adminlte-select name="quarterName" label="Quarter" label-class="text-dark" igroup-size="lg">
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-gradient-dark">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                </x-slot>
-                @foreach ($quarters as $quarter)
-                    <option>{{ $quarter->name }}</option>
-                @endforeach
-            </x-adminlte-select>
+    <form action={{ route('salary-reviews.store') }} method="POST">
 
+        @csrf
 
-            <x-adminlte-input-date name="start" label="Start" igroup-size="lg"
-                :config="$config" placeholder="Choose starting day...">
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-dark">
-                        <i class="fas fa-calendar-day"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input-date>
-    
-            <x-adminlte-input-date name="end" label="End" igroup-size="lg"
-                :config="$config" placeholder="Choose ending day...">
-                <x-slot name="prependSlot">
-                    <div class="input-group-text bg-dark">
-                        <i class="fas fa-calendar-day"></i>
-                    </div>
-                </x-slot>
-            </x-adminlte-input-date>
-            
-            <x-adminlte-button class="btn-flat" type="submit" label="Submit" theme="dark" icon="fas fa-lg fa-save"/>
-        </form>
-    </div>
-</div>
+        <x-adminlte-input name="id" label="ID" label-class="text-dark" igroup-size="lg" />
+        <x-adminlte-select name="quarter_id" label="Quarter" label-class="text-dark" igroup-size="lg">
+            @foreach ($quarters as $quarter)
+                <option>{{ $quarter->id }}</option>
+            @endforeach
+        </x-adminlte-select>
+        <x-adminlte-input-date name="start" label="Start" igroup-size="lg" :config="$config" />
+        <x-adminlte-input-date name="end" label="End" igroup-size="lg" :config="$config" />
+        
+        <x-adminlte-button class="btn-flat" type="submit" label="Submit" theme="dark" icon="fas fa-lg fa-save"/>
 
-    
-
+    </form>
 
 @stop
 

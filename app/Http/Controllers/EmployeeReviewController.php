@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class EmployeeReviewController extends Controller
 {
-    public function review($id){
-        return view('hr.employees.review', [
+    public function create($id){
+        return view('hr.employee-reviews.create', [
             'employee' => User::findOrFail($id),
             'level' => config('employee_levels')[4]
         ]);
     }
 
-    public function storeReview(Request $request, $id){
+    public function store(Request $request, $id){
         SalaryReviewMetadata::create([
             'salary_review_id' => 1,
             'user_id' => $id,

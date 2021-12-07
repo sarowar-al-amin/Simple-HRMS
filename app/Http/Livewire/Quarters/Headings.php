@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Headings extends Component
 {
-    public $headings = ['Name', 'Start', 'End', 'Actions'];
+    public $headings = ['ID', 'Start', 'End', 'Actions'];
 
     public function render()
     {
