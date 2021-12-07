@@ -18,47 +18,12 @@
     <!-- /.card-header -->
     <div class="card-body">
       <table id="example1" class="table table-bordered table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Start</th>
-          <th>End</th>
-          <th>XP</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
+        <livewire:quarters.headings />
         <tbody>
-        @foreach ($quarters as $quarter)
-          <tr>
-              <td>{{ $quarter->name }}</td>
-              <td>{{ $quarter->start }}</td>
-              <td>{{ $quarter->end }}</td>
-              <td>{{ $quarter->xp() }}</td>
-              <td class="d-flex">
-                <a href="{{ route('sbu-list') }}" class="mr-2">
-                  <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
-                </a>
-                <a href="{{ route('quarters.edit', $quarter->id) }}" class="mr-2"->
-                  <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
-                </a>
-                <form action="{{ route('quarters.destroy', $quarter) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <x-adminlte-button type="submit" theme="danger" icon="fas fa-fw fa-trash-alt"/>
-                </form>
-              </td>
-          </tr>
-        @endforeach
+          @foreach ($quarters as $quarter)
+            <livewire:quarters.quarter-row :quarter="$quarter"/>
+          @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-          <th>Name</th>
-          <th>Start</th>
-          <th>End</th>
-          <th>XP</th>
-          <th>Actions</th>
-        </tr>
-        </tfoot>
       </table>
   
     </div>

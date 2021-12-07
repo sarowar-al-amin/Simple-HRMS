@@ -16,7 +16,7 @@ class Quarter extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function getStartAttribute ($value) {
         return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');

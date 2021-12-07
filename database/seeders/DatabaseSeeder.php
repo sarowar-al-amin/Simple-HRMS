@@ -21,8 +21,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@gmail.com',
             'password' => Hash::make('password'),
-            'active' => true,
-            'benched' => false,
             'SBU' => 'Raisul Islam'
         ]);
 
@@ -32,8 +30,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'SBU',
             'email' => 'sbu@gmail.com',
             'password' => Hash::make('password'),
-            'active' => true,
-            'benched' => false,
             'SBU' => 'Raisul Islam'
         ]);
 
@@ -43,8 +39,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'HR',
             'email' => 'hr@gmail.com',
             'password' => Hash::make('password'),
-            'active' => true,
-            'benched' => false,
             'SBU' => 'Miftah Zaman'
         ]);
 
@@ -54,8 +48,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Partner',
             'email' => 'partner@gmail.com',
             'password' => Hash::make('password'),
-            'active' => true,
-            'benched' => false,
             'SBU' => 'Miftah Zaman'
         ]);
     }
