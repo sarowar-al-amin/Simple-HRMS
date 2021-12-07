@@ -20,11 +20,11 @@ Route::resource('users', UserController::class);
 Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
 
-Route::get('employee-reviews/create/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
+Route::get('employee-reviews/create/{salaryreview}/{sbu}/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
 Route::post('employee-reviews/store/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
 
 Route::get('sbus/index/{salaryreview}', [SBUController::class, 'index'])->name('sbus.index');
-Route::get('sbu/{salaryreview}/{name}', [SBUController::class, 'show'])->name('sbus.show');
+Route::get('sbu/show/{salaryreview}/{sbu}', [SBUController::class, 'show'])->name('sbus.show');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

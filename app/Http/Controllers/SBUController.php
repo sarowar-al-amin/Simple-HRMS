@@ -16,11 +16,11 @@ class SBUController extends Controller
         ]);
     }
 
-    public function show(SalaryReview $salaryreview, $name)
+    public function show(SalaryReview $salaryreview, $sbu)
     {
         return view('hr.sbus.show', [
             'salaryReview' => $salaryreview,
-            'employees' => User::where('sbu', $name)->get()
+            'employees' => User::where('sbu', $sbu)->get()
         ]);
     }
 }
