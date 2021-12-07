@@ -16,13 +16,7 @@
                         </td>
                     @endif
                     <td>{{ $field }}</td>
-                    <td>
-                        <x-adminlte-select name="behaviours[]">
-                            @for ($i=1; $i<5; $i++)
-                                <option>{{ $i }}</option>
-                            @endfor
-                        </x-adminlte-select>
-                    </td>
+                    <td>{{ rand(1,5) }}</td>
                 </tr>
             @endforeach
         </tbody>

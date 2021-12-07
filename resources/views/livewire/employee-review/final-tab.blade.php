@@ -5,7 +5,7 @@
             <tr>
                 <th>Performance</th>
                 <td>
-                    <x-adminlte-select name="performence">
+                    <x-adminlte-select name="performance">
                         <option>Need Improvement</option>
                         <option>Meet Expectations Very Well</option>
                         <option>Exceed Expectations Heavily</option>

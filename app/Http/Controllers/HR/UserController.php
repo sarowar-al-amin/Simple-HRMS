@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\HR;
 
 use App\Http\Controllers\Controller;
+use App\Models\SalaryReviewMetadata;
 use App\Models\User;
 use App\Models\UserMetadata;
 use Illuminate\Http\Request;
@@ -216,12 +217,5 @@ class UserController extends Controller
         $user->delete();
 
         return redirect(route('users.index'));
-    }
-
-    public function review($id){
-        return view('hr.employees.review', [
-            'employee' => User::findOrFail($id),
-            'level' => config('employee_levels')[4]
-        ]);
     }
 }

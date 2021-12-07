@@ -15,13 +15,16 @@ class CreateSalaryReviewMetadataTable extends Migration
     {
         Schema::create('salary_review_metadata', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('salary_review_id')->constrained()->cascadeOnDelete();
+            $table->string('salary_review_id');
+            $table->foreign('salary_review_id')->references('id')->on('salary_reviews');
             $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('categorical_info');
-            $table->string('behavioural_info');
+            $table->string('feedback');
+            $table->text('justification');
+            $table->string('behaviour');
             $table->string('performance');
-            $table->boolean('promotion');
+            $table->string('promotion');
+            $table->string('comment');
         });
     }
 

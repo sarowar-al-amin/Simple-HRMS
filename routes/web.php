@@ -30,6 +30,7 @@ Route::resource('salary-reviews', SalaryReviewController::class);
 
 
 Route::get('users/review/{id}', [UserController::class, 'review'])->name('employee-review');
+Route::post('users/review/{user}', [UserController::class, 'storeReview'])->name('store-review');
 Route::get('sbu/index', [SBUController::class, 'index'])->name('sbu-list');
 Route::get('sbu/{name}', [SBUController::class, 'show'])->name('sbu-employee-list');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

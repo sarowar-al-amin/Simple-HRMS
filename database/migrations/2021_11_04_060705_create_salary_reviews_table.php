@@ -14,11 +14,11 @@ class CreateSalaryReviewsTable extends Migration
     public function up()
     {
         Schema::create('salary_reviews', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->string('id')->unique();
             $table->date('start');
             $table->date('end');
-            $table->foreignId('quarter_id')->constrained()->cascadeOnDelete();
+            $table->string('quarter_id');
+            $table->foreign('quarter_id')->references('id')->on('quarters');
         });
     }
 

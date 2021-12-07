@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeLevel extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    public $timestamps = false;
 }
