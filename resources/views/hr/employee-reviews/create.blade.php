@@ -8,13 +8,13 @@
 
 @section('content')
 <livewire:employee-review.info-tab :employee="$employee"/>
-<form action="{{ route('store-review', ['user' => $employee]) }}" method="post">
+<form action="{{ route('employee-reviews.store', ['user' => $employee]) }}" method="POST">
   @csrf
   <livewire:employee-review.evaluation-tab :level="$level"/>
   <livewire:employee-review.behaviour-tab />
   <livewire:employee-review.final-tab />
   <livewire:employee-review.comments-tab />
-  <x-adminlte-button class="btn-flat" type="submit" label="Submit" theme="success" icon="fas fa-lg fa-save"/>
+  <x-adminlte-button class="btn-flat mb-5" type="submit" label="Submit" theme="success" icon="fas fa-lg fa-save"/>
 </form>
 @stop
 

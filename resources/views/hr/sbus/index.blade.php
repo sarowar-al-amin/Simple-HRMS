@@ -9,13 +9,12 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <livewire:sbu-list :sbus="$sbus">
+        <livewire:sbu-list :salaryReview="$salaryReview" :sbus="$sbus" />
     </div>
 </div>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')

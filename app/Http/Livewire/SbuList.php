@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class SbuList extends Component
 {
+    public $salaryReview;
     public $sbus;
 
     public function render()

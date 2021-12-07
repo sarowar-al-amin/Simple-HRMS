@@ -6,7 +6,7 @@
             <td>{{ $employee->email }}</td>
             <td>{{ $employee->sbu }}</td>
             <td class="d-flex">
-                <a href="{{ route('employee-review', $employee->id) }}" class="mr-2">
+                <a href="{{ route('employee-reviews.create', $employee) }}" class="mr-2">
                   <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
                 </a>
                 <a href="{{ route('users.edit', $employee->id) }}" class="mr-2">

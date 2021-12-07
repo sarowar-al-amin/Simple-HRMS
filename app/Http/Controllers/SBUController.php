@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SalaryReview;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class SBUController extends Controller
 {
-    public function index()
+    public function index(SalaryReview $salaryreview)
     {
         return view('hr.sbus.index', [
+            'salaryReview' => $salaryreview,
             'sbus' => ['Raisul Islam', 'Miftah Zaman']
         ]);
     }
 
-    public function show($name)
+    public function show(SalaryReview $salaryreview, $name)
     {
         return view('hr.sbus.show', [
+            'salaryReview' => $salaryreview,
             'employees' => User::where('sbu', $name)->get()
         ]);
     }

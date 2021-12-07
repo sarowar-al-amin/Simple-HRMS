@@ -6,10 +6,6 @@
     
     <td class="d-flex">
 
-      <a href="{{ route('sbu-list') }}" class="mr-2">
-        <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
-      </a>
-
       <a href="{{ route('quarters.edit', $quarter) }}" class="mr-2"->
         <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
       </a>
