@@ -2,30 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeSalaryMetadataRequest;
+use App\Models\SalaryReview;
 use App\Models\SalaryReviewMetadata;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmployeeReviewController extends Controller
 {
-    public function create($id){
+    public function create(SalaryReview $salaryreview, $sbu, User $user){
         return view('hr.employee-reviews.create', [
-            'employee' => User::findOrFail($id),
+            'salaryReview' => $salaryreview,
+            'sbu' => $sbu,
+            'employee' => $user,
             'level' => config('employee_levels')[4]
         ]);
     }
 
-    public function store(Request $request, $id){
+    public function store(storeSalaryMetadataRequest $request, SalaryReview $salaryreview, User $user){
+        //dd($request->all());
         SalaryReviewMetadata::create([
-            'salary_review_id' => 1,
-            'user_id' => $id,
-            'feedbacks' => implode($request->feedbacks),
-            'justifications' => implode($request->justifications),
-            'behaviours' => implode($request->behaviours),
-            'overall' => $request->performance,
-            'promotion' => $request->promotion,
-            'comment' => $request->comment
+            'user_id' => $user->id,
+            'salary_review_id' => $salaryreview->id,
+            'feedbacks' => implode('#', $request->input('feedbacks')),
+            'justifications' => implode('#', $request->input('justifications')),
+            'behaviours' => implode('#', $request->input('behaviours')),
+            'performance' => $request->input('performance'),
+            'promotion' => $request->input('promotion'),
+            'comment' => $request->input('comment')
         ]);
+
+        return back();
+
     }
 
     public function show(){

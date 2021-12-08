@@ -19,7 +19,7 @@
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
           <x-headings.employee-headings/>
-          <livewire:employee-list :employees="$employees">
+          <livewire:employee-list :employees="$employees" :sbu="$sbu" :salaryReview="$salaryReview" />
         </table>
       </div>
     </div>

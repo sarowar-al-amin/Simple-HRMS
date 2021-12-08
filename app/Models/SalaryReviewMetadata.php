@@ -10,5 +10,12 @@ class SalaryReviewMetadata extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'feedbacks' => 'array',
+        'justifications' => 'array',
+        'behaviours' => 'array'
+    ];
+
     public $timestamps = false;
 }

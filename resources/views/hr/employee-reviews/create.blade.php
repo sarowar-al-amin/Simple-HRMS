@@ -8,7 +8,7 @@
 
 @section('content')
 <livewire:employee-review.info-tab :employee="$employee"/>
-<form action="{{ route('employee-reviews.store', ['user' => $employee]) }}" method="POST">
+<form action="{{ route('employee-reviews.store', ['salaryreview' => "$salaryReview->id", 'user' => "$employee->id"]) }}" method="POST">
   @csrf
   <livewire:employee-review.evaluation-tab :level="$level"/>
   <livewire:employee-review.behaviour-tab />
@@ -19,7 +19,6 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')

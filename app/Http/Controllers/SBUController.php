@@ -20,6 +20,7 @@ class SBUController extends Controller
     {
         return view('hr.sbus.show', [
             'salaryReview' => $salaryreview,
+            'sbu' =>$sbu,
             'employees' => User::where('sbu', $sbu)->get()
         ]);
     }

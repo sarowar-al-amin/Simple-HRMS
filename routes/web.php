@@ -21,7 +21,7 @@ Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
 
 Route::get('employee-reviews/create/{salaryreview}/{sbu}/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
-Route::post('employee-reviews/store/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
+Route::post('employee-reviews/store/{salaryreview}/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
 
 Route::get('sbus/index/{salaryreview}', [SBUController::class, 'index'])->name('sbus.index');
 Route::get('sbu/show/{salaryreview}/{sbu}', [SBUController::class, 'show'])->name('sbus.show');
