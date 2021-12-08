@@ -16,6 +16,8 @@ class Behaviour extends Component
         'Has sense of urgency',
         'Team player'
     ];
+
+    public $salaryReviewMetadata;
     
     public function render()
     {

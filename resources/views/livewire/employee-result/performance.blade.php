@@ -23,15 +23,12 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td>
-                        <x-adminlte-select name="feedbacks[]">
-                            <option>Yes</option>
-                            <option>No</option>
-                        </x-adminlte-select>
-                    </td>
-                    <td> 
-                        <x-adminlte-textarea name="justifications[]" /> 
-                    </td>
+                    @php
+                        $feedbacks = explode('#', $salaryReviewMetadata->feedbacks);
+                        $justifications = explode('#', $salaryReviewMetadata->justifications);
+                    @endphp
+                    <td>{{ $feedbacks[$loop->index-3] }}</td>
+                    <td>{{ $justifications[$loop->index-3] }}</td>
                 </tr>
             @endforeach
         </tbody>

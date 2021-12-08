@@ -36,7 +36,10 @@ class EmployeeReviewController extends Controller
 
     }
 
-    public function show(){
-        
+    public function show(SalaryReview $salaryreview, User $user){
+        return view('hr.employee-reviews.show', [
+            'salaryReviewMetadata' => SalaryReviewMetadata::where('salary_review_id', $salaryreview->id)->where('user_id', $user->id)->first(),
+            'level' => config('employee_levels')[4]
+        ]);
     }
 }

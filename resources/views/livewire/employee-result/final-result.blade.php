@@ -4,11 +4,11 @@
         <tbody>
             <tr>
                 <th>Performance</th>
-                <td>Need Improvement</td>
+                <td>{{ $salaryReviewMetadata->performance }}</td>
             </tr>
             <tr>
                 <th>Promotion</th>
-                <td>No</td>
+                <td>{{ $salaryReviewMetadata->promotion }}</td>
             </tr>
         </tbody>
     </table>
