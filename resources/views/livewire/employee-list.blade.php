@@ -12,7 +12,7 @@
                   <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
                 </a>
               @endif
-              
+
                 <a href="{{ route('users.edit', $employee->id) }}" class="mr-2">
                   <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
                 </a>

@@ -13,6 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
+        // dd(User::all());
         return view('hr.employees.index', [
             'employees' => User::all()
         ]);
@@ -125,7 +126,7 @@ class UserController extends Controller
             'key' => 'project_name',
             'value' => $data['project_name']
         ]);
-        
+
         return redirect(route('users.index'));
     }
 

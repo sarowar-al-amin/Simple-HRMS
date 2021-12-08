@@ -336,6 +336,22 @@ return [
         //     'icon_color' => 'cyan',
         //     'url'        => '#',
         // ],
+        [
+            'text' => 'Employee-scoreboard',
+            'icon' => 'fas fa-fw fa-list',
+            'submenu' => [
+                [
+                    'text' => 'All Employee',
+                    'route' => 'scoreboard.show',
+                    'icon' => 'fas fa-fw fa-clock',
+                ],
+                [
+                    'text' =>'Employee According to SBU ',
+                    'route' => 'home',
+                    'icon' => 'fas fa-fw fa-search-dollar',
+                ]
+            ]
+        ],
     ],
 
     /*

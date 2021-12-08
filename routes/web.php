@@ -6,6 +6,8 @@ use App\Http\Controllers\HR\UserController;
 use App\Http\Controllers\QuarterController;
 use App\Http\Controllers\SalaryReviewController;
 use App\Http\Controllers\SBUController;
+use App\Http\Controllers\ScoreboardController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +32,6 @@ Route::get('sbu/show/{salaryreview}/{sbu}', [SBUController::class, 'show'])->nam
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('level-hierarchy/index', [EmployeeLevelController::class, 'index'])->name('employee-levels');
+
+Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scoreboard.show');
+Route::post('/scoreboard/action', [ScoreboardController::class, 'action'])->name('scoreboard.action');
