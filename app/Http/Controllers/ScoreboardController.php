@@ -36,4 +36,27 @@ class ScoreboardController extends Controller
     		return response()->json($request);
     	}
     }
+
+    //
+    public function employeeList(){
+        $name = DB::table('users')
+        ->distinct()
+        ->select('sbu')
+        ->get();
+        // dd($sbu);
+        $employees = DB::table('users')->get();
+        return view('hr.scoreboard.employeeList', compact('name', 'employees'));
+    }
+
+    public function employeeAccordingToSbu(Request $request){
+        $name = DB::table('users')
+        ->distinct()
+        ->select('sbu')
+        ->get();
+        $employees = DB::table('users')
+            ->where('sbu', $request->sbu_name)
+            ->get();
+        // dd($employees);
+        return view('hr.scoreboard.employeeList', compact('name', 'employees'));
+    }
 }

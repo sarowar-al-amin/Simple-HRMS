@@ -347,7 +347,7 @@ return [
                 ],
                 [
                     'text' =>'Employee According to SBU ',
-                    'route' => 'home',
+                    'route' => 'scoreboard.employeeList',
                     'icon' => 'fas fa-fw fa-search-dollar',
                 ]
             ]
@@ -593,7 +593,7 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => 'vendor/datatables-plugins/responsive/js/responsive.bootstrap4.min.js'
-                ], 
+                ],
 
                 //rowgroup
 
@@ -748,7 +748,7 @@ return [
                     'location' => 'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
                 ],
             ],
-        ],   
+        ],
     ],
 
     /*

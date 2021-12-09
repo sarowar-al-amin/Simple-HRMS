@@ -35,3 +35,6 @@ Route::get('level-hierarchy/index', [EmployeeLevelController::class, 'index'])->
 
 Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scoreboard.show');
 Route::post('/scoreboard/action', [ScoreboardController::class, 'action'])->name('scoreboard.action');
+
+Route::get('/scoreboard/sbu', [ScoreboardController::class, 'employeeList'])->name('scoreboard.employeeList');
+Route::post('/scoreboard/sbu/{sbu}', [ScoreboardController::class, 'employeeAccordingToSbu']);
