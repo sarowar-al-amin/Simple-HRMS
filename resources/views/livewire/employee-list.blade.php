@@ -11,8 +11,7 @@
                 <a href="{{ route('employee-reviews.create', ['salaryreview'=>$salaryReview, 'sbu'=>$sbu, 'user'=>$employee]) }}" class="mr-2">
                   <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
                 </a>
-              @endif
-              
+              @else
                 <a href="{{ route('users.edit', $employee->id) }}" class="mr-2">
                   <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
                 </a>
@@ -22,7 +21,7 @@
                   @method('DELETE')
                   <x-adminlte-button type="submit" theme="danger" icon="fas fa-fw fa-trash-alt"/>
                 </form>
-
+              @endif
             </td>
         </tr>
     @endforeach

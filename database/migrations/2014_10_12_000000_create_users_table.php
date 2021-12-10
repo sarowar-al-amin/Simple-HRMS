@@ -6,34 +6,35 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->string('id')->unique();
-            $table->integer('role');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->integer('state')->default(1);
-            $table->string('sbu');
+            $table->string('expertise_area')->nullable();
+            $table->string('sbu')->nullable();
+            $table->string('partner_id')->nullable();
+            $table->string('employee_type')->nullable();
+            $table->string('managerial_capacity')->nullable();
+            $table->string('hr')->nullable();
             $table->date('joining_date')->nullable();
             $table->date('confirmation_date')->nullable();
             $table->date('career_start_date')->nullable();
+            $table->string('employee_category')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('level');
+            $table->string('team')->nullable();
+            $table->string('previous_team')->nullable();
+            $table->integer('engagement')->nullable();
+            $table->integer('role');
+            $table->string('password');
+            $table->integer('state')->default(1);
+            $table->rememberToken();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');

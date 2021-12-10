@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserMetadataTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateUserMetadataTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_metadata', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('key');
-            $table->string('value')->nullable();
+            $table->string('name');
+            $table->string('sbu_id');
+            $table->foreign('sbu_id')->references('id')->on('sbus');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateUserMetadataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_metadata');
+        Schema::dropIfExists('teams');
     }
 }
