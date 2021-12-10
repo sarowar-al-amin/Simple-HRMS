@@ -28,7 +28,8 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    @livewireStyles
 @stop
 
 @section('js')
@@ -40,4 +41,5 @@
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>
+    @livewireScripts
 @stop

@@ -336,6 +336,22 @@ return [
         //     'icon_color' => 'cyan',
         //     'url'        => '#',
         // ],
+        [
+            'text' => 'Employee-scoreboard',
+            'icon' => 'fas fa-fw fa-list',
+            'submenu' => [
+                [
+                    'text' => 'All Employee',
+                    'route' => 'scoreboard.show',
+                    'icon' => 'fas fa-fw fa-clock',
+                ],
+                [
+                    'text' =>'Employee According to SBU ',
+                    'route' => 'scoreboard.employeeList',
+                    'icon' => 'fas fa-fw fa-search-dollar',
+                ]
+            ]
+        ],
     ],
 
     /*
@@ -577,7 +593,7 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => 'vendor/datatables-plugins/responsive/js/responsive.bootstrap4.min.js'
-                ], 
+                ],
 
                 //rowgroup
 
@@ -732,7 +748,7 @@ return [
                     'location' => 'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
                 ],
             ],
-        ],   
+        ],
     ],
 
     /*
