@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSalaryReviewMetadataTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('salary_review_metadata', function (Blueprint $table) {

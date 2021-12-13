@@ -15,3 +15,5 @@ class EmployeeList extends Component
         return view('livewire.employee-list');
     }
 }
+
+
