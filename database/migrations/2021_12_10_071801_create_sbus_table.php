@@ -12,7 +12,7 @@ class CreateSbusTable extends Migration
             $table->string('id')->unique();
             $table->string('name');
             $table->string('partner_id');
-            $table->foreign('partner_id')->references('id')->on('partners');
+            // $table->foreign('partner_id')->references('id')->on('partners');
         });
     }
 
