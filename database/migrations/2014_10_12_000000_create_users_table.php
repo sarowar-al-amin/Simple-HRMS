@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use League\CommonMark\Extension\Table\Table;
 
 class CreateUsersTable extends Migration
 {
@@ -29,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('sbu')->nullable();
             $table->string('partner')->nullable();
             $table->string('hr')->nullable();
+            $table->string('mm')->nullable();
             $table->string('team')->nullable();
             $table->string('previous_team')->nullable();
 
@@ -38,6 +40,15 @@ class CreateUsersTable extends Migration
 
             $table->string('blood_group')->nullable();
             $table->integer('engagement')->nullable();
+
+            $table->string('last_performence')->nullable();
+            $table->string('last_review')->nullable();
+            $table->text('comments')->nullable();
+
+            $table->string('plan_1')->nullable();
+            $table->string('plan_2')->nullable();
+            $table->string('current_status')->nullable();
+            $table->string('available_from')->nullable();
         });
     }
 
