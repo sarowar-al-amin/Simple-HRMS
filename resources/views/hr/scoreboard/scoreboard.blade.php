@@ -63,6 +63,7 @@
         </div> --}}
     </div>
     <!-- /.card-body -->
+</div>
 <!-- /.card -->
 @stop
 

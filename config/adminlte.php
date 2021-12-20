@@ -326,6 +326,11 @@ return [
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employee-levels',
         ],
+        [
+            'text' => 'Import Excel to Add file',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'route' => 'employeeImport',
+        ],
         // [
         //     'text'       => 'warning',
         //     'icon_color' => 'yellow',

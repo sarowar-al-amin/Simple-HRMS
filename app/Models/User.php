@@ -15,27 +15,27 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'name',
-        'role',
+        // 'role',
         'email',
-        'password',
+        // 'password',
         'sbu',
-        'joining_date',
-        'confirmation_date',
-        'career_start_date'
+        // 'joining_date',
+        // 'confirmation_date',
+        // 'career_start_date'
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    // protected $hidden = [
+    //     'password',
+    //     'remember_token',
+    // ];
 
     protected $casts = [
         
     ];
 
-    protected $primaryKey = 'id';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    // protected $primaryKey = 'id';
+    // public $incrementing = false;
+    // protected $keyType = 'string';
     
     public $timestamps = false;
 }

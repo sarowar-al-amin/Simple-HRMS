@@ -7,6 +7,7 @@ use App\Http\Controllers\QuarterController;
 use App\Http\Controllers\SalaryReviewController;
 use App\Http\Controllers\SBUController;
 use App\Http\Controllers\ScoreboardController;
+use App\Http\Controllers\ExcelImportController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,6 @@ Route::post('/scoreboard/action', [ScoreboardController::class, 'action'])->name
 
 Route::get('/scoreboard/sbu', [ScoreboardController::class, 'employeeList'])->name('scoreboard.employeeList');
 Route::post('/scoreboard/sbu/{sbu}', [ScoreboardController::class, 'employeeAccordingToSbu']);
+
+Route::get('/add_employee', [ExcelImportController::class, 'index'])->name('employeeImport');
+Route::post('/upload/employee-excel', [ExcelImportController::class, 'upload_excel']);
