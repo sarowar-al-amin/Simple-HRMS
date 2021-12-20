@@ -61,72 +61,6 @@ class UserController extends Controller
             'career_start_date' => $data['career_start_date']
         ]);
 
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'expertise',
-            'value' => $data['expertise']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'partner',
-            'value' => $data['partner']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'employee_type',
-            'value' => $data['employee_type']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'managerial_capacity',
-            'value' => $data['managerial_capacity']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'hr',
-            'value' => $data['hr']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'employee_category',
-            'value' => $data['employee_category']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'project_manager',
-            'value' => $data['project_manager']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'blood_group',
-            'value' => $data['blood_group']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'designation',
-            'value' => $data['designation']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'level',
-            'value' => $data['level']
-        ]);
-
-        UserMetadata::create([
-            'user_id' => $data['id'],
-            'key' => 'project_name',
-            'value' => $data['project_name']
-        ]);
-
         return redirect(route('users.index'));
     }
 
@@ -166,30 +100,6 @@ class UserController extends Controller
             'level' => ['required'],
             'project_name' => ['required']
         ]);
-
-        $expertise = UserMetadata::where('user_id', $user->id)->where('key', 'expertise')->firstOrFail();
-        $partner = UserMetadata::where('user_id', $user->id)->where('key', 'partner')->firstOrFail();
-        $employeeType = UserMetadata::where('user_id', $user->id)->where('key', 'employee_type')->firstOrFail();
-        $managerialCapacity = UserMetadata::where('user_id', $user->id)->where('key', 'managerial_capacity')->firstOrFail();
-        $hr = UserMetadata::where('user_id', $user->id)->where('key', 'hr')->firstOrFail();
-        $employeeCategory = UserMetadata::where('user_id', $user->id)->where('key', 'employee_category')->firstOrFail();
-        $projectManager = UserMetadata::where('user_id', $user->id)->where('key', 'project_manager')->firstOrFail();
-        $bloodGroup = UserMetadata::where('user_id', $user->id)->where('key', 'blood_group')->firstOrFail();
-        $designation = UserMetadata::where('user_id', $user->id)->where('key', 'designation')->firstOrFail();
-        $level = UserMetadata::where('user_id', $user->id)->where('key', 'level')->firstOrFail();
-        $projectName = UserMetadata::where('user_id', $user->id)->where('key', 'project_name')->firstOrFail();
-
-        $expertise->update(['value' => $data['expertise']]);
-        $partner->update(['value' => $data['partner']]);
-        $employeeType->update(['value' => $data['employee_type']]);
-        $managerialCapacity->update(['value' => $data['managerial_capacity']]);
-        $hr->update(['value' => $data['hr']]);
-        $employeeCategory->update(['value' => $data['employee_category']]);
-        $projectManager->update(['value' => $data['project_manager']]);
-        $bloodGroup->update(['value' => $data['blood_group']]);
-        $designation->update(['value' => $data['designation']]);
-        $level->update(['value' => $data['level']]);
-        $projectName->update(['value' => $data['project_name']]);
 
         $user->update([
             'id' => $data['id'],
