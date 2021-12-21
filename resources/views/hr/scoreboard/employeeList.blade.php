@@ -14,7 +14,6 @@
     <div class="card-body">
         <div align="center" style="padding-top:50px;">
             <form action="{{url('/scoreboard/sbu/{sbu}')}}" method="POST" enctype="multipart/form-data">
-                {{-- <!-- {{url('upload_doctor')}} --> --}}
                 @csrf
                 <div style="padding:15px;">
                     <label>SBU name</label>
@@ -30,6 +29,16 @@
                 </div>
             </form>
         </div>
+        <ul>
+            @foreach ($name as $item)
+            <li>
+                <form action="{{url('/scoreboard/sbu/{sbu}')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <button style="border: none; background-color: white; color: blue;" name="sbu_name" type="submit" value="{{$item->sbu}}">{{$item->sbu}}</button>
+                </form>
+            </li>    
+            @endforeach
+        </ul>
         <table id="editable" class="table table-bordered table-striped">
             <thead>
                 <tr>
