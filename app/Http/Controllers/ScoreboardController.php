@@ -46,7 +46,23 @@ class ScoreboardController extends Controller
         ->get();
         // dd($sbu);
         $employees = DB::table('users')->get();
-        return view('hr.scoreboard.employeeList', compact('name', 'employees'));
+        $total = DB::table('users')->count();
+        $trainee = DB::table('users')
+                    ->where('designation', 'Trainee')
+                    ->count();
+        // dd($trainee);
+        $bench = DB::table('users')
+                    ->where('team', 'bench')
+                    ->count();
+        // dd($bench);
+
+        return view('hr.scoreboard.employeeList', compact(
+            'name', 
+            'employees', 
+            'total',
+            'trainee',
+            'bench'
+        ));
     }
 
     public function employeeAccordingToSbu(Request $request){
@@ -58,6 +74,26 @@ class ScoreboardController extends Controller
             ->where('sbu', $request->sbu_name)
             ->get();
         // dd($employees);
-        return view('hr.scoreboard.employeeList', compact('name', 'employees'));
+        $total = DB::table('users')
+                    ->where('sbu', $request->sbu_name)
+                    ->count();
+        // dd($total);
+        $trainee = DB::table('users')
+                    ->where('sbu', $request->sbu_name)
+                    ->where('designation', 'Trainee')
+                    ->count();
+        // dd($trainee);
+        $bench = DB::table('users')
+                    ->where('sbu', $request->sbu_name)
+                    ->where('team', 'bench')
+                    ->count();
+        // dd($bench);
+        return view('hr.scoreboard.employeeList', compact(
+            'name', 
+            'employees',
+            'total',
+            'trainee',
+            'bench'
+        ));
     }
 }
