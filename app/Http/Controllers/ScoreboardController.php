@@ -55,6 +55,12 @@ class ScoreboardController extends Controller
                     ->where('team', 'bench')
                     ->count();
         // dd($bench);
+        $work = DB::table('users')
+                    ->where('work_type', 'Non-billable(L&D)')
+                    ->orwhere('work_type', 'Non-billable(Trainee)')
+                    ->orwhere('work_type', 'Non-billable(Bench)')
+                    ->count();
+        // dd($work);
         $title = "All employee list";
         return view('hr.scoreboard.employeeList', compact(
             'name', 
@@ -62,7 +68,8 @@ class ScoreboardController extends Controller
             'total',
             'trainee',
             'bench',
-            'title'
+            'title',
+            'work'
         ));
     }
 
@@ -89,6 +96,15 @@ class ScoreboardController extends Controller
                     ->where('team', 'bench')
                     ->count();
         // dd($bench);
+        $work = DB::table('users')
+                ->where('sbu', $request->sbu_name)
+                ->where(function ($query){
+                    $query->where('work_type', 'Non-billable(L&D)')
+                          ->orwhere('work_type', 'Non-billable(Trainee)')
+                          ->orwhere('work_type', 'Non-billable(Bench)');
+                })   
+                ->count();
+        // dd($work);
         $title = "Employee under " . $request->sbu_name;
         return view('hr.scoreboard.employeeList', compact(
             'name', 
@@ -96,7 +112,8 @@ class ScoreboardController extends Controller
             'total',
             'trainee',
             'bench',
-            'title'
+            'title',
+            'work'
         ));
     }
 }
