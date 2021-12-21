@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('managerial_capacity')->nullable();
             $table->string('employee_category')->nullable();
             $table->string('designation')->nullable();
+            $table->string('work_type')->nullable();
             $table->string('level')->nullable();
             
 

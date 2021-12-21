@@ -23,9 +23,10 @@ class UserFactory extends Factory
             'managerial_capacity' => $this->faker->randomElement(['Managers', 'Others', 'Self', 'N/A']),
             'employee_category' => $this->faker->randomElement(['Contractual', 'Permanent', 'Probation']),
             'designation' => $this->faker->randomElement(['Software Engineer', 'UI/UX Designer', 'BA', 'Trainee']),
+            'work_type' => $this->faker->randomElement(['Billable', 'Billable(investment)', 'Non-billable(L&D)', 'Non-billable(Trainee)', 'Non-billable(Bench)']),
             'level' => $this->faker->randomElement(['IC3', 'IC3B', 'M3', 'M3B']),
 
-            'sbu' => $this->faker->randomElement(['Anupam Saha', 'Asif Ul Haque', 'MJ Ferdous', 'Raisul Islam', 'Support']),
+            'sbu' => $this->faker->randomElement(['Raisul Islam', 'Support', 'Miftah Zaman']),
             'partner' => $this->faker->randomElement(['Mizanur Rahman', 'MJ Ferdous', 'Support']),
             'hr' => $this->faker->randomElement(['Nayem', 'Sojib', 'Siyam', 'Sohel', 'Support', 'Tori']),
             'team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support','Bench']),
