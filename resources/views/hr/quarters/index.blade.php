@@ -19,11 +19,7 @@
     <div class="card-body">
       <table id="example1" class="table table-bordered table-striped">
         <livewire:quarters.headings />
-        <tbody>
-          @foreach ($quarters as $quarter)
-            <livewire:quarters.quarter-row :quarter="$quarter"/>
-          @endforeach
-        </tbody>
+        <livewire:quarters.quarterlist />
       </table>
   
     </div>
@@ -47,5 +43,6 @@
   });
 </script>
 
+<script defer src="https://unpkg.com/alpinejs@3.7.0/dist/cdn.min.js"></script>
 
 @stop

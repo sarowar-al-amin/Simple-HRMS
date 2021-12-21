@@ -13,9 +13,7 @@ class QuarterController extends Controller
     
     public function index()
     {
-        return view('hr.quarters.index', [
-            'quarters' => Quarter::all()
-        ]);
+        return view('hr.quarters.index');
     }
 
     public function create()

@@ -6,6 +6,12 @@
 
     <td class="d-flex">
 
+      @sbu
+        <a href="{{ route('sbus.index', $salaryReview) }}" class="mr-2">
+          <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check" />
+        </a>
+      @endsbu
+
       <a href="{{ route('sbus.index', $salaryReview) }}" class="mr-2">
         <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check" />
       </a>
