@@ -55,13 +55,14 @@ class ScoreboardController extends Controller
                     ->where('team', 'bench')
                     ->count();
         // dd($bench);
-
+        $title = "All employee list";
         return view('hr.scoreboard.employeeList', compact(
             'name', 
             'employees', 
             'total',
             'trainee',
-            'bench'
+            'bench',
+            'title'
         ));
     }
 
@@ -88,12 +89,14 @@ class ScoreboardController extends Controller
                     ->where('team', 'bench')
                     ->count();
         // dd($bench);
+        $title = "Employee under " . $request->sbu_name;
         return view('hr.scoreboard.employeeList', compact(
             'name', 
             'employees',
             'total',
             'trainee',
-            'bench'
+            'bench',
+            'title'
         ));
     }
 }

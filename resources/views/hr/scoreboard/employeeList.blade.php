@@ -5,7 +5,7 @@
 
 
 @section('content_header')
-    <h1>Employee List</h1>
+    <h1>{{$title}}</h1>
     <h6>Total Employee: {{$total}}</h6>
     <h6>Total Trainee: {{$trainee}}</h6>
     <h6>Bench: {{$bench}}</h6>
