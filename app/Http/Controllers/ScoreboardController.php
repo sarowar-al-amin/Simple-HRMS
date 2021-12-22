@@ -55,13 +55,21 @@ class ScoreboardController extends Controller
                     ->where('team', 'bench')
                     ->count();
         // dd($bench);
-
+        $work = DB::table('users')
+                    ->where('work_type', 'Non-billable(L&D)')
+                    ->orwhere('work_type', 'Non-billable(Trainee)')
+                    ->orwhere('work_type', 'Non-billable(Bench)')
+                    ->count();
+        // dd($work);
+        $title = "All employee list";
         return view('hr.scoreboard.employeeList', compact(
             'name', 
             'employees', 
             'total',
             'trainee',
-            'bench'
+            'bench',
+            'title',
+            'work'
         ));
     }
 
@@ -88,12 +96,34 @@ class ScoreboardController extends Controller
                     ->where('team', 'bench')
                     ->count();
         // dd($bench);
+        $work = DB::table('users')
+                ->where('sbu', $request->sbu_name)
+                ->where(function ($query){
+                    $query->where('work_type', 'Non-billable(L&D)')
+                          ->orwhere('work_type', 'Non-billable(Trainee)')
+                          ->orwhere('work_type', 'Non-billable(Bench)');
+                })   
+                ->count();
+        // dd($work);
+        $title = "Employee under " . $request->sbu_name;
         return view('hr.scoreboard.employeeList', compact(
             'name', 
             'employees',
             'total',
             'trainee',
-            'bench'
+            'bench',
+            'title',
+            'work'
         ));
+    }
+
+    // function that's gonna show bench report
+    public function benchReport(){
+        $bench = DB::table('users')
+                    ->where('team', 'bench')
+                    ->orderBy('sbu')
+                    ->get();
+        // dd($bench);
+        return view('hr.scoreboard.bench', compact('bench'));
     }
 }

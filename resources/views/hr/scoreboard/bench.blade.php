@@ -1,3 +1,4 @@
+{{-- It's working --}}
 {{-- It's working!! --}}
 @extends('adminlte::page')
 
@@ -5,76 +6,13 @@
 
 
 @section('content_header')
-    <h1>{{$title}}</h1>
+    <h1>Bench</h1>
 {{-- 
     <h6>Total Employee: {{$total}}</h6>
     <h6>Total Trainee: {{$trainee}}</h6>
     <h6>Total Non-billable: {{$work}}</h6>
     <h6>Bench: {{$bench}}</h6>
      --}}
-    <div class="row">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3>{{$total}}</h3>
-
-              <p>Total Employee</p>
-            </div>
-            {{-- <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div> --}}
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3>{{$trainee}}</h3>
-
-              <p>Total Trainee</p>
-            </div>
-            {{-- <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div> --}}
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>{{$work}}</h3>
-
-              <p>Total Non-billable</p>
-            </div>
-            {{-- <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div> --}}
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>{{$bench}}</h3>
-
-              <p>Bench</p>
-            </div>
-            {{-- <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div> --}}
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
-          </div>
-        </div>
-        <!-- ./col -->
-    </div>
-
 @stop
 
 @section('content')
@@ -98,7 +36,7 @@
                 </div>
             </form>
         </div> --}}
-        <h3>SBU List</h3>
+        {{-- <h3>SBU List</h3>
         <ul>
             @foreach ($name as $item)
             <li>
@@ -108,23 +46,33 @@
                 </form>
             </li>    
             @endforeach
-        </ul>
+        </ul> --}}
         <table id="editable" class="table table-bordered table-striped">
             <thead>
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Partner</th>
                   <th>SBU</th>
+                  <th>Hr</th>
+                  <th>Team</th>
+                  <th>Plan1</th>
+                  <th>Plan2</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($employees as $row)
+                @foreach($bench as $row)
                 <tr>
                   <td>{{ $row->id }}</td>
                   <td>{{ $row->name }}</td>
                   <td>{{ $row->email }}</td>
+                  <td>{{ $row->partner }}</td>
                   <td>{{ $row->sbu }}</td>
+                  <td>{{ $row->hr }}</td>
+                  <td>{{ $row->previous_team }}</td>
+                  <td>{{ $row->plan_1 }}</td>
+                  <td>{{ $row->plan_2 }}</td>
                 </tr>
                 @endforeach
             </tbody>

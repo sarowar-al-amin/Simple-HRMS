@@ -346,7 +346,7 @@ return [
             'icon' => 'fas fa-fw fa-list',
             'submenu' => [
                 [
-                    'text' => 'All Employee',
+                    'text' => 'Scoreboard',
                     'route' => 'scoreboard.show',
                     'icon' => 'fas fa-fw fa-clock',
                 ],
@@ -354,7 +354,13 @@ return [
                     'text' =>'Employee According to SBU ',
                     'route' => 'scoreboard.employeeList',
                     'icon' => 'fas fa-fw fa-search-dollar',
+                ],
+                [
+                    'text' =>'Bench report',
+                    'route' => 'bench.report',
+                    'icon' => 'fas fa-fw fa-search-dollar',
                 ]
+                
             ]
         ],
     ],
