@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeLevelController;
 use App\Http\Controllers\EmployeeReviewController;
 use App\Http\Controllers\HR\UserController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\SalaryReviewController;
 use App\Http\Controllers\SBUController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\ExcelImportController;
-
+use App\Http\Controllers\PracticeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('users', UserController::class);
+Route::get('employees/index', [ EmployeeController::class, 'index'])->name('employees.index');
+//Route::resource('users', UserController::class);
 Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
 
@@ -43,3 +45,5 @@ Route::post('/scoreboard/sbu/{sbu}', [ScoreboardController::class, 'employeeAcco
 
 Route::get('/add_employee', [ExcelImportController::class, 'index'])->name('employeeImport');
 Route::post('/upload/employee-excel', [ExcelImportController::class, 'upload_excel']);
+
+Route::get('practice', [PracticeController::class, 'index']);

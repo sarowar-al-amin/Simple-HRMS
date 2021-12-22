@@ -23,11 +23,6 @@ class CreateSalaryReviewMetadataTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('salary_review_metadata');

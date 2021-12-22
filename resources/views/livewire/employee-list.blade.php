@@ -1,17 +1,14 @@
 <tbody>
-    @foreach ($employees as $idx => $employee)
+    @foreach ($employees as $employee)
         <tr>
             <td>{{ $employee['id'] }}</td>
             <td>{{ $employee['name'] }}</td>
             <td>{{ $employee['email'] }}</td>
             <td>{{ $employee['sbu'] }}</td>
             <td class="d-flex">
-
-              {{-- @if (Route::is('sbus.show'))
-                <a href="{{ route('employee-reviews.create', ['salaryreview'=>$salaryReview, 'sbu'=>$sbu, 'user'=>$employee]) }}" class="mr-2">
+                {{-- <a href="{{ route('employee-reviews.create', ['salaryreview'=>$salaryReview, 'sbu'=>$sbu, 'user'=>$employee]) }}" class="mr-2">
                   <x-adminlte-button theme="info" icon="fas fa-fw fa-user-check"/>
-                </a>
-              @else --}}
+                </a> --}}
                 <a href="{{ route('users.edit', $employee['id']) }}" class="mr-2">
                   <x-adminlte-button theme="warning" icon="fas fa-fw fa-pen"/>
                 </a>
