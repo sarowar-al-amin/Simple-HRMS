@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\HR;
 
 use App\Http\Controllers\Controller;
-use App\Models\SalaryReviewMetadata;
 use App\Models\User;
-use App\Models\UserMetadata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +11,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        // dd(User::all());
         return view('hr.employees.index', [
             'employees' => User::all()
         ]);

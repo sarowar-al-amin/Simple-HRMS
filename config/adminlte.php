@@ -294,7 +294,7 @@ return [
                 [
                     'icon' => 'fas fa-fw fa-list',
                     'text' => 'Employee List',
-                    'route'  => 'users.index',
+                    'route'  => 'employees.index',
 
                 ],
             ],
