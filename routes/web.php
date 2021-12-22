@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('employees/index', [ EmployeeController::class, 'index'])->name('employees.index');
+Route::get('employees', [ EmployeeController::class, 'index'])->name('employees.index');
 //Route::resource('users', UserController::class);
 Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
