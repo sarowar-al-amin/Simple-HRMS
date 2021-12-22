@@ -21,9 +21,9 @@
 
               <p>Total Employee</p>
             </div>
-            <div class="icon">
+            {{-- <div class="icon">
               <i class="ion ion-bag"></i>
-            </div>
+            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -36,9 +36,9 @@
 
               <p>Total Trainee</p>
             </div>
-            <div class="icon">
+            {{-- <div class="icon">
               <i class="ion ion-stats-bars"></i>
-            </div>
+            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -51,9 +51,9 @@
 
               <p>Total Non-billable</p>
             </div>
-            <div class="icon">
+            {{-- <div class="icon">
               <i class="ion ion-person-add"></i>
-            </div>
+            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -66,9 +66,9 @@
 
               <p>Bench</p>
             </div>
-            <div class="icon">
+            {{-- <div class="icon">
               <i class="ion ion-pie-graph"></i>
-            </div>
+            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
