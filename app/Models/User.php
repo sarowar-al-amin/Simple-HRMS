@@ -36,7 +36,7 @@ class User extends Authenticatable
         'career_start_date',
         'blood_group',
         'engagemant',
-        'last_performence',
+        'last_performance',
         'last_review',
         'comments',
         'plan_1',

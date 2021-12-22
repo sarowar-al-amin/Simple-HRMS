@@ -69,7 +69,7 @@ class UserImport implements
                 'career_start_date' => $row['career_start_date'],
                 'blood_group' => $row['blood_group'],
                 'engagement' => $row['engagement'],
-                'last_performence' => $row['last_performence'],
+                'last_performance' => $row['last_performance'],
                 'last_review' => $row['last_review'],
                 'comments' => $row['comments'],
                 'plan_1' => $row['plan_1'],
