@@ -116,4 +116,14 @@ class ScoreboardController extends Controller
             'work'
         ));
     }
+
+    // function that's gonna show bench report
+    public function benchReport(){
+        $bench = DB::table('users')
+                    ->where('team', 'bench')
+                    ->orderBy('sbu')
+                    ->get();
+        // dd($bench);
+        return view('hr.scoreboard.bench', compact('bench'));
+    }
 }
