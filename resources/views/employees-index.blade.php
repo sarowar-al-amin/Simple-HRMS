@@ -9,7 +9,16 @@
     
     <div class="card overflow-auto">
         <table class="table table-bordered table-striped">
-            <hr>
+            @php
+                $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
+                            'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
+                            'Blood Group', 'Designation',	'Level', 'Team', 'Actions'];
+            @endphp
+            <thead>
+                @foreach ($headings as $heading)
+                    <th>{{ $heading }}</th>
+                @endforeach
+            </thead>
             <livewire:employees />
         </table>
     </div>
@@ -18,10 +27,12 @@
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-    @livewireStyles
+    <livewire:styles />
 @stop
 
 @section('js')
+    <livewire:scripts />
+    <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
     <script>
         $(function () {
             $("#example1").DataTable({
@@ -30,5 +41,4 @@
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>
-    @livewireScripts
 @stop

@@ -2,28 +2,31 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Livewire\Quarters\Headings;
-use App\Models\employee;
 use App\Models\User;
 use Livewire\Component;
 
 class Employees extends Component
 {
-    public $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
-                        'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
-                        'Blood Group', 'Designation',	'Level', 'Team', 'Actions'];
-
     public $index = null;
     public $field = null;
     public $employees = [];
     public $sbus,$partners,$hrs,$techs;
 
     public function mount() {
-        $this->index = $this->field = null;
         $this->sbus = User::all()->pluck('sbu')->unique()->toArray();
         $this->partners = User::all()->pluck('partner')->unique()->toArray();
         $this->hrs = User::all()->pluck('hr')->unique()->toArray();
     }
+
+    protected $rules = [
+        'employees.*.name' => 'required',
+        'employees.*.email' => 'required'
+    ];
+
+    protected $validationAttributes = [
+        'employees.*.name' => 'name',
+        'employees.*.email' => 'email'
+    ];
 
     public function save($idx) {
         $this->validate();
