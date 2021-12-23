@@ -11,9 +11,10 @@ class ScoreboardController extends Controller
     //
     public function index(){
 
-        $employees = DB::table('users')->get();
+        // $employees = DB::table('users')->get();
         // dd($employees);
-        return view('hr.scoreboard.scoreboard', compact('employees'));
+        // return view('hr.scoreboard.scoreboard', compact('employees'));
+        return view('hr.scoreboard.scoreboard');
     }
 
     public function action(Request $request){
@@ -61,7 +62,7 @@ class ScoreboardController extends Controller
                     ->orwhere('work_type', 'Non-billable(Bench)')
                     ->count();
         // dd($work);
-        $title = "All employee list";
+        $title = "All employee list (Non-editable table)";
         return view('hr.scoreboard.employeeList', compact(
             'name', 
             'employees', 
@@ -75,9 +76,9 @@ class ScoreboardController extends Controller
 
     public function employeeAccordingToSbu(Request $request){
         $name = DB::table('users')
-        ->distinct()
-        ->select('sbu')
-        ->get();
+                    ->distinct()
+                    ->select('sbu')
+                    ->get();
         $employees = DB::table('users')
             ->where('sbu', $request->sbu_name)
             ->get();

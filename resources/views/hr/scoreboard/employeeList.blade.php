@@ -109,7 +109,23 @@
             </li>    
             @endforeach
         </ul>
-        <table id="editable" class="table table-bordered table-striped">
+        <div class="card overflow-auto">
+          <h3>Scoreboard of all employee in the company</h3>
+          <table class="table table-bordered table-striped">
+              @php
+                  $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
+                              'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
+                              'Blood Group', 'Designation',	'Level', 'Team', 'Actions'];
+              @endphp
+              <thead>
+                  @foreach ($headings as $heading)
+                      <th>{{ $heading }}</th>
+                  @endforeach
+              </thead>
+              <livewire:scoreboard />
+          </table>
+      </div>
+        {{-- <table id="editable" class="table table-bordered table-striped">
             <thead>
                 <tr>
                   <th>ID</th>
@@ -128,7 +144,7 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table> --}}
     </div>
     <!-- /.card-body -->
 <!-- /.card -->
