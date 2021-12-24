@@ -107,14 +107,18 @@ class ScoreboardController extends Controller
                 ->count();
         // dd($work);
         $title = "Employee under " . $request->sbu_name;
-        return view('hr.scoreboard.employeeList', compact(
+        $sbu = $request->sbu_name;
+
+        // dd($sbu);
+        return view('hr.scoreboard.employeeListBySbu', compact(
             'name', 
             'employees',
             'total',
             'trainee',
             'bench',
             'title',
-            'work'
+            'work',
+            'sbu'
         ));
     }
 
