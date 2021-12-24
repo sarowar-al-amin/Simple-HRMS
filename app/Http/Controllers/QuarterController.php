@@ -13,7 +13,7 @@ class QuarterController extends Controller
     
     public function index()
     {
-        return view('hr.quarters.index');
+        return view('quarters-index');
     }
 
     public function create()

@@ -12,9 +12,7 @@ class SalaryReviewController extends Controller
 {
     public function index()
     {
-        return view('hr.salary-reviews.index', [
-            'salaryReviews' => SalaryReview::all()
-        ]);
+        return view('salary-reviews-index');
     }
 
     public function create()

@@ -18,13 +18,21 @@ class Quarter extends Model
 
     public $timestamps = false;
 
-    public function getStartAttribute ($value) {
-        return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
-    }
+    // public function getStartAttribute ($value) {
+    //     return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
+    // }
 
-    public function getEndAttribute ($value) {
-        return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
-    }
+    // public function getEndAttribute ($value) {
+    //     return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
+    // }
+
+    // public function setStartAttribute ($value) {
+    //     return Carbon::createFromFormat('j-M-y',$value)->format('Y-m-d');
+    // }
+
+    // public function setEndAttribute ($value) {
+    //     return Carbon::createFromFormat('j-M-y',$value)->format('Y-m-d');
+    // }
 
     public function xp() {
         $start = strtotime($this->start);
