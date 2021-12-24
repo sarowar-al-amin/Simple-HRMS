@@ -6,12 +6,6 @@
 
 @section('content_header')
     <h1>{{$title}}</h1>
-{{-- 
-    <h6>Total Employee: {{$total}}</h6>
-    <h6>Total Trainee: {{$trainee}}</h6>
-    <h6>Total Non-billable: {{$work}}</h6>
-    <h6>Bench: {{$bench}}</h6>
-     --}}
     <div class="row">
         <div class="col-lg-3 col-6">
           <!-- small box -->
@@ -21,9 +15,6 @@
 
               <p>Total Employee</p>
             </div>
-            {{-- <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -36,9 +27,6 @@
 
               <p>Total Trainee</p>
             </div>
-            {{-- <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -51,9 +39,6 @@
 
               <p>Total Non-billable</p>
             </div>
-            {{-- <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -66,9 +51,6 @@
 
               <p>Bench</p>
             </div>
-            {{-- <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div> --}}
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -114,22 +96,11 @@
 @stop
 
 @section('css')
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-    {{-- @livewireStyles --}}
     <livewire:styles />
 @stop
 
 @section('js')
 <livewire:scripts />
   <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
-  {{-- <script>
-      $(function () {
-          $("#example1").DataTable({
-              "responsive": true, "lengthChange": false, "autoWidth": false,
-              "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      });
-  </script> --}}
-
 @stop
 
