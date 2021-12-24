@@ -1,5 +1,3 @@
-{{-- It's working --}}
-{{-- It's working!! --}}
 @extends('adminlte::page')
 
 @section('title', 'All Employees')
@@ -7,12 +5,6 @@
 
 @section('content_header')
     <h1>Bench</h1>
-{{-- 
-    <h6>Total Employee: {{$total}}</h6>
-    <h6>Total Trainee: {{$trainee}}</h6>
-    <h6>Total Non-billable: {{$work}}</h6>
-    <h6>Bench: {{$bench}}</h6>
-     --}}
 @stop
 
 @section('content')

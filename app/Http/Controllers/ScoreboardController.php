@@ -17,34 +17,34 @@ class ScoreboardController extends Controller
         return view('hr.scoreboard.scoreboard');
     }
 
-    public function action(Request $request){
-    	if($request->ajax())
-    	{
-    		if($request->action == 'edit')
-    		{
-    			$data = array(
-    				'sbu'	=>	$request->sbu,
-    			);
-    			DB::table('users')
-    				->where('id', $request->id)
-    				->update($data);
-    		}
-    		if($request->action == 'delete')
-    		{
-    			DB::table('users')
-    				->where('id', $request->id)
-    				->delete();
-    		}
-    		return response()->json($request);
-    	}
-    }
+    // public function action(Request $request){
+    // 	if($request->ajax())
+    // 	{
+    // 		if($request->action == 'edit')
+    // 		{
+    // 			$data = array(
+    // 				'sbu'	=>	$request->sbu,
+    // 			);
+    // 			DB::table('users')
+    // 				->where('id', $request->id)
+    // 				->update($data);
+    // 		}
+    // 		if($request->action == 'delete')
+    // 		{
+    // 			DB::table('users')
+    // 				->where('id', $request->id)
+    // 				->delete();
+    // 		}
+    // 		return response()->json($request);
+    // 	}
+    // }
 
     //
     public function employeeList(){
         $name = DB::table('users')
-        ->distinct()
-        ->select('sbu')
-        ->get();
+                ->distinct()
+                ->select('sbu')
+                ->get();
         // dd($sbu);
         $employees = DB::table('users')->get();
         $total = DB::table('users')->count();
@@ -79,9 +79,9 @@ class ScoreboardController extends Controller
                     ->distinct()
                     ->select('sbu')
                     ->get();
-        $employees = DB::table('users')
-            ->where('sbu', $request->sbu_name)
-            ->get();
+        // $employees = DB::table('users')
+        //     ->where('sbu', $request->sbu_name)
+        //     ->get();
         // dd($employees);
         $total = DB::table('users')
                     ->where('sbu', $request->sbu_name)
@@ -112,7 +112,7 @@ class ScoreboardController extends Controller
         // dd($sbu);
         return view('hr.scoreboard.employeeListBySbu', compact(
             'name', 
-            'employees',
+            // 'employees',
             'total',
             'trainee',
             'bench',
@@ -124,11 +124,6 @@ class ScoreboardController extends Controller
 
     // function that's gonna show bench report
     public function benchReport(){
-        // $bench = DB::table('users')
-        //             ->where('team', 'bench')
-        //             ->orderBy('sbu')
-        //             ->get();
-        // dd($bench);
         return view('hr.scoreboard.bench');
     }
 }

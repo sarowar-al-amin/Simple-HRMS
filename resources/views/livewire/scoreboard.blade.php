@@ -55,17 +55,17 @@
                     {{ $employee->career_start_date}}
                 </td>
     
-                {{-- <td>
-                    Onek
-                </td> --}}
+                <td>
+                    1 year 2 months
+                </td>
     
                 <td>
                     {{ $employee->employee_category }}
                 </td>
     
-                {{-- <td>
-                    Townim Vai
-                </td> --}}
+                <td>
+                    PM name
+                </td>
     
                 <td>
                     {{ $employee->blood_group }}

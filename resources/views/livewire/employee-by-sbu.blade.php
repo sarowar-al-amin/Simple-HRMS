@@ -149,7 +149,7 @@
                 </td>
     
                 <td>
-                    Onek
+                    1 year 2 months
                 </td>
     
                 <td>
@@ -164,9 +164,9 @@
                         </div>
                     @endif
                 </td>
-    
+                
                 <td>
-                    Townim Vai
+                    Pm name
                 </td>
     
                 <td>
