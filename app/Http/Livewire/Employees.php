@@ -7,8 +7,7 @@ use Livewire\Component;
 
 class Employees extends Component
 {
-    public $index = null;
-    public $field = null;
+    public $index,$field,$sbu;
     public $employees = [];
     public $sbus,$partners,$hrs,$techs;
 
@@ -51,7 +50,7 @@ class Employees extends Component
 
     public function render()
     {
-        $this->employees = User::all()->toArray();
+        $this->employees = $this->sbu ? User::where('sbu', $this->sbu)->get()->toArray() : User::all()->toArray();
 
         return view('livewire.employees', [
             'employees' => $this->employees,

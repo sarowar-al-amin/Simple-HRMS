@@ -331,6 +331,11 @@ return [
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employeeImport',
         ],
+        [
+            'text' => 'employee review for sbu',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'route' => 'review-employees',
+        ],
         // [
         //     'text'       => 'warning',
         //     'icon_color' => 'yellow',

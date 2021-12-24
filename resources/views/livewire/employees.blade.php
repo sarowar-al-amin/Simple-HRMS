@@ -228,10 +228,17 @@
                     </div>
                 @endif
             </td>
-        
+            
+            <livewire:employee-review-form />
+
             <td>
-                <x-adminlte-button wire:click="delete({{ $idx }})" theme="dark" icon="fas fa-trash-alt"/>
+                @if (request()->routeIs('review-employees'))
+                    <x-adminlte-button data-toggle="modal" data-target="#reviewModal" theme="dark" icon="fas fa-eye"/>
+                @else
+                    <x-adminlte-button wire:click="delete({{ $idx }})" theme="dark" icon="fas fa-trash-alt"/>
+                @endif
             </td>
+
         </tr>
     @endforeach
 </tbody>
