@@ -8,10 +8,18 @@ use App\Models\User;
 
 class EmployeeBySbu extends Component
 {
+    public $sbus;
     public $sbu;
     public $field;
     public $index;
     public $employees = [];
+
+    // public function mount(){
+    //     $this->sbus = DB::table('users')
+    //                     ->distinct()
+    //                     ->pluck('sbu');
+                       
+    // }
 
     protected $rules = [
         'employees.*.name' => 'required',
@@ -51,7 +59,13 @@ class EmployeeBySbu extends Component
                 ->where('sbu', $this->sbu)
                 ->toArray();
         // dd($this->employees);
+        $this->sbus = DB::table('users')
+                        ->distinct()
+                        ->pluck('sbu');
 
-        return view('livewire.employee-by-sbu', ['employees' => $this->employees]);
+        return view('livewire.employee-by-sbu', [
+            'employees' => $this->employees,
+            'sbus' => $this->sbus
+        ]);
     }
 }
