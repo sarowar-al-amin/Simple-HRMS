@@ -6,29 +6,11 @@
             </td>
         
             <td>
-                @if ($field === $idx.'.name')
-                    <x-adminlte-input 
-                    name="name" 
-                    wire:model.defer="employees.{{ $idx }}.name" 
-                    @keyup.enter="$wire.field === '{{ $idx }}.name' ? $wire.save({{ $idx }}) : null" />
-                @else
-                    <div wire:click="$set('field', '{{ $idx }}.name')">
-                        {{ $employee['name'] }}
-                    </div>
-                @endif
+                {{ $employee['name'] }}
             </td>
         
             <td>
-                @if ($field === $idx.'.email')
-                    <x-adminlte-input 
-                    name="email" 
-                    wire:model.defer="employees.{{ $idx }}.email" 
-                    @keyup.enter="$wire.field === '{{ $idx }}.email' ? $wire.save({{ $idx }}) : null" />
-                @else
-                    <div wire:click="$set('field', '{{ $idx }}.email')">
-                        {{ $employee['email'] }}
-                    </div>
-                @endif
+                {{ $employee['email'] }}
             </td>
 
             <td>
@@ -157,7 +139,7 @@
             </td>
 
             <td>
-                Onek
+                1 year 2 months
             </td>
 
             <td>
@@ -174,7 +156,7 @@
             </td>
 
             <td>
-                Townim Vai
+                Pm name
             </td>
 
             <td>

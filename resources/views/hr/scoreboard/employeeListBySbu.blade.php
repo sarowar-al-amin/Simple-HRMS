@@ -65,6 +65,9 @@
     <div class="card-body">
         <h3>SBU List</h3>
         <ul>
+            <li>
+              <a href="{{url('/scoreboard/sbu/')}}"  style="border: none; background-color: white; color: blue; padding-left: 5px;">All</a>
+            </li>
             @foreach ($name as $item)
             <li>
                 <form action="{{url('/scoreboard/sbu/{sbu}')}}" method="POST" enctype="multipart/form-data">

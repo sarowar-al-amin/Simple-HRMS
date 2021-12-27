@@ -17,19 +17,10 @@
                 {{ $employee->email }}
             </td>
 
-            {{-- <td>
-                {{ $employee['expertise_area'] }}
-            </td> --}}
-
             <td>
                 {{-- {{ $employee['partner'] }} --}}
                 {{ $employee->partner }}
             </td>
-
-            {{-- <td>
-                {{ $employee['employee_type'] }}
-                {{ $employee->employee_type }}
-            </td> --}}
 
             <td>
                 {{-- {{ $employee['sbu'] }} --}}

@@ -81,25 +81,11 @@
 <div class="card">
     <!-- /.card-header -->
     <div class="card-body">
-        {{-- <div align="center" style="padding-top:50px;">
-            <form action="{{url('/scoreboard/sbu/{sbu}')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div style="padding:15px;">
-                    <label>SBU name</label>
-                    <input type="text" name="sbu_name" style="color:black;" List="suggestions" placeholder="Type SBU name" required="">
-                    <datalist id="suggestions">
-                        @foreach($name as $person)
-                        <option value="{{$person->sbu}}">{{$person->sbu}}</option>
-                        @endforeach
-                    </datalist>
-                </div>
-                <div style="padding:15px;">
-                    <input type="submit" class="btn btn-success">
-                </div>
-            </form>
-        </div> --}}
         <h3>SBU List</h3>
         <ul>
+            <li>
+              <a href="{{url('/scoreboard/sbu/')}}"  style="border: none; background-color: white; color: blue; padding-left: 5px;">All</a>
+            </li>
             @foreach ($name as $item)
             <li>
                 <form action="{{url('/scoreboard/sbu/{sbu}')}}" method="POST" enctype="multipart/form-data">
