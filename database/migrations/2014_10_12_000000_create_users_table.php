@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('sbu')->nullable();
             $table->string('partner')->nullable();
             $table->string('hr')->nullable();
+            $table->string('pm')->nullable();
             $table->string('mm')->nullable();
             $table->string('team')->nullable();
             $table->string('previous_team')->nullable();

@@ -334,7 +334,7 @@ return [
         [
             'text' => 'employee review for sbu',
             'icon' => 'fas fa-fw fa-layer-group',
-            'route' => 'review-employees',
+            'route' => 'sbu.employee-reviews.index',
         ],
         // [
         //     'text'       => 'warning',

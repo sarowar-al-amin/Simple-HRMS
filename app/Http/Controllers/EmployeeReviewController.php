@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class EmployeeReviewController extends Controller
 {
+
     public function create(SalaryReview $salaryreview, $sbu, User $user){
         return view('hr.employee-reviews.create', [
             'salaryReview' => $salaryreview,

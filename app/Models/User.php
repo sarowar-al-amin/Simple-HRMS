@@ -28,6 +28,7 @@ class User extends Authenticatable
         'partner',
         'sbu',
         'hr',
+        'pm',
         'mm',
         'team',
         'previous_team',

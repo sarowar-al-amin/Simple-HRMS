@@ -7,7 +7,6 @@ use App\Imports\UserImport;
 
 class ExcelImportController extends Controller
 {
-    //
 
     public function index(){
         return view('employeeImport.employeeImport');

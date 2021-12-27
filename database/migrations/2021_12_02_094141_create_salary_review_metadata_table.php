@@ -14,12 +14,13 @@ class CreateSalaryReviewMetadataTable extends Migration
             $table->foreign('salary_review_id')->references('id')->on('salary_reviews');
             $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('feedbacks');
-            $table->string('justifications');
-            $table->string('behaviours');
+            $table->string('categorical_feedbacks');
+            $table->string('categorical_justifications');
+            $table->string('behavioural_feedbacks');
+            $table->string('behavioural_justifications');
             $table->string('performance');
             $table->string('promotion');
-            $table->string('comment');
+            $table->string('sbu_comment');
         });
     }
 
