@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'sbu' => $this->faker->randomElement(['Raisul Islam', 'Support', 'Miftah Zaman']),
             'partner' => $this->faker->randomElement(['Mizanur Rahman', 'MJ Ferdous', 'Support']),
             'hr' => $this->faker->randomElement(['Nayem', 'Sojib', 'Siyam', 'Sohel', 'Support', 'Tori']),
+            'pm' => $this->faker->randomElement(['Nayem', 'Sojib', 'Siyam', 'Sohel', 'Support', 'Tori']),
             'team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support','Bench']),
             'previous_team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support']),
             

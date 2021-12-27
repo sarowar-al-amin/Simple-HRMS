@@ -9,8 +9,9 @@ use App\Http\Controllers\SalaryReviewController;
 use App\Http\Controllers\SBUController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\ExcelImportController;
+use App\Http\Controllers\PM\EmployeeReviewController as PMEmployeeReviewController;
 use App\Http\Controllers\PracticeController;
-use App\Http\Controllers\Sbu\SalaryReviewController as SbuSalaryReviewController;
+use App\Http\Controllers\Sbu\EmployeeReviewController as SbuEmployeeReviewController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +51,6 @@ Route::post('/upload/employee-excel', [ExcelImportController::class, 'upload_exc
 
 Route::get('practice', [PracticeController::class, 'index']);
 
-Route::get('sbu/employees', [SbuSalaryReviewController::class, 'index'])->name('review-employees');
+Route::get('sbu/employee-reviews', [SbuEmployeeReviewController::class, 'index'])->name('sbu.employee-reviews.index');
+Route::get('sbu/employee-reviews/create/{user}', [SbuEmployeeReviewController::class, 'create'])->name('sbu.employee-reviews.create');
+Route::post('sbu/employee-reviews/store/{user}', [SbuEmployeeReviewController::class, 'store'])->name('sbu.employee-reviews.store');
