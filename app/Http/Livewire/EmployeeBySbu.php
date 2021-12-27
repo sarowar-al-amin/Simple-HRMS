@@ -13,6 +13,7 @@ class EmployeeBySbu extends Component
     public $field;
     public $index;
     public $employees = [];
+    public $partners = [];
 
     // public function mount(){
     //     $this->sbus = DB::table('users')
@@ -63,9 +64,14 @@ class EmployeeBySbu extends Component
                         ->distinct()
                         ->pluck('sbu');
 
+        $this->partners = DB::table('users')
+                        ->distinct()
+                        ->pluck('partner');
+
         return view('livewire.employee-by-sbu', [
             'employees' => $this->employees,
-            'sbus' => $this->sbus
+            'sbus' => $this->sbus,
+            'partners' => $this->partners
         ]);
     }
 }
