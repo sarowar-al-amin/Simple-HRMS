@@ -101,7 +101,7 @@
 
             <td>
                 @if ($field === $idx.'.joining_date')
-                    <x-adminlte-input 
+                    <x-adminlte-input-date
                     name="joining_date" 
                     wire:model.defer="employees.{{ $idx }}.joining_date" 
                     @keyup.enter="$wire.field === '{{ $idx }}.joining_date' ? $wire.save({{ $idx }}) : null" />

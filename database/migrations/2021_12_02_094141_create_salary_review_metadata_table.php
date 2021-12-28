@@ -21,6 +21,8 @@ class CreateSalaryReviewMetadataTable extends Migration
             $table->string('performance');
             $table->string('promotion');
             $table->string('sbu_comment');
+            $table->string('sbu')->nullable();
+            $table->string('pm')->nullable();
         });
     }
 

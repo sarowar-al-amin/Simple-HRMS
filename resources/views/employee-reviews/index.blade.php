@@ -21,9 +21,24 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
-                        <td>{{ $employee->team }}</td>
                         <td>
-                            <a href={{ route('sbu.employee-reviews.create', ['user' => $employee]) }}>
+                            @if ($reviews[$i] && $reviews[$i]['sbu'])
+                                <i class="fas fa-check-circle text-green"></i>
+                            @else
+                            <i class="fas fa-times-circle text-red"></i>
+                            @endif
+                        </td>
+
+                        <td>
+                            @if ($reviews[$i] && $reviews[$i]['pm'])
+                                <i class="fas fa-check-circle text-green"></i>
+                            @else
+                            <i class="fas fa-times-circle text-red"></i>
+                            @endif
+                        </td>
+                        
+                        <td>
+                            <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
                                 <x-adminlte-button theme="dark" label="Review" icon="fas fa-eye"/>
                             </a>
                         </td>

@@ -10,6 +10,7 @@ class CreateEmployeeLevelsTable extends Migration
     {
         Schema::create('employee_levels', function (Blueprint $table) {
             $table->string('id')->unique();
+            $table->string('next_level');
             $table->integer('rank');
             $table->text('details');
             $table->text('appraisal_questions');

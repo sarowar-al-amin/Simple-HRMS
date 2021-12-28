@@ -2,16 +2,14 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeLevelController;
-use App\Http\Controllers\EmployeeReviewController;
 use App\Http\Controllers\HR\UserController;
 use App\Http\Controllers\QuarterController;
 use App\Http\Controllers\SalaryReviewController;
 use App\Http\Controllers\SBUController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\ExcelImportController;
-use App\Http\Controllers\PM\EmployeeReviewController as PMEmployeeReviewController;
 use App\Http\Controllers\PracticeController;
-use App\Http\Controllers\Sbu\EmployeeReviewController as SbuEmployeeReviewController;
+use App\Http\Controllers\EmployeeReviewController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +26,9 @@ Route::get('quarters', [QuarterController::class, 'index'])->name('quarters.inde
 //Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
 
-Route::get('employee-reviews/create/{salaryreview}/{sbu}/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
-Route::post('employee-reviews/store/{salaryreview}/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
-Route::get('employee-reviews/show/{salaryreview}/{user}', [EmployeeReviewController::class, 'show'])->name('employee-reviews.show');
+// Route::get('employee-reviews/create/{salaryreview}/{sbu}/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
+// Route::post('employee-reviews/store/{salaryreview}/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
+// Route::get('employee-reviews/show/{salaryreview}/{user}', [EmployeeReviewController::class, 'show'])->name('employee-reviews.show');
 
 Route::get('sbus/index/{salaryreview}', [SBUController::class, 'index'])->name('sbus.index');
 Route::get('sbu/show/{salaryreview}/{sbu}', [SBUController::class, 'show'])->name('sbus.show');
@@ -51,6 +49,6 @@ Route::post('/upload/employee-excel', [ExcelImportController::class, 'upload_exc
 
 Route::get('practice', [PracticeController::class, 'index']);
 
-Route::get('sbu/employee-reviews', [SbuEmployeeReviewController::class, 'index'])->name('sbu.employee-reviews.index');
-Route::get('sbu/employee-reviews/create/{user}', [SbuEmployeeReviewController::class, 'create'])->name('sbu.employee-reviews.create');
-Route::post('sbu/employee-reviews/store/{user}', [SbuEmployeeReviewController::class, 'store'])->name('sbu.employee-reviews.store');
+Route::get('employee-reviews', [EmployeeReviewController::class, 'index'])->name('employee-reviews.index');
+Route::get('employee-reviews/create/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
+Route::post('employee-reviews/store/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');

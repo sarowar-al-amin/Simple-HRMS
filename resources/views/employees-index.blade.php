@@ -8,7 +8,7 @@
 @section('content')
     
     <div class="card overflow-auto">
-        <table class="table table-bordered table-striped">
+        <table class="table table-hover">
             @php
                 $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
                             'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
@@ -26,6 +26,11 @@
 @stop
 
 @section('css')
+    <style>
+        th, td {
+            white-space: nowrap;
+        }
+    </style>
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <livewire:styles />
 @stop
