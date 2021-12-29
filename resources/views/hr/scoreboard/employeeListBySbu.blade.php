@@ -79,7 +79,7 @@
         </ul>
         <div class="card overflow-auto">
           <h3>Scoreboard of all employee in the company</h3>
-          <table  class="table table-bordered table-striped">
+          <table  class="table table-hover">
               @php
                   $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
                               'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
@@ -87,7 +87,7 @@
               @endphp
               <thead>
                   @foreach ($headings as $heading)
-                      <th>{{ $heading }}</th>
+                      <th style="white-space: nowrap;">{{ $heading }}</th>
                   @endforeach
               </thead>
               <livewire:employee-by-sbu :sbu="$sbu" />
@@ -99,6 +99,11 @@
 @stop
 
 @section('css')
+    <style>
+      th, td{
+        white-space: nowrap;
+      }
+    </style>
     <livewire:styles />
 @stop
 

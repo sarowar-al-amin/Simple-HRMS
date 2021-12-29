@@ -97,7 +97,7 @@
         </ul>
         <div class="card overflow-auto">
           <h3>Scoreboard of all employee in the company</h3>
-          <table class="table table-bordered table-striped">
+          <table class="table table-hover">
               @php
                   $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
                               'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
@@ -111,26 +111,6 @@
               <livewire:scoreboard />
           </table>
       </div>
-        {{-- <table id="editable" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>SBU</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($employees as $row)
-                <tr>
-                  <td>{{ $row->id }}</td>
-                  <td>{{ $row->name }}</td>
-                  <td>{{ $row->email }}</td>
-                  <td>{{ $row->sbu }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table> --}}
     </div>
     <!-- /.card-body -->
 <!-- /.card -->
@@ -138,7 +118,14 @@
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    
     {{-- @livewireStyles --}}
+    <style>
+      th, td{
+        white-space: nowrap;
+      }
+    </style>
+    <livewire:styles />
 @stop
 
 @section('js')
