@@ -9,7 +9,7 @@
     
     <div class="card overflow-auto">
         <h3>Scoreboard of all employee in the company</h3>
-        <table class="table table-bordered table-striped">
+        <table class="table table-hover">
             @php
                 $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
                             'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
@@ -28,6 +28,11 @@
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    <style>
+      th, td{
+        white-space: nowrap;
+      }
+    </style>
     <livewire:styles />
 @stop
 

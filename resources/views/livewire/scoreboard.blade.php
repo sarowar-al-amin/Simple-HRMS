@@ -82,10 +82,6 @@
                 <td>
                     {{ $employee->team }}
                 </td>
-            
-                {{-- <td>
-                    <x-adminlte-button wire:click="delete({{ $idx }})" theme="dark" icon="fas fa-trash-alt"/>
-                </td> --}}
             </tr>
         @endforeach
     </tbody>    
