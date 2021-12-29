@@ -8,10 +8,10 @@
 @stop
 
 @section('content')
-<div class="card">
+<div class="card overflow-auto">
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="editable" class="table table-bordered table-striped">
+        <table id="editable" class="table table-hover">
             <thead>
                 <tr>
                   <th>ID</th>
@@ -33,6 +33,11 @@
 @stop
 
 @section('css')
+    <style>
+      th, td{
+        white-space: nowrap;
+      }
+    </style>
     <livewire:styles />
 @stop
 
