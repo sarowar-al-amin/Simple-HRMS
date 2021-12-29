@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Quarter;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Quarters extends Component
@@ -31,13 +32,15 @@ class Quarters extends Component
         $this->field = $idx.'.'.$field ;
     }
 
-    public function save($idx) {
+    public function save($idx, $field) {
         $this->validate();
 
         $quarter = $this->quarters[$idx] ?? NULL;
 
         if(! is_null($quarter)) {
-            Quarter::find($quarter['id'])?->update($quarter);
+            Quarter::find($quarter['id'])?->update([
+                $field => $quarter[$field]
+            ]);
         }
 
         $this->index = null;

@@ -8,12 +8,18 @@
         
             <td>
                 @if ($field === $idx.'.start')
-                    <x-adminlte-input
+                    {{-- <x-adminlte-input
                     name="start"  
                     wire:model.defer="quarters.{{ $idx }}.start"
-                    @keyup.enter="$wire.field === '{{ $idx }}.start' ? $wire.save({{ $idx }}) : null" />
+                    @keyup.enter="$wire.field === '{{ $idx }}.start' ? $wire.save({{ $idx }}) : null" /> --}}
+                    <input 
+                    type="date"
+                    name="start"
+                    class="form-control"
+                    wire:model.defer="quarters.{{ $idx }}.start"
+                    @keyup.enter="$wire.field === '{{ $idx }}.start' ? $wire.save({{ $idx }},'start') : null">
                 @else
-                    <div wire:click="$set('field','{{ $idx }}.end')">
+                    <div wire:click="$set('field','{{ $idx }}.start')">
                         {{ $quarter['start'] }}
                     </div>
                 @endif
@@ -21,10 +27,12 @@
         
             <td>
                 @if ($field === $idx.'.end')
-                    <x-adminlte-input 
-                    name="end" 
-                    wire:model.defer="quarters.{{ $idx }}.end" 
-                    @keyup.enter="$wire.field === '{{ $idx }}.end' ? $wire.save({{ $idx }}) : null" />
+                    <input 
+                    type="date"
+                    name="end"
+                    class="form-control"
+                    wire:model.defer="quarters.{{ $idx }}.end"
+                    @keyup.enter="$wire.field === '{{ $idx }}.end' ? $wire.save({{ $idx }}, 'end') : null">
                 @else
                     <div wire:click="$set('field','{{ $idx }}.end')">
                         {{ $quarter['end'] }}

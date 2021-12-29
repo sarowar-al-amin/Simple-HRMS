@@ -6,9 +6,9 @@
 @stop
 
 @section('content')
-<div>
+<div class="table-responsive">
     @csrf
-    <table class="table table-responsive table-striped table-hover">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>ID</th>
@@ -36,8 +36,8 @@
 
 @section('css')
     <style>
-        input::-webkit-calendar-picker-indicator {
-        display: none !important;
+        [list]::-webkit-calendar-picker-indicator {
+            display: none !important;
         }
     </style>
     <livewire:styles />

@@ -139,7 +139,12 @@
             </td>
 
             <td>
-                1 year 2 months
+                @php
+                    $from = strtotime($employee['confirmation_date']);
+                    $to = strtotime(now());
+                    $x = ($to-$from)/(86400*30);
+                @endphp
+                {{ (int)($x/12) }} years {{ $x%12 }} months
             </td>
 
             <td>

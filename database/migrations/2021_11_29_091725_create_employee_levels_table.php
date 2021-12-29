@@ -12,11 +12,23 @@ class CreateEmployeeLevelsTable extends Migration
             $table->string('id')->unique();
             $table->string('next_level');
             $table->integer('rank');
-            $table->text('details');
-            $table->text('appraisal_questions');
             $table->integer('basic');
             $table->integer('increment');
             $table->integer('gross');
+            $table->string('objective_details');
+            $table->string('summary_details');
+            $table->string('knowledge_details');
+            $table->string('independence_details');
+            $table->string('influence_details');
+            $table->string('organizational_scope_details');
+            $table->string('job_contrast_details');
+            $table->string('execution_details');
+            $table->string('knowledge_questions');
+            $table->string('independence_questions');
+            $table->string('influence_questions');
+            $table->string('organizational_scope_questions');
+            $table->string('job_contrast_questions');
+            $table->string('execution_questions');
         });
     }
 
