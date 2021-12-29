@@ -10,6 +10,7 @@ use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\ExcelImportController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\EmployeeReviewController;
+use App\Http\Controllers\ExcelLevelImport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,6 @@ Route::get('practice', [PracticeController::class, 'index']);
 Route::get('employee-reviews', [EmployeeReviewController::class, 'index'])->name('employee-reviews.index');
 Route::get('employee-reviews/create/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
 Route::post('employee-reviews/store/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
+
+Route::get('/add_level', [ExcelLevelImport::class, 'index'])->name('levelImport');
+Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);

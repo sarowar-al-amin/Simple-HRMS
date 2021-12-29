@@ -53,17 +53,13 @@ class User extends Authenticatable
     // ];
 
     protected $casts = [
-        
+
     ];
 
     protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
-    
+
     public $timestamps = false;
 
-    public function experience() {
-        return $this->confirmation_date->diffInDays(now());
-    }
-    
 }

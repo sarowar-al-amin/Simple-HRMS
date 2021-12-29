@@ -9,6 +9,8 @@ class EmployeeLevel extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';

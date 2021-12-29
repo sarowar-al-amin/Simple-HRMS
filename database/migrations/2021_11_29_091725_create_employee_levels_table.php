@@ -10,25 +10,25 @@ class CreateEmployeeLevelsTable extends Migration
     {
         Schema::create('employee_levels', function (Blueprint $table) {
             $table->string('id')->unique();
-            $table->string('next_level');
+            $table->string('next_level')->nullable();
             $table->integer('rank');
             $table->integer('basic');
             $table->integer('increment');
             $table->integer('gross');
-            $table->string('objective_details')->nullable();
-            $table->string('summary_details')->nullable();
-            $table->string('knowledge_details')->nullable();
-            $table->string('independence_details')->nullable();
-            $table->string('influence_details')->nullable();
-            $table->string('organizational_scope_details')->nullable();
-            $table->string('job_contrast_details')->nullable();
-            $table->string('execution_details')->nullable();
-            $table->string('knowledge_questions')->nullable();
-            $table->string('independence_questions')->nullable();
-            $table->string('influence_questions')->nullable();
-            $table->string('organizational_scope_questions')->nullable();
-            $table->string('job_contrast_questions')->nullable();
-            $table->string('execution_questions')->nullable();
+            $table->text('objective_details')->nullable();
+            $table->text('summary_details')->nullable();
+            $table->text('knowledge_details')->nullable();
+            $table->text('independence_details')->nullable();
+            $table->text('influence_details')->nullable();
+            $table->text('organizational_scope_details')->nullable();
+            $table->text('job_contrast_details')->nullable();
+            $table->text('execution_details')->nullable();
+            $table->text('knowledge_questions')->nullable();
+            $table->text('independence_questions')->nullable();
+            $table->text('influence_questions')->nullable();
+            $table->text('organizational_scope_questions')->nullable();
+            $table->text('job_contrast_questions')->nullable();
+            $table->text('execution_questions')->nullable();
         });
     }
 

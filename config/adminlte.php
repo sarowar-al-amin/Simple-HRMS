@@ -303,11 +303,6 @@ return [
             'can' => 'admin',
             'icon' => 'fas fa-fw fa-eye',
             'submenu' => [
-                // [
-                //     'text' => 'SBU List',
-                //     'route' => 'sbu-list',
-                //     'icon' => 'fas fa-fw fa-list',
-                // ],
                 [
                     'text' => 'Quarters',
                     'route' => 'quarters.index',
@@ -321,15 +316,27 @@ return [
             ]
         ],
         [
+            'text' => 'Import File',
+            'can' => 'admin',
+            'icon' => 'fas fa-fw fa-eye',
+            'submenu' => [
+                [
+                    'text' => 'Import Employee Excel',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                    'route' => 'employeeImport',
+                ],
+                [
+                    'text' => 'Import Level',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                    'route' => 'levelImport',
+                    // 'can' => 'review-employees'
+                ]
+            ]
+        ],
+        [
             'text' => 'Level Hierarchy',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employee-levels',
-        ],
-        [
-            'text' => 'Import Excel to Add file',
-            'icon' => 'fas fa-fw fa-layer-group',
-            'route' => 'employeeImport',
-            'can' => 'admin'
         ],
         [
             'text' => 'Review Employees',
