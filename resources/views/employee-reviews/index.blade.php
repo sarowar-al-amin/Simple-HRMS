@@ -23,17 +23,17 @@
                         <td>{{ $employee->name }}</td>
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['sbu'])
-                                <i class="fas fa-check-circle text-green"></i>
+                                <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
-                            <i class="fas fa-times-circle text-red"></i>
+                            <i class="fas fa-times-circle text-xl text-red"></i>
                             @endif
                         </td>
 
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['pm'])
-                                <i class="fas fa-check-circle text-green"></i>
+                                <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
-                            <i class="fas fa-times-circle text-red"></i>
+                            <i class="fas fa-times-circle text-xl text-red"></i>
                             @endif
                         </td>
                         
