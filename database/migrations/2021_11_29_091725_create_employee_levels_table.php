@@ -15,20 +15,20 @@ class CreateEmployeeLevelsTable extends Migration
             $table->integer('basic');
             $table->integer('increment');
             $table->integer('gross');
-            $table->string('objective_details');
-            $table->string('summary_details');
-            $table->string('knowledge_details');
-            $table->string('independence_details');
-            $table->string('influence_details');
-            $table->string('organizational_scope_details');
-            $table->string('job_contrast_details');
-            $table->string('execution_details');
-            $table->string('knowledge_questions');
-            $table->string('independence_questions');
-            $table->string('influence_questions');
-            $table->string('organizational_scope_questions');
-            $table->string('job_contrast_questions');
-            $table->string('execution_questions');
+            $table->string('objective_details')->nullable();
+            $table->string('summary_details')->nullable();
+            $table->string('knowledge_details')->nullable();
+            $table->string('independence_details')->nullable();
+            $table->string('influence_details')->nullable();
+            $table->string('organizational_scope_details')->nullable();
+            $table->string('job_contrast_details')->nullable();
+            $table->string('execution_details')->nullable();
+            $table->string('knowledge_questions')->nullable();
+            $table->string('independence_questions')->nullable();
+            $table->string('influence_questions')->nullable();
+            $table->string('organizational_scope_questions')->nullable();
+            $table->string('job_contrast_questions')->nullable();
+            $table->string('execution_questions')->nullable();
         });
     }
 
