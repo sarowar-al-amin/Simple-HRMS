@@ -9,6 +9,7 @@
             $categories = ['Knowledge/Experience', 'Independence', 'Influence', 'Organizational Scope', 'Job Contrast/Complexity', 'Execution'];
             $indicators = ['Has ability to meet deadline', 'Is committed', 'Organize tasks properly', 'Exploring Ability', 'Client happiness', 'Communication skill', 'Has sense of urgency', 'Team player'];
             $performances = ['Need Improvement', 'Meet Expectation Very Well', 'Exceeding Expectation Heavily'];
+            $questions = [$level->knowledge_questions, $level->independence_questions, $level->influence_questions, $level->organizational_scope_questions, $level->job_contrast_questions, $level->execution_questions];
         @endphp
     
         {{-- Headers --}}
@@ -27,7 +28,7 @@
                         {{ $categories[$i] }}
                     </td>
                     <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque molestias eius quaerat corporis magnam porro animi neque inventore magni dolore!
+                        {{ $questions[$i] }}
                     </td>
 
                     <td>

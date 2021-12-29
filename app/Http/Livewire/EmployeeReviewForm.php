@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class EmployeeReviewForm extends Component
 {
-    public $employee,$field;
+    public $employee,$level,$field;
 
     public $employeeReview;
     public $behaviouralFeedbacks = [];

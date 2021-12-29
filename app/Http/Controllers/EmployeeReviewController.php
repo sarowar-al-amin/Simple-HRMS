@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\EmployeeLevel;
 use App\Models\SalaryReview;
 use App\Models\SalaryReviewMetadata;
 use App\Models\User;
@@ -23,8 +24,13 @@ class EmployeeReviewController extends Controller
     }
 
     public function create(User $user) {
+
+        $level = EmployeeLevel::find($user->level);
+        $level = EmployeeLevel::find($level->next_leve);
+
         return view('employee-reviews.create', [
-            'employee' => $user
+            'employee' => $user,
+            'level' => $level
         ]);
     }
 

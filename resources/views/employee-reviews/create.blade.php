@@ -44,7 +44,7 @@
     
 </x-adminlte-profile-widget>
     
-<livewire:employee-review-form :employee="$employee" />
+<livewire:employee-review-form :employee="$employee" :level="$level" />
 
 @stop
 
