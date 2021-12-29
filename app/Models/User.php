@@ -61,5 +61,9 @@ class User extends Authenticatable
     protected $keyType = 'string';
     
     public $timestamps = false;
+
+    public function experience() {
+        return $this->confirmation_date->diffInDays(now());
+    }
     
 }

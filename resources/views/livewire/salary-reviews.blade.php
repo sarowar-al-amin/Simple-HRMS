@@ -54,4 +54,5 @@
             </td>
         </tr>
     @endforeach
+    <livewire:salary-review-form />
 </tbody>

@@ -253,14 +253,13 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'Management'],
         // [
         //     'text' => 'profile',
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-user',
         // ],
         [
-            'text'    => 'Employees',
+            'text'    => 'Dashboard',
             'icon'    => 'fas fa-fw fa-user',
             'submenu' => [
                 // [
@@ -300,7 +299,8 @@ return [
             ],
         ],
         [
-            'text' => 'Appraisal',
+            'text' => 'PMS',
+            'can' => 'admin',
             'icon' => 'fas fa-fw fa-eye',
             'submenu' => [
                 // [
@@ -320,7 +320,6 @@ return [
                 ]
             ]
         ],
-        ['header' => 'Others'],
         [
             'text' => 'Level Hierarchy',
             'icon' => 'fas fa-fw fa-layer-group',
@@ -330,11 +329,13 @@ return [
             'text' => 'Import Excel to Add file',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employeeImport',
+            'can' => 'admin'
         ],
         [
-            'text' => 'employee review for sbu',
+            'text' => 'Review Employees',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employee-reviews.index',
+            'can' => 'review-employees'
         ],
         // [
         //     'text'       => 'warning',
@@ -347,25 +348,29 @@ return [
         //     'url'        => '#',
         // ],
         [
-            'text' => 'Employee-scoreboard',
+            'text' => 'Resource Utilization',
             'icon' => 'fas fa-fw fa-list',
             'submenu' => [
                 [
-                    'text' => 'Scoreboard',
+                    'text' => 'Employee Scoreboard',
                     'route' => 'scoreboard.show',
                     'icon' => 'fas fa-fw fa-clock',
                 ],
                 [
-                    'text' =>'Employee According to SBU ',
+                    'text' =>'Resource Calender',
                     'route' => 'scoreboard.employeeList',
                     'icon' => 'fas fa-fw fa-search-dollar',
                 ],
                 [
-                    'text' =>'Bench report',
+                    'text' =>'Bench Report',
                     'route' => 'bench.report',
                     'icon' => 'fas fa-fw fa-search-dollar',
-                ]
-                
+                ],
+                [
+                    'text' =>'Resource Requisition',
+                    //'route' => 'bench.report',
+                    'icon' => 'fas fa-fw fa-search-dollar',
+                ],
             ]
         ],
     ],
