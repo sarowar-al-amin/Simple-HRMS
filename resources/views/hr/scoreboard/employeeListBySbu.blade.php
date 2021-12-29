@@ -78,7 +78,7 @@
             @endforeach
         </ul>
         <div class="card overflow-auto">
-          <h3>Scoreboard of all employee in the company</h3>
+          <h3>Employee List</h3>
           <table  class="table table-hover">
               @php
                   $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
