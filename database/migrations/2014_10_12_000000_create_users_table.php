@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password')->nullable();
-            $table->integer('role')->default(1);
-            $table->integer('state')->default(1);
+            $table->string('role')->default('employee')->nullable();
+            $table->string('state')->default('active');
             $table->rememberToken();
 
             $table->string('expertise_area')->nullable();
@@ -43,8 +43,12 @@ class CreateUsersTable extends Migration
             $table->string('blood_group')->nullable();
             $table->integer('engagement')->nullable();
 
+            $table->string('eligibility')->nullable();
+
             $table->string('last_performance')->nullable();
-            $table->string('last_review')->nullable();
+            $table->string('second_last_performance')->nullable();
+            $table->string('last_promotion')->nullable();
+            $table->string('second_last_promotion')->nullable();
             $table->text('comments')->nullable();
 
             $table->string('plan_1')->nullable();

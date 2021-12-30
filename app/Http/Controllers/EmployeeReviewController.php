@@ -14,7 +14,7 @@ class EmployeeReviewController extends Controller
 {
     public function index() {
 
-        $employees = Auth::user()->role === 2 ? User::where('sbu', Auth::user()->name)->get() : User::where('pm', Auth::user()->name)->get();
+        $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get() : User::where('pm', Auth::user()->name)->get();
         $reviews = array_map(fn ($employee) => SalaryReviewMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
         return view('employee-reviews.index',[
             'headings' => ['ID', 'Name', 'SBU Reviewed', 'PM Reviewd', 'Actions'],
