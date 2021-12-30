@@ -22,6 +22,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Events\AfterImport;
 use Maatwebsite\Excel\Validators\Failure;
+use Illuminate\Support\Facades\Hash;
 use Throwable;
 
 // use Illuminate\Support\Collection;
@@ -50,8 +51,8 @@ class UserImport implements
                 'name' => $row['name'],
                 'email' => $row['email'],
                 'role' => $row['role'],
-                'password' => $row['password'],
-                'state' => $row['state'],
+                'password' => Hash::make($row['password']),
+                // 'state' => $row['state'],
                 'expertise_area' => $row['expertise_area'],
                 'employee_type' => $row['employee_type'],
                 'managerial_capacity' => $row['managerial_capacity'],
@@ -61,17 +62,20 @@ class UserImport implements
                 'partner' => $row['partner'],
                 'sbu' => $row['sbu'],
                 'hr' => $row['hr'],
-                'mm' => $row['mm'],
+                // 'mm' => $row['mm'],
                 'team' => $row['team'],
                 'previous_team' => $row['previous_team'],
-                'joining_date' => $row['joining_date'],
-                'confirmation_date' => $row['confirmation_date'],
-                'career_start_date' => $row['career_start_date'],
+                // 'joining_date' => $row['joining_date'],
+                // 'confirmation_date' => $row['confirmation_date'],
+                // 'career_start_date' => $row['career_start_date'],
                 'blood_group' => $row['blood_group'],
                 'engagement' => $row['engagement'],
                 'last_performance' => $row['last_performance'],
-                'last_review' => $row['last_review'],
-                'comments' => $row['comments'],
+                'second_last_performance' => $row['second_last_performance'],
+                'eligibility' => $row['eligibility'],
+                'last_promotion' => $row['last_promotion'],
+                'second_last_promotion' => $row['second_last_promotion'],
+                // 'comments' => $row['comments'],
                 'plan_1' => $row['plan_1'],
                 'plan_2' => $row['plan_2'],
                 'current_status' => $row['current_status'],
