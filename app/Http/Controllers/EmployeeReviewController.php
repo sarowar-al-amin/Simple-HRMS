@@ -26,7 +26,7 @@ class EmployeeReviewController extends Controller
     public function create(User $user) {
 
         $level = EmployeeLevel::find($user->level);
-        $level = EmployeeLevel::find($level->next_leve);
+        $level = EmployeeLevel::find($level->next_level);
 
         return view('employee-reviews.create', [
             'employee' => $user,
