@@ -38,6 +38,7 @@ class EmployeeReviewController extends Controller
 
         $sbu = null;
         $pm = null;
+        $sr = SalaryReview::firstOrFail();
 
         if(Auth::user()->role === 2){
             $sbu = Auth::user()->name;
@@ -46,8 +47,12 @@ class EmployeeReviewController extends Controller
             $pm = Auth::user()->name;
         }
 
-        SalaryReviewMetadata::create([
-            'salary_review_id' => '21D',
+        SalaryReviewMetadata::updateOrInsert([
+            'salary_review_id' => $sr->id,
+            'user_id' => $user->id,
+        ],
+        [
+            'salary_review_id' => $sr->id,
             'user_id' => $user->id,
             'categorical_feedbacks' => implode('#', $request->input('categorical_feedbacks')),
             'categorical_justifications' => implode('#', $request->input('categorical_justifications')),

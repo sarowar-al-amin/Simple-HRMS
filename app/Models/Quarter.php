@@ -19,11 +19,11 @@ class Quarter extends Model
     public $timestamps = false;
 
     public function getStartAttribute ($value) {
-        return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
+        return Carbon::createFromFormat('Y-m-d',$value)->format('j M Y');
     }
 
     public function getEndAttribute ($value) {
-        return Carbon::createFromFormat('Y-m-d',$value)->format('j-M-y');
+        return Carbon::createFromFormat('Y-m-d',$value)->format('j M Y');
     }
 
 

@@ -11,10 +11,10 @@
                     <x-adminlte-select-bs
                     name="quarter_id"
                     wire:model.defer="salaryReviews.{{ $idx }}.quarter_id"
-                    @click.away="$wire.field === '{{ $idx }}.quarter_id' ? $wire.save({{ $idx }}) : null" >
+                    @click.away="$wire.field === '{{ $idx }}.quarter_id' ? $wire.save({{ $idx }}, 'quarter_id') : null" >
                         @foreach ($quarters as $quarter)
                             <option value="{{ $quarter }}">{{ $quarter }}</option>
-                        @endforeach
+                        @endforeach-
                     </x-adminlte-select-bs>
                 @else
                     <div wire:click="$set('field','{{ $idx }}.quarter_id')">
@@ -25,23 +25,27 @@
 
             <td>
                 @if ($field === $idx.'.start')
-                    <x-adminlte-input-date 
-                    name="start"  
+                    <input 
+                    type="date"
+                    name="start"
+                    class="form-control"
                     wire:model.defer="salaryReviews.{{ $idx }}.start"
-                    @keyup.enter="$wire.field === '{{ $idx }}.start' ? $wire.save({{ $idx }}) : null" />
+                    @keyup.enter="$wire.field === '{{ $idx }}.start' ? $wire.save({{ $idx }},'start') : null">
                 @else
-                    <div wire:click="$set('field','{{ $idx }}.end')">
+                    <div wire:click="$set('field','{{ $idx }}.start')">
                         {{ $salaryReview['start'] }}
                     </div>
                 @endif
             </td>
-        
+
             <td>
                 @if ($field === $idx.'.end')
-                    <x-adminlte-input-date 
-                    name="end" 
-                    wire:model.defer="salaryReviews.{{ $idx }}.end" 
-                    @keyup.enter="$wire.field === '{{ $idx }}.end' ? $wire.save({{ $idx }}) : null" />
+                    <input 
+                    type="date"
+                    name="end"
+                    class="form-control"
+                    wire:model.defer="salaryReviews.{{ $idx }}.end"
+                    @keyup.enter="$wire.field === '{{ $idx }}.end' ? $wire.save({{ $idx }},'end') : null">
                 @else
                     <div wire:click="$set('field','{{ $idx }}.end')">
                         {{ $salaryReview['end'] }}

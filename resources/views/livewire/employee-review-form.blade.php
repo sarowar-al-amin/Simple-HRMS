@@ -64,22 +64,6 @@
                 <td class="col-4">
                   {{ $indicators[$i] }}
                 </td>
-    
-                {{-- <td class="col-1">
-                    @if (!$employeeReview || $field === $i.'.behavioural_feedbacks')
-                        <x-adminlte-select
-                        name="behavioural_feedbacks[]"
-                        @click.away="$wire.field === null" >
-                            @for ($j=1; $j<5; $j++)
-                                <option>{{ $j }}</option>
-                            @endfor
-                        </x-adminlte-select>
-                    @else
-                        <div wire:click="$set('field','{{ $i }}.behavioural_feedbacks')">
-                            {{ $behaviouralFeedbacks[$i] }}
-                        </div>
-                    @endif
-                </td> --}}
 
                 <td class="col-1">
                     <x-adminlte-select name="behavioural_feedbacks[]">

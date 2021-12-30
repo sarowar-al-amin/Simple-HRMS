@@ -15,9 +15,9 @@ class CreateSalaryReviewMetadataTable extends Migration
             $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('categorical_feedbacks');
-            $table->string('categorical_justifications');
+            $table->string('categorical_justifications')->nullable();
             $table->string('behavioural_feedbacks');
-            $table->string('behavioural_justifications');
+            $table->string('behavioural_justifications')->nullable();
             $table->string('performance');
             $table->string('promotion');
             $table->string('sbu_comment');

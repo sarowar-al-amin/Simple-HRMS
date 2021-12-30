@@ -18,7 +18,7 @@ class SalaryReviews extends Component
     }
 
     protected $listeners = [
-        'refresh' => '$refresh'
+        'salaryReviewAdded' => 'foo'
     ];
 
     protected $rules = [
@@ -29,17 +29,23 @@ class SalaryReviews extends Component
         'salaryReviews.*.id' => 'id',
     ];
 
+    public function foo(){
+        $this->salaryReviews = SalaryReview::all()->toArray();
+    }
+
     public function edit($idx, $field) {
         $this->field = $idx.'.'.$field ;
     }
 
-    public function save($idx) {
+    public function save($idx, $field) {
         $this->validate();
 
         $salaryReview = $this->salaryReviews[$idx] ?? NULL;
 
         if(! is_null($salaryReview)) {
-            SalaryReview::find($salaryReview['id'])?->update($salaryReview);
+            SalaryReview::find($salaryReview['id'])?->update([
+                $field => $salaryReview[$field]
+            ]);
         }
 
         $this->index = null;

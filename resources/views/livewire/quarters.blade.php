@@ -8,10 +8,6 @@
         
             <td>
                 @if ($field === $idx.'.start')
-                    {{-- <x-adminlte-input
-                    name="start"  
-                    wire:model.defer="quarters.{{ $idx }}.start"
-                    @keyup.enter="$wire.field === '{{ $idx }}.start' ? $wire.save({{ $idx }}) : null" /> --}}
                     <input 
                     type="date"
                     name="start"

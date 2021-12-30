@@ -301,7 +301,7 @@ return [
         [
             'text' => 'PMS',
             'can' => 'admin',
-            'icon' => 'fas fa-fw fa-eye',
+            'icon' => 'fas fa-fw fa-balance-scale',
             'submenu' => [
                 [
                     'text' => 'Quarters',
@@ -318,7 +318,7 @@ return [
         [
             'text' => 'Import File',
             'can' => 'admin',
-            'icon' => 'fas fa-fw fa-eye',
+            'icon' => 'fas fa-fw fa-download',
             'submenu' => [
                 [
                     'text' => 'Import Employee Excel',
