@@ -10,11 +10,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->numerify('BS0###'),
+            'id' => $this->faker->unique()->numerify('BS0Support###'),
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'email' => 'admin@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'role' => 'admin',
+            'role' => 'Admin',
             'state' => 'active',
             'remember_token' => Str::random(10),
 
