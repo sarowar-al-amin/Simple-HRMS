@@ -7,6 +7,7 @@ use App\Models\EmployeeLevel;
 use App\Models\SalaryReview;
 use App\Models\SalaryReviewMetadata;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,10 +17,13 @@ class EmployeeReviewController extends Controller
 
         $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get() : User::where('pm', Auth::user()->name)->get();
         $reviews = array_map(fn ($employee) => SalaryReviewMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
+        $lastDate = SalaryReview::first()->end;
+        //dd($lastDate);
         return view('employee-reviews.index',[
             'headings' => ['ID', 'Name', 'SBU Reviewed', 'PM Reviewd', 'Actions'],
             'employees' => $employees,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'expired' => Carbon::createFromFormat('j M Y', $lastDate)->lt(today())
         ]);
     }
 
