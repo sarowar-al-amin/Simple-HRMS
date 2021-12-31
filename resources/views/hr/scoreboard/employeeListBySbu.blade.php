@@ -82,7 +82,7 @@
           <table  class="table table-hover">
               @php
                   $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
-                              'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
+                              'Salary Review', 'Bonus Review', 'Total Experience', 'Employee category',	'PM',
                               'Blood Group', 'Designation',	'Level', 'Team', 'Actions'];
               @endphp
               <thead>

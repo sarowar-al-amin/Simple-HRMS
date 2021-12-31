@@ -15,7 +15,7 @@ class EmployeeReviewController extends Controller
 {
     public function index() {
         if(Auth::user()->role === 'Admin'){
-            $employees = User::all();
+            $employees = User::all()->sortBy('sbu');
         }
         else{
             $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get() : User::where('pm', Auth::user()->name)->get();
@@ -24,7 +24,7 @@ class EmployeeReviewController extends Controller
         $lastDate = SalaryReview::first()->end;
         //dd($lastDate);
         return view('employee-reviews.index',[
-            'headings' => ['ID', 'Name', 'SBU', 'SBU Reviewed', 'PM Reviewd', 'Actions'],
+            'headings' => ['ID', 'Name', 'Salary Review', 'Bonus Review', 'SBU', 'SBU Reviewed', 'PM Reviewd', 'Actions'],
             'employees' => $employees,
             'reviews' => $reviews,
             'expired' => Carbon::createFromFormat('j M Y', $lastDate)->lt(today())

@@ -135,7 +135,7 @@
                     @endif
                 </td>
     
-                <td>
+                {{-- <td>
                     @if ($field === $idx.'.career_start_date')
                         <x-adminlte-input 
                         name="career_start_date" 
@@ -146,7 +146,7 @@
                             {{ $employee['career_start_date'] }}
                         </div>
                     @endif
-                </td>
+                </td> --}}
     
                 <td>
                     1 year 2 months

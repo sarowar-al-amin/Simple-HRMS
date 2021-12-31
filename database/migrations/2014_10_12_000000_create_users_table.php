@@ -44,7 +44,8 @@ class CreateUsersTable extends Migration
             $table->string('blood_group')->nullable();
             $table->integer('engagement')->nullable();
 
-            $table->string('eligibility')->nullable();
+            $table->string('eligible_salary_review')->nullable();
+            $table->string('eligible_bonus_review')->nullable();
 
             $table->string('last_performance')->nullable();
             $table->string('second_last_performance')->nullable();

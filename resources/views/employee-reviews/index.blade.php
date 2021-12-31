@@ -12,6 +12,9 @@
 
             <thead>
                 @foreach ($headings as $heading)
+                    @if (auth()->user()->role !== 'Admin' && $heading === 'SBU')
+                        @continue
+                    @endif
                     <th>{{ $heading }}</th>
                 @endforeach
             </thead>
@@ -21,7 +24,11 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
-                        <td>{{ $employee->sbu }}</td>
+                        <td>{{ $employee->eligible_salary_review }}</td>
+                        <td>{{ $employee->eligible_bonus_review }}</td>
+                        @if (auth()->user()->role === 'Admin')
+                            <td>{{ $employee->sbu }}</td>
+                        @endif
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['sbu'])
                                 <i class="fas fa-check-circle text-xl text-green"></i>

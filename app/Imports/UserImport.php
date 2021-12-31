@@ -74,14 +74,12 @@ class UserImport implements
                 'engagement' => $row['engagement'],
                 'last_performance' => $row['performance_21b'],
                 'second_last_performance' => $row['performance_21a'],
-                'eligibility' => $row['eligibility'],
+                //'eligibility' => $row['eligibility'],
+                'eligible_salary_review' => $row['eligible_salary_review'],
+                'eligible_bonus_review' => $row['eligible_bonus_review'],
                 'last_promotion' => $row['promotion_21b'],
                 'second_last_promotion' => $row['promotion_21a'],
                 // 'comments' => $row['comments'],
-                'plan_1' => $row['plan_1'],
-                'plan_2' => $row['plan_2'],
-                'current_status' => $row['current_status'],
-                'available_from' => $row['available_from'],
             ]);
         }
     }
