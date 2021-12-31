@@ -5,6 +5,7 @@ namespace App\Imports;
 
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Importable;
@@ -68,13 +69,14 @@ class UserImport implements
                 // 'joining_date' => $row['joining_date'],
                 // 'confirmation_date' => $row['confirmation_date'],
                 // 'career_start_date' => $row['career_start_date'],
+                'experience' => $row['total_experience'],
                 'blood_group' => $row['blood_group'],
                 'engagement' => $row['engagement'],
-                'last_performance' => $row['last_performance'],
-                'second_last_performance' => $row['second_last_performance'],
+                'last_performance' => $row['performance_21b'],
+                'second_last_performance' => $row['performance_21a'],
                 'eligibility' => $row['eligibility'],
-                'last_promotion' => $row['last_promotion'],
-                'second_last_promotion' => $row['second_last_promotion'],
+                'last_promotion' => $row['promotion_21b'],
+                'second_last_promotion' => $row['promotion_21a'],
                 // 'comments' => $row['comments'],
                 'plan_1' => $row['plan_1'],
                 'plan_2' => $row['plan_2'],

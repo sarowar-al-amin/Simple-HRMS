@@ -15,7 +15,9 @@ class EmployeeReviewForm extends Component
     public $performence,$promotion;
 
     public function mount() {
+
         $this->employeeReview = SalaryReviewMetadata::where('user_id', $this->employee->id)->first();
+        
         if($this->employeeReview) {
             $this->behaviouralFeedbacks = explode('#', $this->employeeReview->behavioural_feedbacks);
             $this->categoricalFeedbacks = explode('#', $this->employeeReview->categorical_feedbacks);
@@ -25,7 +27,7 @@ class EmployeeReviewForm extends Component
     }
 
     public function render()
-    {
+    {      
         return view('livewire.employee-review-form');
     }
 }

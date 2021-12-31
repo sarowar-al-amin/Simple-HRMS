@@ -38,9 +38,11 @@
                         </td>
                         
                         <td>
-                            <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
-                                <x-adminlte-button theme="dark" label="Review" icon="fas fa-eye"/>
-                            </a>
+                            @if (auth()->user()->role === 'SBU' || is_null($reviews[$i]) || is_null($reviews[$i]['pm']))
+                                <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
+                                    <x-adminlte-button theme="dark" label="Review" icon="fas fa-eye"/>
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

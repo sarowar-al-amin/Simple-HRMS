@@ -11,12 +11,5 @@ class SalaryReviewMetadata extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
-        'categorical_feedbacks' => 'array',
-        'categorical_justifications' => 'array',
-        'behavioural_feedbacks' => 'array',
-        'behavioural_justifications' => 'array',
-    ];
-
     public $timestamps = false;
 }
