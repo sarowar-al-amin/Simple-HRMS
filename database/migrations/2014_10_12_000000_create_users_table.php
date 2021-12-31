@@ -39,6 +39,7 @@ class CreateUsersTable extends Migration
             $table->date('joining_date')->nullable();
             $table->date('confirmation_date')->nullable();
             $table->date('career_start_date')->nullable();
+            $table->string('experience')->nullable();
 
             $table->string('blood_group')->nullable();
             $table->integer('engagement')->nullable();

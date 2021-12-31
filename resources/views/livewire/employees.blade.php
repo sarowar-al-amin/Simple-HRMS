@@ -161,7 +161,7 @@
             </td>
 
             <td>
-                Pm name
+                {{ $employee['pm'] }}
             </td>
 
             <td>

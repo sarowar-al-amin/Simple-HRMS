@@ -24,13 +24,13 @@ class EmployeeReviewController extends Controller
     }
 
     public function create(User $user) {
-
-        $level = EmployeeLevel::find($user->level);
-        $level = EmployeeLevel::find($level->next_level);
+        $currentLevel = EmployeeLevel::find($user->level);
+        $nextLevel = EmployeeLevel::find($currentLevel->next_level);
 
         return view('employee-reviews.create', [
             'employee' => $user,
-            'level' => $level
+            'currentLevel' => $currentLevel,
+            'nextLevel' => $nextLevel
         ]);
     }
 
@@ -40,7 +40,7 @@ class EmployeeReviewController extends Controller
         $pm = null;
         $sr = SalaryReview::firstOrFail();
 
-        if(Auth::user()->role === 2){
+        if(Auth::user()->role === 'SBU'){
             $sbu = Auth::user()->name;
         }
         else{

@@ -27,6 +27,7 @@
                     <td>
                         {{ $categories[$i] }}
                     </td>
+
                     <td>
                         {{ $questions[$i] }}
                     </td>

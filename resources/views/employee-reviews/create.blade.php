@@ -15,22 +15,22 @@
     <x-adminlte-profile-col-item title="Joining Date" text="{{ $employee->joining_date }}" size=4 />
     <x-adminlte-profile-col-item title="Experience" text="Onek" size=4 />
     <x-adminlte-profile-col-item title="Team" text="{{ $employee->team }}" size=4 />
-    <x-adminlte-profile-col-item title="Project Maneger" text="Townim Faisal Choudhury" size=4 />
+    <x-adminlte-profile-col-item title="Project Maneger" text="{{ $employee->pm }}" size=4 />
     <x-adminlte-profile-col-item title="SBU" text="{{ $employee->sbu }}" size=4 />
     <x-adminlte-profile-col-item title="Experience" text="Onek" size=4 />
-    <x-adminlte-profile-col-item title="Current Level" text="{{ $employee->level }}" size=4 />
-    <x-adminlte-profile-col-item title="Next Level" text="IC7" size=4 />
+    <x-adminlte-profile-col-item title="Current Level" text="{{ $currentLevel->id }}" size=4 />
+    <x-adminlte-profile-col-item title="Next Level" text="{{ $nextLevel->id }}" size=4 />
 
     
 
-    <x-adminlte-profile-col-item title="Salary Review" text="Eligible" size=4 />
-    <x-adminlte-profile-col-item title="Bonus Review" text="Eligible" size=4 />
-    <x-adminlte-profile-col-item title="Last Salary Review" text="Eligible" size=4 />
-    <x-adminlte-profile-col-item title="Last Bonus Review" text="Eligible" size=4 />
+    <x-adminlte-profile-col-item title="Salary Review" text="{{ $employee->eligibility }}" size=4 />
+    <x-adminlte-profile-col-item title="Bonus Review" text="{{ $employee->eligibility }}" size=4 />
+    <x-adminlte-profile-col-item title="Last Salary Review" text={{ $employee->last_promotion }} size=4 />
+    <x-adminlte-profile-col-item title="Last Bonus Review" text={{ $employee->last_performance }} size=4 />
     
 </x-adminlte-profile-widget>
     
-<livewire:employee-review-form :employee="$employee" :level="$level" />
+<livewire:employee-review-form :employee="$employee" :level="$nextLevel" />
 
 @stop
 
@@ -41,12 +41,4 @@
 @section('js')
     <livewire:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-    </script>
 @stop
