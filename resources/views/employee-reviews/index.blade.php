@@ -21,6 +21,7 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
+                        <td>{{ $employee->sbu }}</td>
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['sbu'])
                                 <i class="fas fa-check-circle text-xl text-green"></i>

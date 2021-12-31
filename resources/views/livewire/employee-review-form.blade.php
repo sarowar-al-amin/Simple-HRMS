@@ -99,7 +99,7 @@
                 <td colspan="3">
                     <x-adminlte-select name="promotion">
                         @foreach (['Yes', 'No'] as $j)
-                            <option {{ $employeeReview && $promotion==$j ? 'selected' : '' }}>{{ $j }}</option>
+                            <option {{ $employeeReview && $promotion===$j ? 'selected' : '' }}>{{ $j }}</option>
                         @endforeach
                     </x-adminlte-select>
                 </td>
