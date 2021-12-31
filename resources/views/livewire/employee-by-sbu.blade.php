@@ -110,27 +110,27 @@
                 </td>
     
                 <td>
-                    @if ($field === $idx.'.joining_date')
+                    @if ($field === $idx.'.eligible_salary_review')
                         <x-adminlte-input 
-                        name="joining_date" 
-                        wire:model.defer="employees.{{ $idx }}.joining_date" 
-                        @keyup.enter="$wire.field === '{{ $idx }}.joining_date' ? $wire.save({{ $idx }}) : null" />
+                        name="eligible_salary_review" 
+                        wire:model.defer="employees.{{ $idx }}.eligible_salary_review" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.eligible_salary_review' ? $wire.save({{ $idx }}) : null" />
                     @else
-                        <div wire:click="$set('field','{{ $idx }}.joining_date')">
-                            {{ $employee['joining_date'] }}
+                        <div wire:click="$set('field','{{ $idx }}.eligible_salary_review')">
+                            {{ $employee['eligible_salary_review'] }}
                         </div>
                     @endif
                 </td>
     
                 <td>
-                    @if ($field === $idx.'.confirmation_date')
+                    @if ($field === $idx.'.eligible_bonus_review')
                         <x-adminlte-input 
-                        name="confirmation_date" 
-                        wire:model.defer="employees.{{ $idx }}.confirmation_date" 
-                        @keyup.enter="$wire.field === '{{ $idx }}.confirmation_date' ? $wire.save({{ $idx }}) : null" />
+                        name="eligible_bonus_review" 
+                        wire:model.defer="employees.{{ $idx }}.eligible_bonus_review" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.eligible_bonus_review' ? $wire.save({{ $idx }}) : null" />
                     @else
-                        <div wire:click="$set('field','{{ $idx }}.confirmation_date')">
-                            {{ $employee['confirmation_date'] }}
+                        <div wire:click="$set('field','{{ $idx }}.eligible_bonus_review')">
+                            {{ $employee['eligible_bonus_review'] }}
                         </div>
                     @endif
                 </td>

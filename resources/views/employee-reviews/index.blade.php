@@ -7,12 +7,12 @@
 
 @section('content')
     
-    <div class="table-responsive">
+    <div class="table responsive overflow-auto">
         <table class="table table-hover">
 
             <thead>
                 @foreach ($headings as $heading)
-                    @if (auth()->user()->role !== 'Admin' && $heading === 'SBU')
+                    @if (auth()->user()->role !== 'Admin' && ($heading === 'SBU' || $heading === 'Performance' || $heading  === 'Promotion' || $heading === 'Comments'))
                         @continue
                     @endif
                     <th>{{ $heading }}</th>
@@ -24,16 +24,27 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
-                        <td>{{ $employee->eligible_salary_review }}</td>
-                        <td>{{ $employee->eligible_bonus_review }}</td>
-                        @if (auth()->user()->role === 'Admin')
-                            <td>{{ $employee->sbu }}</td>
-                        @endif
+                        <td>
+                            @if ($employee->eligible_salary_review === 'Eligible')
+                                <i class="fas fa-check-circle text-xl text-green"></i>
+                            @else
+                                <i class="fas fa-times-circle text-xl text-red"></i>
+                            @endif
+                        </td>
+
+                        <td>
+                            @if ($employee->eligible_bonus_review === 'Eligible')
+                                <i class="fas fa-check-circle text-xl text-green"></i>
+                            @else
+                                <i class="fas fa-times-circle text-xl text-red"></i>
+                            @endif
+                        </td>
+                        
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['sbu'])
                                 <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
-                            <i class="fas fa-times-circle text-xl text-red"></i>
+                                <i class="fas fa-times-circle text-xl text-red"></i>
                             @endif
                         </td>
 
@@ -44,7 +55,14 @@
                             <i class="fas fa-times-circle text-xl text-red"></i>
                             @endif
                         </td>
-                        
+
+                        @if (auth()->user()->role === 'Admin')
+                            <td>{{ $employee->sbu }}</td>
+                            <td>{{ $reviews[$i] ? $reviews[$i]['performance'] : '' }}</td>
+                            <td>{{ $reviews[$i] ? $reviews[$i]['promotion'] : '' }}</td>
+                            <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>
+                        @endif
+
                         <td>
                             @if ($expired===false && (auth()->user()->role === 'SBU' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))
                                 <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
@@ -62,6 +80,11 @@
 @stop
 
 @section('css')
+    <style>
+        th, td {
+            white-space: nowrap;
+        }
+    </style>
     <livewire:styles />
 @stop
 
