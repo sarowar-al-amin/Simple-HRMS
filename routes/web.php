@@ -13,6 +13,7 @@ use App\Http\Controllers\EmployeeReviewController;
 use App\Http\Controllers\ExcelLevelImport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExcelExportController;
 
 
 
@@ -56,3 +57,5 @@ Route::post('employee-reviews/store/{user}', [EmployeeReviewController::class, '
 
 Route::get('/add_level', [ExcelLevelImport::class, 'index'])->name('levelImport');
 Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
+
+Route::get('/export/salary_review', [ExcelExportController::class, 'exportIntoExcel']);

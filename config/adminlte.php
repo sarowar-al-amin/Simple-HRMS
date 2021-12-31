@@ -339,7 +339,7 @@ return [
             'route' => 'employee-levels',
         ],
         [
-            'text' => 'Review Employees',
+            'text' => 'Employee Review',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employee-reviews.index',
             'can' => 'review-employees'
