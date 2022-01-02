@@ -318,18 +318,31 @@ return [
         [
             'text' => 'Import File',
             'can' => 'admin',
-            'icon' => 'fas fa-fw fa-download',
+            'icon' => 'fas fa-fw fa-upload',
             'submenu' => [
                 [
                     'text' => 'Import Employee Excel',
-                    'icon' => 'fas fa-fw fa-layer-group',
+                    'icon' => 'fas fa-fw fa-upload',
                     'route' => 'employeeImport',
                 ],
                 [
                     'text' => 'Import Level',
-                    'icon' => 'fas fa-fw fa-layer-group',
+                    'icon' => 'fas fa-fw fa-upload',
                     'route' => 'levelImport',
                     // 'can' => 'review-employees'
+                ]
+            ]
+        ],
+        [
+            'text' => 'Export File',
+            'can' => 'admin',
+            'icon' => 'fas fa-fw fa-download',
+            'can' => 'Admin',
+            'submenu' => [
+                [
+                    'text' => 'Salary Review',
+                    'icon' => 'fas fa-fw fa-download',
+                    'route' => 'exportFile',
                 ]
             ]
         ],

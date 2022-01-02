@@ -59,3 +59,4 @@ Route::get('/add_level', [ExcelLevelImport::class, 'index'])->name('levelImport'
 Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
 
 Route::get('/export/salary_review', [ExcelExportController::class, 'exportIntoExcel']);
+Route::get('/export/file', [ExcelExportController::class, 'index'])->name('exportFile');
