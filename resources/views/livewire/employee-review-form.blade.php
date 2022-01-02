@@ -125,7 +125,7 @@
             </tr>
             @if (auth()->user()->role === 'PM')
                 <tr>
-                    <td colspan="4" text="red">
+                    <td class="alert alert-danger" colspan="4">
                         You can't review this employee again once you've submitted the form
                     </td>
                 </tr>
