@@ -27,7 +27,7 @@ class Quarter extends Model
     }
 
 
-    public function salaryReview(){
-        return $this->hasOne(SalaryReview::class);
-    }
+    // public function salaryReview(){
+    //     return $this->hasOne(SalaryReview::class);
+    // }
 }

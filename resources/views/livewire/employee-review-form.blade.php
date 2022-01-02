@@ -2,15 +2,13 @@
 
     @csrf
 
-    {{-- @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
+    <div class="alert alert-danger">
+        All categorical feedback fields must be selected
+    </div>
+
+    <div class="alert alert-danger">
+        All behavioural feedback fields must be selected
+    </div>
 
 
     <table class="table table-hover">

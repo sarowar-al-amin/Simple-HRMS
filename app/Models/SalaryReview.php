@@ -26,7 +26,7 @@ class SalaryReview extends Model
         return Carbon::createFromFormat('Y-m-d',$value)->format('j M Y');
     }
 
-    public function quarter(){
-        return $this->belongsTo(Quarter::class);
-    }
+    // public function quarter(){
+    //     return $this->belongsTo(Quarter::class);
+    // }
 }

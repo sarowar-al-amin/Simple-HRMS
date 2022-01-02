@@ -11,7 +11,7 @@ class CreateSalaryReviewMetadataTable extends Migration
         Schema::create('salary_review_metadata', function (Blueprint $table) {
             $table->id();
             $table->string('salary_review_id');
-            $table->foreign('salary_review_id')->references('id')->on('salary_reviews');
+            $table->foreign('salary_review_id')->references('id')->on('salary_reviews')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('categorical_feedbacks');
