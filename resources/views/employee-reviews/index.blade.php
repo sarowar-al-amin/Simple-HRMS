@@ -6,6 +6,10 @@
 @stop
 
 @section('content')
+
+    @if(session()->has('flash'))
+        <x-adminlte-alert class="m-3" theme="success" title="{{ session()->get('flash') }}" dismissable />
+    @endif
     
     <div class="table responsive overflow-auto">
         <table class="table table-hover">
@@ -24,21 +28,8 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
-                        <td>
-                            @if ($employee->eligible_salary_review === 'Eligible')
-                                <i class="fas fa-check-circle text-xl text-green"></i>
-                            @else
-                                <i class="fas fa-times-circle text-xl text-red"></i>
-                            @endif
-                        </td>
-
-                        <td>
-                            @if ($employee->eligible_bonus_review === 'Eligible')
-                                <i class="fas fa-check-circle text-xl text-green"></i>
-                            @else
-                                <i class="fas fa-times-circle text-xl text-red"></i>
-                            @endif
-                        </td>
+                        <td>{{ $employee->eligible_salary_review }}</td>
+                        <td>{{ $employee->eligible_salary_review }}</td>
                         
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['sbu'])
