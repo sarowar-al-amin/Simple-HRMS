@@ -53,8 +53,6 @@ class EmployeeReviewController extends Controller
             'sbu_comment' => ['required']
         ]);
 
-        dd(request()->all());
-
         $sbu = null;
         $pm = null;
         $sr = SalaryReview::firstOrFail();
