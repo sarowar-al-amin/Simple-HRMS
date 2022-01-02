@@ -14,6 +14,9 @@ class ExcelExportController extends Controller
     }
     //
     public function exportIntoExcel(){
+        if(!Gate::allows('admin', auth()->user())){
+            abrot(403);
+        }
         return Excel::download(new SalaryReview, 'salaryReview.xlsx');
     }
 

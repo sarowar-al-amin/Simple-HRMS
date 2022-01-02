@@ -14,15 +14,16 @@
     <div class="card-body">
         <div align="center" style="padding-top:50px;">
             <form action="{{url('/upload/employee-excel')}}" method="POST" enctype="multipart/form-data">
-                {{-- <!-- {{url('upload_doctor')}} --> --}}
                 @csrf
-                <div style="padding:15px;">
-                    <label>Enter employee list file</label>
-                    <input type="file" name="file" style="color:black;" placeholder="Enter employee file" required="">
-                </div>
-                <div style="padding:15px;">
-                    <input type="submit" class="btn btn-success">
-                </div>
+                @if ((auth()->user() && auth()->user()->role === 'Admin'))
+                    <div style="padding:15px;">
+                        <label>Enter employee list file</label>
+                        <input type="file" name="file" style="color:black;" placeholder="Enter employee file" required="">
+                    </div>
+                    <div style="padding:15px;">
+                        <input type="submit" class="btn btn-success">
+                    </div>
+                @endif 
             </form>
         </div>
     </div>

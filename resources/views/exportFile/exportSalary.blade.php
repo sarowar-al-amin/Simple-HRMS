@@ -15,9 +15,11 @@
         <div align="center" style="padding-top:50px;">
             <form action="{{url('/export/salary_review')}}" method="GET" enctype="multipart/form-data">
                 @csrf
-                <div style="padding:15px;">
-                    <input type="submit" class="btn btn-success">
-                </div>
+                @if (auth()->user() && auth()->user()->role === 'Admin')
+                    <div style="padding:15px;">
+                        <input type="submit" class="btn btn-success">
+                    </div>
+                @endif
             </form>
         </div>
     </div>
