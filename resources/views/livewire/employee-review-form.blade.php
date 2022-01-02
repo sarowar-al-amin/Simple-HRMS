@@ -1,6 +1,17 @@
-<form action={{ route('employee-reviews.store', ['user' => $employee]) }} method="POST">
+<form action={{ route('employee-reviews.store', ['user' => $employee]) }} method="POST" encType="multipart/form-data">
 
     @csrf
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 
     <table class="table table-hover">
 
@@ -34,6 +45,7 @@
 
                     <td>
                         <x-adminlte-select name="categorical_feedbacks[]">
+                            <option selected disabled>Please select an option</option>
                             @foreach (['Yes', 'No'] as $j)
                                 <option {{ $employeeReview && $categoricalFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
                             @endforeach
@@ -54,11 +66,7 @@
                 @if (! $i)
                     <th class="col-2" rowspan="8">
                         <h3>Behaviour</h3>
-                        <ol>
-                            <li>Soft skills</li>
-                            <li>Team feedback on attitude</li>
-                            <li>Ownership</li>
-                        </ol>
+                        <h5>values range from 1 to 4</h5>
                     </th>
                 @endif
     
@@ -66,10 +74,11 @@
                   {{ $indicators[$i] }}
                 </td>
 
-                <td class="col-1">
+                <td class="col-2">
                     <x-adminlte-select name="behavioural_feedbacks[]">
+                        <option selected disabled>Please select an option</option>
                         @for ($j=1; $j<5; $j++)
-                            <option {{ $employeeReview && $behaviouralFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
+                            <option value="{{ $j }}" {{ $employeeReview && $behaviouralFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
                         @endfor
                     </x-adminlte-select>
                 </td>
@@ -87,6 +96,7 @@
                 <th colspan="1">Performance</th>
                 <td colspan="3">
                     <x-adminlte-select name="performance">
+                        <option selected disabled>Please select an option</option>
                         @foreach ($performances as $j)
                             <option {{ $employeeReview && $performance===$j ? 'selected' : '' }}>{{ $j }}</option>
                         @endforeach
@@ -98,6 +108,7 @@
                 <th colspan="1">Promotion</th>
                 <td colspan="3">
                     <x-adminlte-select name="promotion">
+                        <option selected disabled>Please select an option</option>
                         @foreach (['Yes', 'No'] as $j)
                             <option {{ $employeeReview && $promotion===$j ? 'selected' : '' }}>{{ $j }}</option>
                         @endforeach
@@ -111,8 +122,15 @@
                     <x-adminlte-textarea name="sbu_comment" />
                 </td>
             </tr>
+            @if (auth()->user()->role === 'PM')
+                <tr>
+                    <td colspan="4" text="red">
+                        You can't review this employee again once you've submitted the form
+                    </td>
+                </tr>
+            @endif
             <tr>
-                <td colspan="4">
+                <td>
                     <x-adminlte-button type="submit" label="Submit" theme="dark" />
                 </td>
             </tr>

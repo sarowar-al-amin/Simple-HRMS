@@ -44,6 +44,14 @@ class EmployeeReviewController extends Controller
 
     public function store(Request $request,User $user) {
 
+        $data = $request->validate([
+            'categorical_feedbacks.*' => ['required'],
+            'behavioural_feedbacks.*' => ['required'],
+            'promotion' => ['required'],
+            'performance' => ['required'],
+            'sbu_comment' => ['required']
+        ]);
+
         $sbu = null;
         $pm = null;
         $sr = SalaryReview::firstOrFail();
@@ -73,6 +81,8 @@ class EmployeeReviewController extends Controller
             'pm' => $pm
         ]);
 
-        return redirect()->route('employee-reviews.index');
+
+
+        return redirect()->route('employee-reviews.index')->with('flash', 'review successfully submitted');
     }
 }
