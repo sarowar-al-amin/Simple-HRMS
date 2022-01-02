@@ -337,7 +337,7 @@ return [
             'text' => 'Export File',
             'can' => 'admin',
             'icon' => 'fas fa-fw fa-download',
-            'can' => 'Admin',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text' => 'Salary Review',
