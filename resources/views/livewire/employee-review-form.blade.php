@@ -1,8 +1,8 @@
-<form action={{ route('employee-reviews.store', ['user' => $employee]) }} method="POST" encType="multipart/form-data">
+<form id="reviewForm" action={{ route('employee-reviews.store', ['user' => $employee]) }} method="POST" encType="multipart/form-data">
 
     @csrf
 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -10,7 +10,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 
 
     <table class="table table-hover">
@@ -66,7 +66,8 @@
                 @if (! $i)
                     <th class="col-2" rowspan="8">
                         <h3>Behaviour</h3>
-                        <h5>values range from 1 to 4</h5>
+                        <h5>1 minimum</h5>
+                        <h5>4 maximum</h5>
                     </th>
                 @endif
     
@@ -131,7 +132,10 @@
             @endif
             <tr>
                 <td>
-                    <x-adminlte-button type="submit" label="Submit" theme="dark" />
+                    <x-adminlte-button onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="dark" />
+                </td>
+                <td>
+                    <x-adminlte-button onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="dark" />
                 </td>
             </tr>
         </tbody>

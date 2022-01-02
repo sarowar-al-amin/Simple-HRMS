@@ -14,8 +14,7 @@ use App\Http\Controllers\ExcelLevelImport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelExportController;
-
-
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -35,7 +34,8 @@ Route::resource('salary-reviews', SalaryReviewController::class);
 Route::get('sbus/index/{salaryreview}', [SBUController::class, 'index'])->name('sbus.index');
 Route::get('sbu/show/{salaryreview}/{sbu}', [SBUController::class, 'show'])->name('sbus.show');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::put('/home', [HomeController::class, 'changePassword'])->name('change-password');
 
 Route::get('level-hierarchy/index', [EmployeeLevelController::class, 'index'])->name('employee-levels');
 

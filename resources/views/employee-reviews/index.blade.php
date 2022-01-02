@@ -55,7 +55,7 @@
                         @endif
 
                         <td>
-                            @if ($expired===false && (auth()->user()->role === 'SBU' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))
+                            @if ($expired===false && (auth()->user()->role === 'SBU' || auth()->user()->role === 'Admin' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))
                                 <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
                                     <x-adminlte-button theme="dark" label="Review" icon="fas fa-eye"/>
                                 </a>

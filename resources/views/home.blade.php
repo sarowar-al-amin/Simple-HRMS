@@ -7,11 +7,21 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <form action="{{ route('change-password') }}" method="POST">
+
+        @csrf
+        @method('PUT')
+
+        <x-adminlte-input name="old_password" label="Old Password" />
+        <x-adminlte-input name="password" label="Change Password" />
+        <x-adminlte-input name="confirm_password" label="Confirm Password" />
+
+        <x-adminlte-button class="btn btn-flat" type="submit" label="Submit" theme="dark" />
+
+    </form>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')

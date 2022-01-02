@@ -45,12 +45,15 @@ class EmployeeReviewController extends Controller
     public function store(Request $request,User $user) {
 
         $data = $request->validate([
-            'categorical_feedbacks.*' => ['required'],
-            'behavioural_feedbacks.*' => ['required'],
+
+            'categorical_feedbacks' => ['required'],
+            'behavioural_feedbacks' => ['required'],
             'promotion' => ['required'],
             'performance' => ['required'],
             'sbu_comment' => ['required']
         ]);
+
+        dd(request()->all());
 
         $sbu = null;
         $pm = null;
@@ -59,7 +62,7 @@ class EmployeeReviewController extends Controller
         if(Auth::user()->role === 'SBU'){
             $sbu = Auth::user()->name;
         }
-        else{
+        else if(Auth::user()->role === 'PM'){
             $pm = Auth::user()->name;
         }
 
