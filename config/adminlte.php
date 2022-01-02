@@ -294,6 +294,7 @@ return [
                     'icon' => 'fas fa-fw fa-list',
                     'text' => 'Employee List',
                     'route'  => 'employees.index',
+                    'can' => 'admin',
 
                 ],
             ],
@@ -370,6 +371,7 @@ return [
         [
             'text' => 'Resource Utilization',
             'icon' => 'fas fa-fw fa-list',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text' => 'Employee Scoreboard',

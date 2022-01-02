@@ -5,57 +5,62 @@
 
 
 @section('content_header')
-    <h1>{{$title}}</h1>
-    <div class="row">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3>{{$total}}</h3>
+    @if ((auth()->user() && auth()->user()->role === 'Admin'))
+      <h1>{{$title}}</h1>
+      <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$total}}</h3>
 
-              <p>Total Employee</p>
+                <p>Total Employee</p>
+              </div>
+              {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
             </div>
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3>{{$trainee}}</h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{$trainee}}</h3>
 
-              <p>Total Trainee</p>
+                <p>Total Trainee</p>
+              </div>
+              {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
             </div>
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>{{$work}}</h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$work}}</h3>
 
-              <p>Total Non-billable</p>
+                <p>Total Non-billable</p>
+              </div>
+              {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
             </div>
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>{{$bench}}</h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{$bench}}</h3>
 
-              <p>Bench</p>
+                <p>Bench</p>
+              </div>
+              {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
             </div>
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
-        </div>
-        <!-- ./col -->
-    </div>
+          <!-- ./col -->
+      </div>
+    @else
+      <h2 align="center">You are unauthorized to access this page</h2>
+    @endif
+
 
 @stop
 

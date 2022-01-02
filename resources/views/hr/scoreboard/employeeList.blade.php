@@ -5,13 +5,8 @@
 
 
 @section('content_header')
+  @if ((auth()->user() && auth()->user()->role === 'Admin'))
     <h1>{{$title}}</h1>
-{{-- 
-    <h6>Total Employee: {{$total}}</h6>
-    <h6>Total Trainee: {{$trainee}}</h6>
-    <h6>Total Non-billable: {{$work}}</h6>
-    <h6>Bench: {{$bench}}</h6>
-     --}}
     <div class="row">
         <div class="col-lg-3 col-6">
           <!-- small box -->
@@ -74,13 +69,14 @@
         </div>
         <!-- ./col -->
     </div>
-
+  @endif
 @stop
 
 @section('content')
 <div class="card">
     <!-- /.card-header -->
-    <div class="card-body">
+    @if ((auth()->user() && auth()->user()->role === 'Admin'))
+      <div class="card-body">
         <h3>SBU List</h3>
         <ul>
             <li>
@@ -111,7 +107,11 @@
               <livewire:scoreboard />
           </table>
       </div>
-    </div>
+    @else
+      <h2 align="center">You are unauthorized to access this page</h2>
+    @endif
+
+  </div>
     <!-- /.card-body -->
 <!-- /.card -->
 @stop

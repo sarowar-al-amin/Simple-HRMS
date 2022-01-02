@@ -19,6 +19,8 @@
                     <div style="padding:15px;">
                         <input type="submit" class="btn btn-success">
                     </div>
+                @else 
+                    <h2 align="center">You are unauthorized to access this page</h2>
                 @endif
             </form>
         </div>
