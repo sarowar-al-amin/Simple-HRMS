@@ -44,7 +44,7 @@
                     </td>
 
                     <td>
-                        <x-adminlte-select name="categorical_feedbacks[]">
+                        <x-adminlte-select name="categorical_feedbacks[]" >
                             <option selected disabled>Please select an option</option>
                             @foreach (['Yes', 'No'] as $j)
                                 <option {{ $employeeReview && $categoricalFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
@@ -79,7 +79,7 @@
                     <x-adminlte-select name="behavioural_feedbacks[]">
                         <option selected disabled>Please select an option</option>
                         @for ($j=1; $j<5; $j++)
-                            <option value="{{ $j }}" {{ $employeeReview && $behaviouralFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
+                            <option {{ $employeeReview && $behaviouralFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
                         @endfor
                     </x-adminlte-select>
                 </td>

@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeReviewController extends Controller
 {
@@ -45,9 +46,8 @@ class EmployeeReviewController extends Controller
     public function store(Request $request,User $user) {
 
         $data = $request->validate([
-
-            'categorical_feedbacks' => ['required'],
-            'behavioural_feedbacks' => ['required'],
+            'categorical_feedbacks' => ['required', 'array', 'min:6'],
+            'behavioural_feedbacks' => ['required', 'array', 'min:8'],
             'promotion' => ['required'],
             'performance' => ['required'],
             'sbu_comment' => ['required']

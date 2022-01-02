@@ -12,9 +12,9 @@
         @csrf
         @method('PUT')
 
-        <x-adminlte-input name="old_password" label="Old Password" />
-        <x-adminlte-input name="password" label="Change Password" />
-        <x-adminlte-input name="confirm_password" label="Confirm Password" />
+        <x-adminlte-input type="password" name="old_password" label="Old Password" />
+        <x-adminlte-input type="password" name="password" label="Change Password" />
+        <x-adminlte-input type="password" name="confirm_password" label="Confirm Password" />
 
         <x-adminlte-button class="btn btn-flat" type="submit" label="Submit" theme="dark" />
 
