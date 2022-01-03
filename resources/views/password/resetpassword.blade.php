@@ -32,6 +32,22 @@
                 @endif
             </form>
         </div>
+
+    </div>
+    <div class="card-body">
+        <h4>Reset all users password </h4>
+        <div align="center" style="padding-top:50px;">
+            <form action="{{url('/password/resetAll')}}" method="Get" enctype="multipart/form-data">
+                @csrf
+                @if (auth()->user() && auth()->user()->role === 'Admin')
+                    <div style="padding:15px;">
+                        <input type="submit" class="btn btn-success">
+                    </div>
+                @else 
+                    <h2 align="center">You are unauthorized to access this page</h2>
+                @endif
+            </form>
+        </div>   
     </div>
     <!-- /.card-body -->
 </div>
