@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form id="#passwordForm" action="{{ route('change-password') }}" method="POST">
+    <form id="passwordForm" action="{{ route('change-password') }}" method="POST">
 
         @csrf
         @method('PUT')
