@@ -7,6 +7,11 @@
 @stop
 
 @section('content')
+@if(session()->has('message'))
+<div class="alert alert-success alert-dismissible">
+    {{ session()->get('message') }}
+</div>
+@endif
     @foreach ($levels as $level)
         <livewire:level-hierarchy.level :level="$level">
     @endforeach
