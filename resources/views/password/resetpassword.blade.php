@@ -13,7 +13,7 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div align="center" style="padding-top:50px;">
-            <form action="{{url('/password/reset')}}" method="PUT" enctype="multipart/form-data">
+            <form action="{{url('/password/reset')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (auth()->user() && auth()->user()->role === 'Admin')
                     <div style="padding:15px;">
