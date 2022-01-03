@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelExportController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PasswordResetController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -60,3 +61,6 @@ Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
 
 Route::get('/export/salary_review', [ExcelExportController::class, 'exportIntoExcel']);
 Route::get('/export/file', [ExcelExportController::class, 'index'])->name('exportFile');
+
+Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
+Route::post('/password/reset/{info}', [PasswordResetController::class, 'resetPassword']);

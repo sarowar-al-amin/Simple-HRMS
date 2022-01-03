@@ -358,6 +358,12 @@ return [
             'route' => 'employee-reviews.index',
             'can' => 'review-employees'
         ],
+        [
+            'text' => 'Password Reset',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'route' => 'passwordreset',
+            'can' => 'admin'
+        ],
         // [
         //     'text'       => 'warning',
         //     'icon_color' => 'yellow',
