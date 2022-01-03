@@ -149,7 +149,7 @@
                 </td> --}}
     
                 <td>
-                    1 year 2 months
+                    {{ $employee['experience'] }}
                 </td>
     
                 <td>
@@ -166,7 +166,35 @@
                 </td>
                 
                 <td>
-                    Pm name
+
+                    @if ($field === $idx.'.pm')
+                    
+                    <x-adminlte-select-bs
+                    
+                    name="pm"
+                    
+                    wire:model.defer="employees.{{ $idx }}.pm"
+                    
+                    @click.away="$wire.field === '{{ $idx }}.pm' ? $wire.save({{ $idx }}) : null" >
+                    
+                    @foreach ($pms as $pm)
+                    
+                    <option value="{{ $pm }}">{{ $pm }}</option>
+                    
+                    @endforeach
+                    
+                    </x-adminlte-select-bs>
+                    
+                    @else
+                    
+                    <div wire:click="$set('field','{{ $idx }}.pm')">
+                    
+                    {{ $employee['pm'] }}
+                    
+                    </div>
+                    
+                    @endif
+                    
                 </td>
     
                 <td>
