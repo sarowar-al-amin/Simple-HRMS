@@ -2,13 +2,19 @@
 
     @csrf
 
-    <div class="alert alert-danger">
+    {{-- <div class="alert alert-danger">
         All categorical feedback fields must be selected
     </div>
 
     <div class="alert alert-danger">
         All behavioural feedback fields must be selected
-    </div>
+    </div> --}}
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+        @endforeach
+    @endif
 
 
     <table class="table table-hover">
@@ -45,7 +51,7 @@
                         <x-adminlte-select name="categorical_feedbacks[]" >
                             <option selected disabled>Please select an option</option>
                             @foreach (['Yes', 'No'] as $j)
-                                <option {{ $employeeReview && $categoricalFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
+                                <option {{ old('categorical_feedbacks.'.$i)==$j || ($employeeReview && $categoricalFeedbacks[$i]==$j) ? 'selected' : '' }}>{{ $j }}</option>
                             @endforeach
                         </x-adminlte-select>
                     </td>
@@ -77,7 +83,7 @@
                     <x-adminlte-select name="behavioural_feedbacks[]">
                         <option selected disabled>Please select an option</option>
                         @for ($j=1; $j<5; $j++)
-                            <option {{ $employeeReview && $behaviouralFeedbacks[$i]==$j ? 'selected' : '' }}>{{ $j }}</option>
+                            <option {{ old('behavioural_feedbacks.'.$i)==$j || ($employeeReview && $behaviouralFeedbacks[$i]==$j) ? 'selected' : '' }}>{{ $j }}</option>
                         @endfor
                     </x-adminlte-select>
                 </td>
