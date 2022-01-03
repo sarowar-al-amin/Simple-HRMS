@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,6 +31,6 @@ class HomeController extends Controller
             'password' => Hash::make($data['password'])
         ]);
 
-        return view('auth.login');
+        return redirect()->route('employee-levels')->with('message', 'password successfully changed');
     }
 }

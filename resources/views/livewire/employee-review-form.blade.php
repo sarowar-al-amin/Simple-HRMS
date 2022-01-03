@@ -2,19 +2,19 @@
 
     @csrf
 
-    {{-- <div class="alert alert-danger">
+    <div class="alert alert-danger">
         All categorical feedback fields must be selected
     </div>
 
     <div class="alert alert-danger">
         All behavioural feedback fields must be selected
-    </div> --}}
+    </div>
 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
         @endforeach
-    @endif
+    @endif --}}
 
 
     <table class="table table-hover">
@@ -124,7 +124,7 @@
             <tr>
                 <th colspan="1">Comments regarding his/her performance</th>
                 <td colspan="3">
-                    <x-adminlte-textarea name="sbu_comment" />
+                    <x-adminlte-textarea name="sbu_comment" placeholder="{{ $comment ?? 'You must make a comment'  }}" />
                 </td>
             </tr>
             @if (auth()->user()->role === 'PM')

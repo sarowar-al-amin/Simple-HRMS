@@ -7,7 +7,14 @@
 @stop
 
 @section('content')
-    <form action="{{ route('change-password') }}" method="POST">
+
+    @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
+    <form id="passwordForm" action="{{ route('change-password') }}" method="POST">
 
         @csrf
         @method('PUT')
@@ -25,5 +32,4 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
 @stop

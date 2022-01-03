@@ -6,7 +6,11 @@
 @stop
 
 @section('content')
-    
+    @if(session()->has('message'))
+        <div class="alert alert-sccess alert-dismissible">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <div class="card overflow-auto">
         <table class="table table-bordered table-striped">
             @php
