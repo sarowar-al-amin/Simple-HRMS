@@ -35,7 +35,7 @@
 
     </div>
     <div class="card-body">
-        <h4>Reset all users password </h4>
+        <h4 align="center">Reset all users password </h4>
         <div align="center" style="padding-top:50px;">
             <form action="{{url('/password/resetAll')}}" method="Get" enctype="multipart/form-data">
                 @csrf
