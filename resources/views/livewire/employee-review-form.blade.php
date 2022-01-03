@@ -2,19 +2,19 @@
 
     @csrf
 
-    {{-- <div class="alert alert-danger">
+    <div class="alert alert-danger">
         All categorical feedback fields must be selected
     </div>
 
     <div class="alert alert-danger">
         All behavioural feedback fields must be selected
-    </div> --}}
+    </div>
 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
         @endforeach
-    @endif
+    @endif --}}
 
 
     <table class="table table-hover">
