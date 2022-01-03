@@ -11,12 +11,13 @@ class QuarterForm extends Component
     public $quarterId, $quarterStart, $quarterEnd;
 
     protected $rules = [
-        'quarterId' => ['required'],
+        'quarterId' => ['required', 'unique:quarters,id'],
         'quarterStart' => ['required'],
         'quarterEnd' => ['required']
     ];
 
     public function addQuarter() {
+
         $this->validate();
 
         Quarter::create([

@@ -1,5 +1,6 @@
 <tr>
     @csrf
+
     <td>
         <input type="text" wire:model="quarterId">
     </td>
