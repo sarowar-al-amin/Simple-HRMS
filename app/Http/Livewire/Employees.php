@@ -9,12 +9,13 @@ class Employees extends Component
 {
     public $index,$field,$sbu;
     public $employees = [];
-    public $sbus,$partners,$hrs,$techs;
+    public $sbus,$partners,$hrs,$techs,$pms;
 
     public function mount() {
         $this->sbus = User::all()->pluck('sbu')->unique()->toArray();
         $this->partners = User::all()->pluck('partner')->unique()->toArray();
         $this->hrs = User::all()->pluck('hr')->unique()->toArray();
+        $this->pms = User::all()->pluck('pm')->unique()->toArray();
     }
 
     protected $rules = [
@@ -56,7 +57,8 @@ class Employees extends Component
             'employees' => $this->employees,
             'partners' => $this->partners,
             'sbus' => $this->sbus,
-            'hrs' => $this->hrs
+            'hrs' => $this->hrs,
+            'pms' => $this->pms
         ]);
     }
 }
