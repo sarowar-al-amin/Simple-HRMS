@@ -12,7 +12,7 @@ class UserFactory extends Factory
         return [
             'id' => $this->faker->unique()->numerify('BS0Support###'),
             'name' => 'Admin',
-            'email' => 'admin1.bs23xyz@gmail.com',
+            'email' => 'hrms@brainstation-23.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'role' => 'Admin',
             'state' => 'active',

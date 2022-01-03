@@ -98,7 +98,7 @@
     
             {{-- Final evaluation --}}
             <tr>
-                <th colspan="1">Performance</th>
+                <th colspan="1">Overall Performance</th>
                 <td colspan="3">
                     <x-adminlte-select name="performance">
                         <option selected disabled>Please select an option</option>
@@ -110,7 +110,7 @@
             </tr>
 
             <tr>
-                <th colspan="1">Promotion</th>
+                <th colspan="1">Recommend for Promotion </th>
                 <td colspan="3">
                     <x-adminlte-select name="promotion">
                         <option selected disabled>Please select an option</option>
@@ -122,7 +122,7 @@
             </tr>
 
             <tr>
-                <th colspan="1">Comment</th>
+                <th colspan="1">Comments regarding his/her performance</th>
                 <td colspan="3">
                     <x-adminlte-textarea name="sbu_comment" />
                 </td>

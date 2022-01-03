@@ -39,8 +39,8 @@
 
 <x-adminlte-card title="Performance History" theme="dark" collapsible="collapsed">
     <x-adminlte-profile-widget>
-        <x-adminlte-profile-row-item title="Salary Review" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
-        <x-adminlte-profile-row-item title="Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/>
+        <x-adminlte-profile-row-item title="Eligibility Salary Review 22A" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
+        <x-adminlte-profile-row-item title="Eligibility for Q2 Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/>
         <x-adminlte-profile-row-item title="Promotional Satus 21A " text="{{ $employee->second_last_promotion ?? 'N/A' }}" size="12"/>
         <x-adminlte-profile-row-item title="Promotional Satus 21B " text="{{ $employee->last_promotion ?? 'N/A' }}" size="12"/>
         <x-adminlte-profile-row-item title="Last Performance Status" text="{{ $employee->last_performance ?? 'N/A' }}" size="12"/>
