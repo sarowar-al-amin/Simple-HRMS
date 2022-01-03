@@ -124,7 +124,7 @@
             <tr>
                 <th colspan="1">Comment</th>
                 <td colspan="3">
-                    <x-adminlte-textarea name="sbu_comment" />
+                    <x-adminlte-textarea name="sbu_comment" placeholder="{{ $comment ?? 'You must make a comment'  }}" />
                 </td>
             </tr>
             @if (auth()->user()->role === 'PM')

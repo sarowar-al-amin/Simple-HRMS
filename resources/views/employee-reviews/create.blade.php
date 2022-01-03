@@ -48,7 +48,7 @@
 </x-adminlte-card>
 
 
-    
+<livewire:next-level-info :level="$nextLevel" />
 <livewire:employee-review-form :employee="$employee" :level="$nextLevel" />
 
 @stop

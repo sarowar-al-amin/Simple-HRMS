@@ -12,7 +12,7 @@ class EmployeeReviewForm extends Component
     public $employeeReview;
     public $behaviouralFeedbacks = [];
     public $categoricalFeedbacks = [];
-    public $performence,$promotion;
+    public $performence,$promotion,$comment;
 
     
     public function mount() {
@@ -24,6 +24,7 @@ class EmployeeReviewForm extends Component
             $this->categoricalFeedbacks = explode('#', $this->employeeReview->categorical_feedbacks);
             $this->performance = $this->employeeReview->performance;
             $this->promotion = $this->employeeReview->promotion;
+            $this->comment = $this->employeeReview->sbu_comment;
         }
     }
 

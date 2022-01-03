@@ -16,9 +16,6 @@
 
             <thead>
                 @foreach ($headings as $heading)
-                    @if (auth()->user()->role !== 'Admin' && ($heading === 'SBU' || $heading === 'Performance' || $heading  === 'Promotion' || $heading === 'Comments'))
-                        @continue
-                    @endif
                     <th>{{ $heading }}</th>
                 @endforeach
             </thead>
@@ -47,12 +44,10 @@
                             @endif
                         </td>
 
-                        @if (auth()->user()->role === 'Admin')
-                            <td>{{ $employee->sbu }}</td>
-                            <td>{{ $reviews[$i] ? $reviews[$i]['performance'] : '' }}</td>
-                            <td>{{ $reviews[$i] ? $reviews[$i]['promotion'] : '' }}</td>
-                            <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>
-                        @endif
+                        <td>{{ $employee->sbu }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['performance'] : '' }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['promotion'] : '' }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>
 
                         <td>
                             @if ($expired===false && (auth()->user()->role === 'SBU' || auth()->user()->role === 'Admin' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))
