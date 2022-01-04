@@ -19,8 +19,8 @@ class PasswordResetController extends Controller
         return redirect()->back();      
     }
 
-    public function resetPasswordAll(){
-        $password = 'password';
+    public function resetPasswordAll(Request $request){
+        $password = $request->password;
         $id = DB::table('users')->update(['password' => Hash::make($password)]); 
         return redirect()->back(); 
     }

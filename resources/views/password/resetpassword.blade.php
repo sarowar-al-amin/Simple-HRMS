@@ -37,9 +37,13 @@
     <div class="card-body">
         <h4 align="center">Reset all users password </h4>
         <div align="center" style="padding-top:50px;">
-            <form action="{{url('/password/resetAll')}}" method="Get" enctype="multipart/form-data">
+            <form action="{{url('/password/resetAll')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (auth()->user() && auth()->user()->role === 'Admin')
+                    <div style="padding:15px;">
+                        <label>New Password</label>
+                        <input type="password" name="password" style="color:black;" placeholder="Type password" required="">
+                    </div>
                     <div style="padding:15px;">
                         <input type="submit" class="btn btn-success">
                     </div>
