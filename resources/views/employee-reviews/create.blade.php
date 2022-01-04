@@ -60,4 +60,33 @@
 @section('js')
     <livewire:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
+    <script>
+        $('#sbtn').hide();
+        var x = 0;
+
+        $("select").each(function () {
+            console.log($(this).val());
+            if($(this).val() !== null) x++;
+            console.log(x);
+        });
+
+        if($('#txtarea').val().trim().length > 0) x++;
+        console.log(x);
+
+        if(x>16) $('#sbtn').show();
+
+        $("select").click(function () {
+            if($(this).val() !== null) x++;
+            console.log(x);
+            if(x>16) $('#sbtn').show();
+        });
+
+        $('#txtarea').change( function() {
+            if($(this).val().trim().length > 0) x++;
+            console.log(x);
+            if(x>16) $('#sbtn').show();
+        });
+        
+
+    </script>
 @stop

@@ -8,8 +8,7 @@
         @endforeach
     @endif --}}
 
-
-    <table x-data="{a: true}" class="table table-hover">
+    <table class="table table-hover">
 
         @php
             $headers = ['Category', 'Indicators', 'Feedback', 'Justification'];
@@ -127,8 +126,8 @@
             <tr>
                 <th colspan="1">Comments regarding his/her performance <span class="text-lg text-red">*</span> </th>
                 <td colspan="3">
-                    <x-adminlte-textarea name="sbu_comment">
-                        {{ $comment ?? 'You must make a comment'  }}
+                    <x-adminlte-textarea id="txtarea" name="sbu_comment">
+                        {{ $comment }}
                     </x-adminlte-textarea>
                 </td>
             </tr>
@@ -143,7 +142,7 @@
                 <td colspan="4">
                     <div class="d-flex justify-content-between">
                         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-                        <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+                        <x-adminlte-button id="sbtn" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
                     </div>
                 </td>
             </tr>
