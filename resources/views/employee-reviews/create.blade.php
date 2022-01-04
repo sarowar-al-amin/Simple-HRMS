@@ -66,6 +66,7 @@
 
         $("select").each(function () {
             if($(this).val() !== null) x++;
+            console.log(x);
         });
 
         if($('#txtarea').val().trim().length > 0) x++;
@@ -74,12 +75,13 @@
 
         $("select").click(function () {
             if($(this).val() !== null) x++;
+            console.log(x);
             if(x>16) $('#sbtn').show();
         });
 
         $('#txtarea').change( function() {
             if($(this).val().trim().length > 0) x++;
-            //console.log(x);
+            console.log(x);
             if(x>16) $('#sbtn').prop('disabled', false);
         });
         
