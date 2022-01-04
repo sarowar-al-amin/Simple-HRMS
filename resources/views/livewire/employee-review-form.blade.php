@@ -142,13 +142,10 @@
             <tr>
                 <td colspan="4">
                     <div class="d-flex justify-content-between">
-                        <x-adminlte-button onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-                        <x-adminlte-button onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+                        <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
+                        <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
                     </div>
                 </td>
-                {{-- <td colspan="2">
-                    <x-adminlte-button onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
-                </td> --}}
             </tr>
         </tbody>
     </table>
