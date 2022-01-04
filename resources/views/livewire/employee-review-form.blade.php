@@ -9,7 +9,7 @@
     @endif --}}
 
 
-    <table class="table table-hover">
+    <table x-data="{a: true}" class="table table-hover">
 
         @php
             $headers = ['Category', 'Indicators', 'Feedback', 'Justification'];
@@ -55,7 +55,7 @@
 
                     <td>
                         <x-adminlte-textarea name="categorical_justifications[]">
-                            {{ $categoricalJustifications[$i] }}
+                            {{ $employeeReview && $categoricalJustifications[$i] }}
                         </x-adminlte-textarea>
                     </td>
                 </tr>
@@ -91,7 +91,7 @@
     
                 <td>
                   <x-adminlte-textarea name="behavioural_justifications[]">
-                      {{ $behaviouralJustifications[$i] }}
+                      {{ $employeeReview && $behaviouralJustifications[$i] }}
                   </x-adminlte-textarea>
                 </td>
     
