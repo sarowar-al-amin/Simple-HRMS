@@ -3,11 +3,7 @@
     @csrf
 
     <div class="alert alert-danger">
-        All categorical feedback fields must be selected
-    </div>
-
-    <div class="alert alert-danger">
-        All behavioural feedback fields must be selected
+        All fields must be filled. Leaving the page without submitting will lose all current progress.
     </div>
 
     {{-- @if ($errors->any())
