@@ -54,7 +54,7 @@
 
                     <td>
                         <x-adminlte-textarea name="categorical_justifications[]">
-                            {{ $employeeReview && $categoricalJustifications[$i] }}
+                            {{ $employeeReview ? $categoricalJustifications[$i] : "" }}
                         </x-adminlte-textarea>
                     </td>
                 </tr>
@@ -90,7 +90,7 @@
     
                 <td>
                   <x-adminlte-textarea name="behavioural_justifications[]">
-                      {{ $employeeReview && $behaviouralJustifications[$i] }}
+                      {{ $employeeReview ? $behaviouralJustifications[$i] : "" }}
                   </x-adminlte-textarea>
                 </td>
     
