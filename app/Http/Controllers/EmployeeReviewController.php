@@ -56,7 +56,7 @@ class EmployeeReviewController extends Controller
         $sr = SalaryReview::firstOrFail();
         $srm = SalaryReviewMetadata::where('salary_review_id', $sr->id)->where('user_id', $user->id)->firstOrFail();
         $sbu = $srm?->sbu;
-        $pm = $srm?->sbu;
+        $pm = $srm?->pm;
 
         if(Auth::user()->role === 'SBU'){
             $sbu = Auth::user()->name;
