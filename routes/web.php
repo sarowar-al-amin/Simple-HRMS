@@ -64,4 +64,4 @@ Route::get('/export/file', [ExcelExportController::class, 'index'])->name('expor
 
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
-Route::get('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
+Route::post('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
