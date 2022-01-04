@@ -2,10 +2,6 @@
 
     @csrf
 
-    <div class="alert alert-danger">
-        All fields must be filled. Leaving the page without submitting will lose all current progress.
-    </div>
-
     {{-- @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
@@ -26,7 +22,12 @@
         {{-- Headers --}}
         <thead>
             @foreach ($headers as $header)
-                <th>{{ $header }}</th>
+                <th>
+                    {{ $header }}
+                    @if ($header === 'Feedback')
+                        <span class="text-lg text-red">*</span>
+                    @endif
+                </th>
             @endforeach
         </thead>
         
@@ -36,7 +37,7 @@
             @for ($i=0; $i<6; $i++)
                 <tr>
                     <td>
-                        {{ $categories[$i] }}
+                        {{ $categories[$i] }} <span class="text-lg text-red">*</span>
                     </td>
 
                     <td>
@@ -53,7 +54,9 @@
                     </td>
 
                     <td>
-                        <x-adminlte-textarea name="categorical_justifications[]" />
+                        <x-adminlte-textarea name="categorical_justifications[]">
+                            {{ $categoricalJustifications[$i] }}
+                        </x-adminlte-textarea>
                     </td>
                 </tr>
             @endfor
@@ -66,13 +69,15 @@
                 @if (! $i)
                     <th class="col-2" rowspan="8">
                         <h3>Behaviour</h3>
-                        <h5>1 minimum</h5>
-                        <h5>4 maximum</h5>
+                        <h5>1.Poor</h5>
+                        <h5>2.Average</h5>
+                        <h5>3.Good</h5>
+                        <h5>4.Excellent</h5>
                     </th>
                 @endif
     
                 <td class="col-4">
-                  {{ $indicators[$i] }}
+                  {{ $indicators[$i] }} <span class="text-lg text-red">*</span>
                 </td>
 
                 <td class="col-2">
@@ -85,7 +90,9 @@
                 </td>
     
                 <td>
-                  <x-adminlte-textarea name="behavioural_justifications[]" />
+                  <x-adminlte-textarea name="behavioural_justifications[]">
+                      {{ $behaviouralJustifications[$i] }}
+                  </x-adminlte-textarea>
                 </td>
     
               </tr>
@@ -94,7 +101,7 @@
     
             {{-- Final evaluation --}}
             <tr>
-                <th colspan="1">Overall Performance</th>
+                <th colspan="1">Overall Performance <span class="text-lg text-red">*</span> </th>
                 <td colspan="3">
                     <x-adminlte-select name="performance">
                         <option selected disabled>Please select an option</option>
@@ -106,7 +113,7 @@
             </tr>
 
             <tr>
-                <th colspan="1">Recommend for Promotion </th>
+                <th colspan="1">Recommend for Promotion <span class="text-lg text-red">*</span> </th>
                 <td colspan="3">
                     <x-adminlte-select name="promotion">
                         <option selected disabled>Please select an option</option>
@@ -118,9 +125,11 @@
             </tr>
 
             <tr>
-                <th colspan="1">Comments regarding his/her performance</th>
+                <th colspan="1">Comments regarding his/her performance <span class="text-lg text-red">*</span> </th>
                 <td colspan="3">
-                    <x-adminlte-textarea name="sbu_comment" placeholder="{{ $comment ?? 'You must make a comment'  }}" />
+                    <x-adminlte-textarea name="sbu_comment">
+                        {{ $comment ?? 'You must make a comment'  }}
+                    </x-adminlte-textarea>
                 </td>
             </tr>
             @if (auth()->user()->role === 'PM')
@@ -131,12 +140,15 @@
                 </tr>
             @endif
             <tr>
-                <td>
-                    <x-adminlte-button onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="dark" />
+                <td colspan="4">
+                    <div class="d-flex justify-content-between">
+                        <x-adminlte-button onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
+                        <x-adminlte-button onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+                    </div>
                 </td>
-                <td>
-                    <x-adminlte-button onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="dark" />
-                </td>
+                {{-- <td colspan="2">
+                    <x-adminlte-button onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+                </td> --}}
             </tr>
         </tbody>
     </table>

@@ -12,6 +12,8 @@ class EmployeeReviewForm extends Component
     public $employeeReview;
     public $behaviouralFeedbacks = [];
     public $categoricalFeedbacks = [];
+    public $behaviouralJustifications = [];
+    public $categoricalJustifications = [];
     public $performence,$promotion,$comment;
 
     
@@ -22,6 +24,8 @@ class EmployeeReviewForm extends Component
         if($this->employeeReview) {
             $this->behaviouralFeedbacks = explode('#', $this->employeeReview->behavioural_feedbacks);
             $this->categoricalFeedbacks = explode('#', $this->employeeReview->categorical_feedbacks);
+            $this->behaviouralJustifications = explode('#', $this->employeeReview->behavioural_justifications);
+            $this->categoricalJustifications = explode('#', $this->employeeReview->categorical_justifications);
             $this->performance = $this->employeeReview->performance;
             $this->promotion = $this->employeeReview->promotion;
             $this->comment = $this->employeeReview->sbu_comment;
