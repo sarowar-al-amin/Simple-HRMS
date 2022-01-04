@@ -53,9 +53,10 @@ class EmployeeReviewController extends Controller
             'sbu_comment' => ['required']
         ]);
 
-        $sbu = null;
-        $pm = null;
         $sr = SalaryReview::firstOrFail();
+        $srm = SalaryReviewMetadata::where('salary_review_id', $sr->id)->where('user_id', $user->id)->firstOrFail();
+        $sbu = $srm?->sbu;
+        $pm = $srm?->sbu;
 
         if(Auth::user()->role === 'SBU'){
             $sbu = Auth::user()->name;
