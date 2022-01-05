@@ -69,8 +69,8 @@ class EmployeeBySbu extends Component
                         ->distinct()
                         ->pluck('partner');
         $this->pms = DB::table('users')
-                        ->distinct()
-                        ->pluck('pm');
+                        ->where('role', 'PM')
+                        ->pluck('name');
 
         return view('livewire.employee-by-sbu', [
             'employees' => $this->employees,
