@@ -235,7 +235,73 @@
                         </div>
                     @endif
                 </td>
-    
+                {{-- Salary Review --}}
+                {{-- <td>
+                    @if ($field === $idx.'.eligible_salary_review')
+                        <x-adminlte-input 
+                        name="eligible_salary_review" 
+                        wire:model.defer="employees.{{ $idx }}.eligible_salary_review" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.eligible_salary_review ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.eligible_salary_review')">
+                            {{ $employee['eligible_salary_review'] }}
+                        </div>
+                    @endif
+                </td> --}}
+                {{-- Bonus Review  --}}
+                {{-- <td>
+                    @if ($field === $idx.'.level')
+                        <x-adminlte-input 
+                        name="level" 
+                        wire:model.defer="employees.{{ $idx }}.level" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.level' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.level')">
+                            {{ $employee['level'] }}
+                        </div>
+                    @endif
+                </td> --}}
+                {{-- Promotion 21B --}}
+                <td>
+                    @if ($field === $idx.'.last_promotion')
+                        <x-adminlte-input 
+                        name="last_promotion" 
+                        wire:model.defer="employees.{{ $idx }}.last_promotion" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.last_promotion' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.last_promotion')">
+                            {{ $employee['last_promotion'] }}
+                        </div>
+                    @endif
+                    {{-- {{ $employee['last_promotion'] }} --}}
+                </td>
+                {{-- Promotion 21A --}}
+                <td>
+                    @if ($field === $idx.'.second_last_promotion')
+                        <x-adminlte-input 
+                        name="second_last_promotion" 
+                        wire:model.defer="employees.{{ $idx }}.second_last_promotion" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.second_last_promotion' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.second_last_promotion')">
+                            {{ $employee['second_last_promotion'] }}
+                        </div>
+                    @endif
+                </td>
+                {{-- Last Status --}}
+                <td>
+                    @if ($field === $idx.'.last_performance')
+                        <x-adminlte-input 
+                        name="last_performance" 
+                        wire:model.defer="employees.{{ $idx }}.last_performance" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.last_performance' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.last_performance')">
+                            {{ $employee['last_performance'] }}
+                        </div>
+                    @endif
+                    {{-- {{ $employee['last_promotion'] }}  --}}
+                </td>
                 <td>
                     @if ($field === $idx.'.team')
                         <x-adminlte-input 

@@ -87,8 +87,8 @@
           <table  class="table table-hover">
               @php
                   $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
-                              'Salary Review', 'Bonus Review', 'Total Experience', 'Employee category',	'PM',
-                              'Blood Group', 'Designation',	'Level', 'Team', 'Actions'];
+                              'Salary Review', 'Bonus Review', 'Total Experience', 'Employee category',	'PM','Blood Group', 'Designation',	
+                              'Level', 'Promotion Status 21A','Promotion Status 21B', 'Last Status', 'Team', 'Actions'];
               @endphp
               <thead>
                   @foreach ($headings as $heading)
