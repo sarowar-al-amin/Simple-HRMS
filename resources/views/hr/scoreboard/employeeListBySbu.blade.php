@@ -86,7 +86,7 @@
           <h3>Employee List</h3>
           <table  class="table table-hover">
               @php
-                  $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
+                  $headings = ['ID', 'Name', 'Email', 'Expertise Area','Role Type', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
                               'Salary Review', 'Bonus Review', 'Total Experience', 'Employee category',	'PM','Blood Group', 'Designation',	
                               'Level', 'Promotion Status 21B','Promotion Status 21A', 'Last Status', 'Team', 'Actions'];
               @endphp

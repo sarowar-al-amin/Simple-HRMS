@@ -35,6 +35,19 @@
                         </div>
                     @endif
                 </td>
+                {{-- Role --}}
+                <td>
+                    @if ($field === $idx.'.role')
+                        <x-adminlte-input 
+                        name="role" 
+                        wire:model.defer="employees.{{ $idx }}.role" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.role' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.role')">
+                            {{ $employee['role'] }}
+                        </div>
+                    @endif
+                </td>
     
                 <td>
                     @if ($field === $idx.'.partner')
