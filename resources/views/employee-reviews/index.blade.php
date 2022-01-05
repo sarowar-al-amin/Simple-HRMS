@@ -26,7 +26,7 @@
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
                         <td>{{ $employee->eligible_salary_review }}</td>
-                        <td>{{ $employee->eligible_salary_review }}</td>
+                        <td>{{ $employee->eligible_bonus_review }}</td>
                         
                         <td>
                             @if ($reviews[$i] && $reviews[$i]['sbu'])

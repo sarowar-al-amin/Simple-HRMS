@@ -16,10 +16,10 @@ class EmployeeReviewController extends Controller
 {
     public function index() {
         if(Auth::user()->role === 'Admin'){
-            $employees = User::all()->sortBy('sbu');
+            $employees = User::orderBy('sbu')->orderBy('pm')->get();
         }
         else{
-            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get() : User::where('pm', Auth::user()->name)->get();
+            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
         }
         $reviews = array_map(fn ($employee) => SalaryReviewMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
         $lastDate = SalaryReview::first()->end;
