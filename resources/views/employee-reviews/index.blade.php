@@ -45,6 +45,7 @@
                         </td>
 
                         <td>{{ $employee->sbu }}</td>
+                        <td>{{ $employee->pm }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['performance'] : '' }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['promotion'] : '' }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>

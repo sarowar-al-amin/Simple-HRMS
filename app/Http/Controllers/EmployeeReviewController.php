@@ -25,7 +25,7 @@ class EmployeeReviewController extends Controller
         $lastDate = SalaryReview::first()->end;
         //dd($lastDate);
         return view('employee-reviews.index',[
-            'headings' => ['ID', 'Name', 'Salary Review', 'Bonus Review', 'SBU Reviewed', 'PM Reviewd', 'SBU', 'Performance', 'Promotion', 'Comments', 'Actions'],
+            'headings' => ['ID', 'Name', 'Salary Review', 'Bonus Review', 'SBU Reviewed', 'PM Reviewd', 'SBU', 'PM', 'Performance', 'Promotion', 'Comments', 'Actions'],
             'employees' => $employees,
             'reviews' => $reviews,
             'expired' => Carbon::createFromFormat('j M Y', $lastDate)->lt(today())
