@@ -44,7 +44,7 @@
                         @keyup.enter="$wire.field === '{{ $idx }}.role' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.role')">
-                            {{ $employee['role'] }}
+                            {{ $employee['role'] ?? 'Employee'}}
                         </div>
                     @endif
                 </td>
