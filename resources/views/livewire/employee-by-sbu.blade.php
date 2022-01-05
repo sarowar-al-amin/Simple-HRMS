@@ -202,7 +202,7 @@
                     
                     <div wire:click="$set('field','{{ $idx }}.pm')">
                     
-                    {{ $employee['pm'] }}
+                    {{ $employee['pm'] ?? 'N/A' }}
                     
                     </div>
                     
