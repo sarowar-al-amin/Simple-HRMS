@@ -53,7 +53,7 @@
                     </td>
 
                     <td>
-                        <x-adminlte-textarea maxLength="40" name="categorical_justifications[]" placeholder="Your comment must be within 30 characters">
+                        <x-adminlte-textarea maxLength="40" name="categorical_justifications[]" placeholder="Your comment must be within 40 characters">
                             {{ $employeeReview ? $categoricalJustifications[$i] : "" }}
                         </x-adminlte-textarea>
                     </td>
