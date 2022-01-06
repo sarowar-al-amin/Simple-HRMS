@@ -126,7 +126,7 @@
             <tr>
                 <th colspan="1">Comments regarding his/her performance <span class="text-lg text-red">*</span> </th>
                 <td colspan="3">
-                    <x-adminlte-textarea id="txtarea" name="sbu_comment">
+                    <x-adminlte-textarea id="txtarea" name="sbu_comment" placeholder="Your comment must be less than 256 characters in length.">
                         {{ $comment }}
                     </x-adminlte-textarea>
                 </td>

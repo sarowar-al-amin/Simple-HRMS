@@ -62,8 +62,8 @@ class EmployeeBySbu extends Component
                 ->toArray();
         // dd($this->employees);
         $this->sbus = DB::table('users')
-                        ->distinct()
-                        ->pluck('sbu');
+                        ->where('role', 'SBU')
+                        ->pluck('name');
 
         $this->partners = DB::table('users')
                         ->distinct()
