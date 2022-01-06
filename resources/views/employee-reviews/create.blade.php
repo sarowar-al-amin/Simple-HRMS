@@ -60,7 +60,11 @@
 @section('js')
     <script>
         $(document).ready(function(){
-            $('#sbtn').prop('disabled', true);
+
+            var sbtn = $('#sbtn');
+            var txt = $('#txtarea');
+
+            sbtn.prop('disabled', true);
             var x = 0;
 
             $("select").each(function () {
@@ -68,7 +72,7 @@
                 //console.log(x);
             });
 
-            if($('#txtarea').val().trim().length > 0) x++;
+            if(txt.val().trim().length > 0) x++;
 
             if(x>16) $('#sbtn').prop('disabled', false);
 
@@ -78,11 +82,14 @@
                 if(x>16) $('#sbtn').show();
             });
 
-            $('#txtarea').change( function() {
+            $(txt.change( function() {
                 if($(this).val().trim().length > 0) x++;
+                if($(this).val().trim().length > 256) $(this).prop('disabled', true);
                 //console.log(x);
-                if(x>16) $('#sbtn').prop('disabled', false);
+                if(x>16) $btn.prop('disabled', false);
             });
+
+
         });
     </script>
     <livewire:scripts />
