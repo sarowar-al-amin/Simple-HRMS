@@ -48,14 +48,9 @@
 </x-adminlte-card>
 
 <livewire:next-level-info :level="$nextLevel" />
-<<<<<<< HEAD
 
 <div class="alert alert-danger">
-    You need to fill all the star marked fields.
-=======
-<div class="alert alert-danger">
     All star fields must be filled. Leaving the page without submitting will lose all current progress.
->>>>>>> d06b40ed3b74f9a72e9dfcd220adefbb3ec79296
 </div>
 <livewire:employee-review-form :employee="$employee" :level="$nextLevel" />
 
