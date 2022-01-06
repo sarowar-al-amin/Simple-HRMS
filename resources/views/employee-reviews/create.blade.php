@@ -47,8 +47,11 @@
     </x-adminlte-profile-widget>
 </x-adminlte-card>
 
-
 <livewire:next-level-info :level="$nextLevel" />
+
+<div class="alert alert-danger">
+    You need to fill all the star marked fields.
+</div>
 <livewire:employee-review-form :employee="$employee" :level="$nextLevel" />
 
 @stop
@@ -59,34 +62,65 @@
 
 @section('js')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
 
-            var sbtn = $('#sbtn');
-            var txt = $('#txtarea');
+            // var sbtn = $('#sbtn');
+            // var txt = $('#txtarea');
 
-            sbtn.prop('disabled', true);
+            // sbtn.prop('disabled', true);
+            // var x = 0;
+
+            // $("select").each(function () {
+            //     if($(this).val() !== null) x++;]
+            //     console.log(x);
+            // });
+
+            // if(txt.val().trim().length > 0) x++;
+
+            // if(x>16) sbtn.prop('disabled', false);
+
+            // $("select").click(function () {
+            //     if($(this).val() !== null) x++;
+            //     console.log(x);
+            // });
+
+            // $(txt.change( function() {
+            //     if($(this).val().trim().length > 0) x++;
+            //     console.log(x);
+            //     if(x>16) $sbtn.prop('disabled', false);
+            // });
+            
+            // var txt = $("#txtarea");
+            // var btn = $("#sbtn");
+            // var arr = $("select");
+
+            // $(txt.change(function () {
+            //     var ok=true;
+            //     arr.each(function () {
+            //         if($(this).val() === null) ok=false;
+            //     });
+            //     if($(this).val().trim().length === 0) ok=false;
+            //     $sbtn.prop('disabled', ok);
+            // });
+
+            $('#sbtn').prop('disabled', true);
             var x = 0;
-
+            
             $("select").each(function () {
                 if($(this).val() !== null) x++;
-                //console.log(x);
             });
 
-            if(txt.val().trim().length > 0) x++;
+            if($('#txtarea').val().trim().length> 0) x++;
 
             if(x>16) $('#sbtn').prop('disabled', false);
 
-            $("select").click(function () {
-                if($(this).val() !== null) x++;
-                //console.log(x);
-                if(x>16) $('#sbtn').show();
-            });
-
-            $(txt.change( function() {
-                if($(this).val().trim().length > 0) x++;
-                if($(this).val().trim().length > 256) $(this).prop('disabled', true);
-                //console.log(x);
-                if(x>16) $btn.prop('disabled', false);
+            $('#txtarea').change( function() {
+                $("select").each(function () {
+                    if($(this).val() !== null) x++;
+                });
+                if($(this).val().trim().length> 0) x++;
+                if(x>16) $('#sbtn').prop('disabled', false);
+                console.log(x);
             });
 
 
