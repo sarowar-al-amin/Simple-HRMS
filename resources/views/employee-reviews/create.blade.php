@@ -49,6 +49,9 @@
 
 
 <livewire:next-level-info :level="$nextLevel" />
+<div class="alert alert-danger">
+    All star fields must be filled. Leaving the page without submitting will lose all current progress.
+</div>
 <livewire:employee-review-form :employee="$employee" :level="$nextLevel" />
 
 @stop
