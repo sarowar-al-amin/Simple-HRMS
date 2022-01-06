@@ -53,7 +53,7 @@
                     </td>
 
                     <td>
-                        <x-adminlte-textarea name="categorical_justifications[]">
+                        <x-adminlte-textarea maxLength="40" name="categorical_justifications[]" placeholder="Your comment must be within 30 characters">
                             {{ $employeeReview ? $categoricalJustifications[$i] : "" }}
                         </x-adminlte-textarea>
                     </td>
@@ -89,7 +89,7 @@
                 </td>
     
                 <td>
-                  <x-adminlte-textarea name="behavioural_justifications[]">
+                  <x-adminlte-textarea maxLength="30" name="behavioural_justifications[]" placeholder="Your comment must be within 30 characters">
                       {{ $employeeReview ? $behaviouralJustifications[$i] : "" }}
                   </x-adminlte-textarea>
                 </td>
