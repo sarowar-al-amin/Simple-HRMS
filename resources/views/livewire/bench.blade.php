@@ -45,7 +45,7 @@
                 @else
                     <div wire:click="$set('field','{{ $idx }}.plan_1')">
                         {{-- {{ $employee['plan_1'] }} --}}
-                        {{ $employee->plan_1 }}
+                        {{ $employee->plan_1 ?? 'N/A'}}
                     </div>
                 @endif
             </td>
@@ -58,7 +58,7 @@
                 @else
                     <div wire:click="$set('field','{{ $idx }}.plan_2')">
                         {{-- {{ $employee['plan_2'] }} --}}
-                        {{ $employee->plan_2 }}
+                        {{ $employee->plan_2 ?? 'N/A'}}
                     </div>
                 @endif
             </td>
