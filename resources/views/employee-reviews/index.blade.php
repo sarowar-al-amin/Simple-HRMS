@@ -48,8 +48,12 @@
                         <td>{{ $employee->pm }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['performance'] : '' }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['promotion'] : '' }}</td>
-                        <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>
-
+                        @php
+                            $review = Str::limit($reviews[$i] ? $reviews[$i]['sbu_comment'] : '' , 20);
+                        @endphp
+                        {{-- <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td> --}}
+                        <td>{{ $review }}</td>
+                        
                         <td>
                             @if ($expired===false && (auth()->user()->role === 'SBU' || auth()->user()->role === 'Admin' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))
                                 <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
