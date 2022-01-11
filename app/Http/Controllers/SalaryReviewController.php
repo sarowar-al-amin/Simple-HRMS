@@ -7,12 +7,19 @@ use App\Http\Requests\updateSalaryReviewRequest;
 use App\Models\Quarter;
 use App\Models\SalaryReview;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class SalaryReviewController extends Controller
 {
     public function index()
     {
-        return view('salary-reviews-index');
+        if(Auth::user()->role === 'Admin'){
+            return view('salary-reviews-index');
+        }else{
+            return view('home');
+        }
     }
 
     public function create()

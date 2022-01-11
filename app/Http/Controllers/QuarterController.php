@@ -8,12 +8,21 @@ use App\Models\Quarter;
 use App\Models\SalaryReview;
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 class QuarterController extends Controller
 {
     
     public function index()
     {
-        return view('quarters-index');
+        if(Auth::user()->role === 'Admin'){
+            return view('quarters-index');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function create()
