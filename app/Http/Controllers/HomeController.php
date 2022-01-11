@@ -6,6 +6,9 @@ use App\Models\User;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+// use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -16,6 +19,10 @@ class HomeController extends Controller
 
     public function index()
     {
+        if(is_null(Auth::user())){
+            return redirect('login');
+        }
+
         return view('home');
     }
 

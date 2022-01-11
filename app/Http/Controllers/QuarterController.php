@@ -17,7 +17,9 @@ class QuarterController extends Controller
     
     public function index()
     {
-        if(Auth::user()->role === 'Admin'){
+        if(is_null(Auth::user())){
+            return redirect('login');
+        }elseif(Auth::user()->role === 'Admin'){
             return view('quarters-index');
         }else{
             return view('home');

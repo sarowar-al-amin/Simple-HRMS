@@ -15,7 +15,9 @@ class SalaryReviewController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->role === 'Admin'){
+        if(is_null(Auth::user())){
+            return redirect('login');
+        }elseif(Auth::user()->role === 'Admin'){
             return view('salary-reviews-index');
         }else{
             return view('home');
