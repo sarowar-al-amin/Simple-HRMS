@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Auth;
 class EmployeeReviewController extends Controller
 {
     public function index() {
-        if(Auth::user()->role === 'Admin'){
+        // Check user is authenticate or not.
+        // If user is admin/SBU/PM let them complete their tasks.
+        // If user is not legitimate redirect back them to login page.
+        if(is_null(Auth::user())){
+            // return view('login');
+            return redirect('login');
+        }
+        elseif(Auth::user()->role === 'Admin'){
             $employees = User::orderBy('sbu')->orderBy('pm')->get();
         }
         else{
