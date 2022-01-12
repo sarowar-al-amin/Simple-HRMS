@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\EmployeeLevel;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,7 +21,7 @@ class EmployeeLevelController extends Controller
         }
 
         return view('hr.levels.index', [
-            'levels' => config('employee_levels')
+            'levels' => EmployeeLevel::all()
         ]);
     }
 }
