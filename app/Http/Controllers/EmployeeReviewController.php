@@ -20,7 +20,7 @@ class EmployeeReviewController extends Controller
         // If user is admin/SBU/PM let them complete their tasks.
         // If user is not legitimate redirect back them to login page.
         if(is_null(Auth::user())){
-            // return view('login');
+          
             return redirect('login');
         }
         elseif(Auth::user()->role === 'Admin'){
@@ -41,6 +41,13 @@ class EmployeeReviewController extends Controller
     }
 
     public function create(User $user) {
+        
+        //Without legitimate user form can't be created.
+        if(is_null(Auth::user())){
+            
+            return redirect('login');
+        }
+
         $currentLevel = EmployeeLevel::find($user->level);
         $nextLevel = EmployeeLevel::find($currentLevel->next_level);
 
@@ -53,6 +60,11 @@ class EmployeeReviewController extends Controller
 
     public function store(Request $request,User $user) {
 
+        //Without legitimate user form can't be sotred.
+        if(is_null(Auth::user())){
+            
+            return redirect('login');
+        }
         $data = $request->validate([
             "categorical_feedbacks.*" => ['required'],
             'behavioural_feedbacks.*' => ['required'],
