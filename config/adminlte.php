@@ -359,6 +359,12 @@ return [
             'can' => 'review-employees'
         ],
         [
+            'text' => 'Reviewed Employee',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'route' => 'reviewed-employee',
+            'can' => 'admin'
+        ],
+        [
             'text' => 'Password Reset',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'passwordreset',
