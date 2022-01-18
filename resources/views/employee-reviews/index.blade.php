@@ -59,6 +59,10 @@
                                 <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
                                     <x-adminlte-button theme="dark" label="Review" icon="fas fa-eye"/>
                                 </a>
+                            @elseif($expired && (auth()->user()->role === 'SBU'))
+                                <a href={{ route('employee-reviews.view', ['user' => $employee]) }}>
+                                    <x-adminlte-button theme="dark" label="View" icon="fas fa-eye"/>
+                                </a>
                             @endif
                         </td>
                     </tr>

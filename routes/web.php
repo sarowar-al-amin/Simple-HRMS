@@ -55,6 +55,7 @@ Route::get('practice', [PracticeController::class, 'index']);
 Route::get('employee-reviews', [EmployeeReviewController::class, 'index'])->name('employee-reviews.index');
 Route::get('employee-reviews/create/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
 Route::post('employee-reviews/store/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
+Route::get('employee-reviews/view/{user}', [EmployeeReviewController::class, 'view'])->name('employee-reviews.view');
 
 Route::get('/add_level', [ExcelLevelImport::class, 'index'])->name('levelImport');
 Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
