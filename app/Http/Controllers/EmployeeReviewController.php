@@ -58,6 +58,26 @@ class EmployeeReviewController extends Controller
         ]);
     }
 
+    // 
+    public function view(User $user) {
+        
+        //Without legitimate user form can't be created.
+        if(is_null(Auth::user())){         
+            return redirect('login');
+        }elseif(Auth::user()->role === 'SBU'){
+            $currentLevel = EmployeeLevel::find($user->level);
+            $nextLevel = EmployeeLevel::find($currentLevel->next_level);
+    
+            return view('employee-reviews.view', [
+                'employee' => $user,
+                'currentLevel' => $currentLevel,
+                'nextLevel' => $nextLevel
+            ]);
+        }else{
+            return view('home');
+        }
+    }
+    // 
     public function store(Request $request,User $user) {
 
         //Without legitimate user form can't be sotred.

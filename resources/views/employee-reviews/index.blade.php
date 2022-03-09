@@ -55,9 +55,13 @@
                         <td>{{ $review }}</td>
                         
                         <td>
-                            @if ($expired===false && (auth()->user()->role === 'SBU' || auth()->user()->role === 'Admin' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))
+                            @if (($expired===false && (auth()->user()->role === 'SBU' || is_null($reviews[$i]) || is_null($reviews[$i]['pm'])))  || auth()->user()->role === 'Admin')
                                 <a href={{ route('employee-reviews.create', ['user' => $employee]) }}>
                                     <x-adminlte-button theme="dark" label="Review" icon="fas fa-eye"/>
+                                </a>
+                            @elseif($expired && (auth()->user()->role === 'SBU'))
+                                <a href={{ route('employee-reviews.view', ['user' => $employee]) }}>
+                                    <x-adminlte-button theme="dark" label="View" icon="fas fa-eye"/>
                                 </a>
                             @endif
                         </td>
@@ -82,12 +86,4 @@
 @section('js')
     <livewire:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
-    <script>
-        // $(function () {
-        //     $("#example1").DataTable({
-        //         "responsive": true, "lengthChange": false, "autoWidth": false,
-        //         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        //     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        // });
-    </script>
 @stop
