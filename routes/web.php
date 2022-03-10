@@ -17,6 +17,7 @@ use App\Http\Controllers\ExcelExportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\ReviewedEmployeeController;
+// Quaterly review controller is used to basically calculate quaterly bonus
 use App\Http\Controllers\QuaterlyReviewController;
 use App\Http\Controllers\UserProfileController;
 
@@ -71,6 +72,7 @@ Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']
 Route::get('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
 
 Route::get('/reviewed/employee', [ReviewedEmployeeController::class, 'index'])->name('reviewed-employee');
+// Quaterly review controller is used to basically calculate quaterly bonus
 Route::get('/quaterly/review', [QuaterlyReviewController::class, 'index']);
 
 Route::get('/profile', [UserProfileController::class, 'index']);
