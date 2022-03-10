@@ -69,6 +69,8 @@ class SalaryReviewController extends Controller
             $user->last_performance = $sr?->performance;
             $user->last_promotion = $sr?->promotion;
             $user->comments = $sr?->sbu_comment;
+
+            $user->save();
         }
         $salaryReview->delete();
         return redirect(route('salary-reviews.index'));
