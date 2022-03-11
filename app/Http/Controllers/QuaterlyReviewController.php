@@ -12,7 +12,15 @@ class QuaterlyReviewController extends Controller
         if(is_null(Auth::user())){
             return redirect('login');
         }elseif(Auth::user()->role === 'Admin'){
-            // $userlist = DB::table('salary_review_metadata')
+            // $userlist = DB::table('users')
+            //     ->distinct()
+            //     ->get();
+            // dd($userlist);
+            return view('quaterly-review.index');
+        }elseif((Auth::user()->role === 'SBU') || (Auth::user()->role === 'PM')){
+            // $userlist = DB::table('users')
+            //     ->where('sbu', Auth::user()->name)
+            //     ->orwhere('pm', Auth::user()->name)
             //     ->distinct()
             //     ->get();
             // dd($userlist);
