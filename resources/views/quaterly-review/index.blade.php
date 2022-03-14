@@ -1,12 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'All Employees')
-
-@section('content_header')
-@stop
+@section('title', 'Quaterly Bonus')
 
 @section('content')
-<h3 align="center">Quaterly Bonus Calculation</h3>
+    <h3 align="center">Quaterly Bonus Calculation</h3>
     @if ((auth()->user() && auth()->user()->role === 'Admin'))
         <div class="card overflow-auto">
             <table class="table table-hover">
@@ -29,7 +26,6 @@
 @stop
 
 @section('css')
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <style>
       th, td{
         white-space: nowrap;
@@ -40,14 +36,5 @@
 
 @section('js')
     <livewire:scripts />
-    {{-- <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-    </script> --}}
 @stop
 

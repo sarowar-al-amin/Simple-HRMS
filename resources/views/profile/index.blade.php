@@ -1,5 +1,3 @@
-{{-- It's working... You stupid --}}
-{{-- It's working!! --}}
 @extends('adminlte::page')
 
 @section('title', 'Profile')
@@ -18,7 +16,7 @@
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-                            <h3 class="dark-color">About Me</h3>
+                            <h3 class="dark-color">{{ $user->name }}</h3>
                             <h6 class="theme-color lead">A Lead UX &amp; UI designer</h6>
                             <p>I <mark>design and develop</mark> services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through the bold interface and meaningful interactions.</p>
                             <div class="row about-list">
@@ -67,6 +65,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Elements under picture --}}
                 {{-- <div class="counter">
                     <div class="row">
                         <div class="col-6 col-lg-3">
@@ -99,9 +98,6 @@
         </section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos atque, necessitatibus at adipisci beatae ea tenetur, quisquam accusantium sequi suscipit, ducimus facilis modi a perspiciatis optio labore perferendis doloribus magni.
     </div>
-    {{-- <div class="card-body">
-        Go to Hell!!!
-    </div> --}}
     <!-- /.card-body -->
 </div>
 <!-- /.card -->
