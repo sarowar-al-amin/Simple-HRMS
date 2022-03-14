@@ -297,6 +297,13 @@ return [
                     'can' => 'admin',
 
                 ],
+                [
+                    'icon' => 'fas fa-fw fa-list',
+                    'text' => 'Profile',
+                    'route'  => 'home',
+                    // 'can' => 'admin',
+
+                ],
             ],
         ],
         [
@@ -363,6 +370,12 @@ return [
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'passwordreset',
             'can' => 'admin'
+        ],
+        [
+            'text' => 'User Password Reset',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'route' => 'show-password',
+            // 'can' => 'admin'
         ],
         // [
         //     'text'       => 'warning',

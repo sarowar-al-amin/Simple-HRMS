@@ -22,11 +22,24 @@ class HomeController extends Controller
         if(is_null(Auth::user())){
             return redirect('login');
         }
+        // Initial login send you to the profile page
+        return redirect('profile');
+    }
 
+    public function showChangePassword(){
+        if(is_null(Auth::user())){
+            return redirect('login');
+        }
+        // home page is responsible for changing password
         return view('home');
     }
 
     public function changePassword(Request $request) {
+
+        // Before changing password confirm that it's legit user
+        if(is_null(Auth::user())){
+            return redirect('login');
+        }
 
         $data = $request->validate([
             'old_password' => ['required', 'current_password'],

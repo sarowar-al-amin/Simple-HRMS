@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelExportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -36,6 +37,7 @@ Route::get('sbus/index/{salaryreview}', [SBUController::class, 'index'])->name('
 Route::get('sbu/show/{salaryreview}/{sbu}', [SBUController::class, 'show'])->name('sbus.show');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home/change-Password', [HomeController::class, 'showChangePassword'])->name('show-password');
 Route::put('/home', [HomeController::class, 'changePassword'])->name('change-password');
 
 Route::get('level-hierarchy/index', [EmployeeLevelController::class, 'index'])->name('employee-levels');
@@ -66,3 +68,5 @@ Route::get('/export/file', [ExcelExportController::class, 'index'])->name('expor
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
 Route::get('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
+
+Route::get('/profile', [UserProfileController::class, 'index']);
