@@ -72,8 +72,7 @@ Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
 Route::get('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
 
-<<<<<<< HEAD
 Route::get('/bonus-reviews', [BonusReviewMetadataController::class, 'index'])->name('bonus-reviews');
-=======
+
 Route::get('/profile', [UserProfileController::class, 'index']);
->>>>>>> 3dc6a4829dfc06f5824f61487f7744fb46eb7956
+
