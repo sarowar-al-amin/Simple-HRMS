@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BonusReviewController;
+use App\Http\Controllers\BonusReviewMetadataController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeLevelController;
 use App\Http\Controllers\HR\UserController;
@@ -27,6 +29,7 @@ Route::get('quarters', [QuarterController::class, 'index'])->name('quarters.inde
 //Route::resource('users', UserController::class);
 //Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
+Route::get('bonus-reviews-index', [BonusReviewController::class, 'index'])->name('bonus-reviews-index');
 
 // Route::get('employee-reviews/create/{salaryreview}/{sbu}/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');
 // Route::post('employee-reviews/store/{salaryreview}/{user}', [EmployeeReviewController::class, 'store'])->name('employee-reviews.store');
@@ -66,3 +69,5 @@ Route::get('/export/file', [ExcelExportController::class, 'index'])->name('expor
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
 Route::get('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
+
+Route::get('/bonus-reviews', [BonusReviewMetadataController::class, 'index'])->name('bonus-reviews');
