@@ -343,6 +343,12 @@ return [
                     'icon' => 'fas fa-fw fa-upload',
                     'route' => 'levelImport',
                     // 'can' => 'review-employees'
+                ],
+                [
+                    'text' => 'Import Bonus Review',
+                    'icon' => 'fas fa-fw fa-upload',
+                    'route' => 'bonus-review.import',
+                    'can' => 'admin'
                 ]
             ]
         ],

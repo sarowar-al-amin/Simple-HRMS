@@ -19,6 +19,7 @@ use App\Http\Controllers\ExcelExportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\BonusReviewImportController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -76,3 +77,5 @@ Route::get('/bonus-reviews', [BonusReviewMetadataController::class, 'index'])->n
 
 Route::get('/profile', [UserProfileController::class, 'index']);
 
+Route::get('/import/bonus-review', [BonusReviewImportController::class, 'index'])->name('bonus-review.import');
+Route::post('/import/upload-excel', [BonusReviewImportController::class, 'upload_excel']);
