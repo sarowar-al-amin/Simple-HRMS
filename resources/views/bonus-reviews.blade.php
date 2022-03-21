@@ -6,79 +6,12 @@
 @stop
 
 @section('content')
-    
-    <div class="table responsive overflow-auto">
-        <table class="table table-hover">
-
-            <thead>
-                @foreach ($headings as $heading)
-                    <th>{{ $heading }}</th>
-                @endforeach
-            </thead>
-            <livewire:bonus-review-list />
-            {{-- <tbody>
-                <tr>
-                    <td>BS0000</td>
-                    <td>ABC</td>
-                    <td>Someone</td>
-                    <td>Someone</td>
-                    <td>Need Improvement</td>
-                    <td>100%</td>
-                    <td>
-                        <x-adminlte-select-bs style="width:auto;" name="rating">
-                            <option selected desabled>Select From Dropdown</option>
-                            @foreach ($ratings as $rating)
-                                <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
-                            @endforeach
-                        </x-adminlte-select-bs>
-                    </td>
-                    <td>
-                        <x-adminlte-select-bs style="width:auto;" name="rating">
-                            <option selected desabled>Select From Dropdown</option>
-                            @foreach ($ratings as $rating)
-                                <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
-                            @endforeach
-                        </x-adminlte-select-bs>
-                    </td>
-                    <td>
-                        <x-adminlte-select-bs style="width:auto;" name="rating">
-                            <option selected desabled>Select From Dropdown</option>
-                            @foreach ($ratings as $rating)
-                                <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
-                            @endforeach
-                        </x-adminlte-select-bs>
-                    </td>
-                    <td>
-                        <x-adminlte-select-bs style="width:auto;" name="rating">
-                            <option selected desabled>Select From Dropdown</option>
-                            @foreach ($ratings as $rating)
-                                <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
-                            @endforeach
-                        </x-adminlte-select-bs>
-                    </td>
-                    <td>
-                        <x-adminlte-select-bs style="width:auto;" name="rating">
-                            <option selected desabled>Select From Dropdown</option>
-                            @foreach ($ratings as $rating)
-                                <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
-                            @endforeach
-                        </x-adminlte-select-bs>
-                    </td>
-                    <td>18</td>
-                    <td>12</td>
-                    <td>Need Improvement</td>
-                    <td>Meet Expectation Very Well</td>
-                </tr>
-            </tbody> --}}
-
-        </table>
-    </div>
-
+    <livewire:review-board />
 @stop
 
 @section('css')
     <style>
-        th, td {
+        td {
             white-space: nowrap;
         }
     </style>
