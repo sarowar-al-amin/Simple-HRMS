@@ -23,7 +23,11 @@
     <table class="table table-hover">
         <thead>
             @foreach ($headings as $heading)
-                <th>{{ $heading }}</th>
+                @if ($loop->index > 5 && $loop->index < 11)
+                    <th data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[$loop->index-6] }}">{{ $heading }}</th>
+                @else
+                    <th>{{ $heading }}</th>
+                @endif
             @endforeach
         </thead>
         <tbody>
