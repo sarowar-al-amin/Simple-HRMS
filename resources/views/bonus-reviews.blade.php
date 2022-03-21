@@ -15,8 +15,8 @@
                     <th>{{ $heading }}</th>
                 @endforeach
             </thead>
-
-            <tbody>
+            <livewire:bonus-review-list />
+            {{-- <tbody>
                 <tr>
                     <td>BS0000</td>
                     <td>ABC</td>
@@ -69,7 +69,7 @@
                     <td>Need Improvement</td>
                     <td>Meet Expectation Very Well</td>
                 </tr>
-            </tbody>
+            </tbody> --}}
 
         </table>
     </div>
