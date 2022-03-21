@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\BonusReviewMetadata;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ReviewBoard extends Component
@@ -23,7 +24,16 @@ class ReviewBoard extends Component
 
     public function render()
     {
-        $this->reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy)->get()->toArray();
+        $reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy)->get();
+
+        if(Auth::user()->role === 'SBU'){
+            $reviews = $reviews->where('sbu', Auth::user()->name);
+        } else if(Auth::user()->role === 'PM') {
+            $reviews = $reviews->where('pm', Auth::user()->name);
+        }
+        
+        $this->reviews = $reviews->toArray();
+        
         return view('livewire.review-board');
     }
 }
