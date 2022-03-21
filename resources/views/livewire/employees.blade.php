@@ -32,7 +32,7 @@
                         <x-adminlte-select-bs
                         name="partner"
                         wire:model.defer="employees.{{ $idx }}.partner"
-                        @click.away="$wire.field === '{{ $idx }}.partner' ? $wire.save({{ $idx }}) : null" >
+                        @click.away="$wire.field === '{{ $idx }}.partner' ? $wire.save({{ $idx }}) : null">
                             @foreach ($partners as $partner)
                                 <option value="{{ $partner }}">{{ $partner }}</option>
                             @endforeach

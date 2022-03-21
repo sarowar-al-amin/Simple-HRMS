@@ -6,6 +6,7 @@ use App\Http\Requests\storeSalaryReviewRequest;
 use App\Http\Requests\updateSalaryReviewRequest;
 use App\Models\Quarter;
 use App\Models\SalaryReview;
+use App\Models\SalaryReviewMetadata;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -58,6 +59,19 @@ class SalaryReviewController extends Controller
 
     public function destroy(SalaryReview $salaryReview)
     {
+        $users = User::all();
+        foreach($users as $user) {
+            $user->second_last_performance = $user->last_performance;
+            $user->second_last_promotion = $user->last_promotion;
+            
+            $sr = SalaryReviewMetadata::where('user_id', $user->id)->first();
+
+            $user->last_performance = $sr?->performance;
+            $user->last_promotion = $sr?->promotion;
+            $user->comments = $sr?->sbu_comment;
+
+            $user->save();
+        }
         $salaryReview->delete();
         return redirect(route('salary-reviews.index'));
     }

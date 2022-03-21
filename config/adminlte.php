@@ -320,6 +320,11 @@ return [
                     'text' => 'Salary Reviews',
                     'route' => 'salary-reviews.index',
                     'icon' => 'fas fa-fw fa-search-dollar',
+                ],
+                [
+                    'text' => 'Bonus Reviews',
+                    'route' => 'bonus-reviews-index',
+                    'icon' => 'fas fa-fw fa-gift',
                 ]
             ]
         ],
@@ -338,6 +343,12 @@ return [
                     'icon' => 'fas fa-fw fa-upload',
                     'route' => 'levelImport',
                     // 'can' => 'review-employees'
+                ],
+                [
+                    'text' => 'Import Bonus Review',
+                    'icon' => 'fas fa-fw fa-upload',
+                    'route' => 'bonus-review.import',
+                    'can' => 'admin'
                 ]
             ]
         ],
@@ -363,6 +374,12 @@ return [
             'text' => 'Employee Review',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employee-reviews.index',
+            'can' => 'review-employees'
+        ],
+        [
+            'text' => 'Bonus Review',
+            'icon' => 'fas fa-fw fa-gift',
+            'route' => 'bonus-reviews',
             'can' => 'review-employees'
         ],
         [
