@@ -76,6 +76,8 @@ Route::get('/password/resetAll', [PasswordResetController::class, 'resetPassword
 Route::get('/bonus-reviews', [BonusReviewMetadataController::class, 'index'])->name('bonus-reviews');
 
 Route::get('/profile', [UserProfileController::class, 'index']);
+Route::get('/profile/update', [UserProfileController::class, 'update_index']);
+Route::post('profile/info_update', [UserProfileController::class, 'update_info']);
 
 Route::get('/import/bonus-review', [BonusReviewImportController::class, 'index'])->name('bonus-review.import');
 Route::post('/import/upload-excel', [BonusReviewImportController::class, 'upload_excel']);
