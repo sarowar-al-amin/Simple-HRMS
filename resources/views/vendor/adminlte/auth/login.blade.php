@@ -101,11 +101,11 @@
             </a>
         </p>
     @endif
-    
+
     <p class="my-0">
-        <a href=" http://172.16.229.126:80">
-            Click here to update your CV
-        </a>
+        {{-- <a href=" http://172.16.229.126:80">
+
+        </a> --}}
     </p>
 
 @stop
