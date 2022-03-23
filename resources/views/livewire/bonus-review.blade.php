@@ -15,7 +15,7 @@
             @click.away="$wire.field === 'technical' ? $wire.save('technical') : null" >
                 <option selected >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
-                    <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
+                    <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
             </x-adminlte-select-bs>
         @else
@@ -34,7 +34,7 @@
             @click.away="$wire.field === 'execution' ? $wire.save('execution') : null" >
                 <option selected >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
-                    <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
+                <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
             </x-adminlte-select-bs>
         @else
@@ -53,7 +53,7 @@
             @click.away="$wire.field === 'collaboration' ? $wire.save('collaboration') : null" >
                 <option selected >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
-                    <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
+                <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
             </x-adminlte-select-bs>
         @else
@@ -72,7 +72,7 @@
             @click.away="$wire.field === 'influence' ? $wire.save('influence') : null" >
                 <option selected >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
-                    <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
+                <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
             </x-adminlte-select-bs>
         @else
@@ -91,7 +91,7 @@
             @click.away="$wire.field === 'maturity' ? $wire.save('maturity') : null" >
                 <option selected >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
-                    <option value="{{ 4-$loop->index }}">{{ $rating }}</option>
+                <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
             </x-adminlte-select-bs>
         @else
