@@ -11,7 +11,7 @@
 
 @section('css')
     <style>
-        td {
+        td,th {
             white-space: nowrap;
         }
     </style>

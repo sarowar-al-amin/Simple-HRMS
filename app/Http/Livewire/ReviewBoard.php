@@ -31,7 +31,7 @@ class ReviewBoard extends Component
 
     public function render()
     {
-        $reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy)->get();
+        $reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy ?? 'user_id')->get();
 
         if(Auth::user()->role === 'SBU'){
             $reviews = $reviews->where('sbu', Auth::user()->name);

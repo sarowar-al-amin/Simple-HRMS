@@ -86,7 +86,7 @@ return [
     'layout_topnav' => null,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -129,8 +129,8 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
-    'classes_topnav_nav' => 'navbar-expand',
+    'classes_topnav' => '-white -light',
+    'classes_topnav_nav' => '-expand',
     'classes_topnav_container' => 'container',
 
     /*
@@ -146,10 +146,10 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
+    'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
-    'sidebar_collapse_remember_no_transition' => true,
+    'sidebar_collapse_remember_no_transition' => false,
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
@@ -225,9 +225,9 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
+        //  items:
         [
-            'type'         => 'navbar-search',
+            'type'         => '-search',
             'text'         => 'search',
             'topnav_right' => true,
         ],
@@ -594,7 +594,7 @@ return [
         'options' => [
             'loading_screen' => 1000,
             'auto_show_new_tab' => true,
-            'use_navbar_items' => true,
+            'use__items' => true,
         ],
     ],
 
