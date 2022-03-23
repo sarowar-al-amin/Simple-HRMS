@@ -13,7 +13,7 @@
             name="technical"
             wire:model.defer="review.technical"
             @click.away="$wire.field === 'technical' ? $wire.save('technical') : null" >
-                <option selected >Select From Dropdown</option>
+                <option disabled >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
                     <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
@@ -32,13 +32,13 @@
             name="execution"
             wire:model.defer="review.execution"
             @click.away="$wire.field === 'execution' ? $wire.save('execution') : null" >
-                <option selected >Select From Dropdown</option>
+                <option disabled >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
                 <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
             </x-adminlte-select-bs>
         @else
-            <div wire:click="$set('field', 'execution')">
+            <div class="{{ is_null($review['execution']) && 'danger' }}" wire:click="$set('field', 'execution')">
                 {{ $review['execution'] ?? 'N/A' }}
             </div>
         @endif
@@ -51,7 +51,7 @@
             name="technical"
             wire:model.defer="review.collaboration"
             @click.away="$wire.field === 'collaboration' ? $wire.save('collaboration') : null" >
-                <option selected >Select From Dropdown</option>
+                <option disabled >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
                 <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
@@ -70,7 +70,7 @@
             name="influence"
             wire:model.defer="review.influence"
             @click.away="$wire.field === 'influence' ? $wire.save('influence') : null" >
-                <option selected >Select From Dropdown</option>
+                <option disabled >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
                 <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
@@ -89,7 +89,7 @@
             name="maturity"
             wire:model.defer="review.maturity"
             @click.away="$wire.field === 'maturity' ? $wire.save('maturity') : null" >
-                <option selected >Select From Dropdown</option>
+                <option disabled >Select From Dropdown</option>
                 @foreach ($ratings as $rating)
                 <option data-toggle="tooltip" data-placement="bottom" title="{{ $ratingTooltips[$loop->index] }}" value="{{ 4-$loop->index }}">{{ $rating }}</option>
                 @endforeach
@@ -102,8 +102,11 @@
     </td>
 
 
-    <td>{{ $review['pm_score'] }}</td>
-    <td>{{ $review['sbu_score'] }}</td>
-    <td>{{ $review['pm_feedback'] }}</td>
-    <td>{{ $review['sbu_feedback'] }}</td>
+    <td>{{ $review['pm_score'] ?? 'N/A' }}</td>
+    <td>{{ $review['sbu_score'] ?? 'N/A' }}</td>
+    <td>{{ $review['pm_feedback'] ?? 'N/A' }}</td>
+    <td>{{ $review['sbu_feedback'] ?? 'N/A' }}</td>
+    <td>
+        <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />
+    </td>
 </tr>

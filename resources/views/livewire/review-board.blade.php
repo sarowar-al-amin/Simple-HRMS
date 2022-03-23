@@ -1,22 +1,23 @@
 <div class="table responsive overflow-auto">
+    <div class="d-flex align-items-baseline">
 
-    <div class="d-flex">
+        <x-adminlte-input style="width: 20rem;" name="query" wire:model="query" placeholder="Search... " />
 
-        <x-adminlte-input name="query" wire:model="query" />
-
-        <select class="form-control" wire:model="sortBy">
+        <select style="width: 20rem;" class="form-control" wire:model="sortBy">
+            <option disabled>Select Sorting Criteria</option>
             @foreach ($sortOptions as $option)
                 <option value="{{ $option }}">{{ $loop->index < 2 ? ucwords(explode('_', $option)[1]) : ucwords($option) }}</option>
             @endforeach
         </select>
 
-        <select class="form-control" wire:model="perPage">
+        <select style="width: 20rem;" class="form-control" wire:model="perPage">
+            <option disabled>Select Records Per Page</option>
             @foreach ($pageOptions as $option)
                 <option value="{{ $option }}">{{ $option }}</option>
             @endforeach
         </select>
     
-        <x-adminlte-button label="Search" wire:click="search" />
+        <x-adminlte-button class="m-2" label="Search" wire:click="search" />
 
     </div>
 
@@ -29,6 +30,9 @@
                     <th>{{ $heading }}</th>
                 @endif
             @endforeach
+            @if (auth()->user()->role === 'Admin' || auth()->user()->role === 'SBU')
+                <th>Actions</th>
+            @endif
         </thead>
         <tbody>
             @foreach ($reviews as $i => $review)
