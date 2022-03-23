@@ -12,14 +12,30 @@ class UserProfileController extends Controller
     //
     public function index(){
         {
-            if(is_null(Auth::user())){
+            if(is_null(Auth::user())){  //Make sure the loged in user is authenticated user
                 return redirect('login');
             }else{
                 $user = DB::table('users')
                     ->where('id', Auth::user()->id)
                     ->first();
                 // dd($user);
-                return view('profile.index', compact('user'));
+                $english_skills = DB::table('english_communication_skills')
+                    ->where('user_id', Auth::user()->id)
+                    ->first();
+                // dd($english_skills);
+                // If there is no data regarding this user on 'English Communication Skill' table
+                // Then create a row for this user with default value.
+                // And assign that to the $english_sills variable
+                if(is_null($english_skills)){
+                    $user = EnglishCommunicationSkill:: create([
+                        'user_id' => Auth::user()->id
+                    ]);
+
+                    $english_skills = DB::table('english_communication_skills')
+                        ->where('user_id', Auth::user()->id)
+                        ->first();
+                }
+                return view('profile.index', compact('user', 'english_skills'));
             }
         }
     }
@@ -38,24 +54,49 @@ class UserProfileController extends Controller
 
     //
     public function update_info(Request $request){
+        // Don't allow unauthoraized user
+        if(is_null(Auth::user())){
+            return redirect('login');
+        }
 
-        // $user = new EnglishCommunicationSkill;
-        // $user->user_id = Auth::user()->id;
-        // $user->speaking = $request->speaking;
-        // $user->writing = $request->writing;
-        // $user->listening = $request->listening;
-        // $user->save();
-        $checker = DB::table('english_communication_skills')->where('user_id', Auth::user()->id)->first();
-        dd($checker);
+        // This checker is also useless since at the begin of sign in a row for the
+        // loged in user is created automatically.
+        // $checker = DB::table('english_communication_skills')->where('user_id', Auth::user()->id)->first();
+        // // dd($checker);
 
-        // if()
+        // // Now is condition is always true so
+        // // Else portion is basically useless.
+        // if($checker){
+        //     // if user exists then update the data
+        //     DB::table('english_communication_skills')
+        //         ->where('user_id', Auth::user()->id)
+        //         ->update([
+        //             'speaking' => $request->speaking,
+        //             'writing' => $request->writing,
+        //             'listening' => $request->listening
+        //         ]);
 
-        // $user = EnglishCommunicationSkill:: create([
-        //     'user_id' => Auth::user()->id,
-        //     'speaking' => $request->speaking,
-        //     'writing' => $request->writing,
-        //     'listening' => $request->listening
-        // ]);
+        // }else{
+        //     //otherwise create the data
+        //     // This portion will never run since
+        //     //
+        //     $user = EnglishCommunicationSkill:: create([
+        //         'user_id' => Auth::user()->id,
+        //         'speaking' => $request->speaking,
+        //         'writing' => $request->writing,
+        //         'listening' => $request->listening
+        //     ]);
+        // }
+
+        DB::table('english_communication_skills')
+        ->where('user_id', Auth::user()->id)
+        ->update([
+            'speaking' => $request->speaking,
+            'writing' => $request->writing,
+            'listening' => $request->listening
+        ]);
+
+
         return redirect()->back();
     }
 }

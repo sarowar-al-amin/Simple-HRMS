@@ -17,9 +17,9 @@ class CreateEnglishCommunicationSkillsTable extends Migration
             $table->id();
             $table->string('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->float('speaking')->nullable();
-            $table->float('writing')->nullable();
-            $table->float('listening')->nullable();
+            $table->float('speaking')->default(0);
+            $table->float('writing')->default(0);
+            $table->float('listening')->default(0);
         });
     }
 

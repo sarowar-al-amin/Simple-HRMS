@@ -8,6 +8,7 @@
 @section('content')
 <div class="container">
     {{-- It's working!!! --}}
+    <h3>Testing data updation. Front design isn't selected yet.</h3>
     <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
             <div class="container" align="center" style="padding-top:100px;">
@@ -19,7 +20,7 @@
                     </div>
                     <div style="padding:15px;">
                         <label>Writing</label>
-                        <input type="number" name="writing" style="color:black;" placeholder="Writing..." min="0" max="10" required="">
+                        <input type="range" name="writing" style="color:black;" placeholder="Writing..." min="0" max="10" required="">
                     </div>
                     <div style="padding:15px;">
                         <label>Listening</label>
