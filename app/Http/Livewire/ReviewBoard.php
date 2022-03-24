@@ -8,13 +8,14 @@ use Livewire\Component;
 
 class ReviewBoard extends Component
 {
-    public $headings,$headingTooltips, $query, $sortBy, $sortOptions, $perPage, $pageOptions;
+    public $headings,$headingTooltips, $query, $sortBy, $dir, $sortOptions, $perPage, $pageOptions;
     public $reviews = [];
 
     public function mount() {
         $this->fill([
             'query' => '',
             'sortBy' => 'user_id',
+            'dir' => 'asc',
             'sortOptions' => ['user_id', 'user_name', 'sbu', 'pm'],
             'perPage' => 50,
             'pageOptions' => [15, 30, 50, 75],
@@ -31,7 +32,7 @@ class ReviewBoard extends Component
 
     public function render()
     {
-        $reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy ?? 'user_id')->get();
+        $reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy, $this->dir)->get();
 
         if(Auth::user()->role === 'SBU'){
             $reviews = $reviews->where('sbu', Auth::user()->name);
