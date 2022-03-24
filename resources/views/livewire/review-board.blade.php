@@ -10,6 +10,13 @@
             @endforeach
         </select>
 
+        <select style="width: 20rem;" class="form-control" wire:model="dir">
+            <option disabled>Select Sorting Direction</option>
+            @foreach (['asc', 'desc'] as $option)
+                <option value="{{ $option }}">{{ ucwords($option) }}</option>
+            @endforeach
+        </select>
+
         <select style="width: 20rem;" class="form-control" wire:model="perPage">
             <option disabled>Select Records Per Page</option>
             @foreach ($pageOptions as $option)
@@ -17,7 +24,7 @@
             @endforeach
         </select>
     
-        <x-adminlte-button class="m-2" label="Search" wire:click="search" />
+        <x-adminlte-button theme="info" class="m-2" label="Search" wire:click="search" />
 
     </div>
 
