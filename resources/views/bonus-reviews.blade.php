@@ -13,6 +13,7 @@
     <style>
         td,th {
             white-space: nowrap;
+            text-align: center;
         }
     </style>
     <livewire:styles />
