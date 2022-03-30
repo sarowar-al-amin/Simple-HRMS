@@ -304,6 +304,13 @@ return [
                     // 'can' => 'admin',
 
                 ],
+                [
+                    'icon' => 'fas fa-clock',
+                    'text' => 'Overview',
+                    'route'  => 'overview',
+                    'can' => 'admin',
+
+                ],
             ],
         ],
         [

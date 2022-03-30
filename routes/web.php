@@ -56,7 +56,7 @@ Route::get('/scoreboard/bench', [ScoreboardController::class, 'benchReport'])->n
 Route::get('/add_employee', [ExcelImportController::class, 'index'])->name('employeeImport');
 Route::post('/upload/employee-excel', [ExcelImportController::class, 'upload_excel']);
 
-Route::get('practice', [PracticeController::class, 'index']);
+Route::get('practice', [PracticeController::class, 'index'])->name('overview');
 
 Route::get('employee-reviews', [EmployeeReviewController::class, 'index'])->name('employee-reviews.index');
 Route::get('employee-reviews/create/{user}', [EmployeeReviewController::class, 'create'])->name('employee-reviews.create');

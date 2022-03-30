@@ -33,22 +33,22 @@
             @foreach ($headings as $heading)
                 @if ($loop->index > 5 && $loop->index < 11)
                     @if ($heading === 'Collaboration & Communication')
-                        <th data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[$loop->index-6] }}">Collaboration &<br>Communication</th>
+                        <th wire:click="order('collaboration')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[$loop->index-6] }}">Collaboration &<br>Communication</th>
                     @else
-                        <th data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[$loop->index-6] }}">{{ $heading }}</th>
+                        <th wire:click="order('{{ strtolower($heading) }}')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[$loop->index-6] }}">{{ $heading }}</th>
                     @endif
                 @elseif ($heading === 'Performence Feedback(Previous Q)')
-                    <th>Performence Feedback<br>(Previous Q)</th>
+                    <th wire:click="order('performance')">Performence Feedback<br>(Previous Q)</th>
                 @elseif ($heading === 'Bonus Percentage(Previous Q)')
-                    <th>Bonus Percentage<br>(Previous Q)</th>
+                    <th wire:click="order('bonus_percentage')">Bonus Percentage<br>(Previous Q)</th>
                 @elseif ($heading === 'Score By SBU Head')
-                    <th>Score By<br>SBU Head</th>
+                    <th wire:click="order('sbu_score')">Score By<br>SBU Head</th>
                 @else
-                    <th>{{ $heading }}</th>
+                    <th wire:click="order('{{ strtolower($heading) }}')">{{ $heading }}</th>
                 @endif
             @endforeach
             @if (auth()->user()->role === 'Admin' || auth()->user()->role === 'SBU')
-                <th>Actions</th>
+                <th wire:click="order('approval')">Actions</th>
             @endif
         </thead>
         <tbody>

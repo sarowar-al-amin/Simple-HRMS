@@ -30,6 +30,17 @@ class ReviewBoard extends Component
         ]);
     }
 
+    public function order($field) {
+        if($field === 'sbu name') $field = 'sbu';
+        if($field === 'id') $field = 'user_id';
+        if($field === 'name') $field = 'user_name';
+        if($field === 'score by pm') $field = 'pm_score';
+        if($field === 'pm feedback') $field = 'pm_feedback';
+        if($field === 'sbu head feedback') $field = 'sbu_feedback';
+        $this->dir = $this->sortBy === $field && $this->dir === 'asc' ? 'desc' : 'asc';
+        $this->sortBy = $field;
+    }
+
     public function render()
     {
         $reviews = BonusReviewMetadata::where('user_id', 'like', '%'.$this->query.'%')->orWhere('user_name', 'like', '%'.$this->query.'%')->orWhere('sbu', 'like', '%'.$this->query.'%')->orWhere('pm', 'like', '%'.$this->query.'%')->orderBy($this->sortBy, $this->dir)->get();
