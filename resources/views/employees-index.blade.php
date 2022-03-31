@@ -8,7 +8,7 @@
 @section('content')
     <div class="d-flex flex-row-reverse bd-highlight">
         <div class="p-2 bd-highlight">
-            <a class="btn btn-primary" href="#"> Add Employee</a>
+            <a class="btn btn-primary" href="{{url('/add/new-employee')}}"> Add Employee</a>
         </div>
         <div class="p-2 bd-highlight">
             <a class="btn btn-success" href="{{url('add_employee')}}"> Import Excel</a>

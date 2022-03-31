@@ -46,7 +46,9 @@ class BonusReview implements
                 'sbu' => $row['sbu_name'],
                 'pm' => $row['pm'],
                 'performance' => $row['performance_feedback'],
-                'bonus_percentage' => $row['bonus_percentage']*100
+                'bonus_percentage' => $row['bonus_percentage']*100,
+                'team' => $row['team'],
+                'eligible' => $row['eligibility']
             ]);
         }
     }
