@@ -19,7 +19,7 @@ class ReviewBoard extends Component
             'sortOptions' => ['user_id', 'user_name', 'sbu', 'pm'],
             'perPage' => 50,
             'pageOptions' => [15, 30, 50, 75],
-            'headings' => ['ID', 'Name', 'PM', 'SBU Name', 'Performence Feedback(Previous Q)', 'Bonus Percentage(Previous Q)', 'Technical', 'Execution', 'Collaboration & Communication', 'Influence', 'Maturity', 'Score By PM', 'Score By SBU Head', 'PM Feedback', 'SBU Head Feedback'],
+            'headings' => ['ID', 'Name', 'PM', 'SBU Name', 'Team', 'ELigible', 'Performence Feedback(Previous Q)', 'Bonus Percentage(Previous Q)', 'Technical', 'Execution', 'Collaboration & Communication', 'Influence', 'Maturity', 'Score By PM', 'Score By SBU Head', 'PM Feedback', 'SBU Head Feedback'],
             'headingTooltips' => [
                 'This category focuses on technical skills, including an engineer’s mastery, best practices, code reviews, code stewardship, quality & testing, design, and debugging',
                 'This category focuses on the way that an engineer gets things done: planning, scoping, estimation skills, getting unstuck, taking ownership, strategic alignment, product/business understanding, and vision',

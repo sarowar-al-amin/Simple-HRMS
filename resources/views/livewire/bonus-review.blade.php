@@ -3,6 +3,8 @@
     <td>{{ $review['user_name'] }}</td>
     <td>{{ $review['sbu'] }}</td>
     <td>{{ $review['pm'] }}</td>
+    <td>{{ $review['team'] ?? "N/A" }}</td>
+    <td>{{ $review['eligible'] ? 'Yes': 'No' }}</td>
     <td>{{ $review['performance'] }}</td>
     <td>{{ $review['bonus_percentage'] }}% </td>
 
