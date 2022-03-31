@@ -16,6 +16,7 @@ class CreateBonusReviewMetadataTable extends Migration
             $table->string('user_name');
             $table->string('sbu')->nullable();
             $table->string('pm')->nullable();
+            $table->string('team')->nullable();
             $table->string('performance')->nullable();
             $table->float('bonus_percentage')->nullable();
             $table->integer('technical')->nullable();
@@ -28,6 +29,7 @@ class CreateBonusReviewMetadataTable extends Migration
             $table->string('sbu_feedback')->nullable();
             $table->string('pm_feedback')->nullable();
             $table->boolean('approval')->default(false);
+            $table->boolean('eligible')->default(false);
         });
     }
 
