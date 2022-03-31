@@ -16,7 +16,9 @@ class BonusReviewTemplate implements FromCollection, WithHeadings
             'sbu_name',
             'pm',
             'performance_feedback',
-            'percentage'
+            'percentage',
+            'team',
+            'eligibility'
         ];
     }
     /**
