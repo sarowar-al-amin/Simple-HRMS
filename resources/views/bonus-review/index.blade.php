@@ -10,7 +10,7 @@
 
 @section('content')
 <x-adminlte-card title="Required filed to fill up in template" theme="dark" collapsible="collapsed">
-    Must be filled : id, name, sbu, pm, Performance Feedback, bonus percentage with '%' mark,
+    Must be filled : id, name, sbu, pm, Performance Feedback, bonus percentage with '%' mark, eligibility(boolean->true, false)
 </x-adminlte-card>
 <div class="d-flex flex-row-reverse bd-highlight">
     <div class="p-2 bd-highlight">
