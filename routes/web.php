@@ -27,7 +27,9 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('employees', [ EmployeeController::class, 'index'])->name('employees.index');
+Route::get('/add/new-employee', [ EmployeeController::class, 'addNewEmployee']);
 Route::get('quarters', [QuarterController::class, 'index'])->name('quarters.index');
+Route::post('/insert/new-employee', [EmployeeController::class, 'insertNewEmployee']);
 //Route::resource('users', UserController::class);
 //Route::resource('quarters', QuarterController::class);
 Route::resource('salary-reviews', SalaryReviewController::class);
