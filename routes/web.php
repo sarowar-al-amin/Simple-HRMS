@@ -68,6 +68,7 @@ Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
 
 Route::get('/export/salary_review', [ExcelExportController::class, 'exportIntoExcel']);
 Route::get('/export/file', [ExcelExportController::class, 'index'])->name('exportFile');
+Route::get('/export/bounus-review-template', [ExcelExportController::class, 'exportBonusReviewTemplate']);
 
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);

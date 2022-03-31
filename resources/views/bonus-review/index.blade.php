@@ -10,11 +10,11 @@
 
 @section('content')
 <x-adminlte-card title="Required filed to fill up in template" theme="dark" collapsible="collapsed">
-    Must be filled : id, name, sbu, pm
+    Must be filled : id, name, sbu, pm, Performance Feedback, bonus percentage with '%' mark,
 </x-adminlte-card>
 <div class="d-flex flex-row-reverse bd-highlight">
     <div class="p-2 bd-highlight">
-        <a class="btn btn-primary" href="#"> Download Excel Bonus Review template</a>
+        <a class="btn btn-primary" href="{{url('/export/bounus-review-template')}}"> Download Excel Bonus Review template</a>
     </div>
     {{-- <div class="p-2 bd-highlight">
         <a class="btn btn-success" href="{{url('add_employee')}}"> Import Excel</a>

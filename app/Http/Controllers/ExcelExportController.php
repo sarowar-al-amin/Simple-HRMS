@@ -1,16 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Exports\SalaryReview;
+use App\Exports\BonusReviewTemplate;
 use Excel;
 
 class ExcelExportController extends Controller
 {
     public function index(){
-        return view('exportFile.exportSalary');
+        if(is_null(Auth::user())){ //Make sure the loged in user is authenticated user
+            return redirect('login');
+        }elseif((Auth::user()->role == 'Admin')){
+            return view('exportFile.exportSalary');
+        }else{
+            return redirect()->back();
+        }
     }
     //
     public function exportIntoExcel(){
@@ -18,6 +25,10 @@ class ExcelExportController extends Controller
         //     abrot(403);
         // }
         return Excel::download(new SalaryReview, 'salaryReview.xlsx');
+    }
+
+    public function exportBonusReviewTemplate(){
+        return Excel::download(new BonusReviewTemplate, 'bonusReviewTemplate.xlsx');
     }
 
 }
