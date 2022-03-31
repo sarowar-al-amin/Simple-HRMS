@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Imports\UserImport;
 
@@ -9,7 +9,13 @@ class ExcelImportController extends Controller
 {
 
     public function index(){
-        return view('employeeImport.employeeImport');
+        if(is_null(Auth::user())){ //Make sure the loged in user is authenticated user
+            return redirect('login');
+        }elseif((Auth::user()->role == 'Admin')){
+            return view('employeeImport.employeeImport');
+        }else{
+            return redirect()->back();
+        }
     }
 
     public function upload_excel(Request $request){
