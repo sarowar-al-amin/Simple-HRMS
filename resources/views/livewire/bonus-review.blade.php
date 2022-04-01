@@ -66,8 +66,8 @@
             wire:model.defer="review.eligible"
             @click.away="$wire.field === 'eligible' ? $wire.save('eligible') : null" >
                 <option selected >Select From Dropdown</option>
-                <option selected value={{ true }}>Yes</option>
-                <option selected value={{ false }}>No</option>
+                <option selected value="1">Yes</option>
+                <option selected value="0">No</option>
             </x-adminlte-select-bs>
         @else
             <div wire:click="$set('field', 'eligible')">
