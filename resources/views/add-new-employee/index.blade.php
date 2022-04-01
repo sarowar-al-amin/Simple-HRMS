@@ -22,15 +22,15 @@
                         <div class="valid-feedback">
                           Looks good!
                         </div>
-                      </div>
-                      <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">User Email</label>
                         <input type="email" class="form-control" id="validationCustom02" name="email" placeholder="email" required>
                         <div class="valid-feedback">
                           Looks good!
                         </div>
-                      </div>
-                      <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
                         <label for="validationCustomUsername" class="form-label">Username</label>
                         <div class="input-group has-validation">
                           {{-- <span class="input-group-text" id="inputGroupPrepend">@</span> --}}
@@ -39,10 +39,10 @@
                             Enter the username.
                           </div>
                         </div>
-                      </div>
-                      <div class="col-12">
+                    </div>
+                    <div class="col-12">
                         <button class="btn btn-primary" type="submit">Submit</button>
-                      </div>
+                    </div>
                 @else
                     <h2 align="center">You are unauthorized to access this page</h2>
                 @endif

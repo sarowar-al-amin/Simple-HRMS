@@ -59,7 +59,7 @@ class BonusReview implements
 
     public function chunkSize(): int
     {
-        return 4;
+        return 1000;
     }
 
     public static function afterImport(AfterImport $event)
