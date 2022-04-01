@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class ReviewBoard extends Component
 {
-    public $headings,$headingTooltips, $query, $sortBy, $dir, $sortOptions, $perPage, $pageOptions;
+    public $headingTooltips, $query, $sortBy, $dir, $sortOptions, $perPage, $pageOptions;
     public $reviews = [];
 
     public function mount() {
@@ -19,7 +19,6 @@ class ReviewBoard extends Component
             'sortOptions' => ['user_id', 'user_name', 'sbu', 'pm'],
             'perPage' => 50,
             'pageOptions' => [15, 30, 50, 75],
-            'headings' => ['ID', 'Name', 'PM', 'SBU Name', 'Team', 'ELigible', 'Performence Feedback(Previous Q)', 'Bonus Percentage(Previous Q)', 'Technical', 'Execution', 'Collaboration & Communication', 'Influence', 'Maturity', 'Score By PM', 'Score By SBU Head', 'PM Feedback', 'SBU Head Feedback'],
             'headingTooltips' => [
                 'This category focuses on technical skills, including an engineer’s mastery, best practices, code reviews, code stewardship, quality & testing, design, and debugging',
                 'This category focuses on the way that an engineer gets things done: planning, scoping, estimation skills, getting unstuck, taking ownership, strategic alignment, product/business understanding, and vision',
@@ -31,12 +30,6 @@ class ReviewBoard extends Component
     }
 
     public function order($field) {
-        if($field === 'sbu name') $field = 'sbu';
-        if($field === 'id') $field = 'user_id';
-        if($field === 'name') $field = 'user_name';
-        if($field === 'score by pm') $field = 'pm_score';
-        if($field === 'pm feedback') $field = 'pm_feedback';
-        if($field === 'sbu head feedback') $field = 'sbu_feedback';
         $this->dir = $this->sortBy === $field && $this->dir === 'asc' ? 'desc' : 'asc';
         $this->sortBy = $field;
     }

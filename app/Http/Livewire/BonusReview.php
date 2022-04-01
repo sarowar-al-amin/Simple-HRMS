@@ -3,12 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\BonusReviewMetadata;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class BonusReview extends Component
 {
-    public $review,$field,$ratings,$ratingTooltips,$approved;
+    public $review,$field,$ratings,$ratingTooltips,$approved,$sbus,$pms,$teams;
 
     public function mount() {
         $this->fill([
@@ -20,7 +21,10 @@ class BonusReview extends Component
                 "Performance failed to meet expectation's, and/or one or more of the most critical goals were not meet",
                 "expectations, and/or reasonable progress toward critical goals was not made. Significant Improvement is needed in one or more important areas"
             ],
-            'approved' => $this->review['approval']
+            'approved' => $this->review['approval'],
+            'sbus' => User::all()->sortBy('sbu')->pluck('sbu')->unique()->toArray(),
+            'pms' => User::all()->sortBy('pm')->pluck('pm')->unique()->toArray(),
+            'teams' => User::all()->sortBy('team')->pluck('team')->unique()->toArray(),
         ]);
     }
     

@@ -1,10 +1,81 @@
 <tr x-data>
     <td>{{ $review['user_id'] }}</td>
     <td>{{ $review['user_name'] }}</td>
-    <td>{{ $review['sbu'] }}</td>
-    <td>{{ $review['pm'] }}</td>
-    <td>{{ $review['team'] ?? "N/A" }}</td>
-    <td>{{ $review['eligible'] ? 'Yes': 'No' }}</td>
+    <td>
+        @if ($field === 'pm')
+            <x-adminlte-select-bs
+            style="width: auto;"
+            name="pm"
+            wire:model.defer="review.pm"
+            @click.away="$wire.field === 'pm' ? $wire.save('pm') : null" >
+                <option selected >Select From Dropdown</option>
+                @foreach ($pms as $pm)
+                    <option value="{{ $pm }}">{{ $pm }}</option>
+                @endforeach
+            </x-adminlte-select-bs>
+        @else
+            <div wire:click="$set('field', 'pm')">
+                {{ $review['pm'] ?? 'N/A' }}
+            </div>
+        @endif
+    </td>
+
+    <td>
+        @if ($field === 'sbu')
+            <x-adminlte-select-bs
+            style="width: auto;"
+            name="sbu"
+            wire:model.defer="review.sbu"
+            @click.away="$wire.field === 'sbu' ? $wire.save('sbu') : null" >
+                <option selected >Select From Dropdown</option>
+                @foreach ($sbus as $sbu)
+                    <option value="{{ $sbu }}">{{ $sbu }}</option>
+                @endforeach
+            </x-adminlte-select-bs>
+        @else
+            <div wire:click="$set('field', 'sbu')">
+                {{ $review['sbu'] ?? 'N/A' }}
+            </div>
+        @endif
+    </td>
+
+    <td>
+        @if ($field === 'team')
+            <x-adminlte-select-bs
+            style="width: auto;"
+            name="team"
+            wire:model.defer="review.team"
+            @click.away="$wire.field === 'team' ? $wire.save('team') : null" >
+                <option selected >Select From Dropdown</option>
+                @foreach ($teams as $team)
+                    <option value="{{ $team }}">{{ $team }}</option>
+                @endforeach
+            </x-adminlte-select-bs>
+        @else
+            <div wire:click="$set('field', 'team')">
+                {{ $review['team'] ?? 'N/A' }}
+            </div>
+        @endif
+    </td>
+
+    <td>
+        @if ($field === 'eligible')
+            <x-adminlte-select-bs
+            style="width: auto;"
+            name="eligible"
+            wire:model.defer="review.eligible"
+            @click.away="$wire.field === 'eligible' ? $wire.save('eligible') : null" >
+                <option selected >Select From Dropdown</option>
+                <option selected value={{ true }}>Yes</option>
+                <option selected value={{ false }}>No</option>
+            </x-adminlte-select-bs>
+        @else
+            <div wire:click="$set('field', 'eligible')">
+                {{ $review['eligible'] ? 'Yes' : 'No' }}
+            </div>
+        @endif
+    </td>
+
     <td>{{ $review['performance'] }}</td>
     <td>{{ $review['bonus_percentage'] }}% </td>
 
