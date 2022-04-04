@@ -2,7 +2,7 @@
     <td>{{ $review['user_id'] }}</td>
     <td>{{ $review['user_name'] }}</td>
     <td>
-        @if ($field === 'pm')
+        @if ($field === 'pm' && ((auth()->user()->role =="Admin")))
             <x-adminlte-select-bs
             style="width: auto;"
             name="pm"
@@ -21,7 +21,7 @@
     </td>
 
     <td>
-        @if ($field === 'sbu')
+        @if ($field === 'sbu' && ((auth()->user()->role =="Admin")))
             <x-adminlte-select-bs
             style="width: auto;"
             name="sbu"
@@ -40,7 +40,7 @@
     </td>
 
     <td>
-        @if ($field === 'team')
+        @if ($field === 'team' && ((auth()->user()->role =="Admin")))
             <x-adminlte-select-bs
             style="width: auto;"
             name="team"
@@ -59,7 +59,7 @@
     </td>
 
     <td>
-        @if ($field === 'eligible')
+        @if ($field === 'eligible' && ((auth()->user()->role =="Admin")))
             <x-adminlte-select-bs
             style="width: auto;"
             name="eligible"
