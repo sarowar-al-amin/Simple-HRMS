@@ -180,6 +180,8 @@
     <td>{{ $review['pm_feedback'] ?? 'N/A' }}</td>
     <td>{{ $review['sbu_feedback'] ?? 'N/A' }}</td>
     <td>
-        <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />
+        @if (!is_null($review['sbu_score']))
+            <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />    
+        @endif
     </td>
 </tr>
