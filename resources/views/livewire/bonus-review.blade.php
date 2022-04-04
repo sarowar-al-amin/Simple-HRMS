@@ -180,7 +180,6 @@
     <td>{{ $review['pm_feedback'] ?? 'N/A' }}</td>
     <td>{{ $review['sbu_feedback'] ?? 'N/A' }}</td>
     <td>
-<<<<<<< HEAD
         @if($review['sbu_score'] &&(auth()->user()->role == "Admin" || auth()->user()->role == "SBU"))
             <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />
         @else
@@ -189,10 +188,6 @@
             @else
                 <x-adminlte-button disabled label="Incomplete"></x-adminlte-button>
             @endif
-=======
-        @if (!is_null($review['sbu_score']))
-            <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />    
->>>>>>> 59af155a986aecab849921380dbc01940127660e
         @endif
     </td>
 </tr>
