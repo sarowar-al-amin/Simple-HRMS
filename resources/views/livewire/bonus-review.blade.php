@@ -180,7 +180,7 @@
     <td>{{ $review['pm_feedback'] ?? 'N/A' }}</td>
     <td>{{ $review['sbu_feedback'] ?? 'N/A' }}</td>
     <td>
-        @if($review['sbu_score'] &&(auth()->user()->role == "Admin" || auth()->user()->role == "SBU"))
+        @if(($review['sbu_score'] || $review['pm_score']) &&(auth()->user()->role == "Admin" || auth()->user()->role == "SBU"))
             <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />
         @else
             @if(auth()->user()->role == "PM")
