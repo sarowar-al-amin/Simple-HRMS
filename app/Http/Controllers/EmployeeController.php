@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -41,7 +42,8 @@ class EmployeeController extends Controller
             User::create([
                 'id' => $request->employee_id,
                 'email' => $request->email,
-                'name' => $request->name
+                'name' => $request->name,
+                'password' => Hash::make('123')
             ]);
 
             // $user = User::where('id', $request->employee_id)
