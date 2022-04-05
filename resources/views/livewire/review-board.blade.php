@@ -47,23 +47,23 @@
                     <th wire:click="order('{{ strtolower($heading) }}')">{{ $heading }}</th>
                 @endif
             @endforeach --}}
-            <th wire:click="order('user_id')">ID</th>
-            <th wire:click="order('user_name')">Name</th>
-            <th wire:click="order('pm')">PM</th>
-            <th wire:click="order('sbu')">SBU Name</th>
-            <th wire:click="order('team')">Team</th>
-            <th wire:click="order('eligible')">Eligible</th>
-            <th wire:click="order('performance')">Performence Feedback<br>(Previous Q)</th>
-            <th wire:click="order('bonus_percentage')">Bonus Percentage<br>(Previous Q)</th>
+            <th wire:click="order('user_id')">ID <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i> </th>
+            <th wire:click="order('user_name')">Name <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('pm')">PM <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('sbu')">SBU Name <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('team')">Team <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('eligible')">Eligible <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('performance')">Performence Feedback<br>(Previous Q) <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('bonus_percentage')">Bonus Percentage<br>(Previous Q) <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
             <th wire:click="order('technical')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[0] }}">Technical</th>
             <th wire:click="order('execution')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[1] }}">Execution</th>
             <th wire:click="order('collaboration')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[2] }}">Collaboration &<br>Communication</th>
             <th wire:click="order('influence')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[3] }}">Influence</th>
             <th wire:click="order('maturity')" data-toggle="tooltip" data-placement="bottom" title="{{ $headingTooltips[4] }}">Maturity</th>
-            <th wire:click="order('pm_score')">Score By PM</th>
-            <th wire:click="order('sbu_score')">Score By<br>SBU Head</th>
-            <th wire:click="order('pm_feedback')">PM Feedback</th>
-            <th wire:click="order('sbu_feedback')">SBU Head Feedback</th>
+            <th wire:click="order('pm_score')">Score By PM <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('sbu_score')">Score By<br>SBU Head <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('pm_feedback')">PM Feedback <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
+            <th wire:click="order('sbu_feedback')">SBU Head Feedback <i class="fa-solid fa-arrow-{{ $dir==='asc' ? 'up' : 'down' }} fa-xs"></i></th>
             @if (auth()->user()->role === 'Admin' || auth()->user()->role === 'SBU')
                 <th wire:click="order('approval')">Actions</th>
             @endif
