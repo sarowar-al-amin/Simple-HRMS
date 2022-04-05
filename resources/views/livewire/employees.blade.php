@@ -5,24 +5,24 @@
                 <td>
                     {{ $employee['id'] }}
                 </td>
-            
+
                 <td>
                     {{ $employee['name'] }}
                 </td>
-            
+
                 <td>
                     {{ $employee['email'] }}
                 </td>
 
                 <td>
                     @if ($field === $idx.'.expertise_area')
-                        <x-adminlte-input 
-                        name="expertise_area" 
-                        wire:model.defer="employees.{{ $idx }}.expertise_area" 
+                        <x-adminlte-input
+                        name="expertise_area"
+                        wire:model.defer="employees.{{ $idx }}.expertise_area"
                         @keyup.enter="$wire.field === '{{ $idx }}.expertise_area' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.expertise_area')">
-                            {{ $employee['expertise_area'] }}
+                            {{ $employee['expertise_area'] ?? 'Edit'}}
                         </div>
                     @endif
                 </td>
@@ -39,33 +39,33 @@
                         </x-adminlte-select-bs>
                     @else
                         <div wire:click="$set('field','{{ $idx }}.partner')">
-                            {{ $employee['partner'] }}
+                            {{ $employee['partner'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.employee_type')
-                        <x-adminlte-input 
-                        name="employee_type" 
-                        wire:model.defer="employees.{{ $idx }}.employee_type" 
+                        <x-adminlte-input
+                        name="employee_type"
+                        wire:model.defer="employees.{{ $idx }}.employee_type"
                         @keyup.enter="$wire.field === '{{ $idx }}.employee_type' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.employee_type')">
-                            {{ $employee['employee_type'] }}
+                            {{ $employee['employee_type'] ?? 'Edit'}}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.managerial_capacity')
-                        <x-adminlte-input 
-                        name="managerial_capacity" 
-                        wire:model.defer="employees.{{ $idx }}.managerial_capacity" 
+                        <x-adminlte-input
+                        name="managerial_capacity"
+                        wire:model.defer="employees.{{ $idx }}.managerial_capacity"
                         @keyup.enter="$wire.field === '{{ $idx }}.managerial_capacity' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.managerial_capacity')">
-                            {{ $employee['managerial_capacity'] }}
+                            {{ $employee['managerial_capacity'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
@@ -82,20 +82,20 @@
                         </x-adminlte-select-bs>
                     @else
                         <div wire:click="$set('field','{{ $idx }}.sbu')">
-                            {{ $employee['sbu'] }}
+                            {{ $employee['sbu'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.hr')
-                        <x-adminlte-input 
-                        name="hr" 
-                        wire:model.defer="employees.{{ $idx }}.hr" 
+                        <x-adminlte-input
+                        name="hr"
+                        wire:model.defer="employees.{{ $idx }}.hr"
                         @keyup.enter="$wire.field === '{{ $idx }}.hr' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.hr')">
-                            {{ $employee['hr'] }}
+                            {{ $employee['hr'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
@@ -103,38 +103,38 @@
                 <td>
                     @if ($field === $idx.'.joining_date')
                         <x-adminlte-input-date
-                        name="joining_date" 
-                        wire:model.defer="employees.{{ $idx }}.joining_date" 
+                        name="joining_date"
+                        wire:model.defer="employees.{{ $idx }}.joining_date"
                         @keyup.enter="$wire.field === '{{ $idx }}.joining_date' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.joining_date')">
-                            {{ $employee['joining_date'] }}
+                            {{ $employee['joining_date'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.confirmation_date')
-                        <x-adminlte-input 
-                        name="confirmation_date" 
-                        wire:model.defer="employees.{{ $idx }}.confirmation_date" 
+                        <x-adminlte-input
+                        name="confirmation_date"
+                        wire:model.defer="employees.{{ $idx }}.confirmation_date"
                         @keyup.enter="$wire.field === '{{ $idx }}.confirmation_date' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.confirmation_date')">
-                            {{ $employee['confirmation_date'] }}
+                            {{ $employee['confirmation_date'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.career_start_date')
-                        <x-adminlte-input 
-                        name="career_start_date" 
-                        wire:model.defer="employees.{{ $idx }}.career_start_date" 
+                        <x-adminlte-input
+                        name="career_start_date"
+                        wire:model.defer="employees.{{ $idx }}.career_start_date"
                         @keyup.enter="$wire.field === '{{ $idx }}.career_start_date' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.career_start_date')">
-                            {{ $employee['career_start_date'] }}
+                            {{ $employee['career_start_date'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
@@ -150,13 +150,13 @@
 
                 <td>
                     @if ($field === $idx.'.employee_category')
-                        <x-adminlte-input 
-                        name="employee_category" 
-                        wire:model.defer="employees.{{ $idx }}.employee_category" 
+                        <x-adminlte-input
+                        name="employee_category"
+                        wire:model.defer="employees.{{ $idx }}.employee_category"
                         @keyup.enter="$wire.field === '{{ $idx }}.employee_category' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.employee_category')">
-                            {{ $employee['employee_category'] }}
+                            {{ $employee['employee_category'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
@@ -173,59 +173,59 @@
                         </x-adminlte-select-bs>
                     @else
                         <div wire:click="$set('field','{{ $idx }}.pm')">
-                            {{ $employee['pm'] }}
+                            {{ $employee['pm'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.blood_group')
-                        <x-adminlte-input 
-                        name="blood_group" 
-                        wire:model.defer="employees.{{ $idx }}.blood_group" 
+                        <x-adminlte-input
+                        name="blood_group"
+                        wire:model.defer="employees.{{ $idx }}.blood_group"
                         @keyup.enter="$wire.field === '{{ $idx }}.blood_group' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.blood_group')">
-                            {{ $employee['blood_group'] }}
+                            {{ $employee['blood_group'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.designation')
-                        <x-adminlte-input 
-                        name="designation" 
-                        wire:model.defer="employees.{{ $idx }}.designation" 
+                        <x-adminlte-input
+                        name="designation"
+                        wire:model.defer="employees.{{ $idx }}.designation"
                         @keyup.enter="$wire.field === '{{ $idx }}.designation' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.designation')">
-                            {{ $employee['designation'] }}
+                            {{ $employee['designation'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.level')
-                        <x-adminlte-input 
-                        name="level" 
-                        wire:model.defer="employees.{{ $idx }}.level" 
+                        <x-adminlte-input
+                        name="level"
+                        wire:model.defer="employees.{{ $idx }}.level"
                         @keyup.enter="$wire.field === '{{ $idx }}.level' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.level')">
-                            {{ $employee['level'] }}
+                            {{ $employee['level'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
 
                 <td>
                     @if ($field === $idx.'.team')
-                        <x-adminlte-input 
-                        name="team" 
-                        wire:model.defer="employees.{{ $idx }}.team" 
+                        <x-adminlte-input
+                        name="team"
+                        wire:model.defer="employees.{{ $idx }}.team"
                         @keyup.enter="$wire.field === '{{ $idx }}.team' ? $wire.save({{ $idx }}) : null" />
                     @else
                         <div wire:click="$set('field','{{ $idx }}.team')">
-                            {{ $employee['team'] }}
+                            {{ $employee['team'] ?? 'Edit' }}
                         </div>
                     @endif
                 </td>
