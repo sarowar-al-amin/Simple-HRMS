@@ -53,7 +53,7 @@
             </x-adminlte-select-bs>
         @else
             <div wire:click="$set('field', 'team')">
-                {{ $review['team'] ?? 'N/A' }}
+                {{ $review['team'] ?? 'Select from dropdown' }}
             </div>
         @endif
     </td>
@@ -93,7 +93,7 @@
             </x-adminlte-select-bs>
         @else
             <div wire:click="$set('field', 'technical')">
-                {{ $review['technical'] ?? 'N/A' }}
+                {{ $review['technical'] ?? 'Select from dropdown' }}
             </div>
         @endif
     </td>
@@ -112,7 +112,7 @@
             </x-adminlte-select-bs>
         @else
             <div class="{{ is_null($review['execution']) && 'danger' }}" wire:click="$set('field', 'execution')">
-                {{ $review['execution'] ?? 'N/A' }}
+                {{ $review['execution'] ?? 'Select from dropdown' }}
             </div>
         @endif
     </td>
@@ -131,7 +131,7 @@
             </x-adminlte-select-bs>
         @else
             <div wire:click="$set('field', 'collaboration')">
-                {{ $review['collaboration'] ?? 'N/A' }}
+                {{ $review['collaboration'] ?? 'Select from dropdown' }}
             </div>
         @endif
     </td>
@@ -150,7 +150,7 @@
             </x-adminlte-select-bs>
         @else
             <div wire:click="$set('field', 'influence')">
-                {{ $review['influence'] ?? 'N/A' }}
+                {{ $review['influence'] ?? 'Select from dropdown' }}
             </div>
         @endif
     </td>
@@ -169,7 +169,7 @@
             </x-adminlte-select-bs>
         @else
             <div wire:click="$set('field', 'maturity')">
-                {{ $review['maturity'] ?? 'N/A' }}
+                {{ $review['maturity'] ?? 'Select from dropdown' }}
             </div>
         @endif
     </td>
@@ -183,11 +183,7 @@
         @if(($review['sbu_score'] || $review['pm_score']) &&(auth()->user()->role == "Admin" || auth()->user()->role == "SBU"))
             <x-adminlte-button theme="{{ $approved ? 'success' : 'info' }}" label="{{ $approved ? 'Approved' : 'Approve' }}" wire:click="approve" />
         @else
-            @if(auth()->user()->role == "PM")
-                <x-adminlte-button disabled label="Disable"></x-adminlte-button>
-            @else
                 <x-adminlte-button disabled label="Incomplete"></x-adminlte-button>
-            @endif
         @endif
     </td>
 </tr>
