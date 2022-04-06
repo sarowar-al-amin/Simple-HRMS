@@ -28,7 +28,7 @@
 
     </div>
 
-    <table class="table table-hover">
+    <table class="table table-hover table-responsive">
         <thead>
             {{-- @foreach ($headings as $heading)
                 @if ($loop->index > 5 && $loop->index < 11)
