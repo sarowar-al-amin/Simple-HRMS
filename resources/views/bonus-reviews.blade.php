@@ -15,6 +15,9 @@
             white-space: nowrap;
             text-align: center;
         }
+        .table-responsive {
+            overflow-x: auto !important;
+        }
     </style>
     <livewire:styles />
 @stop
