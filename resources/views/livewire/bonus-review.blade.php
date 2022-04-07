@@ -80,7 +80,7 @@
     <td>{{ $review['bonus_percentage'] }}% </td>
 
     <td>
-        @if (!$dateOver && $field === 'technical')
+        @if ((!$dateOver || auth()->user()->role =="Admin") && $field === 'technical')
             <x-adminlte-select-bs
             style="width: auto;"
             name="technical"
@@ -99,7 +99,7 @@
     </td>
 
     <td>
-        @if (!$dateOver && $field === 'execution')
+        @if ((!$dateOver || auth()->user()->role =="Admin") && $field === 'execution')
             <x-adminlte-select-bs
             style="width: auto;"
             name="execution"
@@ -118,7 +118,7 @@
     </td>
 
     <td>
-        @if (!$dateOver && $field === 'collaboration')
+        @if ((!$dateOver || auth()->user()->role =="Admin") && $field === 'collaboration')
             <x-adminlte-select-bs
             style="width: auto;"
             name="technical"
@@ -137,7 +137,7 @@
     </td>
 
     <td>
-        @if (!$dateOver && $field === 'influence')
+        @if ((!$dateOver || auth()->user()->role =="Admin") && $field === 'influence')
             <x-adminlte-select-bs
             style="width: auto;"
             name="influence"
@@ -156,7 +156,7 @@
     </td>
 
     <td>
-        @if (!$dateOver && $field === 'maturity')
+        @if ((!$dateOver || auth()->user()->role =="Admin") && $field === 'maturity')
             <x-adminlte-select-bs
             style="width: auto;"
             name="maturity"
