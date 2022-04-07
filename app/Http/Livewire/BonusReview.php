@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\BonusReview as ModelsBonusReview;
 use App\Models\BonusReviewMetadata;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use PhpOffice\PhpSpreadsheet\Writer\Ods\Thumbnails;
 
 class BonusReview extends Component
 {
-    public $review,$field,$ratings,$ratingTooltips,$approved,$sbus,$pms,$teams;
+    public $review,$field,$ratings,$ratingTooltips,$approved,$sbus,$pms,$teams,$dateOver;
 
     public function mount() {
         $this->fill([
@@ -26,6 +29,9 @@ class BonusReview extends Component
             'pms' => User::all()->sortBy('pm')->pluck('pm')->unique()->toArray(),
             'teams' => User::all()->sortBy('team')->pluck('team')->unique()->toArray(),
         ]);
+
+        $lastDate = ModelsBonusReview::first()->end;
+        $this->dateOver = Carbon::createFromFormat('j M Y', $lastDate)->lt(today());
     }
     
     // protected $rules = [

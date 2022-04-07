@@ -80,7 +80,7 @@
     <td>{{ $review['bonus_percentage'] }}% </td>
 
     <td>
-        @if ($field === 'technical')
+        @if (!$dateOver && $field === 'technical')
             <x-adminlte-select-bs
             style="width: auto;"
             name="technical"
@@ -99,7 +99,7 @@
     </td>
 
     <td>
-        @if ($field === 'execution')
+        @if (!$dateOver && $field === 'execution')
             <x-adminlte-select-bs
             style="width: auto;"
             name="execution"
@@ -118,7 +118,7 @@
     </td>
 
     <td>
-        @if ($field === 'collaboration')
+        @if (!$dateOver && $field === 'collaboration')
             <x-adminlte-select-bs
             style="width: auto;"
             name="technical"
@@ -137,7 +137,7 @@
     </td>
 
     <td>
-        @if ($field === 'influence')
+        @if (!$dateOver && $field === 'influence')
             <x-adminlte-select-bs
             style="width: auto;"
             name="influence"
@@ -156,7 +156,7 @@
     </td>
 
     <td>
-        @if ($field === 'maturity')
+        @if (!$dateOver && $field === 'maturity')
             <x-adminlte-select-bs
             style="width: auto;"
             name="maturity"
