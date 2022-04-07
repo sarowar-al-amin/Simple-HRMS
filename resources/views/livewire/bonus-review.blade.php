@@ -75,9 +75,38 @@
             </div>
         @endif
     </td>
-
-    <td>{{ $review['performance'] }}</td>
-    <td>{{ $review['bonus_percentage'] }}% </td>
+    <td>
+        @if ($field === 'performance' && ((auth()->user()->role =="Admin")))
+            <x-adminlte-select-bs
+            style="width: auto;"
+            name="performance"
+            wire:model.defer="review.performance"
+            @click.away="$wire.field === 'performance' ? $wire.save('performance') : null" >
+                <option selected >Select From Dropdown</option>
+                <option selected value="Need Improvement">Need Improvement </option>
+                <option selected value="Meet Expectation">Meet Expectation</option>
+                <option selected value="Exceed Expectation">Exceed Expectation</option>
+            </x-adminlte-select-bs>
+        @else
+            <div wire:click="$set('field', 'performance')">
+                {{ $review['performance'] ?? 'Select from dropdown'}}
+            </div>
+        @endif
+    </td>
+    <td>
+        @if ($field === 'bonus_percentage' && ((auth()->user()->role =="Admin")))
+            <x-adminlte-input
+            name="bonus_percentage"
+            wire:model.defer="review.bonus_percentage"
+            @keyup.enter="$wire.field === 'bonus_percentage' ? $wire.save('bonus_percentage') : null" />
+        @else
+            <div wire:click="$set('field','bonus_percentage')">
+                {{ $review['bonus_percentage'] ?? '0'}}%
+            </div>
+        @endif
+    </td>
+    {{-- <td>{{ $review['performance'] }}</td> --}}
+    {{-- <td>{{ $review['bonus_percentage'] }}% </td> --}}
 
     <td>
         @if ((!$dateOver || auth()->user()->role =="Admin") && $field === 'technical')
