@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 use PhpOffice\PhpSpreadsheet\Writer\Ods\Thumbnails;
 
 class BonusReview extends Component
@@ -71,6 +72,18 @@ class BonusReview extends Component
         return $feedback;
     }
 
+    public function getApprovalState($sbuScore) {
+        $state = 'Incomplete';
+
+        if($this->approved) {
+            $state = 'Approved';
+        }else if (! $sbuScore){
+            $state = 'Approve';
+        }
+
+        return $state;
+    }
+
     public function save($field) {
 
         $review = BonusReviewMetadata::where('user_id', $this->review['user_id']);
@@ -83,6 +96,8 @@ class BonusReview extends Component
             $this->review['pm_score'] = $this->getScore();
             $this->review['pm_feedback'] = $this->getFeedback($this->review['pm_score']);
         }
+
+        $this->review['approval_state'] = $this->getApprovalState($this->review['sbu_score']);
 
         if(!is_null($review)) {
             $review->update($this->review);
