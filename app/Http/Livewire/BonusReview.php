@@ -30,7 +30,7 @@ class BonusReview extends Component
             'pms' => User::all()->sortBy('pm')->pluck('pm')->unique()->toArray(),
             'teams' => User::all()->sortBy('team')->pluck('team')->unique()->toArray(),
         ]);
-
+        // Initial State 'Imcomplete'
         $this->review['approval_state'] = $this->getApprovalState($this->review['sbu_score']);
         $review = BonusReviewMetadata::where('user_id', $this->review['user_id']);
         if(!is_null($review)) {
@@ -79,6 +79,7 @@ class BonusReview extends Component
         return $feedback;
     }
 
+    // Initial state 'incomplete' & after completing state will be 'Approve'
     public function getApprovalState($sbuScore) {
         $state = 'Incomplete';
 
