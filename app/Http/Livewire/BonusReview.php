@@ -31,6 +31,13 @@ class BonusReview extends Component
             'teams' => User::all()->sortBy('team')->pluck('team')->unique()->toArray(),
         ]);
 
+        $this->review['approval_state'] = $this->getApprovalState($this->review['sbu_score']);
+        $review = BonusReviewMetadata::where('user_id', $this->review['user_id']);
+        if(!is_null($review)) {
+            $review->update($this->review);
+        }
+
+
         $lastDate = ModelsBonusReview::first()->end;
         $this->dateOver = Carbon::createFromFormat('j M Y', $lastDate)->lt(today());
     }
