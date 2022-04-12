@@ -30,7 +30,7 @@ class BonusReviewMetadata extends Model
                 'pm_score',
                 'sbu_feedback',
                 'pm_feedback',
-                'approval')
+                'approval_state')
             ->get()
             ->toArray();
         return $review;

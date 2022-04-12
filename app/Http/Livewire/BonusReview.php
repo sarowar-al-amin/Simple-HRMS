@@ -77,7 +77,7 @@ class BonusReview extends Component
 
         if($this->approved) {
             $state = 'Approved';
-        }else if (! $sbuScore){
+        }else if ($sbuScore){
             $state = 'Approve';
         }
 
