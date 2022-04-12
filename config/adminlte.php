@@ -369,6 +369,11 @@ return [
                     'text' => 'Salary Review',
                     'icon' => 'fas fa-fw fa-download',
                     'route' => 'exportFile',
+                ],
+                [
+                    'text' => 'Bonus Review',
+                    'icon' => 'fas fa-fw fa-download',
+                    'route' => 'bonusReviewExport',
                 ]
             ]
         ],
