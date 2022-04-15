@@ -16,9 +16,9 @@
     <div class="p-2 bd-highlight">
         <a class="btn btn-primary" href="#"> Download Excel User template</a>
     </div>
-    {{-- <div class="p-2 bd-highlight">
-        <a class="btn btn-success" href="{{url('add_employee')}}"> Import Excel</a>
-    </div> --}}
+    <div class="p-2 bd-highlight">
+        <a class="btn btn-success" href="{{url('export/all-users')}}"> Download All Users</a>
+    </div>
 </div>
 <div class="card">
     <!-- /.card-header -->

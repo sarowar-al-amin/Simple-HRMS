@@ -73,6 +73,7 @@ Route::get('/export/file', [ExcelExportController::class, 'index'])->name('expor
 Route::get('/export/bounus-review-template', [ExcelExportController::class, 'exportBonusReviewTemplate']);
 Route::get('/export/bonus-review',[ExcelExportController::class, 'exportBonusReviewView'])->name('bonusReviewExport');
 Route::get('/exportation/bonus_review', [ExcelExportController::class, 'exportBonusReview']);
+Route::get('/export/all-users', [ExcelExportController::class, 'exportAllUsers']);
 
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
