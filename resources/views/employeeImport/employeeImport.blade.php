@@ -14,7 +14,7 @@
 </x-adminlte-card>
 <div class="d-flex flex-row-reverse bd-highlight">
     <div class="p-2 bd-highlight">
-        <a class="btn btn-primary" href="#"> Download Excel User template</a>
+        <a class="btn btn-primary" href="{{url('export/excel-user-template')}}"> Download Excel User template</a>
     </div>
     <div class="p-2 bd-highlight">
         <a class="btn btn-success" href="{{url('export/all-users')}}"> Download All Users</a>

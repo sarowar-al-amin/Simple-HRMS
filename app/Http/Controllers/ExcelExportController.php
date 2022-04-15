@@ -8,6 +8,7 @@ use App\Exports\SalaryReview;
 use App\Exports\BonusReviewTemplate;
 use App\Exports\BonusReviewExport;
 use App\Exports\UsersExport;
+use App\Exports\UsersImportTemplateExport;
 use Excel;
 
 class ExcelExportController extends Controller
@@ -50,5 +51,9 @@ class ExcelExportController extends Controller
 
     public function exportAllUsers(){
         return Excel::download(new UsersExport, 'allemployeelist.xlsx');
+    }
+
+    public function userImportTemplate(){
+        return Excel::download(new UsersImportTemplateExport, 'userImportTemplate.xlsx');
     }
 }
