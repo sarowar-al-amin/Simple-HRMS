@@ -20,6 +20,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\BonusReviewImportController;
+use App\Http\Controllers\EmployeeSalaryReviewController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -88,3 +89,6 @@ Route::post('profile/info_update', [UserProfileController::class, 'update_info']
 
 Route::get('/import/bonus-review', [BonusReviewImportController::class, 'index'])->name('bonus-review.import');
 Route::post('/import/upload-excel', [BonusReviewImportController::class, 'upload_excel']);
+
+
+Route::get('employee-salary-review', [EmployeeSalaryReviewController::class, 'index']);
