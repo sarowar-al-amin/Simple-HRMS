@@ -132,7 +132,7 @@
 
     </table>
 
-    <h1>Overall Rating</h1>
+    {{-- <h1>Overall Rating</h1>
 
     <table class="table tavle-hover">
         <tbody>
@@ -161,7 +161,12 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table> --}}
+
+    <div class="d-flex justify-content-between p-4">
+        <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
+        <x-adminlte-button id="sbtn" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+    </div>
     
             
             {{-- Final evaluation --}}
