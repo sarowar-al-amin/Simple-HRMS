@@ -53,7 +53,6 @@ class UserImport implements
                 'email' => $row['email'],
                 'role' => $row['role'],
                 'password' => Hash::make($row['password']),
-                // 'state' => $row['state'],
                 'expertise_area' => $row['expertise_area'],
                 'employee_type' => $row['employee_type'],
                 'managerial_capacity' => $row['managerial_capacity'],
@@ -65,26 +64,23 @@ class UserImport implements
                 'hr' => $row['hr'],
                 'pm' => $row['pm'],
                 'team' => $row['team'],
-                'previous_team' => $row['previous_team'],
-                //'joining_date' => date_format(DateTime("j-M-Y",$row['joining_date']),"d-m-Y"),
-                // 'confirmation_date' => $row['confirmation_date'],
-                // 'career_start_date' => $row['career_start_date'],
-                'experience' => $row['experience'],
-                'blood_group' => $row['blood_group'],
-                'engagement' => $row['engagement'],
-                'last_performance' => $row['last_performance'],
-                'second_last_performance' => $row['second_last_performance'],
-                //'eligibility' => $row['eligibility'],
                 'eligible_salary_review' => $row['eligible_salary_review'],
                 'eligible_bonus_review' => $row['eligible_bonus_review'],
-                'last_promotion' => $row['last_promotion'],
-                'second_last_promotion' => $row['second_last_promotion'],
-                // 'comments' => $row['comments'],
+                'q_1_jul_sep_performance' => $row['q_1_jul_sep_performance'],
+                'q_1_jul_sep_percentage' => $row['q_1_jul_sep_percentage']*100,
+                'q_2_oct_dec_performance' => $row['q_2_oct_dec_performance'],
+                'q_2_oct_dec_percentage' => $row['q_2_oct_dec_percentage']*100,
+                'q_3_jan_mar_performance' => $row['q_3_jan_mar_performance'],
+                'q_3_jan_mar_percentage' => $row['q_3_jan_mar_percentage']*100,
+                'promotion_22a' => $row['promotion_22a'],
+                'promotion_21b' => $row['promotion_21b'],
+                'promotion_21a' => $row['promotion_21a']
+
             ]);
         }
     }
     public function rules(): array
-    {
+    { 
         return [
             '*.email' => ['email', 'unique:users,email']
         ];
