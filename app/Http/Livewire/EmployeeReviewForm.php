@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\SalaryReviewMetadata;
+use App\Models\SalaryReview22bMetadata;
 use Livewire\Component;
 
 class EmployeeReviewForm extends Component
@@ -19,7 +19,7 @@ class EmployeeReviewForm extends Component
     
     public function mount() {
 
-        $this->employeeReview = SalaryReviewMetadata::where('user_id', $this->employee->id)->first();
+        $this->employeeReview = SalaryReview22bMetadata::where('user_id', $this->employee->id)->first();
         
         if($this->employeeReview) {
             $this->behaviouralFeedbacks = explode('#', $this->employeeReview->behavioural_feedbacks);
