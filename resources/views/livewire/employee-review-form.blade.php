@@ -1,11 +1,11 @@
-<form id="reviewForm" action={{ route('employee-reviews.store', ['user' => $employee]) }} method="POST" encType="multipart/form-data">
+<form id="reviewForm" action="{{ route('employee-reviews.store', ['user' => $employee]) }}" method="POST" encType="multipart/form-data">
 
     @csrf
 
     {{-- @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
-        @endforeach
+        @endforeach 
     @endif --}}
 
     <table class="table table-hover">
