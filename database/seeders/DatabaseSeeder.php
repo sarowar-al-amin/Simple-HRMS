@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        User::factory(1)->create();
+        User::factory(1000)->create();
+        User::factory(1)->create([
+            'id' => 'BSSupport001',
+            'name' => 'Admin',
+            'email' => 'admin@bs23.com',
+            'role' => 'Admin',
+        ]);
     }
 }
