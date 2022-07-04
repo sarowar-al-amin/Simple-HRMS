@@ -87,47 +87,47 @@ class EmployeeSalaryReviewController extends Controller
 
             'knowledge_rating' => $request->input('knowledge_rating'),
             'knowledge_score' => $request->input('knowledge_score'),
-            'knowledge_justification' => $request->input('knowledge_rating'),
+            'knowledge_justification' => $request->input('knowledge_justification'),
 
             'independence_rating' => $request->input('independence_rating'),
             'independence_score' => $request->input('independence_score'),
-            'independence_justification' => $request->input('independence_rating'),
+            'independence_justification' => $request->input('independence_justification'),
 
             'influence_rating' => $request->input('influence_rating'),
             'influence_score' => $request->input('influence_score'),
-            'influence_justification' => $request->input('influence_rating'),
+            'influence_justification' => $request->input('influence_justification'),
             
             'organizational_scope_rating' => $request->input('organizational_scope_rating'),
             'organizational_scope_score' => $request->input('organizational_scope_score'),
-            'organizational_scope_justification' => $request->input('organizational_scope_rating'),
+            'organizational_scope_justification' => $request->input('organizational_scope_justification'),
 
             'job_contrast_rating' => $request->input('job_contrast_rating'),
             'job_contrast_score' => $request->input('job_contrast_score'),
-            'job_contrast_justification' => $request->input('job_contrast_rating'),
+            'job_contrast_justification' => $request->input('job_contrast_justification'),
 
             'execution_rating' => $request->input('execution_rating'),
             'execution_score' => $request->input('execution_score'),
-            'execution_justification' => $request->input('execution_rating'),
+            'execution_justification' => $request->input('execution_justification'),
 
             'ownership_rating' => $request->input('ownership_rating'),
             'ownership_score' => $request->input('ownership_score'),
-            'ownership_justification' => $request->input('ownership_rating'),
+            'ownership_justification' => $request->input('ownership_justification'),
 
             'passion_rating' => $request->input('passion_rating'),
             'passion_score' => $request->input('passion_score'),
-            'passion_justification' => $request->input('passion_rating'),
+            'passion_justification' => $request->input('passion_justification'),
 
             'agility_rating' => $request->input('agility_rating'),
             'agility_score' => $request->input('agility_score'),
-            'agility_justification' => $request->input('agility_rating'),
+            'agility_justification' => $request->input('agility_justification'),
 
             'team_spirit_rating' => $request->input('team_spirit_rating'),
             'team_spirit_score' => $request->input('team_spirit_score'),
-            'team_spirit_justification' => $request->input('team_spirit_rating'),
+            'team_spirit_justification' => $request->input('team_spirit_justification'),
 
             'honesty_rating' => $request->input('honesty_rating'),
             'honesty_score' => $request->input('honesty_score'),
-            'honesty_justification' => $request->input('honesty_rating'),
+            'honesty_justification' => $request->input('honesty_justification'),
 
             // 'performance' => $request->input('performance'),
             // 'promotion' => $request->input('promotion'),

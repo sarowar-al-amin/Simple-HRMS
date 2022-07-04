@@ -39,7 +39,7 @@
                         <select name={{ $performance_names[$i].'_rating' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
-                                <option value={{ $i+1 }}>{{ $rating }}</option>
+                                <option value={{ $rating }}>{{ $rating }}</option>
                             @endforeach
                         </select>
                     </td>
@@ -132,91 +132,9 @@
 
     </table>
 
-    {{-- <h1>Overall Rating</h1>
-
-    <table class="table tavle-hover">
-        <tbody>
-            <tr>
-                <td>Overall Performance</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Values Rating</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Recommended for Promotion</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>SBU Comment</td>
-                <td>
-                    <textarea name="sbu_comment" cols="80" rows="4"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>PM Comment</td>
-                <td>
-                    <textarea name="pm_comment" cols="80" rows="4"></textarea>
-                </td>
-            </tr>
-        </tbody>
-    </table> --}}
 
     <div class="d-flex justify-content-between p-4">
         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
         <x-adminlte-button id="sbtn" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
     </div>
-    
-            
-            {{-- Final evaluation --}}
-            {{-- <tr>
-                <th colspan="1">Overall Performance <span class="text-lg text-red">*</span> </th>
-                <td colspan="3">
-                    <x-adminlte-select name="performance">
-                        <option selected disabled>Please select an option</option>
-                        @foreach ($performances as $j)
-                            <option {{ $employeeReview && $performance===$j ? 'selected' : '' }}>{{ $j }}</option>
-                        @endforeach
-                    </x-adminlte-select>
-                </td>
-            </tr>
-
-            <tr>
-                <th colspan="1">Recommend for Promotion <span class="text-lg text-red">*</span> </th>
-                <td colspan="3">
-                    <x-adminlte-select name="promotion">
-                        <option selected disabled>Please select an option</option>
-                        @foreach (['Yes', 'No'] as $j)
-                            <option {{ $employeeReview && $promotion===$j ? 'selected' : '' }}>{{ $j }}</option>
-                        @endforeach
-                    </x-adminlte-select>
-                </td>
-            </tr>
-
-            <tr>
-                <th colspan="1">Comments regarding his/her performance <span class="text-lg text-red">*</span> </th>
-                <td colspan="3">
-                    <x-adminlte-textarea id="txtarea" name="sbu_comment">
-                        {{ $comment }}
-                    </x-adminlte-textarea>
-                </td>
-            </tr>
-            @if (auth()->user()->role === 'PM')
-                <tr>
-                    <td class="alert alert-danger" colspan="4">
-                        You can't review this employee again once you've submitted the form
-                    </td>
-                </tr>
-            @endif
-            <tr>
-                <td colspan="4">
-                    <div class="d-flex justify-content-between">
-                        <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-                        <x-adminlte-button id="sbtn" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table> --}}
 </form>
