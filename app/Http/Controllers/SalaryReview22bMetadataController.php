@@ -20,8 +20,6 @@ class SalaryReview22bMetadataController extends Controller
         }
         else{
             $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
-        }
-
-        
+        } 
     }
 }

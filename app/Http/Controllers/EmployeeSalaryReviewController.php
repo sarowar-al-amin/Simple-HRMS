@@ -89,9 +89,9 @@ class EmployeeSalaryReviewController extends Controller
             'knowledge_score' => $request->input('knowledge_score'),
             'knowledge_justification' => $request->input('knowledge_rating'),
 
-            'indepndence_rating' => $request->input('indepndence_rating'),
-            'indepndence_score' => $request->input('indepndence_score'),
-            'indepndence_justification' => $request->input('indepndence_rating'),
+            'independence_rating' => $request->input('independence_rating'),
+            'independence_score' => $request->input('independence_score'),
+            'independence_justification' => $request->input('independence_rating'),
 
             'influence_rating' => $request->input('influence_rating'),
             'influence_score' => $request->input('influence_score'),
@@ -109,9 +109,9 @@ class EmployeeSalaryReviewController extends Controller
             'execution_score' => $request->input('execution_score'),
             'execution_justification' => $request->input('execution_rating'),
 
-            'ownershi[p_rating' => $request->input('ownershi[p_rating'),
-            'ownershi[p_score' => $request->input('ownershi[p_score'),
-            'ownershi[p_justification' => $request->input('ownershi[p_rating'),
+            'ownership_rating' => $request->input('ownership_rating'),
+            'ownership_score' => $request->input('ownership_score'),
+            'ownership_justification' => $request->input('ownership_rating'),
 
             'passion_rating' => $request->input('passion_rating'),
             'passion_score' => $request->input('passion_score'),
@@ -129,11 +129,11 @@ class EmployeeSalaryReviewController extends Controller
             'honesty_score' => $request->input('honesty_score'),
             'honesty_justification' => $request->input('honesty_rating'),
 
-            'performance' => $request->input('performance'),
-            'promotion' => $request->input('promotion'),
-            'sbu_comment' => $request->input('sbu_comment'),
-            'sbu' => $sbu,
-            'pm' => $pm
+            // 'performance' => $request->input('performance'),
+            // 'promotion' => $request->input('promotion'),
+            // 'sbu_comment' => $request->input('sbu_comment'),
+            // 'sbu' => $sbu,
+            // 'pm' => $pm
         ]);
 
 
