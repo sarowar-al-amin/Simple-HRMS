@@ -51,13 +51,19 @@ class EmployeeSalaryReviewController extends Controller
             
             return redirect('login');
         }
-        $data = $request->validate([
-            "categorical_feedbacks.*" => ['required'],
-            'behavioural_feedbacks.*' => ['required'],
-            'promotion' => ['required'],
-            'performance' => ['required'],
-            'sbu_comment' => ['required']
-        ]);
+        // $data = $request->validate([
+        //     'knowledge_rating' => 'required',
+        //     'independence_rating' => 'required',
+        //     'influence_rating' => 'required',
+        //     'organizational_scope_rating' => 'required',
+        //     'job_contrast_rating' => 'required',
+        //     'execution_rating' => 'required',
+        //     'ownership_rating' => 'required',
+        //     'passion_rating' => 'required',
+        //     'agility_rating' => 'required',
+        //     'team_spirit_rating' => 'required',
+        //     'honesty_rating' => 'required',
+        // ]);
 
         $sr = SalaryReview::firstOrFail();
         $srm = SalaryReview22bMetadata::where('salary_review_id', $sr->id)->where('user_id', $user->id)->first();
