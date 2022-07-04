@@ -1,4 +1,4 @@
-<form id="reviewForm" action={{ route('employee-reviews.store', ['user' => $employee]) }} method="POST" encType="multipart/form-data">
+<form id="reviewForm" action={{ route('employee-salary-reviews.store', ['user' => $employee]) }} method="POST" encType="multipart/form-data">
 
     @csrf
 
@@ -37,11 +37,11 @@
                     </td>
                     <td>
                         <select name={{ $performance_names[$i].'_rating' }}>
-                            <option>Select An Option</option>
+                            <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $i+1 }}>{{ $rating }}</option>
                             @endforeach
-                        <select>
+                        </select>
                     </td>
                     <td>
                         <textarea name={{ $performance_names[$i].'_justification' }} placeholder="Insert description..."></textarea>
@@ -117,11 +117,11 @@
                     </td>
                     <td>
                         <select name={{ $values_names[$i].'_rating' }}>
-                            <option>Select An Option</option>
+                            <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $i+1 }}>{{ $rating }}</option>
                             @endforeach
-                        <select>
+                        </select>
                     </td>
                     <td>
                         <textarea name={{ $values_names[$i].'_justification' }} placeholder="Insert description..."></textarea>

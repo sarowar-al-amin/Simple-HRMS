@@ -92,3 +92,4 @@ Route::post('/import/upload-excel', [BonusReviewImportController::class, 'upload
 
 
 Route::get('employee-salary-review', [EmployeeSalaryReviewController::class, 'index']);
+Route::post('employee-salary-review/store/{user}', [EmployeeSalaryReviewController::class, 'store'])->name('employee-salary-reviews.store');

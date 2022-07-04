@@ -112,16 +112,15 @@
 
             //if($('#txtarea').val().trim().length> 0) x++;
 
-            if(x>10) $('#sbtn').prop('disabled', false);
+            if(x>65) $('#sbtn').prop('disabled', false);
 
-            // $('#txtarea').change( function() {
-            //     $("select").each(function () {
-            //         if($(this).val() !== null) x++;
-            //     });
-            //     if($(this).val().trim().length> 0) x++;
-            //     if(x>16) $('#sbtn').prop('disabled', false);
-            //     console.log(x);
-            // });
+            $('select').change( function() {
+                $("select").each(function () {
+                    if($(this).val() !== null) x++;
+                });
+                console.log(x)
+                if(x>65) $('#sbtn').prop('disabled', false);
+            });
 
 
         });
