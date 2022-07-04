@@ -12,7 +12,7 @@
         <x-adminlte-profile-col-item title="Id" text="{{ $employee->id }}" size=4 />
         <x-adminlte-profile-col-item title="Employee Type" text="{{ $employee->employee_type }}" size=4 />
         <x-adminlte-profile-col-item title="SBU" text="{{ $employee->sbu }}" size=4 />
-        <x-adminlte-profile-col-item title="Experience" text="{{ $employee->experience }}" size=4 />
+        {{-- <x-adminlte-profile-col-item title="Experience" text="{{ $employee->experience }}" size=4 /> --}}
         <x-adminlte-profile-col-item title="Team" text="{{ $employee->team }}" size=4 />
         <x-adminlte-profile-col-item title="Project Maneger" text="{{ $employee->pm }}" size=4 />
         <x-adminlte-profile-col-item title="SBU" text="{{ $employee->sbu }}" size=4 />

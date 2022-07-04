@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset('template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{ asset('template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{ asset('template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('template/plugins/datatables-fixedheader/css/fixedHeader.bootstrap4.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css')}}">
 @stop
@@ -21,13 +23,12 @@
     @endif
     
     <div class="table responsive overflow-auto">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="example1" class="table table-striped">
 
             <thead>
                 @foreach ($headings as $heading)
-                    <th>{{ $heading }}</th>
+                    <th scope="col">{{ $heading }}</th>
                 @endforeach
-                <th>Actions</th>
             </thead>
 
             <tbody>
@@ -85,7 +86,13 @@
 @stop
 
 @section('css')
-
+    <style>
+        th, td {
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        
+    </style>
 @stop
 
 @section('js')
@@ -99,6 +106,7 @@
 <script src="{{ asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{ asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('template/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{ asset('template/plugins/datatables-fixedheader/js/fixedHeader.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('template/plugins/jszip/jszip.min.js')}}"></script>
 <script src="{{ asset('template/plugins/pdfmake/pdfmake.min.js')}}"></script>
@@ -111,10 +119,15 @@
 
 <script>
   $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false, "pageLength" : 15,
+    var table = $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false, pageLength: 25,fixedHeader: true,
+      columnDefs: [
+                {targets: [4, 5, 10], visible: false}
+         ],
       "buttons":  ["copy", "csv", "excel", "pdf", "colvis"],
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+    // new $.fn.dataTable.FixedHeader( table );
   });
 </script>
 @stop

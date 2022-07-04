@@ -7,22 +7,6 @@
 
 @section('content')
 
-
-{{-- <x-adminlte-profile-widget name="{{ $employee->name }}" desc="{{ $employee->designation }}" theme="dark" layout-type="mordern">
-
-    <x-adminlte-profile-col-item class="mb-2" title="Id" text="{{ $employee->id }}" size=4 />
-    <x-adminlte-profile-col-item class="mb-2" title="Employee Type" text="{{ $employee->employee_type }}" size=4 />
-    <x-adminlte-profile-col-item title="Experience" text="{{ $employee->total_experience }}" size=4 />
-    <x-adminlte-profile-col-item title="Team" text="{{ $employee->team }}" size=4 />
-    <x-adminlte-profile-col-item title="Project Maneger" text="{{ $employee->pm }}" size=4 />
-    <x-adminlte-profile-col-item title="SBU" text="{{ $employee->sbu }}" size=4 />
-    <x-adminlte-profile-col-item title="Experience" text="Onek" size=4 />
-    <x-adminlte-profile-col-item title="Current Level" text="{{ $currentLevel->id }}" size=4 />
-    <x-adminlte-profile-col-item title="Next Level" text="{{ $nextLevel->id }}" size=4 />
-
-    
-</x-adminlte-profile-widget> --}}
-
 <x-adminlte-card title="Employee Information" theme="dark" collapsible="collapsed">
     <x-adminlte-profile-widget name="{{ $employee->name }}" desc="{{ $employee->designation }}" layout-type="classic">
         <x-adminlte-profile-col-item title="Id" text="{{ $employee->id }}" size=4 />
@@ -63,45 +47,6 @@
 @section('js')
     <script>
         $(document).ready(function() {
-
-            // var sbtn = $('#sbtn');
-            // var txt = $('#txtarea');
-
-            // sbtn.prop('disabled', true);
-            // var x = 0;
-
-            // $("select").each(function () {
-            //     if($(this).val() !== null) x++;]
-            //     console.log(x);
-            // });
-
-            // if(txt.val().trim().length > 0) x++;
-
-            // if(x>16) sbtn.prop('disabled', false);
-
-            // $("select").click(function () {
-            //     if($(this).val() !== null) x++;
-            //     console.log(x);
-            // });
-
-            // $(txt.change( function() {
-            //     if($(this).val().trim().length > 0) x++;
-            //     console.log(x);
-            //     if(x>16) $sbtn.prop('disabled', false);
-            // });
-            
-            // var txt = $("#txtarea");
-            // var btn = $("#sbtn");
-            // var arr = $("select");
-
-            // $(txt.change(function () {
-            //     var ok=true;
-            //     arr.each(function () {
-            //         if($(this).val() === null) ok=false;
-            //     });
-            //     if($(this).val().trim().length === 0) ok=false;
-            //     $sbtn.prop('disabled', ok);
-            // });
 
             $('#sbtn').prop('disabled', true);
             var x = 0;

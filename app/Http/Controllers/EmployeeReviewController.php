@@ -166,6 +166,6 @@ class EmployeeReviewController extends Controller
 
 
 
-        return redirect()->route('employee-salary-reviews.index')->with('flash', 'review successfully submitted');
+        return redirect()->route('employee-salary-review.index')->with('flash', 'review successfully submitted');
     }
 }
