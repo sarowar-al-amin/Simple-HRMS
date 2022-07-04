@@ -47,11 +47,21 @@ class CreateUsersTable extends Migration
             $table->string('eligible_salary_review')->nullable();
             $table->string('eligible_bonus_review')->nullable();
 
-            $table->string('last_performance')->nullable();
-            $table->string('second_last_performance')->nullable();
-            $table->string('last_promotion')->nullable();
-            $table->string('second_last_promotion')->nullable();
-            $table->text('comments')->nullable();
+            //$table->string('last_performance')->nullable();
+            //$table->string('second_last_performance')->nullable();
+            //$table->string('last_promotion')->nullable();
+            //$table->string('second_last_promotion')->nullable();
+            //$table->text('comments')->nullable();
+
+            $table->string('q_1_jul_sep_performance')->nullable();
+            $table->float('q_1_jul_sep_percentage')->nullable();
+            $table->string('q_2_oct_dec_performance')->nullable();
+            $table->float('q_2_oct_dec_percentage')->nullable();
+            $table->string('q_3_jan_mar_performance')->nullable();
+            $table->float('q_3_jan_mar_percentage')->nullable();
+            $table->string('promotion_22a')->nullable();
+            $table->string('promotion_21b')->nullable();
+            $table->string('promotion_21a')->nullable();
 
             $table->string('plan_1')->nullable();
             $table->string('plan_2')->nullable();

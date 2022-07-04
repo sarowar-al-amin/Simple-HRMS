@@ -10,24 +10,24 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->numerify('BS0Support###'),
-            'name' => 'Admin',
-            'email' => 'hrms@brainstation-23.com',
+            'id' => $this->faker->unique()->numerify('BS####'),
+            'name' => $this->faker->unique()->name(),
+            'email' => $this->faker->unique()->email(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'role' => 'Admin',
-            'state' => 'active',
+            'role' => $this->faker->randomElement(['Admin', 'SBU', 'PM']),
+            //'state' => 'active',
             'remember_token' => Str::random(10),
 
-            // 'expertise_area' => $this->faker->randomElement(['Frontend', 'Backend', 'Sales', 'Administration']),
-            // 'employee_type' => $this->faker->randomElement(['Developer', 'Non Developer', 'QA', 'N/A']),
-            // 'managerial_capacity' => $this->faker->randomElement(['Managers', 'Others', 'Self', 'N/A']),
-            // 'employee_category' => $this->faker->randomElement(['Contractual', 'Permanent', 'Probation']),
-            // 'designation' => $this->faker->randomElement(['Software Engineer', 'UI/UX Designer', 'BA', 'Trainee']),
+            'expertise_area' => $this->faker->randomElement(['Reactjs', 'Angularjs', 'Nodejs', 'Java', 'C#', '.Net', 'Vuejs', 'Laravel', 'PHP', 'Kotlyn', 'Sales', 'Administration', 'Marketing', 'HR']),
+            'employee_type' => $this->faker->randomElement(['Developer', 'Non Developer', 'QA', 'N/A']),
+            'managerial_capacity' => $this->faker->randomElement(['Managers', 'Others', 'Self', 'N/A']),
+            'employee_category' => $this->faker->randomElement(['Contractual', 'Permanent', 'Probation']),
+            'designation' => $this->faker->randomElement(['Software Engineer', 'UI/UX Designer', 'BA', 'Trainee', 'HR', 'Marketing Maneger', 'Project Maneger']),
             // 'work_type' => $this->faker->randomElement(['Billable', 'Billable(investment)', 'Non-billable(L&D)', 'Non-billable(Trainee)', 'Non-billable(Bench)']),
-            // 'level' => $this->faker->randomElement(['IC3', 'IC3B', 'M3', 'M3B']),
+            'level' => $this->faker->randomElement(['IC1', 'IC1B', 'IC2', 'IC2B', 'IC3', 'IC3B', 'M1', 'M1B', 'M2', 'M2B', 'M3', 'M3B']),
 
-            // 'sbu' => $this->faker->randomElement(['Raisul Islam', 'Support', 'Miftah Zaman']),
-            // 'partner' => $this->faker->randomElement(['Mizanur Rahman', 'MJ Ferdous', 'Support']),
+            'sbu' => $this->faker->randomElement(['Raisul Islam', 'Support', 'Miftah Zaman']),
+            'partner' => $this->faker->randomElement(['Raisul Kabir', 'Mizanur Rahman', 'MJ Ferdous', 'Support']),
             // 'hr' => $this->faker->randomElement(['Nayem', 'Sojib', 'Siyam', 'Sohel', 'Support', 'Tori']),
             // 'pm' => $this->faker->randomElement(['Nayem', 'Sojib', 'Siyam', 'Sohel', 'Support', 'Tori']),
             // 'team' => $this->faker->randomElement(['GLPG', 'Hungry Naki', 'GP', 'ML', 'Support','Bench']),
