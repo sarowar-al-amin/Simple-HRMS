@@ -117,15 +117,58 @@ class EmployeeSalaryReviewController extends Controller
             'honesty_score' => $request->input('honesty_score'),
             'honesty_justification' => $request->input('honesty_justification'),
 
-            // 'performance' => $request->input('performance'),
-            // 'promotion' => $request->input('promotion'),
-            // 'sbu_comment' => $request->input('sbu_comment'),
-            // 'sbu' => $sbu,
-            // 'pm' => $pm
+            'sbu_total_performance_rating' => $request->input('sbu_total_performance_rating'),
+            'sbu_total_performance_score' => $request->input('sbu_total_performance_score'),
+            'sbu_promotion_recommendation' => $request->input('sbu_promotion_recommendation'),
+            'sbu_comment' => $request->input('sbu_comment'),
+
+            'pm_total_performance_rating' => $request->input('pm_total_performance_rating'),
+            'pm_total_performance_score' => $request->input('pm_total_performance_score'),
+            'pm_promotion_recommendation' => $request->input('pm_promotion_recommendation'),
+            'pm_comment' => $request->input('pm_comment'),
+
         ]);
 
-
-
         return redirect()->route('employee-salary-reviews.index')->with('flash', 'review successfully submitted');
+    }
+
+    private function get_pt($knowledge, $independence, $influence, $organizational_scope, $job_contrast, $execution) {
+        if(is_null($knowledge) || is_null($independence) || is_null($influence) || is_null($organizational_scope) || is_null($job_contrast) || is_null($execution)) {
+            return null;
+        }
+
+        return $knowledge + $independence + $influence + $organizational_scope + $job_contrast + $execution;
+    }
+
+    private function get_vt($ownership, $passion, $agility, $team_spirit, $honesty) {
+        if(is_null($ownership) || is_null($passion) || is_null($agility) || is_null($team_spirit) || is_null($honesty)) {
+            return null;
+        }
+
+        return $ownership + $passion + $agility + $team_spirit + $honesty;
+    }
+
+    private function get_pr($score) {
+        if(is_null($score)){
+            return 'N/A';
+        } else if($score > 14) {
+            return 'Exceeds Expectation';
+        } else if($score > 8) {
+            return 'Meets Expectation';
+        } else {
+            return 'Needs Improvement';
+        }
+    }
+
+    private function get_vr($score) {
+        if(is_null($score)){
+            return 'N/A';
+        } else if($score > 12) {
+            return 'Exceeds Expectation';
+        } else if($score > 7) {
+            return 'Meets Expectation';
+        } else {
+            return 'Needs Improvement';
+        }
     }
 }
