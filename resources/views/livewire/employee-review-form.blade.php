@@ -168,7 +168,7 @@
             <tr>
                 <td>Recommended for Promotion</td>
                 <td>
-                    <select name='promotion recommendation'>
+                    <select id="promote" name='promotion recommendation'>
                         <option disabled selected>Select An Option</option>
                         @foreach (['Yes', 'No'] as $rating)
                             <option value={{ $rating }}>{{ $rating }}</option>
