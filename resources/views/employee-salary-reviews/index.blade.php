@@ -3,7 +3,7 @@
 @section('title', 'Employee Salary Reviews')
 
 @section('content_header')
-<h2 align="center"> Salary & Bounus Review Together</h2>
+<h2 align="center"> Salary & Bonus Review Together</h2>
 @stop
 
 @section('content')
