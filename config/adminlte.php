@@ -359,24 +359,24 @@ return [
                 ]
             ]
         ],
-        [
-            'text' => 'Export File',
-            'can' => 'admin',
-            'icon' => 'fas fa-fw fa-download',
-            'can' => 'admin',
-            'submenu' => [
-                [
-                    'text' => 'Salary Review',
-                    'icon' => 'fas fa-fw fa-download',
-                    'route' => 'exportFile',
-                ],
-                [
-                    'text' => 'Bonus Review',
-                    'icon' => 'fas fa-fw fa-download',
-                    'route' => 'bonusReviewExport',
-                ]
-            ]
-        ],
+        // [
+        //     'text' => 'Export File',
+        //     'can' => 'admin',
+        //     'icon' => 'fas fa-fw fa-download',
+        //     'can' => 'admin',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Salary Review',
+        //             'icon' => 'fas fa-fw fa-download',
+        //             'route' => 'exportFile',
+        //         ],
+        //         [
+        //             'text' => 'Bonus Review',
+        //             'icon' => 'fas fa-fw fa-download',
+        //             'route' => 'bonusReviewExport',
+        //         ]
+        //     ]
+        // ],
         [
             'text' => 'Level Hierarchy',
             'icon' => 'fas fa-fw fa-layer-group',
@@ -385,15 +385,15 @@ return [
         [
             'text' => 'Employee Review',
             'icon' => 'fas fa-fw fa-layer-group',
-            'route' => 'employee-reviews.index',
+            'route' => 'employee-salary-reviews.index',
             'can' => 'review-employees'
         ],
-        [
-            'text' => 'Bonus Review',
-            'icon' => 'fas fa-fw fa-gift',
-            'route' => 'bonus-reviews',
-            'can' => 'review-employees'
-        ],
+        // [
+        //     'text' => 'Bonus Review',
+        //     'icon' => 'fas fa-fw fa-gift',
+        //     'route' => 'bonus-reviews',
+        //     'can' => 'review-employees'
+        // ],
         [
             'text' => 'Password Reset',
             'icon' => 'fas fa-fw fa-layer-group',

@@ -65,7 +65,8 @@ class EmployeeSalaryReviewController extends Controller
             $pm_total = $total_performance;
             $pm_rating = $this->get_pr($pm_total);
         }
-
+        //$total_performance = $request->input('knowledge_rating')+$request->input('independence_rating')+$request->input('influence_rating')+$request->input('organizational_scope_rating')+$request->input('job_contrast_rating')+$request->input('execution_rating');
+       
         SalaryReview22bMetadata::updateOrInsert([
             'salary_review_id' => $sr->id,
             'user_id' => $user->id,
