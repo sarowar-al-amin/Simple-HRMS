@@ -167,7 +167,14 @@
             </tr>
             <tr>
                 <td>Recommended for Promotion</td>
-                <td>No</td>
+                <td>
+                    <select id="promote" name='promotion recommendation'>
+                        <option disabled selected>Select An Option</option>
+                        @foreach (['Yes', 'No'] as $rating)
+                            <option value={{ $rating }}>{{ $rating }}</option>
+                        @endforeach
+                    </select>
+                </td>
             </tr>
             @if (auth()->user()->role != 'PM')
 
