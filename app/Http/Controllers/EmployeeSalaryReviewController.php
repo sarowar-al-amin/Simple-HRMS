@@ -60,10 +60,12 @@ class EmployeeSalaryReviewController extends Controller
         if(Auth::user()->role === 'SBU'){
             $sbu_total = $total_performance;
             $sbu_rating = $this->get_pr($sbu_total);
+            $sbu_promote = $request->input('promotion_recommendation');
         }
         else if(Auth::user()->role === 'PM'){
             $pm_total = $total_performance;
             $pm_rating = $this->get_pr($pm_total);
+            $pm_promote = $request->input('promotion_recommendation');
         }
         //$total_performance = $request->input('knowledge_rating')+$request->input('independence_rating')+$request->input('influence_rating')+$request->input('organizational_scope_rating')+$request->input('job_contrast_rating')+$request->input('execution_rating');
        
@@ -121,12 +123,12 @@ class EmployeeSalaryReviewController extends Controller
 
             'sbu_total_performance_rating' => $sbu_rating,
             'sbu_total_performance_score' => $sbu_total,
-            'sbu_promotion_recommendation' => $request->input('sbu_promotion_recommendation'),
+            'sbu_promotion_recommendation' => $sbu_promote,
             'sbu_comment' => $request->input('sbu_comment'),
 
             'pm_total_performance_rating' => $pm_rating,
             'pm_total_performance_score' => $pm_total,
-            'pm_promotion_recommendation' => $request->input('pm_promotion_recommendation'),
+            'pm_promotion_recommendation' => $pm_promote,
             'pm_comment' => $request->input('pm_comment'),
 
         ]);
