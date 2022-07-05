@@ -21,7 +21,7 @@
         <thead>
             @foreach ($headers as $header)
                 <th>
-                    {{ $header }}
+                    {{ $header }} @if ($loop->index == 2) <span class="required_color">*</span> @endif
                 </th>
             @endforeach
         </thead>
@@ -111,7 +111,7 @@
         <thead>
             @foreach ($headers as $header)
                 <th>
-                    {{ $header }}
+                    {{ $header }}@if ($loop->index == 2) <span class="required_color">*</span> @endif
                 </th>
             @endforeach
         </thead>
@@ -186,7 +186,6 @@
                 </tr>
                 
             @endif
-
             <tr>
                 <td>PM Comment</td>
                 <td>
