@@ -48,6 +48,15 @@ class EmployeeReviewController extends Controller
             return redirect('login');
         }
 
+        $author = Auth::user()->name;
+        $employee = User::where('id', $user->id)->first();
+        $sbu_name = $employee->sbu;
+        $pm_name = $employee->pm;
+
+        if($author != $sbu_name && $author != $pm_name){
+            return redirect('/employee-salary-review')->with('warning', 'That user is not under your authorization');
+        }
+
         $currentLevel = EmployeeLevel::find($user->level);
         $nextLevel = EmployeeLevel::find($currentLevel->next_level);
 
