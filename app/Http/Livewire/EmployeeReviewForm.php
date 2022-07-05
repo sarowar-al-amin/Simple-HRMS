@@ -21,15 +21,15 @@ class EmployeeReviewForm extends Component
 
         $this->employeeReview = SalaryReview22bMetadata::where('user_id', $this->employee->id)->first();
         
-        if($this->employeeReview) {
-            $this->behaviouralFeedbacks = explode('#', $this->employeeReview->behavioural_feedbacks);
-            $this->categoricalFeedbacks = explode('#', $this->employeeReview->categorical_feedbacks);
-            $this->behaviouralJustifications = explode('#', $this->employeeReview->behavioural_justifications);
-            $this->categoricalJustifications = explode('#', $this->employeeReview->categorical_justifications);
-            $this->performance = $this->employeeReview->performance;
-            $this->promotion = $this->employeeReview->promotion;
-            $this->comment = $this->employeeReview->sbu_comment;
-        }
+        // if($this->employeeReview) {
+        //     $this->behaviouralFeedbacks = explode('#', $this->employeeReview->behavioural_feedbacks);
+        //     $this->categoricalFeedbacks = explode('#', $this->employeeReview->categorical_feedbacks);
+        //     $this->behaviouralJustifications = explode('#', $this->employeeReview->behavioural_justifications);
+        //     $this->categoricalJustifications = explode('#', $this->employeeReview->categorical_justifications);
+        //     $this->performance = $this->employeeReview->performance;
+        //     $this->promotion = $this->employeeReview->promotion;
+        //     $this->comment = $this->employeeReview->sbu_comment;
+        // }
     }
 
     public function render()

@@ -39,10 +39,11 @@
                         <select name={{ $performance_names[$i].'_rating' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
-                                <option value={{ $rating }}>{{ $rating }}</option>
+                                <option value={{ $loop->index+1 }}>{{ $rating }}</option>
                             @endforeach
                         </select>
                     </td>
+
                     <td>
                         <textarea name={{ $performance_names[$i].'_justification' }} placeholder="Insert description..."></textarea>
                     </td>
@@ -119,7 +120,7 @@
                         <select name={{ $values_names[$i].'_rating' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
-                                <option value={{ $i+1 }}>{{ $rating }}</option>
+                                <option value={{ $loop->index +1}}>{{ $rating }}</option>
                             @endforeach
                         </select>
                     </td>

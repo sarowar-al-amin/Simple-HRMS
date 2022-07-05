@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EmployeeLevel;
 use App\Models\Quarter;
 use App\Models\SalaryReview;
-use App\Models\SalaryReviewMetadata;
+// use App\Models\SalaryReviewMetadata;
 use App\Models\SalaryReview22bMetadata;
 use App\Models\User;
 use Carbon\Carbon;
@@ -30,7 +30,7 @@ class EmployeeSalaryReviewController extends Controller
         else{
             $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
         }
-        $reviews = array_map(fn ($employee) => SalaryReviewMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
+        $reviews = array_map(fn ($employee) => SalaryReview22bMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
         $lastDate = SalaryReview::first()->end;
         //dd($lastDate);
         return view('employee-salary-reviews.index',[
@@ -51,19 +51,6 @@ class EmployeeSalaryReviewController extends Controller
             
             return redirect('login');
         }
-        // $data = $request->validate([
-        //     'knowledge_rating' => 'required',
-        //     'independence_rating' => 'required',
-        //     'influence_rating' => 'required',
-        //     'organizational_scope_rating' => 'required',
-        //     'job_contrast_rating' => 'required',
-        //     'execution_rating' => 'required',
-        //     'ownership_rating' => 'required',
-        //     'passion_rating' => 'required',
-        //     'agility_rating' => 'required',
-        //     'team_spirit_rating' => 'required',
-        //     'honesty_rating' => 'required',
-        // ]);
 
         $sr = SalaryReview::firstOrFail();
         $srm = SalaryReview22bMetadata::where('salary_review_id', $sr->id)->where('user_id', $user->id)->first();
@@ -76,7 +63,8 @@ class EmployeeSalaryReviewController extends Controller
         else if(Auth::user()->role === 'PM'){
             $pm = Auth::user()->name;
         }
-
+        $total_performance = $request->input('knowledge_rating')+$request->input('independence_rating')+$request->input('influence_rating')+$request->input('organizational_scope_rating')+$request->input('job_contrast_rating')+$request->input('execution_rating');
+        dd($total_performance);
         SalaryReview22bMetadata::updateOrInsert([
             'salary_review_id' => $sr->id,
             'user_id' => $user->id,
