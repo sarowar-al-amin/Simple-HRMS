@@ -64,7 +64,7 @@ class EmployeeSalaryReviewController extends Controller
             $pm = Auth::user()->name;
         }
         $total_performance = $request->input('knowledge_rating')+$request->input('independence_rating')+$request->input('influence_rating')+$request->input('organizational_scope_rating')+$request->input('job_contrast_rating')+$request->input('execution_rating');
-        dd($total_performance);
+       
         SalaryReview22bMetadata::updateOrInsert([
             'salary_review_id' => $sr->id,
             'user_id' => $user->id,

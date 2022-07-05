@@ -34,7 +34,7 @@
                         <td>{{ $employee->eligible_bonus_review }}</td>
                         
                         <td>
-                            @if ($reviews[$i] && $reviews[$i]['sbu'])
+                            @if ($reviews[$i] && $reviews[$i]['sbu_comment'])
                                 <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
                                 <i class="fas fa-times-circle text-xl text-red"></i>
@@ -51,8 +51,8 @@
 
                         <td>{{ $employee->sbu }}</td>
                         <td>{{ $employee->pm }}</td>
-                        <td>{{ $reviews[$i] ? $reviews[$i]['performance'] : '' }}</td>
-                        <td>{{ $reviews[$i] ? $reviews[$i]['promotion'] : '' }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['sbu_total_performance_rating'] : '' }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['sbu_promotion_recommendation'] : '' }}</td>
                         @php
                             $review = Str::limit($reviews[$i] ? $reviews[$i]['sbu_comment'] : '' , 20);
                         @endphp
