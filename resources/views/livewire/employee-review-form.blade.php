@@ -169,12 +169,17 @@
                 <td>Recommended for Promotion</td>
                 <td>No</td>
             </tr>
-            <tr>
-                <td>SBU Comment</td>
-                <td>
-                    <textarea required="true" name="sbu_comment" cols="80" rows="4"></textarea>
-                </td>
-            </tr>
+            @if (auth()->user()->role != 'PM')
+
+                <tr>
+                    <td>SBU Comment</td>
+                    <td>
+                        <textarea required="true" name="sbu_comment" cols="80" rows="4"></textarea>
+                    </td>
+                </tr>
+                
+            @endif
+
             <tr>
                 <td>PM Comment</td>
                 <td>
