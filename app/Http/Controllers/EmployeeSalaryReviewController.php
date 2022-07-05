@@ -59,12 +59,12 @@ class EmployeeSalaryReviewController extends Controller
 
         if(Auth::user()->role === 'SBU'){
             $sbu_total = $total_performance;
-            $sbu_rating = $this->get_pr($sbu_total);
+            $sbu_rating = $this->get_pr($total_performance);
             $sbu_promote = $request->input('promotion_recommendation');
         }
         else if(Auth::user()->role === 'PM'){
             $pm_total = $total_performance;
-            $pm_rating = $this->get_pr($pm_total);
+            $pm_rating = $this->get_pr($total_performance);
             $pm_promote = $request->input('promotion_recommendation');
         }
         //$total_performance = $request->input('knowledge_rating')+$request->input('independence_rating')+$request->input('influence_rating')+$request->input('organizational_scope_rating')+$request->input('job_contrast_rating')+$request->input('execution_rating');
