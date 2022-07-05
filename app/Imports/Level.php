@@ -39,30 +39,54 @@ class Level implements
     {
         //
         foreach ($rows as $row) {
-            $user = EmployeeLevel::create([
-                'id' => $row['id'],
-                'next_level' => $row['next_level'],
-                'rank' => $row['rank'],
-                'basic' => $row['basic'],
-                'increment' => $row['increment'],
-                'gross' => $row['gross'],
-                'objective_details'  => $row['objective_details'],
-                'summary_details'  => $row['summary_details'],
-                'knowledge_details'  => $row['knowledge_details'],
-                'independence_details'  => $row['independence_details'],
-                'influence_details'  => $row['influence_details'],
-                'organizational_scope_details'  => $row['organizational_scope_details'],
-                'job_contrast_details'  => $row['job_contrast_details'],
-                'execution_details'  => $row['execution_details'],
-                'knowledge_questions'  => $row['knowledge_questions'],
-                'independence_questions'  => $row['independence_questions'],
-                'influence_questions'  => $row['influence_questions'],
-                'organizational_scope_questions'  => $row['organizational_scope_questions'],
-                'job_contrast_questions'  => $row['job_contrast_questions'],
-                'execution_questions'  => $row['execution_questions']
-            ]);
+            $user = EmployeeLevel::upsert(
+                [
+                    'id' => $row['id'],
+                    'next_level' => $row['next_level'],
+                    'rank' => $row['rank'],
+                    'basic' => $row['basic'],
+                    'increment' => $row['increment'],
+                    'gross' => $row['gross'],
+                    'objective_details'  => $row['objective_details'],
+                    'summary_details'  => $row['summary_details'],
+                    'knowledge_details'  => $row['knowledge_details'],
+                    'independence_details'  => $row['independence_details'],
+                    'influence_details'  => $row['influence_details'],
+                    'organizational_scope_details'  => $row['organizational_scope_details'],
+                    'job_contrast_details'  => $row['job_contrast_details'],
+                    'execution_details'  => $row['execution_details'],
+                    'knowledge_questions'  => $row['knowledge_questions'],
+                    'independence_questions'  => $row['independence_questions'],
+                    'influence_questions'  => $row['influence_questions'],
+                    'organizational_scope_questions'  => $row['organizational_scope_questions'],
+                    'job_contrast_questions'  => $row['job_contrast_questions'],
+                    'execution_questions'  => $row['execution_questions']
+                ],
+                
+                [
+                    'next_level' => $row['next_level'],
+                    'rank' => $row['rank'],
+                    'basic' => $row['basic'],
+                    'increment' => $row['increment'],
+                    'gross' => $row['gross'],
+                    'objective_details'  => $row['objective_details'],
+                    'summary_details'  => $row['summary_details'],
+                    'knowledge_details'  => $row['knowledge_details'],
+                    'independence_details'  => $row['independence_details'],
+                    'influence_details'  => $row['influence_details'],
+                    'organizational_scope_details'  => $row['organizational_scope_details'],
+                    'job_contrast_details'  => $row['job_contrast_details'],
+                    'execution_details'  => $row['execution_details'],
+                    'knowledge_questions'  => $row['knowledge_questions'],
+                    'independence_questions'  => $row['independence_questions'],
+                    'influence_questions'  => $row['influence_questions'],
+                    'organizational_scope_questions'  => $row['organizational_scope_questions'],
+                    'job_contrast_questions'  => $row['job_contrast_questions'],
+                    'execution_questions'  => $row['execution_questions']
+                ]
+            );
+            
         }
-
     }
 
     public function rules(): array
