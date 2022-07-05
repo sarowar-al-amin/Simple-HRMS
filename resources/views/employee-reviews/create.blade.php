@@ -23,11 +23,12 @@
 
 <x-adminlte-card title="Performance History" theme="dark" collapsible="collapsed">
     <x-adminlte-profile-widget>
-        <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
-        <x-adminlte-profile-row-item title="Eligibility for Q2 Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/>
-        <x-adminlte-profile-row-item title="Promotional Status 22A " text="{{ $employee->second_last_promotion ?? 'N/A' }}" size="12"/>
-        <x-adminlte-profile-row-item title="Promotional Status 22A " text="{{ $employee->last_promotion ?? 'N/A' }}" size="12"/>
-        <x-adminlte-profile-row-item title="Last Performance Status" text="{{ $employee->last_performance ?? 'N/A' }}" size="12"/>
+        <x-adminlte-profile-row-item title="Q1(Jul-Sep) Performance" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
+        <x-adminlte-profile-row-item title="Q2(Oct-Dec) Performance" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/>
+        <x-adminlte-profile-row-item title="Q3(Jan-Mar) Performance" text="{{ $employee->second_last_promotion ?? 'N/A' }}" size="12"/>
+        <x-adminlte-profile-row-item title="Promotion 21A" text="{{ $employee->last_promotion ?? 'N/A' }}" size="12"/>
+        <x-adminlte-profile-row-item title="Promotion 21B" text="{{ $employee->last_promotion ?? 'N/A' }}" size="12"/>
+        <x-adminlte-profile-row-item title="Promotion 22A" text="{{ $employee->last_performance ?? 'N/A' }}" size="12"/>
     </x-adminlte-profile-widget>
 </x-adminlte-card>
 
@@ -55,6 +56,23 @@
                 if($(this).val() !== null) x++;
             });
 
+            var pr = 0
+            $("#pr>select").each(function () {
+                if($(this).val() !== null) pr += +$(this).val();
+            });
+            $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+
+            var vr = 0
+            $("#vr>select").each(function () {
+                if($(this).val() !== null) vr += +$(this).val();
+            });
+            $('#vr_tot').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+
+            // var pr = 0
+            // $(".pr>select").each(function () {
+            //     if($(this).val() !== null) pr += $(this).val();
+            // });
+
             //if($('#txtarea').val().trim().length> 0) x++;
 
             if(x>65) $('#sbtn').prop('disabled', false);
@@ -63,10 +81,20 @@
                 $("select").each(function () {
                     if($(this).val() !== null) x++;
                 });
-                console.log(x)
                 if(x>65) $('#sbtn').prop('disabled', false);
-            });
 
+                pr=0
+                $("#pr>select").each(function () {
+                    if($(this).val() !== null) pr += +$(this).val();
+                });
+                $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+
+                vr = 0
+                $("#vr>select").each(function () {
+                    if($(this).val() !== null) vr += +$(this).val();
+                });
+                $('#vr_tot').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+            });
 
         });
     </script>
