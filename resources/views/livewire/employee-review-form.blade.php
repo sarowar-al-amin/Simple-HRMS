@@ -35,7 +35,7 @@
                     <td>
                         {{ $performance_indicators[$i] }}
                     </td>
-                    <td>
+                    <td id='pr'>
                         <select name={{ $performance_names[$i].'_rating' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
@@ -116,11 +116,11 @@
                     <td>
                         {!! $values_indicators[$i] !!}
                     </td>
-                    <td>
+                    <td id='vr'>
                         <select name={{ $values_names[$i].'_rating' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
-                                <option value={{ $loop->index +1}}>{{ $rating }}</option>
+                                <option value={{ $loop->index+1 }}>{{ $rating }}</option>
                             @endforeach
                         </select>
                     </td>
@@ -133,6 +133,36 @@
 
     </table>
 
+    <h1>Overall Rating</h1>
+
+    <table class="table tavle-hover">
+        <tbody>
+            <tr>
+                <td>Overall Performance</td>
+                <td id="pr_tot"></td>
+            </tr>
+            <tr>
+                <td>Values Rating</td>
+                <td id="vr_tot"></td>
+            </tr>
+            <tr>
+                <td>Recommended for Promotion</td>
+                <td>No</td>
+            </tr>
+            {{-- <tr>
+                <td>SBU Comment</td>
+                <td>
+                    <textarea name="sbu_comment" cols="80" rows="4"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>PM Comment</td>
+                <td>
+                    <textarea name="pm_comment" cols="80" rows="4"></textarea>
+                </td>
+            </tr> --}}
+        </tbody>
+    </table>
 
     <div class="d-flex justify-content-between p-4">
         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />

@@ -52,6 +52,23 @@
                 if($(this).val() !== null) x++;
             });
 
+            var pr = 0
+            $("#pr>select").each(function () {
+                if($(this).val() !== null) pr += +$(this).val();
+            });
+            $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+
+            var vr = 0
+            $("#vr>select").each(function () {
+                if($(this).val() !== null) vr += +$(this).val();
+            });
+            $('#vr_tot').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+
+            // var pr = 0
+            // $(".pr>select").each(function () {
+            //     if($(this).val() !== null) pr += $(this).val();
+            // });
+
             //if($('#txtarea').val().trim().length> 0) x++;
 
             if(x>65) $('#sbtn').prop('disabled', false);
@@ -60,10 +77,20 @@
                 $("select").each(function () {
                     if($(this).val() !== null) x++;
                 });
-                console.log(x)
                 if(x>65) $('#sbtn').prop('disabled', false);
-            });
 
+                pr=0
+                $("#pr>select").each(function () {
+                    if($(this).val() !== null) pr += +$(this).val();
+                });
+                $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+
+                vr = 0
+                $("#vr>select").each(function () {
+                    if($(this).val() !== null) vr += +$(this).val();
+                });
+                $('#vr_tot').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+            });
 
         });
     </script>
