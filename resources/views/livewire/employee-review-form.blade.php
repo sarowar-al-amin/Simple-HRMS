@@ -43,6 +43,7 @@
                             @endforeach
                         </select>
                     </td>
+
                     <td>
                         <textarea name={{ $performance_names[$i].'_justification' }} placeholder="Insert description..."></textarea>
                     </td>
