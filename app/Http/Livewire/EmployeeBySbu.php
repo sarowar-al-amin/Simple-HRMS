@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use DB;
+// use DB;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeBySbu extends Component
 {

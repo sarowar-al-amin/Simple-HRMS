@@ -416,33 +416,33 @@ return [
         //     'icon_color' => 'cyan',
         //     'url'        => '#',
         // ],
-        // [
-        //     'text' => 'Resource Utilization',
-        //     'icon' => 'fas fa-fw fa-list',
-        //     'can' => 'admin',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'Employee Scoreboard',
-        //             'route' => 'scoreboard.show',
-        //             'icon' => 'fas fa-fw fa-clock',
-        //         ],
-        //         [
-        //             'text' =>'Resource Calender',
-        //             'route' => 'scoreboard.employeeList',
-        //             'icon' => 'fas fa-fw fa-search-dollar',
-        //         ],
-        //         [
-        //             'text' =>'Bench Report',
-        //             'route' => 'bench.report',
-        //             'icon' => 'fas fa-fw fa-search-dollar',
-        //         ],
-        //         [
-        //             'text' =>'Resource Requisition',
-        //             //'route' => 'bench.report',
-        //             'icon' => 'fas fa-fw fa-search-dollar',
-        //         ],
-        //     ]
-        // ],
+        [
+            'text' => 'Resource Utilization',
+            'icon' => 'fas fa-fw fa-list',
+            'can' => 'admin',
+            'submenu' => [
+                [
+                    'text' => 'Employee Scoreboard',
+                    'route' => 'scoreboard.show',
+                    'icon' => 'fas fa-fw fa-clock',
+                ],
+                [
+                    'text' =>'Resource Calender',
+                    'route' => 'scoreboard.employeeList',
+                    'icon' => 'fas fa-fw fa-search-dollar',
+                ],
+                // [
+                //     'text' =>'Bench Report',
+                //     'route' => 'bench.report',
+                //     'icon' => 'fas fa-fw fa-search-dollar',
+                // ],
+                // [
+                //     'text' =>'Resource Requisition',
+                //     //'route' => 'bench.report',
+                //     'icon' => 'fas fa-fw fa-search-dollar',
+                // ],
+            ]
+        ],
     ],
 
     /*

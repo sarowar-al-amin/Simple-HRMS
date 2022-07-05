@@ -83,12 +83,11 @@
             @endforeach
         </ul>
         <div class="card overflow-auto">
-          <h3>Employee List</h3>
           <table  class="table table-hover">
               @php
-                  $headings = ['ID', 'Name', 'Email', 'Expertise Area','Role Type', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
-                              'Salary Review', 'Bonus Review', 'Total Experience', 'Employee category',	'PM','Blood Group', 'Designation',	
-                              'Level', 'Promotion Status 21B','Promotion Status 21A', 'Last Status', 'Team', 'Actions'];
+                  $headings = ['ID', 'Name', 'Email Address','Expertise Area',  'Role', 'Employee Type', 'Managerial Capacity', 'Employee Category', 'Designation','Work Type', 'Level', 'SBU', 'Partner','HR','PM', 'Team', 
+                                'Salary Review Eligibility', 'Bonus Review Eligibility', 'Q-1(Jul-Sep)Performance', 'Q-2(Oct-Dec)Performance', 'Q-3(Jan-Mar)Performance','Promotion 22A', 'Promotion 21B', 'Promotion 21A', 'Remove'
+                            ];
               @endphp
               <thead>
                   @foreach ($headings as $heading)

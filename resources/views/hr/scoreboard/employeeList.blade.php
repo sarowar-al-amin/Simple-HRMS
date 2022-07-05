@@ -95,9 +95,9 @@
           <h3>Scoreboard of all employee in the company</h3>
           <table class="table table-hover">
               @php
-                  $headings = ['ID', 'Name', 'Email', 'Expertise Area', 'Partner',	'Employee Type', 'Managerial Capacity',	'SBU', 'HR',
-                              'Joining Date', 'Confirmation Date', 'Career Start Date', 'Total Experience', 'Employee category',	'PM',
-                              'Blood Group', 'Designation',	'Level', 'Team', 'Actions'];
+                $headings = ['ID', 'Name', 'Email Address', 'Expertise Area', 'Role','Employee Type', 'Managerial Capacity', 'Employee Category', 'Designation','Work Type', 'Level', 'SBU', 'Partner','HR','PM', 'MM', 'Team', 
+                            'Salary Review Eligibility', 'Bonus Review Eligibility', 'Q-1(Jul-Sep)Performance', 'Q-2(Oct-Dec)Performance', 'Q-3(Jan-Mar)Performance','Promotion 22A', 'Promotion 21B', 'Promotion 21A'
+                        ];
               @endphp
               <thead>
                   @foreach ($headings as $heading)
