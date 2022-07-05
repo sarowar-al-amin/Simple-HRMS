@@ -42,7 +42,7 @@
                         </td>
 
                         <td>
-                            @if ($reviews[$i] && $reviews[$i]['pm'])
+                            @if ($reviews[$i] && $reviews[$i]['pm_comment'])
                                 <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
                             <i class="fas fa-times-circle text-xl text-red"></i>
