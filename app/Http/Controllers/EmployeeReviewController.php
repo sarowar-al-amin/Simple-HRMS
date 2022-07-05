@@ -53,7 +53,7 @@ class EmployeeReviewController extends Controller
         $sbu_name = $employee->sbu;
         $pm_name = $employee->pm;
 
-        if($author != $sbu_name && $author != $pm_name){
+        if($author != $sbu_name && $author != $pm_name && Auth::user()->role != 'Admin'){
             return redirect('/employee-salary-review')->with('warning', 'That user is not under your authorization');
         }
 
