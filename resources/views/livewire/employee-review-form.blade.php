@@ -36,7 +36,7 @@
                         {{ $performance_indicators[$i] }}
                     </td>
                     <td id='pr'>
-                        <select name={{ $performance_names[$i].'_rating' }}>
+                        <select name={{ $performance_names[$i].'_score' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $loop->index+1 }}>{{ $rating }}</option>
@@ -48,9 +48,18 @@
                     </td>
                 </tr>
             @endfor
+            <tr>
+                <td>
+                    <h3>Overall</h3>
+                </td>
+                <td>
+                    <h3 id='po' class="font-weight-bold"></h3>
+                </td>
+                <td>
+                   <h3 id="po_score" class="font-weight-bold"></h3> 
+                </td>
+            </tr>
         </tbody>
-        
-        
     </table>
 
     <h3>Values Rating</h3>
@@ -116,7 +125,7 @@
                         {!! $values_indicators[$i] !!}
                     </td>
                     <td id='vr'>
-                        <select name={{ $values_names[$i].'_rating' }}>
+                        <select name={{ $values_names[$i].'_score' }}>
                             <option disabled selected>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $loop->index+1 }}>{{ $rating }}</option>
@@ -128,6 +137,17 @@
                     </td>
                 </tr>
             @endfor
+            <tr>
+                <td>
+                    <h3>Overall</h3>
+                </td>
+                <td>
+                    <h3 id='vo' class="font-weight-bold"></h3>
+                </td>
+                <td>
+                    <h3 id="vo_score" class="font-weight-bold"></h3> 
+                </td>
+            </tr>
         </tbody>
 
     </table>
@@ -148,18 +168,18 @@
                 <td>Recommended for Promotion</td>
                 <td>No</td>
             </tr>
-            {{-- <tr>
+            <tr>
                 <td>SBU Comment</td>
                 <td>
-                    <textarea name="sbu_comment" cols="80" rows="4"></textarea>
+                    <textarea required="true" name="sbu_comment" cols="80" rows="4"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>PM Comment</td>
                 <td>
-                    <textarea name="pm_comment" cols="80" rows="4"></textarea>
+                    <textarea required="true" name="pm_comment" cols="80" rows="4"></textarea>
                 </td>
-            </tr> --}}
+            </tr>
         </tbody>
     </table>
 

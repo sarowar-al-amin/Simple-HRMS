@@ -57,12 +57,16 @@
                 if($(this).val() !== null) pr += +$(this).val();
             });
             $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+            $('#po').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+            $('#po_score').html(pr)
 
             var vr = 0
             $("#vr>select").each(function () {
                 if($(this).val() !== null) vr += +$(this).val();
             });
             $('#vr_tot').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+            $('#vo').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+            $('#vo_score').html(vr)
 
             // var pr = 0
             // $(".pr>select").each(function () {
@@ -84,12 +88,16 @@
                     if($(this).val() !== null) pr += +$(this).val();
                 });
                 $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+                $('#po').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
+                $('#po_score').html(pr)
 
                 vr = 0
                 $("#vr>select").each(function () {
                     if($(this).val() !== null) vr += +$(this).val();
                 });
                 $('#vr_tot').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+                $('#vo').html(vr > 12 ? 'Exceeds Expectations' : vr > 7 ? 'Meets Expectations' : 'Needs Improvement')
+                $('#vo_score').html(vr)
             });
 
         });
