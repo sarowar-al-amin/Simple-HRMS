@@ -39,7 +39,7 @@ class Level implements
     {
         //
         foreach ($rows as $row) {
-            $user = EmployeeLevel::upsert(
+                EmployeeLevel::upsert(
                 [
                     'id' => $row['id'],
                     'next_level' => $row['next_level'],

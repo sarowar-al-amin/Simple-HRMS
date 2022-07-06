@@ -56,9 +56,9 @@
                 <td>
                     <h3 id='po' class="font-weight-bold"></h3>
                 </td>
-                <td>
+                {{-- <td>
                    <h3 id="po_score" class="font-weight-bold"></h3> 
-                </td>
+                </td> --}}
             </tr>
         </tbody>
     </table>
@@ -145,9 +145,9 @@
                 <td>
                     <h3 id='vo' class="font-weight-bold"></h3>
                 </td>
-                <td>
+                {{-- <td>
                     <h3 id="vo_score" class="font-weight-bold"></h3> 
-                </td>
+                </td> --}}
             </tr>
         </tbody>
 
