@@ -26,6 +26,13 @@ class UsersExport implements FromCollection, WithHeadings
             'hr',
             'pm',
             'team',
+            'previous_team',
+            'joining_date',
+            'confirmation_date',
+            'career_start_date',
+            'experience',
+            'blood_group',
+            'engagement',
             'eligible_salary_review',
             'eligible_bonus_review',
             'q_1_jul_sep_performance',
@@ -36,7 +43,9 @@ class UsersExport implements FromCollection, WithHeadings
             'q_3_jan_mar_percentage',
             'promotion_22a',
             'promotion_21b',
-            'promotion_21a'
+            'promotion_21a',
+            'current_status',
+            'available_from'
         ];
     }
     /**
