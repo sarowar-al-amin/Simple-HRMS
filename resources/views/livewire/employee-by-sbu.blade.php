@@ -7,7 +7,16 @@
                 </td>
             
                 <td>
-                    {{ $employee['name'] }}
+                    @if ($field === $idx.'.name')
+                        <x-adminlte-input 
+                        name="name" 
+                        wire:model.defer="employees.{{ $idx }}.name" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.name' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field', '{{ $idx }}.name')">
+                            {{ $employee['name'] }}
+                        </div>
+                    @endif
                 </td>
             
                 <td>
