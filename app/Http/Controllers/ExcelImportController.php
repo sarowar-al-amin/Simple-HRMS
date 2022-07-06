@@ -19,7 +19,7 @@ class ExcelImportController extends Controller
     }
 
     public function upload_excel(Request $request){
-
+        set_time_limit(300);
         $file = $request->file('file')->store('import');
 
         $import = new UserImport;
