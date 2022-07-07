@@ -181,7 +181,7 @@
                 <tr>
                     <td>SBU Comment</td>
                     <td>
-                        <textarea required="true" name="sbu_comment" cols="80" rows="4"></textarea>
+                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder="Your comment is necessary"></textarea>
                     </td>
                 </tr>
                 
@@ -189,7 +189,7 @@
             <tr>
                 <td>PM Comment</td>
                 <td>
-                    <textarea required="true" name="pm_comment" cols="80" rows="4"></textarea>
+                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder="Your comment is necessary"></textarea>
                 </td>
             </tr>
         </tbody>

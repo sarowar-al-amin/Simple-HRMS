@@ -53,9 +53,15 @@
 
             $('#sbtn').prop('disabled', true);
             var x = 0;
+            var countOfSelected = 0;
             
             $("select").each(function () {
-                if($(this).val() !== null) x++;
+                x= 0;
+                if($(this).val() !== null) {
+                    x++;
+                    // countOfSelected++;
+                }
+                // console.log(countOfSelected);
             });
 
             var pr = 0
@@ -65,6 +71,7 @@
             $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
             $('#po').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
             $('#po_score').html(pr)
+            
 
             var vr = 0
             $("#vr>select").each(function () {
@@ -81,13 +88,19 @@
 
             //if($('#txtarea').val().trim().length> 0) x++;
 
-            if(x>65) $('#sbtn').prop('disabled', false);
+            if(x>11) $('#sbtn').prop('disabled', false);
 
             $('select').change( function() {
+                countOfSelected = 0;
                 $("select").each(function () {
-                    if($(this).val() !== null) x++;
+                    if($(this).val() !== null) {
+                        x++;
+                        countOfSelected++;
+                    }
+                    // console.log(x);
+                    // console.log(countOfSelected);
                 });
-                if(x>65) $('#sbtn').prop('disabled', false);
+                if(x>65 && countOfSelected == 12) $('#sbtn').prop('disabled', false);
 
                 pr=0
                 $("#pr>select").each(function () {
@@ -96,6 +109,7 @@
                 $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
                 $('#po').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
                 $('#po_score').html(pr)
+                if(pr < 9) $('#promote').val("No")
 
                 vr = 0
                 $("#vr>select").each(function () {
