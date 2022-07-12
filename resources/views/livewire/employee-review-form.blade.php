@@ -36,8 +36,8 @@
                         {{ $performance_indicators[$i] }}
                     </td>
                     <td id='pr'>
-                        <select name={{ $performance_names[$i].'_score' }}>
-                            <option disabled selected>Select An Option</option>
+                        <select name={{ $performance_names[$i].'_score' }} wire:model={{ $performance_names[$i].'_score' }}>
+                            <option disabled>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $loop->index+1 }}>{{ $rating }}</option>
                             @endforeach
@@ -45,7 +45,7 @@
                     </td>
 
                     <td>
-                        <textarea name={{ $performance_names[$i].'_justification' }} placeholder="Insert description..."></textarea>
+                        <textarea name={{ $performance_names[$i].'_justification' }} placeholder = {{ $review ? $review[$performance_names[$i].'_justification'] : ''}}></textarea>
                     </td>
                 </tr>
             @endfor
@@ -126,15 +126,15 @@
                         {!! $values_indicators[$i] !!}
                     </td>
                     <td id='vr'>
-                        <select name={{ $values_names[$i].'_score' }}>
-                            <option disabled selected>Select An Option</option>
+                        <select name={{ $values_names[$i].'_score' }} wire:model={{ $values_names[$i].'_score' }}>
+                            <option disabled>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $loop->index+1 }}>{{ $rating }}</option>
                             @endforeach
                         </select>
                     </td>
                     <td>
-                        <textarea name={{ $values_names[$i].'_justification' }} placeholder="Insert description..."></textarea>
+                        <textarea name={{ $values_names[$i].'_justification' }} placeholder = {{ $review ? $review[$performance_names[$i].'_justification'] : ''}}></textarea>
                     </td>
                 </tr>
             @endfor
@@ -171,7 +171,7 @@
                     <select id="promote" name='promotion recommendation'>
                         <option disabled selected>Select An Option</option>
                         @foreach (['Yes', 'No'] as $rating)
-                            <option value={{ $rating }}>{{ $rating }}</option>
+                            <option value={{ $rating }} selected = {{ $review && $review['pm_promotion_recommendation'] === $rating}}>{{ $rating }}</option>
                         @endforeach
                     </select>
                 </td>
@@ -181,7 +181,7 @@
                 <tr>
                     <td>SBU Comment</td>
                     <td>
-                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder="Your comment is necessary"></textarea>
+                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder='Your comment is necessary' wire:model='sbu_comment'></textarea>
                     </td>
                 </tr>
                 
@@ -189,7 +189,7 @@
             <tr>
                 <td>PM Comment</td>
                 <td>
-                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder="Your comment is necessary"></textarea>
+                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder='Your comment is necessary' wire:model='pm_comment'></textarea>
                 </td>
             </tr>
         </tbody>

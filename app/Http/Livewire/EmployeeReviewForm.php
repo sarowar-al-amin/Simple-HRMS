@@ -28,11 +28,11 @@ class EmployeeReviewForm extends Component
         if(is_null($score)){
             return 'N/A';
         } else if($score > 2) {
-            return 'Exceeds Expectation';
+            return 'Exceeding Expectation Heavily';
         } else if($score > 1) {
-            return 'Meets Expectation';
+            return 'Meet Expectation Very Well';
         } else {
-            return 'Needs Improvement';
+            return 'Need Improvement';
         }
     }
 

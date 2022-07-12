@@ -11,6 +11,8 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Cast\Array_;
+
 // use Illuminate\Support\Str;
 
 class EmployeeReviewController extends Controller
@@ -63,7 +65,7 @@ class EmployeeReviewController extends Controller
         return view('employee-reviews.create', [
             'employee' => $user,
             'currentLevel' => $currentLevel,
-            'nextLevel' => $nextLevel
+            'nextLevel' => $nextLevel,
         ]);
     }
 
