@@ -37,7 +37,7 @@
                     </td>
                     <td id='pr'>
                         <select name={{ $performance_names[$i].'_score' }} wire:model={{ $performance_names[$i].'_score' }}>
-                            <option disabled>Select An Option</option>
+                            <option value={{ null }} disabled>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $loop->index+1 }}>{{ $rating }}</option>
                             @endforeach
@@ -127,7 +127,7 @@
                     </td>
                     <td id='vr'>
                         <select name={{ $values_names[$i].'_score' }} wire:model={{ $values_names[$i].'_score' }}>
-                            <option disabled>Select An Option</option>
+                            <option value={{ null }} disabled>Select An Option</option>
                             @foreach ($ratings as $rating)
                                 <option value={{ $loop->index+1 }}>{{ $rating }}</option>
                             @endforeach
