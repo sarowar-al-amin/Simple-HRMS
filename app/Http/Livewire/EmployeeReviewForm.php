@@ -9,7 +9,7 @@ class EmployeeReviewForm extends Component
 {
     public $employee, $level;
 
-    public $review;
+    public $review, $p_score, $p_rating, $v_score, $v_rating;
     public $knowledge_rating, $knowledge_score, $knowledge_justification;
     public $independence_rating, $independence_score, $independence_justification;
     public $influence_rating, $influence_score, $influence_justification;
@@ -35,6 +35,42 @@ class EmployeeReviewForm extends Component
             return 'Need Improvement';
         }
     }
+
+    private function get_pr_score($a, $b, $c, $d, $e, $f) {
+        if(is_null($a) || is_null($b) || is_null($c) || is_null($d) || is_null($e) || is_null($f)) return null;
+        return $a + $b + $c + $d + $e + $f;
+    }
+
+    private function get_vr_score($a, $b, $c, $d, $e) {
+        if(is_null($a) || is_null($b) || is_null($c) || is_null($d) || is_null($e)) return null;
+        return $a + $b + $c + $d + $e;
+    }
+
+    private function get_pr_rating($score) {
+        if(is_null($score)){
+            return 'N/A';
+        } else if($score > 14) {
+            return 'Exceeding Expectation Heavily';
+        } else if($score > 8) {
+            return 'Meet Expectation Very Well';
+        } else {
+            return 'Need Improvement';
+        }
+    }
+
+    private function get_vr_rating($score) {
+        if(is_null($score)){
+            return 'N/A';
+        } else if($score > 13) {
+            return 'Exceeding Expectation Heavily';
+        } else if($score > 7) {
+            return 'Meet Expectation Very Well';
+        } else {
+            return 'Need Improvement';
+        }
+    }
+
+
 
     public function mount() {
 
@@ -99,6 +135,10 @@ class EmployeeReviewForm extends Component
 
     public function render()
     {
+        $this->p_score = $this->get_pr_score($this->knowledge_score, $this->independence_score, $this->influence_score, $this->organizational_scope_score, $this->job_contrast_score, $this->execution_score);
+        $this->p_rating = $this->get_pr_rating($this->p_score);
+        $this->v_score = $this->get_vr_score($this->passion_score, $this->ownership_score, $this->agility_score, $this->team_spirit_score, $this->honesty_score);
+        $this->v_rating = $this->get_vr_rating($this->v_score);
         return view('livewire.employee-review-form');
     }
 }

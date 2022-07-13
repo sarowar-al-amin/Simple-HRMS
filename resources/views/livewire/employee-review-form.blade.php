@@ -54,7 +54,7 @@
                     <h3>Overall</h3>
                 </td>
                 <td>
-                    <h3 id='po' class="font-weight-bold"></h3>
+                    <h3 class="font-weight-bold">{{ $p_rating }}</h3>
                 </td>
                 {{-- <td>
                    <h3 id="po_score" class="font-weight-bold"></h3> 
@@ -143,7 +143,7 @@
                     <h3>Overall</h3>
                 </td>
                 <td>
-                    <h3 id='vo' class="font-weight-bold"></h3>
+                    <h3 class="font-weight-bold">{{ $v_rating }}</h3>
                 </td>
                 {{-- <td>
                     <h3 id="vo_score" class="font-weight-bold"></h3> 
