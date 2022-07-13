@@ -159,11 +159,11 @@
         <tbody>
             <tr>
                 <td>Overall Performance</td>
-                <td id="pr_tot"></td>
+                <td>{{ $p_rating }}</td>
             </tr>
             <tr>
                 <td>Values Rating</td>
-                <td id="vr_tot"></td>
+                <td>{{ $v_rating }}</td>
             </tr>
             <tr>
                 <td>Recommended for Promotion</td>
