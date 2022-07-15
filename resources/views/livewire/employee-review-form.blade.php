@@ -165,17 +165,33 @@
                 <td>Values Rating</td>
                 <td>{{ $v_rating }}</td>
             </tr>
+            
+            @if (auth()->user()->role == 'SBU' || auth()->user()->role == 'Admin')
             <tr>
                 <td>Recommended for Promotion</td>
                 <td>
                     <select id="promote" name='promotion recommendation'>
-                        <option disabled selected>Select An Option</option>
+                        <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option>
                         @foreach (['Yes', 'No'] as $rating)
-                            <option value={{ $rating }} selected = {{ $review && $review['pm_promotion_recommendation'] === $rating}}>{{ $rating }}</option>
+                            <option value={{ $rating }} {{ $review && ($review['sbu_promotion_recommendation'] === $rating || $review['pm_promotion_recommendation'] === $rating) ? 'selected' : '' }}>{{ $rating }}</option>
                         @endforeach
                     </select>
                 </td>
             </tr>
+            @else
+            <tr>
+                <td>Recommended for Promotion</td>
+                <td>
+                    <select id="promote" name='promotion recommendation'>
+                        <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option>
+                        @foreach (['Yes', 'No'] as $rating)
+                            <option value={{ $rating }} {{ $review && $review['pm_promotion_recommendation'] === $rating  ? 'selected' : '' }}>{{ $rating }}</option>
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            @endif
+
             @if (auth()->user()->role != 'PM')
 
                 <tr>
