@@ -45,7 +45,9 @@
                     </td>
 
                     <td>
-                        <textarea name={{ $performance_names[$i].'_justification' }} placeholder = {{ $review ? $review[$performance_names[$i].'_justification'] : ''}}></textarea>
+                        <textarea name={{ $performance_names[$i].'_justification' }}>
+                            {{ $review ? $review[$performance_names[$i].'_justification'] : ''}}
+                        </textarea>
                     </td>
                 </tr>
             @endfor
@@ -134,7 +136,9 @@
                         </select>
                     </td>
                     <td>
-                        <textarea name={{ $values_names[$i].'_justification' }} placeholder = {{ $review ? $review[$performance_names[$i].'_justification'] : ''}}></textarea>
+                        <textarea name={{ $values_names[$i].'_justification' }}>
+                            {{ $review ? $review[$performance_names[$i].'_justification'] : ''}}
+                        </textarea>
                     </td>
                 </tr>
             @endfor
