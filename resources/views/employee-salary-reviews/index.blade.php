@@ -53,18 +53,19 @@
                         <td>{{ $employee->pm }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['sbu_total_performance_rating'] : '' }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['sbu_promotion_recommendation'] : '' }}</td>
-                        @php
+                        {{-- @php
                             $review = Str::limit($reviews[$i] ? $reviews[$i]['sbu_comment'] : '' , 20);
-                        @endphp
+                        @endphp --}}
                         {{-- <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td> --}}
-                        <td>{{ $review }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>
+                        {{-- <td>{{ $review }}</td> --}}
                         <td>{{ $reviews[$i] ? $reviews[$i]['pm_total_performance_rating'] : '' }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['pm_promotion_recommendation'] : '' }}</td>
-                        @php
+                        {{-- @php
                             $pm_review = Str::limit($reviews[$i] ? $reviews[$i]['pm_comment'] : '' , 20);
-                        @endphp
+                        @endphp --}}
                         {{-- <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td> --}}
-                        <td>{{ $pm_review }}</td>
+                        <td>{{ $reviews[$i] ? $reviews[$i]['pm_comment'] : '' }}</td>
                         
                         <td>
                             @if (($expired===false && (auth()->user()->role === 'SBU' || is_null($reviews[$i]) || is_null($reviews[$i]['pm_total_performance_score'])))  || auth()->user()->role === 'Admin')
