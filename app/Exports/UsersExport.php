@@ -14,7 +14,7 @@ class UsersExport implements FromCollection, WithHeadings
             'name',
             'role',
             'email',
-            'password',
+            // 'password',
             'expertise_area',
             'employee_type',
             'managerial_capacity',
