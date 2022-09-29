@@ -382,11 +382,29 @@ return [
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'employee-levels',
         ],
+        // [
+        //     'text' => 'Employee Review',
+        //     'icon' => 'fas fa-fw fa-layer-group',
+        //     'route' => 'employee-salary-reviews.index',
+        //     'can' => 'review-employees'
+        // ],
         [
             'text' => 'Employee Review',
-            'icon' => 'fas fa-fw fa-layer-group',
-            'route' => 'employee-salary-reviews.index',
-            'can' => 'review-employees'
+            'can' => 'admin',
+            'icon' => 'fas fa-fw fa-gift',
+            'can' => 'review-employees',
+            'submenu' => [
+                [
+                    'text' => 'Employee Salary & Bonus Review',
+                    'icon' => 'fas fa-fw fa-gift',
+                    'route' => 'employee-salary-reviews.index',
+                ],
+                [
+                    'text' => 'Employee Bonus Review',
+                    'icon' => 'fas fa-fw fa-gift',
+                    'route' => 'employee-bonus-reviews-calculation.index',
+                ]
+            ]
         ],
         // [
         //     'text' => 'Bonus Review',
@@ -395,13 +413,13 @@ return [
         //     'can' => 'review-employees'
         // ],
         [
-            'text' => 'Password Reset',
+            'text' => 'Rset Password Of Others',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'passwordreset',
             'can' => 'admin'
         ],
         [
-            'text' => 'User Password Reset',
+            'text' => 'Password Reset',
             'icon' => 'fas fa-fw fa-layer-group',
             'route' => 'show-password',
             // 'can' => 'admin'
