@@ -64,7 +64,7 @@
                         {{-- @php
                             $pm_review = Str::limit($reviews[$i] ? $reviews[$i]['pm_comment'] : '' , 20);
                         @endphp --}}
-                        {{-- <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td> --}}
+                        {{-- <td>{{ $reviews[$i] ? $reviews[$i]['pm_comment'] : '' }}</td> --}}
                         <td>{{ $reviews[$i] ? $reviews[$i]['pm_comment'] : '' }}</td>
                         
                         <td>
