@@ -21,6 +21,7 @@ use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\BonusReviewImportController;
 use App\Http\Controllers\EmployeeSalaryReviewController;
+use App\Http\Controllers\EmployeeBonusCalculationController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -69,13 +70,13 @@ Route::get('employee-reviews/view/{user}', [EmployeeReviewController::class, 'vi
 Route::get('/add_level', [ExcelLevelImport::class, 'index'])->name('levelImport');
 Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
 
-Route::get('/export/salary_review', [ExcelExportController::class, 'exportIntoExcel']);
-Route::get('/export/file', [ExcelExportController::class, 'index'])->name('exportFile');
-Route::get('/export/bounus-review-template', [ExcelExportController::class, 'exportBonusReviewTemplate']);
-Route::get('/export/bonus-review',[ExcelExportController::class, 'exportBonusReviewView'])->name('bonusReviewExport');
-Route::get('/exportation/bonus_review', [ExcelExportController::class, 'exportBonusReview']);
-Route::get('/export/all-users', [ExcelExportController::class, 'exportAllUsers']);
-Route::get('/export/excel-user-template', [ExcelExportController::class, 'userImportTemplate']);
+// Route::get('/export/salary_review', [ExcelExportController::class, 'exportIntoExcel']);
+// Route::get('/export/file', [ExcelExportController::class, 'index'])->name('exportFile');
+// Route::get('/export/bounus-review-template', [ExcelExportController::class, 'exportBonusReviewTemplate']);
+// Route::get('/export/bonus-review',[ExcelExportController::class, 'exportBonusReviewView'])->name('bonusReviewExport');
+// Route::get('/exportation/bonus_review', [ExcelExportController::class, 'exportBonusReview']);
+// Route::get('/export/all-users', [ExcelExportController::class, 'exportAllUsers']);
+// Route::get('/export/excel-user-template', [ExcelExportController::class, 'userImportTemplate']);
 
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
@@ -87,9 +88,14 @@ Route::get('/profile', [UserProfileController::class, 'index']);
 Route::get('/profile/update', [UserProfileController::class, 'update_index']);
 Route::post('profile/info_update', [UserProfileController::class, 'update_info']);
 
-Route::get('/import/bonus-review', [BonusReviewImportController::class, 'index'])->name('bonus-review.import');
-Route::post('/import/upload-excel', [BonusReviewImportController::class, 'upload_excel']);
+// Route::get('/import/bonus-review', [BonusReviewImportController::class, 'index'])->name('bonus-review.import');
+// Route::post('/import/upload-excel', [BonusReviewImportController::class, 'upload_excel']);
 
 
 Route::get('employee-salary-review', [EmployeeSalaryReviewController::class, 'index'])->name('employee-salary-reviews.index');
 Route::post('employee-salary-review/store/{user}', [EmployeeSalaryReviewController::class, 'store'])->name('employee-salary-reviews.store');
+
+Route::get('employee-bonus-review-calculation', [EmployeeBonusCalculationController::class, 'index'])->name('employee-bonus-reviews-calculation.index');
+Route::get('employee-bonus-review-calculation/create/{user}', [EmployeeBonusCalculationController::class, 'create'])->name('employee-bonus-reviews-calculation.create');
+Route::post('employee-bonus-review-calculation/store/{user}', [EmployeeBonusCalculationController::class, 'store'])->name('employee-bonus-reviews-calculation.store');
+Route::get('employee-bonus-review-calculation/view/{user}', [EmployeeBonusCalculationController::class, 'view'])->name('employee-bonus-reviews-calculation.view');
