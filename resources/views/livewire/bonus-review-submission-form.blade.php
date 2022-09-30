@@ -35,13 +35,13 @@
                     <td>
                         {{ $performance_indicators[$i] }}
                     </td>
-                    <td id='pr'>
+                    <td id='pr1'>
                         <select name={{ $performance_names[$i].'_score' }} wire:model={{ $performance_names[$i].'_score' }}>
                             @foreach ($ratings as $rating)
                                 @if ($loop->index == 0)
                                     <option value={{ $loop->index }}>{{ $rating }}</option>
                                 @else
-                                    <option value={{ $loop->index }}>{{ $rating }} {{ $loop->index }}</option>
+                                    <option value={{ $loop->index }}>{{ $rating }}</option>
                                 @endif
                                     {{-- <option value={{ $loop->index }}>{{ $rating }}</option> --}}
                             @endforeach
@@ -60,9 +60,6 @@
                 <td>
                     <h3 class="font-weight-bold">{{ $p_rating }}</h3>
                 </td>
-                {{-- <td>
-                   <h3 id="po_score" class="font-weight-bold"></h3> 
-                </td> --}}
             </tr>
         </tbody>
     </table>
@@ -116,6 +113,8 @@
 
     <div class="d-flex justify-content-between p-4">
         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-        <x-adminlte-button id="sbtn" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+        @if ($p_score)
+            <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" /> 
+        @endif  
     </div>
 </form>
