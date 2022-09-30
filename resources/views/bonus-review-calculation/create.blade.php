@@ -54,41 +54,52 @@
     <script>
         $(document).ready(function() {
 
-            $('#sbtn').prop('disabled', true);
+            $('#submit_btn_pro').prop('disabled', false);
             var x = 0;
             var countOfSelected = 0;
             
             $("select").each(function () {
                 x= 0;
-                if($(this).val() !== null) {
+                if($(this).val() > 0) {
                     x++;
+                    // countOfSelected++;
                 }
             });
-
+            // if(countOfSelected > 5){
+            //     $('#submit_btn_pro').prop('disabled', false);
+            // }else{
+            //     $('#submit_btn_pro').prop('disabled', true);
+            // }
             var pr = 0
-            $("#pr>select").each(function () {
-                if($(this).val() !== null) pr += +$(this).val();
+            $("#pr1>select").each(function () {
+                if($(this).val() > 0) pr += +$(this).val();
             });
             $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
             $('#po').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
             $('#po_score').html(pr)
 
 
-            if(x>11) $('#sbtn').prop('disabled', false);
-
+            // if(x == 6) $('#submit_btn_pro').prop('disabled', false);
+            $('#submit_btn_pro').prop('disabled', true);
             $('select').change( function() {
                 countOfSelected = 0;
                 $("select").each(function () {
-                    if($(this).val() !== null) {
+                    if($(this).val() > 0) {
                         x++;
                         countOfSelected++;
+                        console.log(`x` + x);
                     }
                 });
-                if(x>65 && countOfSelected == 12) $('#sbtn').prop('disabled', false);
+
+                // console.log(countOfSelected == 6 && x == 21);
+                // $('#submit_btn_pro').prop('disabled', true);
+                if(countOfSelected == 6 && x == 21) {
+                    $('#submit_btn_pro').prop('disabled', false);
+                }
 
                 pr=0
-                $("#pr>select").each(function () {
-                    if($(this).val() !== null) pr += +$(this).val();
+                $("#pr1>select").each(function () {
+                    if($(this).val() > 0) pr += +$(this).val();
                 });
                 $('#pr_tot').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
                 $('#po').html(pr > 14 ? 'Exceeds Expectations' : pr > 8 ? 'Meets Expectations' : 'Needs Improvement')
