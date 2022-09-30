@@ -82,7 +82,7 @@ Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
 Route::get('/password/resetAll', [PasswordResetController::class, 'resetPasswordAll']);
 
-Route::get('/bonus-reviews', [BonusReviewMetadataController::class, 'index'])->name('bonus-reviews');
+// Route::get('/bonus-reviews', [BonusReviewMetadataController::class, 'index'])->name('bonus-reviews');
 
 Route::get('/profile', [UserProfileController::class, 'index']);
 Route::get('/profile/update', [UserProfileController::class, 'update_index']);
