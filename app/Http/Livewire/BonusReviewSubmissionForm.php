@@ -38,7 +38,7 @@ class BonusReviewSubmissionForm extends Component
 
     private function get_pr_rating($score) {
         if(is_null($score)){
-            return 'Complete Remain Select Option';
+            return 'Complete Remaining Selection';
         } else if($score > 14) {
             return 'Exceeding Expectation Heavily';
         } else if($score > 8) {
