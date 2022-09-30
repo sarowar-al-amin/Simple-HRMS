@@ -49,7 +49,7 @@
                     </td>
 
                     <td>
-                        <textarea name={{ $performance_names[$i].'_justification' }} wire:model={{ $performance_names[$i].'_justification' }} ></textarea>
+                        <textarea name={{ $performance_names[$i].'_justification' }} wire:model={{ $performance_names[$i].'_justification' }} placeholder="If you may, you can justify your action."></textarea>
                     </td>
                 </tr>
             @endfor
@@ -97,7 +97,7 @@
                 <tr>
                     <td>SBU Comment</td>
                     <td>
-                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder='Your comment is necessary' wire:model='sbu_comment'></textarea>
+                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder='Briefly describe your recommedation decision' wire:model='sbu_comment'></textarea>
                     </td>
                 </tr>
                 
@@ -105,7 +105,7 @@
             <tr>
                 <td>PM Comment</td>
                 <td>
-                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder='Your comment is necessary' wire:model='pm_comment'></textarea>
+                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder='Briefly describe your recommedation decision' wire:model='pm_comment'></textarea>
                 </td>
             </tr>
         </tbody>
