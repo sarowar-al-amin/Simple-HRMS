@@ -296,6 +296,33 @@
                         </div>
                     @endif
                 </td>
+                {{-- q_4_april_jun_performance --}}
+                <td>
+                    @if ($field === $idx.'.q_4_april_jun_performance')
+                        <x-adminlte-input 
+                        name="q_4_april_jun_performance" 
+                        wire:model.defer="employees.{{ $idx }}.q_4_april_jun_performance" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.q_4_april_jun_performance' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.q_4_april_jun_performance')">
+                            {{ $employee['q_4_april_jun_performance'] ?? 'N/A' }}
+                        </div>
+                    @endif
+                </td>
+
+                {{-- promotion_22b --}}
+                <td>
+                    @if ($field === $idx.'.promotion_22b')
+                        <x-adminlte-input 
+                        name="promotion_22b" 
+                        wire:model.defer="employees.{{ $idx }}.promotion_22b" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.promotion_22b' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.promotion_22b')">
+                            {{ $employee['promotion_22b'] ?? 'N/A' }}
+                        </div>
+                    @endif
+                </td>
                 {{-- promotion_22a --}}
                 <td>
                     @if ($field === $idx.'.promotion_22a')
