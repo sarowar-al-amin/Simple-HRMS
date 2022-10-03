@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Quaterly Bonus Reviews')
+@section('title', 'Quarterly Bonus Reviews')
 
 @section('content_header')
-<h2 align="center">Quaterly Bonus Review</h2>
+<h2 align="center">Quarterly Bonus Review</h2>
 <hr>
 @stop
 
