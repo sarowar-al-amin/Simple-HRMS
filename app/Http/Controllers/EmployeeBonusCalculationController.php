@@ -259,7 +259,7 @@ class EmployeeBonusCalculationController extends Controller
         } else if($score > 2) {
             return 'Exceeds Expectation';
         } else if($score > 1) {
-            return 'Meets Expectation very well';
+            return 'Meets Expectation Very Well';
         } else {
             return 'Needs Improvement';
         }
@@ -271,7 +271,7 @@ class EmployeeBonusCalculationController extends Controller
         } else if($score > 14) {
             return 'Exceeds Expectation';
         } else if($score > 8) {
-            return 'Meets Expectation';
+            return 'Meets Expectation Very Well';
         } else {
             return 'Needs Improvement';
         }
