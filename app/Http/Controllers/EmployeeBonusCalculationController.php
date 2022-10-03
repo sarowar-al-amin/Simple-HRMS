@@ -68,6 +68,27 @@ class EmployeeBonusCalculationController extends Controller
         ]);
     }
 
+
+    public function view(User $user) {
+        
+        //Without legitimate user form can't be created.
+        if(is_null(Auth::user())){         
+            return redirect('login');
+        }elseif(Auth::user()->role === 'SBU'){
+            $currentLevel = EmployeeLevel::find($user->level);
+            // $nextLevel = EmployeeLevel::find($currentLevel->next_level);
+    
+            return view('bonus-review-calculation.view', [
+                'employee' => $user,
+                'currentLevel' => $currentLevel,
+                'nextLevel' => $currentLevel
+            ]);
+        }else{
+            return view('home');
+        }
+    }
+
+
     public function store(Request $request,User $user) {
 
 
