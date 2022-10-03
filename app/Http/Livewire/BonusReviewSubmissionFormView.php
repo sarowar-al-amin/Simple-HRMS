@@ -93,7 +93,7 @@ class BonusReviewSubmissionFormView extends Component
 
     public function render()
     {
-        //$this->p_score = $this->get_pr_score($this->knowledge_score, $this->independence_score, $this->influence_score, $this->organizational_scope_score, $this->job_contrast_score, $this->execution_score);
+        $this->p_score = $this->get_pr_score($this->knowledge_score, $this->independence_score, $this->influence_score, $this->organizational_scope_score, $this->job_contrast_score, $this->execution_score);
         $this->p_rating = $this->get_pr_rating($this->p_score);
         return view('livewire.bonus-review-submission-form-view');
     }
