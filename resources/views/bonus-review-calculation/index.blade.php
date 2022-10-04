@@ -53,10 +53,10 @@
                         <td>{{ $employee->sbu }}</td>
                         <td>{{ $employee->pm }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['sbu_total_performance_rating'] : '' }}</td>
-                        <td>{{ $reviews[$i] ? $reviews[$i]['sbu_bonus_recommendation'] : '' }}</td>
+                        {{-- <td>{{ $reviews[$i] ? $reviews[$i]['sbu_bonus_recommendation'] : '' }}</td> --}}
                         <td>{{ $reviews[$i] ? $reviews[$i]['sbu_comment'] : '' }}</td>
                         <td>{{ $reviews[$i] ? $reviews[$i]['pm_total_performance_rating'] : '' }}</td>
-                        <td>{{ $reviews[$i] ? $reviews[$i]['pm_bonus_recommendation'] : '' }}</td>
+                        {{-- <td>{{ $reviews[$i] ? $reviews[$i]['pm_bonus_recommendation'] : '' }}</td> --}}
                         {{-- @php
                             $pm_review = Str::limit($reviews[$i] ? $reviews[$i]['pm_comment'] : '' , 20);
                         @endphp --}}
@@ -134,7 +134,7 @@
     var table = $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false, pageLength: 25,fixedHeader: true,
       columnDefs: [
-                {targets: [3, 4, 10, 11, 12], visible: false}
+                {targets: [3, 4, 8, 9, 10], visible: false}
          ],
       "buttons":  ["copy", "csv", "excel", "colvis"],
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
