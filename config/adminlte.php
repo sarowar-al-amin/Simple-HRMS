@@ -394,11 +394,11 @@ return [
             'icon' => 'fas fa-fw fa-gift',
             'can' => 'review-employees',
             'submenu' => [
-                [
-                    'text' => 'Employee Salary & Bonus Review',
-                    'icon' => 'fas fa-fw fa-gift',
-                    'route' => 'employee-salary-reviews.index',
-                ],
+                // [
+                //     'text' => 'Employee Salary & Bonus Review',
+                //     'icon' => 'fas fa-fw fa-gift',
+                //     'route' => 'employee-salary-reviews.index',
+                // ],
                 [
                     'text' => 'Employee Bonus Review',
                     'icon' => 'fas fa-fw fa-gift',
