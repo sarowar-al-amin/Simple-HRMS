@@ -32,7 +32,7 @@ class EmployeeBonusCalculationController extends Controller
         // dd($employees);
 
         return view('bonus-review-calculation.index',[
-            'headings' => ['ID', 'Name','Bonus Eligibility', 'SBU Reviewed', 'PM Reviewed', 'SBU', 'PM', 'Performance', 'Bonus Recommendation', 'Comments', 'PM Performance', 'PM Promotion', 'PM Comments'],
+            'headings' => ['ID', 'Name','Bonus Eligibility', 'SBU Reviewed', 'PM Reviewed', 'SBU', 'PM', 'Performance', 'Comments', 'PM Performance', 'PM Comments'],
             'employees' => $employees,
             'reviews' => $reviews,
             'expired' => Carbon::createFromFormat('j M Y', $lastDate)->lt(today())
@@ -109,7 +109,7 @@ class EmployeeBonusCalculationController extends Controller
         if(Auth::user()->role == 'SBU'){
             $sbu_total = $total_performance;
             $sbu_rating = $this->get_pr($sbu_total );
-            $sbu_promote = $request->input('promotion_recommendation');
+            // $sbu_promote = $request->input('promotion_recommendation');
 
             QuaterlyBonusCalculation::updateOrInsert([
                 'bonus_review_id' => $sr->id,
@@ -145,7 +145,7 @@ class EmployeeBonusCalculationController extends Controller
     
                 'sbu_total_performance_rating' => $sbu_rating,
                 'sbu_total_performance_score' => $sbu_total,
-                'sbu_bonus_recommendation' => $sbu_promote,
+                // 'sbu_bonus_recommendation' => $sbu_promote,
                 'sbu_comment' => $request->input('sbu_comment'),
     
             ]);
@@ -153,7 +153,7 @@ class EmployeeBonusCalculationController extends Controller
         else if(Auth::user()->role == 'PM'){
             $pm_total = $total_performance;
             $pm_rating = $this->get_pr($total_performance);
-            $pm_promote = $request->input('promotion_recommendation');
+            // $pm_promote = $request->input('promotion_recommendation');
 
             QuaterlyBonusCalculation::updateOrInsert([
                 'bonus_review_id' => $sr->id,
@@ -189,7 +189,7 @@ class EmployeeBonusCalculationController extends Controller
 
                 'pm_total_performance_rating' => $pm_rating,
                 'pm_total_performance_score' => $pm_total,
-                'pm_bonus_recommendation' => $pm_promote,
+                // 'pm_bonus_recommendation' => $pm_promote,
                 'pm_comment' => $request->input('pm_comment'),
     
             ]);
@@ -197,10 +197,10 @@ class EmployeeBonusCalculationController extends Controller
 
             $sbu_total = $total_performance;
             $sbu_rating = $this->get_pr($sbu_total );
-            $sbu_promote = $request->input('promotion_recommendation');
+            // $sbu_promote = $request->input('promotion_recommendation');
             $pm_total = $total_performance;
             $pm_rating = $this->get_pr($total_performance);
-            $pm_promote = $request->input('promotion_recommendation');
+            // $pm_promote = $request->input('promotion_recommendation');
 
             QuaterlyBonusCalculation::updateOrInsert([
                 'bonus_review_id' => $sr->id,
@@ -236,12 +236,12 @@ class EmployeeBonusCalculationController extends Controller
 
                 'sbu_total_performance_rating' => $sbu_rating,
                 'sbu_total_performance_score' => $sbu_total,
-                'sbu_bonus_recommendation' => $sbu_promote,
+                // 'sbu_bonus_recommendation' => $sbu_promote,
                 'sbu_comment' => $request->input('sbu_comment'),
     
                 'pm_total_performance_rating' => $pm_rating,
                 'pm_total_performance_score' => $pm_total,
-                'pm_bonus_recommendation' => $pm_promote,
+                // 'pm_bonus_recommendation' => $pm_promote,
                 'pm_comment' => $request->input('pm_comment'),
     
             ]);

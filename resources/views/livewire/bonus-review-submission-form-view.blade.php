@@ -67,7 +67,7 @@
     
         <table class="table tavle-hover">
             <tbody>
-                @if (auth()->user()->role == 'SBU' || auth()->user()->role == 'Admin')
+                {{-- @if (auth()->user()->role == 'SBU' || auth()->user()->role == 'Admin')
                 <tr>
                     <td>Bonus Recommendation</td>
                     <td>
@@ -91,7 +91,7 @@
                         </select>
                     </td>
                 </tr>
-                @endif
+                @endif --}}
     
                 @if (auth()->user()->role != 'PM')
     
