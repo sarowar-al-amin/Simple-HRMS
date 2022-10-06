@@ -113,7 +113,7 @@
 
     <div class="d-flex justify-content-between p-4">
         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-        @if ($p_score)
+        @if ($p_score && ($sbu_comment || $pm_comment))
             <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" /> 
         @endif  
     </div>
