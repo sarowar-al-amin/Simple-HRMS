@@ -97,7 +97,7 @@
                 <tr>
                     <td>SBU Comment</td>
                     <td>
-                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder='Briefly describe your recommedation decision' wire:model='sbu_comment'></textarea>
+                        <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder='Briefly describe your recommedated decision' wire:model='sbu_comment'></textarea>
                     </td>
                 </tr>
                 
@@ -105,7 +105,7 @@
             <tr>
                 <td>PM Comment</td>
                 <td>
-                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder='Briefly describe your recommedation decision' wire:model='pm_comment'></textarea>
+                    <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder='Briefly describe your recommedated decision' wire:model='pm_comment'></textarea>
                 </td>
             </tr>
         </tbody>
@@ -113,8 +113,10 @@
 
     <div class="d-flex justify-content-between p-4">
         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-        @if ($p_score && ($sbu_comment || $pm_comment))
-            <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" /> 
+        @if ($p_score && $sbu_comment && (auth()->user()->role == 'SBU' || auth()->user()->role == 'Admin'))
+            <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+        @elseif ($p_score && auth()->user()->role == 'PM' && $pm_comment)
+            <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
         @endif  
     </div>
 </form>
