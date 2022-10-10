@@ -35,7 +35,7 @@
                         <td>{{ $employee->eligible_bonus_review }}</td>
                         
                         <td>
-                            @if ($reviews[$i] && $reviews[$i]['sbu_comment'])
+                            @if ($reviews[$i] && ($reviews[$i]['sbu_comment'] || $reviews[$i]['sbu_total_performance_score']))
                                 <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
                                 <i class="fas fa-times-circle text-xl text-red"></i>
@@ -43,7 +43,7 @@
                         </td>
 
                         <td>
-                            @if ($reviews[$i] && $reviews[$i]['pm_comment'])
+                            @if ($reviews[$i] && ($reviews[$i]['pm_comment'] || $reviews[$i]['pm_total_performance_score']))
                                 <i class="fas fa-check-circle text-xl text-green"></i>
                             @else
                             <i class="fas fa-times-circle text-xl text-red"></i>
