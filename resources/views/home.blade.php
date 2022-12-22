@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Change Password')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Change Password</h1>
 @stop
 
 @section('content')
@@ -14,18 +14,21 @@
         </div>
     @endif
 
-    <form id="passwordForm" action="{{ route('change-password') }}" method="POST">
+    <div class="col-6">
+        <form id="passwordForm" action="{{ route('change-password') }}" method="POST">
 
-        @csrf
-        @method('PUT')
+            @csrf
+            @method('PUT')
+    
+            <x-adminlte-input type="password" name="old_password" label="Old Password" />
+            <x-adminlte-input type="password" name="password" label="Change Password" />
+            <x-adminlte-input type="password" name="confirm_password" label="Confirm Password" />
+    
+            <x-adminlte-button class="btn btn-flat" type="submit" label="Submit" theme="dark" />
+    
+        </form>
+    </div>
 
-        <x-adminlte-input type="password" name="old_password" label="Old Password" />
-        <x-adminlte-input type="password" name="password" label="Change Password" />
-        <x-adminlte-input type="password" name="confirm_password" label="Confirm Password" />
-
-        <x-adminlte-button class="btn btn-flat" type="submit" label="Submit" theme="dark" />
-
-    </form>
 @stop
 
 @section('css')
