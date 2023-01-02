@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class EmployeeReviewForm extends Component
 {
-    public $employee, $level;
+    public $employee, $level, $presentReview;
 
     public $review, $p_score, $p_rating, $v_score, $v_rating;
     public $knowledge_rating, $knowledge_score, $knowledge_justification;
@@ -37,18 +37,18 @@ class EmployeeReviewForm extends Component
     }
 
     private function get_pr_score($a, $b, $c, $d, $e, $f) {
-        if(is_null($a) || is_null($b) || is_null($c) || is_null($d) || is_null($e) || is_null($f)) return null;
+        if(($a == 0) || ($b == 0) || ($c == 0) || ($d == 0) || ($e == 0) || ($f == 0)) return null;
         return $a + $b + $c + $d + $e + $f;
     }
 
     private function get_vr_score($a, $b, $c, $d, $e) {
-        if(is_null($a) || is_null($b) || is_null($c) || is_null($d) || is_null($e)) return null;
+        if(($a == 0) || ($b == 0) || ($c == 0) || ($d == 0) || ($e == 0)) return null;
         return $a + $b + $c + $d + $e;
     }
 
     private function get_pr_rating($score) {
         if(is_null($score)){
-            return 'N/A';
+            return 'Complete Remaining Selection';
         } else if($score > 14) {
             return 'Exceeding Expectation Heavily';
         } else if($score > 8) {
@@ -60,7 +60,7 @@ class EmployeeReviewForm extends Component
 
     private function get_vr_rating($score) {
         if(is_null($score)){
-            return 'N/A';
+            return 'Complete Remaining Selection';
         } else if($score > 13) {
             return 'Exceeding Expectation Heavily';
         } else if($score > 7) {
@@ -74,7 +74,7 @@ class EmployeeReviewForm extends Component
 
     public function mount() {
 
-        $this->review = SalaryReview22bMetadata::where('user_id', $this->employee->id)->first();
+        $this->review = SalaryReview22bMetadata::where('user_id', $this->employee->id)->where('salary_review_id', 'Salary_review_oct_dec_2022')->first();
         
         if($this->review) {
             $this->knowledge_rating = $this->get_rating($this->review->knowledge_score);
