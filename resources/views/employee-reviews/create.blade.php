@@ -24,13 +24,15 @@
     <div class="col-6 w-100">
         <x-adminlte-card title="Performance History" theme="dark" collapsible="collapsed">
             <x-adminlte-profile-widget>
+                <x-adminlte-profile-row-item title="Eligibility for Q4 (Oct-Dec ’22) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="11"/> 
+                <x-adminlte-profile-row-item title="Eligibility Salary Review 23A" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" />
                 <div class="row w-100">
                     <div class="col-10 w-100">
                         <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
-                        <a href="#" class="btn btn-sm btn-warning">View Details</a>
+                        <a href="{{route('previous-salary-review.view',['user'=>$employee->id])}}" class="btn btn-sm btn-warning">View Details</a>
                     </div>
                 </div>
                 
@@ -40,10 +42,11 @@
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
-                        <a href="#" class="btn btn-sm btn-warning">View Details</a>
+                        <a href="{{route('previous-bonus-review.view',['user'=>$employee->id])}}"  class="btn btn-sm btn-warning">View Details</a>
                     </div>
                 </div>
-
+                <x-adminlte-profile-row-item title="Eligibility for Q4 (Apr-Jun ’22) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="11"/> 
+                <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" />
                 <x-adminlte-profile-row-item title="Promotional Status 21A" text="{{ $employee->promotion_21a ?? 'N/A' }}" size="11"/> 
                 <x-adminlte-profile-row-item title="Promotional Status 21B " text="{{ $employee->promotion_21b ?? 'N/A' }}" size="11"/>
                 <x-adminlte-profile-row-item title="Promotional Status 22A " text="{{ $employee->promotion_22a ?? 'N/A' }}" size="11"/>
@@ -74,7 +77,7 @@
 @stop
 
 @section('js')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
 
             $('#sbtn').prop('disabled', true);
@@ -147,7 +150,7 @@
             });
 
         });
-    </script>
+    </script> --}}
     <livewire:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
 @stop
