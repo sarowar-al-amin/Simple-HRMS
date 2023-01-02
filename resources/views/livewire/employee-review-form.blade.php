@@ -4,7 +4,7 @@
 
     @php
         $headers = ['Category', 'Indicators', 'Rating', 'Justification'];
-        $ratings = ['Need Improvement', 'Meet Expectation Very Well', 'Exceeding Expectation Heavily'];
+        $ratings = ['Select An Option','Need Improvement', 'Meet Expectation Very Well', 'Exceeding Expectation Heavily'];
     @endphp
 
     <h1>Performance Rating</h1>
@@ -35,17 +35,21 @@
                     <td>
                         {{ $performance_indicators[$i] }}
                     </td>
-                    <td id='pr'>
+                    <td id='pr1'>
                         <select name={{ $performance_names[$i].'_score' }} wire:model={{ $performance_names[$i].'_score' }}>
-                            <option value={{ null }} disabled>Select An Option</option>
                             @foreach ($ratings as $rating)
-                                <option value={{ $loop->index+1 }}>{{ $rating }}</option>
+                                @if ($loop->index == 0)
+                                    <option value={{ $loop->index }}>{{ $rating }}</option>
+                                @else
+                                    <option value={{ $loop->index }}>{{ $rating }}</option>
+                                @endif
+                                    {{-- <option value={{ $loop->index }}>{{ $rating }}</option> --}}
                             @endforeach
                         </select>
                     </td>
 
                     <td>
-                        <textarea name={{ $performance_names[$i].'_justification' }} wire:model={{ $performance_names[$i].'_justification' }} ></textarea>
+                        <textarea name={{ $performance_names[$i].'_justification' }} wire:model={{ $performance_names[$i].'_justification' }} placeholder="If you may, you can justify your action."></textarea>
                     </td>
                 </tr>
             @endfor
@@ -56,9 +60,6 @@
                 <td>
                     <h3 class="font-weight-bold">{{ $p_rating }}</h3>
                 </td>
-                {{-- <td>
-                   <h3 id="po_score" class="font-weight-bold"></h3> 
-                </td> --}}
             </tr>
         </tbody>
     </table>
@@ -127,14 +128,18 @@
                     </td>
                     <td id='vr'>
                         <select name={{ $values_names[$i].'_score' }} wire:model={{ $values_names[$i].'_score' }}>
-                            <option value={{ null }} disabled>Select An Option</option>
                             @foreach ($ratings as $rating)
-                                <option value={{ $loop->index+1 }}>{{ $rating }}</option>
+                                @if ($loop->index == 0)
+                                    <option value={{ $loop->index }}>{{ $rating }}</option>
+                                @else
+                                    <option value={{ $loop->index }}>{{ $rating }}</option>
+                                @endif
+                                    {{-- <option value={{ $loop->index }}>{{ $rating }}</option> --}}
                             @endforeach
                         </select>
                     </td>
                     <td>
-                        <textarea name={{ $values_names[$i].'_justification' }} wire:model={{ $values_names[$i].'_justification' }}></textarea>
+                        <textarea name={{ $values_names[$i].'_justification' }} wire:model={{ $values_names[$i].'_justification' }} placeholder="If you may, you can justify your action."></textarea>
                     </td>
                 </tr>
             @endfor
@@ -195,7 +200,7 @@
             @if (auth()->user()->role != 'PM')
 
                 <tr>
-                    <td>SBU Comment</td>
+                    <td>SBU Comment <span class="required_color">*</span></td>
                     <td>
                         <textarea required="true" name="sbu_comment" cols="80" rows="4" placeholder='Your comment is necessary' wire:model='sbu_comment'></textarea>
                     </td>
@@ -203,7 +208,7 @@
                 
             @endif
             <tr>
-                <td>PM Comment</td>
+                <td>PM Comment <span class="required_color">*</span></td>
                 <td>
                     <textarea required="true" name="pm_comment" cols="80" rows="4" placeholder='Your comment is necessary' wire:model='pm_comment'></textarea>
                 </td>
@@ -213,6 +218,12 @@
 
     <div class="d-flex justify-content-between p-4">
         <x-adminlte-button class="btn btn-lg" onclick="confirm('Are you sure you want to go back? All data will be lost.') ? history.back() : '' " label="Back" theme="danger" />
-        <x-adminlte-button id="sbtn" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+        @if ($p_score && $v_score && $sbu_comment && (auth()->user()->role == 'SBU' || auth()->user()->role == 'Admin'))
+            <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+        @elseif ($p_score && $v_score && auth()->user()->role == 'PM' && $pm_comment)
+            <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+        @else
+            <x-adminlte-button class="btn btn-lg disabled" label="Submit" theme="success" />
+        @endif  
     </div>
 </form>
