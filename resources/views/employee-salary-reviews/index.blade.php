@@ -137,7 +137,7 @@
       columnDefs: [
                 {targets: [4, 5, 10, 11, 12, 13], visible: false}
          ],
-      "buttons":  ["copy", "csv", "excel", "pdf", "colvis"],
+      "buttons":  ["copy", "csv", "excel", "colvis"],
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
     // new $.fn.dataTable.FixedHeader( table );
