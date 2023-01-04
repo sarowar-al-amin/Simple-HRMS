@@ -8,7 +8,11 @@
 @section('content')
 
     @if(session()->has('flash'))
-        <x-adminlte-alert class="m-3" theme="success" title="{{ session()->get('flash') }}" dismissable />
+    <x-adminlte-alert class="m-3" theme="success" title="{{ session()->get('flash') }}" dismissable />
+    @endif
+
+    @if(session()->has('warning'))
+    <x-adminlte-alert class="m-3" theme="warning" title="{{ session()->get('warning') }}" dismissable />
     @endif
     
     <div class="table responsive overflow-auto">

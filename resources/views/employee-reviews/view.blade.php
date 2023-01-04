@@ -28,7 +28,7 @@
                 <x-adminlte-profile-row-item title="Eligibility Salary Review 23A" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" />
                 <div class="row w-100">
                     <div class="col-10 w-100">
-                        <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
+                        <x-adminlte-profile-row-item title="Promotional Status 22B" text="{{ $lastPromotionStatus->sbu_promotion_recommendation ?? 'N/A' }}" size="12" />
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
@@ -38,7 +38,7 @@
                 
                 <div class="row w-100">
                     <div class="col-10 w-100">
-                        <x-adminlte-profile-row-item title="Eligibility for Q4 (Apr-Jun ’22) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}"/> 
+                        <x-adminlte-profile-row-item title="Q4 (Apr-Jun ’22) Bonus Review"/> 
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}

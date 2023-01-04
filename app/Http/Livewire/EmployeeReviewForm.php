@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use App\Models\SalaryReview;
 use App\Models\SalaryReview22bMetadata;
 use Livewire\Component;
 
@@ -74,7 +74,7 @@ class EmployeeReviewForm extends Component
 
     public function mount() {
 
-        $this->review = SalaryReview22bMetadata::where('user_id', $this->employee->id)->where('salary_review_id', 'Salary_review_oct_dec_2022')->first();
+        $this->review = SalaryReview22bMetadata::where('user_id', $this->employee->id)->where('salary_review_id', $this->presentReview)->first();
         
         if($this->review) {
             $this->knowledge_rating = $this->get_rating($this->review->knowledge_score);

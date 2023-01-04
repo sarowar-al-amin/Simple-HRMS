@@ -31,9 +31,12 @@ class EmployeeReviewController extends Controller
         else{
             $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
         }
-        $reviews = array_map(fn ($employee) => SalaryReview22bMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
-        $lastDate = SalaryReview::first()->end;
-        //dd($lastDate);
+        // Select the latest salary view 
+        $salary_review_id = SalaryReview::orderBy('start', 'desc')->first();
+
+        $reviews = array_map(fn ($employee) => SalaryReview22bMetadata::where('user_id', $employee['id'])->where('salary_review_id', $salary_review_id->id)->first(), $employees->toArray());
+        // Select the end date of the latest review
+        $lastDate = SalaryReview::orderBy('start', 'desc')->first()->end;
         return view('employee-reviews.index',[
             'headings' => ['ID', 'Name', 'Salary Review', 'Bonus Review', 'SBU Reviewed', 'PM Reviewed', 'SBU', 'PM', 'Performance', 'Promotion', 'Comments', 'Actions'],
             'employees' => $employees,
@@ -58,14 +61,19 @@ class EmployeeReviewController extends Controller
         if($author != $sbu_name && $author != $pm_name && Auth::user()->role != 'Admin'){
             return redirect('/employee-salary-review')->with('warning', 'That user is not under your authorization');
         }
-
+        $salary_review = SalaryReview::orderBy('start', 'desc')->get();
+        $salary_review_id = $salary_review[0]->id;
         $currentLevel = EmployeeLevel::find($user->level);
         $nextLevel = EmployeeLevel::find($currentLevel->next_level);
-
+        
+        $lastSalaryReview = SalaryReview22bMetadata::select('sbu_promotion_recommendation')->where('user_id', $employee['id'])->where('salary_review_id',$salary_review[1]->id)->first();
+       
         return view('employee-reviews.create', [
             'employee' => $user,
             'currentLevel' => $currentLevel,
             'nextLevel' => $nextLevel,
+            'presentReviewID' => $salary_review_id,
+            'lastPromotionStatus' => $lastSalaryReview
         ]);
     }
 
@@ -78,11 +86,13 @@ class EmployeeReviewController extends Controller
         }elseif(Auth::user()->role === 'SBU'){
             $currentLevel = EmployeeLevel::find($user->level);
             $nextLevel = EmployeeLevel::find($currentLevel->next_level);
-    
+            $salary_review = SalaryReview::orderBy('start', 'desc')->get();
+            $lastSalaryReview = SalaryReview22bMetadata::select('sbu_promotion_recommendation')->where('user_id', $user->id)->where('salary_review_id',$salary_review[1]->id)->first();
             return view('employee-reviews.view', [
                 'employee' => $user,
                 'currentLevel' => $currentLevel,
-                'nextLevel' => $nextLevel
+                'nextLevel' => $nextLevel,
+                'lastPromotionStatus' => $lastSalaryReview
             ]);
         }else{
             return view('home');

@@ -29,9 +29,15 @@ class EmployeeSalaryReviewController extends Controller
         else{
             $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
         }
-        $reviews = array_map(fn ($employee) => SalaryReview22bMetadata::where('user_id', $employee['id'])->first(), $employees->toArray());
-        $lastDate = SalaryReview::first()->end;
-        //dd($lastDate);
+        // Select the latest salary view 
+        $salary_review_id = SalaryReview::orderBy('start', 'desc')->first();
+        // dd($salary_review_id->id);
+      
+        $reviews = array_map(fn ($employee) => SalaryReview22bMetadata::where('user_id', $employee['id'])->where('salary_review_id', $salary_review_id->id)->first(), $employees->toArray());
+        
+        // Select the end date of the latest review
+        $lastDate = SalaryReview::orderBy('start', 'desc')->first()->end;
+        
         return view('employee-salary-reviews.index',[
             'headings' => ['ID', 'Name', 'Salary Review', 'Bonus Review', 'SBU Reviewed', 'PM Reviewed', 'SBU', 'PM', 'Performance', 'Promotion', 'Comments', 'PM Performance', 'PM Promotion', 'PM Comments','Actions'],
             'employees' => $employees,
@@ -51,7 +57,7 @@ class EmployeeSalaryReviewController extends Controller
             return redirect('login');
         }
 
-        $sr = SalaryReview::firstOrFail();
+        $sr = SalaryReview::orderBy('start', 'desc')->firstOrFail();
         $srm = SalaryReview22bMetadata::where('salary_review_id', $sr->id)->where('user_id', $user->id)->first();
 
 

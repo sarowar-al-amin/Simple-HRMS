@@ -28,7 +28,7 @@
                 <x-adminlte-profile-row-item title="Eligibility Salary Review 23A" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" />
                 <div class="row w-100">
                     <div class="col-10 w-100">
-                        <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" />
+                        <x-adminlte-profile-row-item title="Promotional Status 22B" text="{{ $lastPromotionStatus->sbu_promotion_recommendation ?? 'N/A' }}" size="12" />
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
@@ -38,24 +38,24 @@
                 
                 <div class="row w-100">
                     <div class="col-10 w-100">
-                        <x-adminlte-profile-row-item title="Eligibility for Q4 (Apr-Jun ’22) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}"/> 
+                        <x-adminlte-profile-row-item title="Q4 (Apr-Jun ’22) Bonus Review"/> 
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
                         <a href="{{route('previous-bonus-review.view',['user'=>$employee->id])}}"  class="btn btn-sm btn-warning">View Details</a>
                     </div>
                 </div>
-                <x-adminlte-profile-row-item title="Eligibility for Q4 (Apr-Jun ’22) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="11"/> 
-                <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" />
+                {{-- <x-adminlte-profile-row-item title="Eligibility for Q4 (Apr-Jun ’22) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="11"/> 
+                <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" /> --}}
                 <x-adminlte-profile-row-item title="Promotional Status 21A" text="{{ $employee->promotion_21a ?? 'N/A' }}" size="11"/> 
                 <x-adminlte-profile-row-item title="Promotional Status 21B " text="{{ $employee->promotion_21b ?? 'N/A' }}" size="11"/>
                 <x-adminlte-profile-row-item title="Promotional Status 22A " text="{{ $employee->promotion_22a ?? 'N/A' }}" size="11"/>
                 <x-adminlte-profile-row-item title="Q3 (Jan-Mar ’22) Performance Status" text="{{ $employee->q_3_jan_mar_performance ?? 'N/A' }}" size="11"/>
-                <x-adminlte-profile-row-item title="Q3 (Jan-Mar ’22) Bonus Percentage" text="{{ $employee->q_3_jan_mar_percentage ?? 'N/A' }}%" size="11"/>    
+                <x-adminlte-profile-row-item title="Q3 (Jan-Mar ’22) Bonus Percentage" text="{{ $employee->q_3_jan_mar_percentage ?? 'N/A' }}" size="11"/>    
                 <x-adminlte-profile-row-item title="Q2 (Oct-Dec ’21) Performance Status" text="{{ $employee->q_2_oct_dec_performance ?? 'N/A' }}" size="11"/>
-                <x-adminlte-profile-row-item title="Q2 (Oct-Dec ’21) Bonus Percentage" text="{{ $employee->q_2_oct_dec_percentage ?? 'N/A' }}%" size="11"/>
+                <x-adminlte-profile-row-item title="Q2 (Oct-Dec ’21) Bonus Percentage" text="{{ $employee->q_2_oct_dec_percentage ?? 'N/A' }}" size="11"/>
                 <x-adminlte-profile-row-item title="Q1 (Jul-Sep’21) Performance Status" text="{{ $employee->q_2_oct_dec_performance ?? 'N/A' }}" size="11"/>
-                <x-adminlte-profile-row-item title="Q1 (Jul-Sep’21) Bonus Percentage" text="{{ $employee->q_1_jul_sep_percentage ?? 'N/A' }}%" size="11"/>
+                <x-adminlte-profile-row-item title="Q1 (Jul-Sep’21) Bonus Percentage" text="{{ $employee->q_1_jul_sep_percentage ?? 'N/A' }}" size="11"/>
             </x-adminlte-profile-widget>
         </x-adminlte-card>
     </div>
