@@ -22,6 +22,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\BonusReviewImportController;
 use App\Http\Controllers\EmployeeSalaryReviewController;
 use App\Http\Controllers\EmployeeBonusCalculationController;
+use App\Http\Controllers\PreviousBonusAndSalaryReviewController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -76,7 +77,7 @@ Route::post('/upload/level-excel', [ExcelLevelImport::class, 'upload_excel']);
 // Route::get('/export/bonus-review',[ExcelExportController::class, 'exportBonusReviewView'])->name('bonusReviewExport');
 // Route::get('/exportation/bonus_review', [ExcelExportController::class, 'exportBonusReview']);
 // Route::get('/export/all-users', [ExcelExportController::class, 'exportAllUsers']);
-// Route::get('/export/excel-user-template', [ExcelExportController::class, 'userImportTemplate']);
+Route::get('/export/excel-user-template', [ExcelExportController::class, 'userImportTemplate']);
 
 Route::get('/password/reset', [PasswordResetController::class, 'index'])->name('passwordreset');
 Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
@@ -99,3 +100,10 @@ Route::get('employee-bonus-review-calculation', [EmployeeBonusCalculationControl
 Route::get('employee-bonus-review-calculation/create/{user}', [EmployeeBonusCalculationController::class, 'create'])->name('employee-bonus-reviews-calculation.create');
 Route::post('employee-bonus-review-calculation/store/{user}', [EmployeeBonusCalculationController::class, 'store'])->name('employee-bonus-reviews-calculation.store');
 Route::get('employee-bonus-review-calculation/view/{user}', [EmployeeBonusCalculationController::class, 'view'])->name('employee-bonus-reviews-calculation.view');
+
+// Previous history exploring
+// Route::get('previous-salary-review',[PreviousBonusAndSalaryReviewController::class, 'test_idea'])->name('checking_idea');
+Route::get('previous-salary-review/{user}', [PreviousBonusAndSalaryReviewController::class,'salaryReview'])->name('previous-salary-review.view');
+Route::get('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'bonusReview'])->name('previous-bonus-review.view');
+Route::post('previous-salary-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousSalaryReviewUpdate'])->name('previous-salary-reviews.store');
+Route::post('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousBonusReviewUpdate'])->name('previous-bonus-reviews.store');
