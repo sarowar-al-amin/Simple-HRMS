@@ -25,7 +25,7 @@ class UsersImportTemplateExport implements FromCollection, WithHeadings
             'hr',
             'pm',
             'team',
-            // 'eligible_salary_review',
+            'eligible_salary_review',
             'eligible_bonus_review',
             // 'q1_jul_sep_performance',
             // 'q1_jul_sep_percentage',
@@ -36,9 +36,9 @@ class UsersImportTemplateExport implements FromCollection, WithHeadings
             // 'promotion_22a',
             // 'promotion_21b',
             // 'promotion_21a'
-            'q_4_april_jun_performance',
-            'q_4_april_jun_percentage',
-            'promotion_22b',
+            // 'q_4_april_jun_performance',
+            // 'q_4_april_jun_percentage',
+            // 'promotion_22b',
         ];
     }
     /**

@@ -66,7 +66,7 @@ class UserImport implements
                     'hr' => $row['hr'],
                     'pm' => $row['pm'],
                     'team' => $row['team'],
-                    // 'eligible_salary_review' => $row['eligible_salary_review'],
+                    'eligible_salary_review' => $row['eligible_salary_review'],
                     'eligible_bonus_review' => $row['eligible_bonus_review'],
                     // 'q_1_jul_sep_performance' => $row['q1_jul_sep_performance'],
                     // 'q_1_jul_sep_percentage' => $row['q1_jul_sep_percentage']*100,
@@ -77,9 +77,9 @@ class UserImport implements
                     // 'promotion_22a' => $row['promotion_22a'],
                     // 'promotion_21b' => $row['promotion_21b'],
                     // 'promotion_21a' => $row['promotion_21a'],
-                    'q_4_april_jun_performance' => $row['q_4_april_jun_performance'],
-                    'q_4_april_jun_percentage' => $row['q_4_april_jun_percentage']*100,
-                    'promotion_22b' => $row['promotion_22b'],
+                    // 'q_4_april_jun_performance' => $row['q_4_april_jun_performance'],
+                    // 'q_4_april_jun_percentage' => $row['q_4_april_jun_percentage']*100,
+                    // 'promotion_22b' => $row['promotion_22b'],
 
                 ],
                 [
@@ -99,8 +99,8 @@ class UserImport implements
                     'hr' => $row['hr'],
                     'pm' => $row['pm'],
                     'team' => $row['team'],
-                    // 'eligible_salary_review' => $row['eligible_salary_review'],
-                    // 'eligible_bonus_review' => $row['eligible_bonus_review'],
+                    'eligible_salary_review' => $row['eligible_salary_review'],
+                    'eligible_bonus_review' => $row['eligible_bonus_review'],
                     // 'q_1_jul_sep_performance' => $row['q1_jul_sep_performance'],
                     // 'q_1_jul_sep_percentage' => $row['q1_jul_sep_percentage']*100,
                     // 'q_2_oct_dec_performance' => $row['q2_oct_dec_performance'],
@@ -110,9 +110,9 @@ class UserImport implements
                     // 'promotion_22a' => $row['promotion_22a'],
                     // 'promotion_21b' => $row['promotion_21b'],
                     // 'promotion_21a' => $row['promotion_21a'],
-                    'q_4_april_jun_performance' => $row['q_4_april_jun_performance'],
-                    'q_4_april_jun_percentage' => $row['q_4_april_jun_percentage']*100,
-                    'promotion_22b' => $row['promotion_22b'],
+                    // 'q_4_april_jun_performance' => $row['q_4_april_jun_performance'],
+                    // 'q_4_april_jun_percentage' => $row['q_4_april_jun_percentage']*100,
+                    // 'promotion_22b' => $row['promotion_22b'],
 
                 ]
             );
