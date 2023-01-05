@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class BonusReviewSubmissionForm extends Component
 {
-    public $employee, $level;
+    public $employee, $level, $bonus_id;
 
     public $review, $p_score, $p_rating, $v_score, $v_rating;
     public $knowledge_rating, $knowledge_score, $knowledge_justification;
@@ -52,7 +52,7 @@ class BonusReviewSubmissionForm extends Component
 
     public function mount() {
 
-        $this->review = QuaterlyBonusCalculation::where('user_id', $this->employee->id)->first();
+        $this->review = QuaterlyBonusCalculation::where('user_id', $this->employee->id)->where('bonus_review_id', $this->bonus_id)->first();
         
         if($this->review) {
             $this->knowledge_rating = $this->get_rating($this->review->knowledge_score);

@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <livewire:bonus-review-submission-form-view :employee="$employeeID" :level="$level" />
+    <livewire:bonus-review-submission-form-view :employee="$employeeID" :level="$level" :bonus_review="$bonusReview"/>
 
 @stop
 

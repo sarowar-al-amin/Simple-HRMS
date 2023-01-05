@@ -21,7 +21,7 @@
 <x-adminlte-card title="Performance History" theme="dark" collapsible="collapsed">
     <x-adminlte-profile-widget>
         {{-- <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" /> --}}
-        <x-adminlte-profile-row-item title="Eligibility for Q1 (Jul-Sep ’23) Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/> 
+        <x-adminlte-profile-row-item title="Eligibility for current Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/> 
         <x-adminlte-profile-row-item title="Promotional Status 21A" text="{{ $employee->promotion_21a ?? 'N/A' }}" size="12"/> 
         <x-adminlte-profile-row-item title="Promotional Status 21B " text="{{ $employee->promotion_21b ?? 'N/A' }}" size="12"/>
         <x-adminlte-profile-row-item title="Promotional Status 22A " text="{{ $employee->promotion_22a ?? 'N/A' }}" size="12"/>
@@ -42,7 +42,7 @@
 <div class="alert alert-danger">
     All star fields must be filled. Leaving the page without submitting will lose all current progress.
 </div>
-<livewire:bonus-review-submission-form :employee="$employee" :level="$nextLevel" />
+<livewire:bonus-review-submission-form :employee="$employee" :level="$nextLevel" :bonus_id="$bonusReview"/>
 
 @stop
 

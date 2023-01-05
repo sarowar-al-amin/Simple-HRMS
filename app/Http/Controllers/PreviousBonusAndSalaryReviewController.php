@@ -68,13 +68,14 @@ class PreviousBonusAndSalaryReviewController extends Controller
 
         
         $bonus_reviews = BonusReview::select('id')->orderBy('start', 'desc')->get();
-        $bonus_review_id = $bonus_reviews[0]->id;
+        $bonus_review_id = $bonus_reviews[1]->id;
+        // dd($bonus_review_id);
         $currentLevel = EmployeeLevel::find($user->level);
 
         return view('previous-reviews.previous-bonus-review', 
             [
                 'employeeID' => $user,
-                // 'previousBonusReviewID' => $previous_review_id,
+                'bonusReview' => $bonus_review_id,
                 'level' => $currentLevel
             ]
         );

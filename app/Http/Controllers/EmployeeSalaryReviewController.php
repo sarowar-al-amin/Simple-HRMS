@@ -24,10 +24,10 @@ class EmployeeSalaryReviewController extends Controller
             return redirect('login');
         }
         elseif(Auth::user()->role === 'Admin'){
-            $employees = User::orderBy('sbu')->orderBy('pm')->get();
+            $employees = User::where('eligible_salary_review', 'eligible')->orderBy('sbu')->orderBy('pm')->get();
         }
         else{
-            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
+            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->where('eligible_salary_review', 'eligible')->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->where('eligible_salary_review', 'eligible')->get();
         }
         // Select the latest salary view 
         $salary_review_id = SalaryReview::orderBy('start', 'desc')->first();

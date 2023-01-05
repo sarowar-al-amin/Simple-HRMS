@@ -22,13 +22,16 @@ class EmployeeBonusCalculationController extends Controller
             return redirect('login');
         }
         elseif(Auth::user()->role === 'Admin'){
-            $employees = User::orderBy('sbu')->orderBy('pm')->get();
+            $employees = User::where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->orderBy('sbu')->orderBy('pm')->get();
         }
         else{
-            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
+            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->get();
         }
-        $reviews = array_map(fn ($employee) => QuaterlyBonusCalculation::where('user_id', $employee['id'])->first(), $employees->toArray());
-        $lastDate = BonusReview::first()->end;
+        $bonus_reviews = BonusReview::orderBy('start', 'desc')->get();
+        $bonus_review_id = $bonus_reviews[0]->id;
+        
+        $reviews = array_map(fn ($employee) => QuaterlyBonusCalculation::where('user_id', $employee['id'])->where('bonus_review_id', $bonus_review_id)->first(), $employees->toArray());
+        $lastDate = BonusReview::orderBy('start', 'desc')->first()->end;
         // dd($employees);
 
         return view('bonus-review-calculation.index',[
@@ -61,10 +64,14 @@ class EmployeeBonusCalculationController extends Controller
         $currentLevel = EmployeeLevel::find($user->level);
         // $nextLevel = EmployeeLevel::find($currentLevel->next_level);
         // dd($employee);
+        $bonus_reviews = BonusReview::select('id')->orderBy('start', 'desc')->get();
+        $bonus_review_id = $bonus_reviews[0]->id;
+
         return view('bonus-review-calculation.create', [
             'employee' => $user,
             'currentLevel' => $currentLevel,
             'nextLevel' => $currentLevel,
+            'bonusReview' => $bonus_review_id,
         ]);
     }
 
@@ -98,7 +105,7 @@ class EmployeeBonusCalculationController extends Controller
             return redirect('login');
         }
 
-        $sr = BonusReview::firstOrFail();
+        $sr = BonusReview::orderBy('start', 'desc')->firstOrFail();
         $srm = QuaterlyBonusCalculation::where('bonus_review_id', $sr->id)->where('user_id', $user->id)->first();
 
 
