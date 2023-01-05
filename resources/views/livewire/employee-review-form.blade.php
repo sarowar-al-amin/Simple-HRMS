@@ -173,25 +173,40 @@
             
             @if (auth()->user()->role == 'SBU' || auth()->user()->role == 'Admin')
             <tr>
-                <td>Recommended for Promotion</td>
+                <td>Recommended for Promotion<span class="required_color">*</span></td>
                 <td>
-                    <select id="promote" name='promotion recommendation'>
-                        <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option>
-                        @foreach (['Yes', 'No'] as $rating)
-                            <option value={{ $rating }} {{ $review && ($review['sbu_promotion_recommendation'] === $rating || $review['pm_promotion_recommendation'] === $rating) ? 'selected' : '' }}>{{ $rating }}</option>
-                        @endforeach
+                    <select name='promotion recommendation'>
+                        {{-- <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option> --}}
+                        @if ($p_score > 8)
+                            @foreach (['No', 'Yes'] as $rating)
+                                <option value={{ $rating }} {{ $review && ($review['sbu_promotion_recommendation'] === $rating || $review['pm_promotion_recommendation'] === $rating) ? 'selected' : '' }}>{{ $rating }}</option>
+                            @endforeach
+                        @elseif ($p_score > 0)
+                            <option value="No" selected>No</option>
+                        @else
+                            <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        @endif
                     </select>
                 </td>
             </tr>
             @else
             <tr>
-                <td>Recommended for Promotion</td>
+                <td>Recommended for Promotion<span class="required_color">*</span></td>
                 <td>
-                    <select id="promote" name='promotion recommendation'>
-                        <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option>
-                        @foreach (['Yes', 'No'] as $rating)
-                            <option value={{ $rating }} {{ $review && $review['pm_promotion_recommendation'] === $rating  ? 'selected' : '' }}>{{ $rating }}</option>
-                        @endforeach
+                    <select  name='promotion recommendation'>
+                        @if ($p_score > 8)
+                            @foreach (['No', 'Yes'] as $rating)
+                                <option value={{ $rating }} {{ $review && $review['pm_promotion_recommendation'] === $rating ? 'selected' : '' }}>{{ $rating }}</option>
+                            @endforeach
+                        @elseif ($p_score > 0)
+                            <option value="No" selected>No</option>
+                        @else
+                            <option disabled {{ is_null($review) ? 'selected': '' }}>Select An Option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        @endif
                     </select>
                 </td>
             </tr>
