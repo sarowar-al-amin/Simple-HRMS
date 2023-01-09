@@ -21,7 +21,11 @@
 
             <thead>
                 @foreach ($headings as $heading)
-                    <th scope="col">{{ $heading }}</th>
+                    @if ($loop->index == 14)
+                        <th data-priority="1" scope="col">{{ $heading }}</th>
+                    @else
+                        <th scope="col">{{ $heading }}</th>
+                    @endif   
                 @endforeach
             </thead>
 
@@ -135,7 +139,7 @@
     var table = $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false, pageLength: 25,fixedHeader: true,
       columnDefs: [
-                {targets: [4, 5, 10, 11, 12, 13], visible: false}
+                {targets: [10, 11, 12, 13], visible: false}
          ],
       "buttons":  ["copy", "csv", "excel", "colvis"],
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
