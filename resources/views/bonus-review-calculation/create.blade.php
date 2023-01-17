@@ -14,6 +14,8 @@
         <x-adminlte-profile-col-item title="Team" text="{{ $employee->team }}" size=4 />
         <x-adminlte-profile-col-item title="Project Maneger" text="{{ $employee->pm }}" size=4 />
         <x-adminlte-profile-col-item title="Current Level" text="{{ $currentLevel->id }}" size=4 />
+        <x-adminlte-profile-col-item title="BS23 Experience" text="{{ $employee->experience ?? 'Not mentioned yet' }}" size=4 />
+        <x-adminlte-profile-col-item title="Total Experience" text="{{ $employee->career_start_date ?? 'Not mentioned yet' }}" size=4 />
         {{-- <x-adminlte-profile-col-item title="Next Level" text="{{ $nextLevel->id }}" size=4 /> --}}
     </x-adminlte-profile-widget>
 </x-adminlte-card>
