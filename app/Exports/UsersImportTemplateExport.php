@@ -39,6 +39,8 @@ class UsersImportTemplateExport implements FromCollection, WithHeadings
             // 'q_4_april_jun_performance',
             // 'q_4_april_jun_percentage',
             // 'promotion_22b',
+            'career_start_date',
+            'experience'
         ];
     }
     /**
