@@ -53,7 +53,7 @@
 @stop
 
 @section('js')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
 
             $('#submit_btn_pro').prop('disabled', false);
@@ -110,7 +110,7 @@
             });
 
         });
-    </script>
+    </script> --}}
     <livewire:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
 @stop
