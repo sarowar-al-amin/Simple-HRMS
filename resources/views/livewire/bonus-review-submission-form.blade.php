@@ -117,6 +117,8 @@
             <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
         @elseif ($p_score && auth()->user()->role == 'PM' && $pm_comment)
             <x-adminlte-button id="submit_btn_pro" class="btn btn-lg" onclick="confirm('Are you sure you want to submit?') ? document.getElementById('reviewForm').submit() : '' " label="Submit" theme="success" />
+        @else
+            <x-adminlte-button disabled="disabled" label="Submit" theme="success"/>
         @endif  
     </div>
 </form>
