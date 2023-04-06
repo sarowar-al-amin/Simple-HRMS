@@ -86,7 +86,7 @@
           <table  class="table table-hover">
               @php
                   $headings = ['ID', 'Name', 'Email Address','Expertise Area',  'Role', 'Employee Type', 'Managerial Capacity', 'Employee Category', 'Designation','Work Type', 'Level', 'SBU', 'Partner','HR','PM', 'Team', 
-                                'Salary Review Eligibility', 'Bonus Review Eligibility', 'Q-1(Jul-Sep)Performance', 'Q-2(Oct-Dec)Performance', 'Q-3(Jan-Mar)Performance','Q-4(Apr-June)Performance','Promotion 22B','Promotion 22A', 'Promotion 21B', 'Promotion 21A', 'Delete From System'
+                                'Salary Review Eligibility', 'Bonus Review Eligibility', 'Q-1(Jul-Sep)Performance', 'Q-2(Oct-Dec)Performance', 'Q-3(Jan-Mar)Performance','Q-4(Apr-June)Performance', 'Q1 (Jul-Sep’22) Performance Status', 'Q2 (Oct-Dec ’22) Performance Status','Promotion 23A','Promotion 22B','Promotion 22A', 'Promotion 21B', 'Promotion 21A', 'Delete From System'
                             ];
               @endphp
               <thead>

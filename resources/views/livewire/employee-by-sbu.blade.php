@@ -309,6 +309,46 @@
                         </div>
                     @endif
                 </td>
+                {{-- q_1_jul_sep22_performance --}}
+                <td>
+                    @if ($field === $idx.'.q_1_jul_sep22_performance')
+                        <x-adminlte-input 
+                        name="q_1_jul_sep22_performance" 
+                        wire:model.defer="employees.{{ $idx }}.q_1_jul_sep22_performance" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.q_1_jul_sep22_performance' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.q_1_jul_sep22_performance')">
+                            {{ $employee['q_1_jul_sep22_performance'] ?? 'N/A' }}
+                        </div>
+                    @endif
+                </td>
+
+                {{-- q_2_oct_dec22_performance --}}
+                <td>
+                    @if ($field === $idx.'.q_2_oct_dec22_performance')
+                        <x-adminlte-input 
+                        name="q_2_oct_dec22_performance" 
+                        wire:model.defer="employees.{{ $idx }}.q_2_oct_dec22_performance" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.q_2_oct_dec22_performance' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.q_2_oct_dec22_performance')">
+                            {{ $employee['q_2_oct_dec22_performance'] ?? 'N/A' }}
+                        </div>
+                    @endif
+                </td>
+                {{-- promotion_23a --}}
+                <td>
+                    @if ($field === $idx.'.promotion_23a')
+                        <x-adminlte-input 
+                        name="promotion_23a" 
+                        wire:model.defer="employees.{{ $idx }}.promotion_23a" 
+                        @keyup.enter="$wire.field === '{{ $idx }}.promotion_23a' ? $wire.save({{ $idx }}) : null" />
+                    @else
+                        <div wire:click="$set('field','{{ $idx }}.promotion_23a')">
+                            {{ $employee['promotion_23a'] ?? 'N/A' }}
+                        </div>
+                    @endif
+                </td>
 
                 {{-- promotion_22b --}}
                 <td>
