@@ -48,6 +48,7 @@ class User extends Authenticatable
         'q_3_jan_mar_percentage',
         'q_4_april_jun_performance',
         'q_4_april_jun_percentage',
+        'promotion_23a',
         'promotion_22b',
         'promotion_22a',
         'promotion_21b',
