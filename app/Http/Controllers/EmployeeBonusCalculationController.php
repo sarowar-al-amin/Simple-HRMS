@@ -29,6 +29,7 @@ class EmployeeBonusCalculationController extends Controller
         }
         $bonus_reviews = BonusReview::orderBy('start', 'desc')->get();
         $bonus_review_id = $bonus_reviews[0]->id;
+        // dd($bonus_reviews[0]->id);
         
         $reviews = array_map(fn ($employee) => QuaterlyBonusCalculation::where('user_id', $employee['id'])->where('bonus_review_id', $bonus_review_id)->first(), $employees->toArray());
         $lastDate = BonusReview::orderBy('start', 'desc')->first()->end;
@@ -64,7 +65,7 @@ class EmployeeBonusCalculationController extends Controller
         $currentLevel = EmployeeLevel::find($user->level);
         // $nextLevel = EmployeeLevel::find($currentLevel->next_level);
         // dd($employee);
-        $bonus_reviews = BonusReview::select('id')->orderBy('start', 'desc')->get();
+        $bonus_reviews = BonusReview::orderBy('start', 'desc')->get();
         $bonus_review_id = $bonus_reviews[0]->id;
 
         return view('bonus-review-calculation.create', [
