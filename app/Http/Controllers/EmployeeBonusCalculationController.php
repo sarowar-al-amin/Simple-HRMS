@@ -25,7 +25,7 @@ class EmployeeBonusCalculationController extends Controller
             $employees = User::where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->orderBy('sbu')->orderBy('pm')->get();
         }
         else{
-            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->get();
+            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->orWhere('pm', Auth::user()->name)->where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->where('eligible_salary_review', 'Not eligible')->where('eligible_bonus_review', 'eligible')->get();
         }
         $bonus_reviews = BonusReview::orderBy('start', 'desc')->get();
         $bonus_review_id = $bonus_reviews[0]->id;
