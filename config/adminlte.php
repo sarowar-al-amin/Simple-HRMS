@@ -323,11 +323,11 @@ return [
                     'route' => 'quarters.index',
                     'icon' => 'fas fa-fw fa-clock',
                 ],
-                [
-                    'text' => 'Salary Reviews',
-                    'route' => 'salary-reviews.index',
-                    'icon' => 'fas fa-fw fa-search-dollar',
-                ],
+                // [
+                //     'text' => 'Salary Reviews',
+                //     'route' => 'salary-reviews.index',
+                //     'icon' => 'fas fa-fw fa-search-dollar',
+                // ],
                 [
                     'text' => 'Bonus Reviews',
                     'route' => 'bonus-reviews-index',
