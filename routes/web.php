@@ -23,6 +23,7 @@ use App\Http\Controllers\BonusReviewImportController;
 use App\Http\Controllers\EmployeeSalaryReviewController;
 use App\Http\Controllers\EmployeeBonusCalculationController;
 use App\Http\Controllers\PreviousBonusAndSalaryReviewController;
+use App\Http\Controllers\PreviousBonusReviewController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -107,3 +108,9 @@ Route::get('previous-salary-review/{user}', [PreviousBonusAndSalaryReviewControl
 Route::get('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'bonusReview'])->name('previous-bonus-review.view');
 Route::post('previous-salary-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousSalaryReviewUpdate'])->name('previous-salary-reviews.store');
 Route::post('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousBonusReviewUpdate'])->name('previous-bonus-reviews.store');
+
+// Route previous bonus history
+Route::get('previous-bonus-review-calculation/{user}', [PreviousBonusReviewController::class,'salaryReview'])->name('previous-bonus-review-calculation.view');
+// Route::get('previous-bonus-review/{user}', [PreviousBonusReviewController::class,'bonusReview'])->name('previous-bonus-review.view');
+Route::post('previous-bonus-review-review/{user}', [PreviousBonusReviewController::class,'previousSalaryReviewUpdate'])->name('previous-bonus-review-calculation.store');
+// Route::post('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousBonusReviewUpdate'])->name('previous-bonus-reviews.store');

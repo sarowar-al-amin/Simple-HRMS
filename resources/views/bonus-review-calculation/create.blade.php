@@ -27,6 +27,15 @@
             <x-adminlte-profile-widget>
                 {{-- <x-adminlte-profile-row-item title="Eligibility Salary Review 22B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="12" /> --}}
                 <x-adminlte-profile-row-item title="Eligibility for current Bonus Review" text="{{ $employee->eligible_bonus_review ?? 'N/A' }}" size="12"/> 
+                <div class="row w-100">
+                    <div class="col-10 w-100">
+                        <x-adminlte-profile-row-item title="Last Review Status" size="12" />
+                    </div>
+                    <div class="col-2 w-100">
+                        {{-- <a href="#">view details</a> --}}
+                        <a href="{{route('previous-bonus-review-calculation.view',['user'=>$employee->id])}}" class="btn btn-sm btn-warning">View Details</a>
+                    </div>
+                </div>
                 <x-adminlte-profile-row-item title="Promotional Status 21A" text="{{ $employee->promotion_21a ?? 'N/A' }}" size="12"/> 
                 <x-adminlte-profile-row-item title="Promotional Status 21B " text="{{ $employee->promotion_21b ?? 'N/A' }}" size="12"/>
                 <x-adminlte-profile-row-item title="Promotional Status 22A " text="{{ $employee->promotion_22a ?? 'N/A' }}" size="12"/>

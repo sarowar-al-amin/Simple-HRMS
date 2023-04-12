@@ -85,11 +85,22 @@ class EmployeeBonusCalculationController extends Controller
         }elseif(Auth::user()->role === 'SBU'){
             $currentLevel = EmployeeLevel::find($user->level);
             // $nextLevel = EmployeeLevel::find($currentLevel->next_level);
+            $author = Auth::user()->name;
+            $employee = User::where('id', $user->id)->first();
+            $sbu_name = $employee->sbu;
+            $pm_name = $employee->pm;
+    
+            if($author != $sbu_name && $author != $pm_name && Auth::user()->role != 'Admin'){
+                return route('employee-bonus-reviews-calculation.index')->with('warning', 'That user is not under your authorization');
+            }
+            $bonus_reviews = BonusReview::orderBy('start', 'desc')->get();
+            $bonus_review_id = $bonus_reviews[0]->id;
     
             return view('bonus-review-calculation.view', [
                 'employee' => $user,
                 'currentLevel' => $currentLevel,
-                'nextLevel' => $currentLevel
+                'nextLevel' => $currentLevel,
+                'bonusReview' => $bonus_review_id,
             ]);
         }else{
             return view('home');
