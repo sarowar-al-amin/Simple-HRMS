@@ -59,9 +59,15 @@ class EmployeeBonusCalculationController extends Controller
         $pm_name = $employee->pm;
 
         if($author != $sbu_name && $author != $pm_name && Auth::user()->role != 'Admin'){
-            return route('employee-bonus-reviews-calculation.index')->with('warning', 'That user is not under your authorization');
+            return redirect('employee-bonus-review-calculation')->with('warning', 'That user is not under your authorization');
         }
 
+        $lastDate = BonusReview::orderBy('start', 'desc')->first()->end;
+        $expired = Carbon::createFromFormat('j M Y', $lastDate)->lt(today());
+        
+        if($expired){
+            return redirect('employee-bonus-review-calculation')->with('warning', 'OPPS!!!Time of submission has expired.');
+        }
         $currentLevel = EmployeeLevel::find($user->level);
         // $nextLevel = EmployeeLevel::find($currentLevel->next_level);
         // dd($employee);
@@ -80,19 +86,20 @@ class EmployeeBonusCalculationController extends Controller
     public function view(User $user) {
         
         //Without legitimate user form can't be created.
+        $author = Auth::user()->name;
+        $employee = User::where('id', $user->id)->first();
+        $sbu_name = $employee->sbu;
+        $pm_name = $employee->pm;
+
+        if($author != $sbu_name && $author != $pm_name && Auth::user()->role != 'Admin'){
+            return redirect('employee-bonus-review-calculation')->with('warning', 'That user is not under your authorization');
+        }
+
         if(is_null(Auth::user())){         
             return redirect('login');
         }elseif(Auth::user()->role === 'SBU'){
             $currentLevel = EmployeeLevel::find($user->level);
             // $nextLevel = EmployeeLevel::find($currentLevel->next_level);
-            $author = Auth::user()->name;
-            $employee = User::where('id', $user->id)->first();
-            $sbu_name = $employee->sbu;
-            $pm_name = $employee->pm;
-    
-            if($author != $sbu_name && $author != $pm_name && Auth::user()->role != 'Admin'){
-                return route('employee-bonus-reviews-calculation.index')->with('warning', 'That user is not under your authorization');
-            }
             $bonus_reviews = BonusReview::orderBy('start', 'desc')->get();
             $bonus_review_id = $bonus_reviews[0]->id;
     
