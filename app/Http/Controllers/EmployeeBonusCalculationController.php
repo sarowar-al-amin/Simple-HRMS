@@ -100,6 +100,10 @@ class EmployeeBonusCalculationController extends Controller
 
 
     public function view(User $user) {
+        if(is_null(Auth::user())){
+            
+            return redirect('login');
+        }
         
         //Without legitimate user form can't be created.
         $author = Auth::user()->name;
