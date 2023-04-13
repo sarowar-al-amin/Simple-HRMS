@@ -65,7 +65,7 @@ class EmployeeBonusCalculationController extends Controller
         $lastDate = BonusReview::orderBy('start', 'desc')->first()->end;
         $expired = Carbon::createFromFormat('j M Y', $lastDate)->lt(today());
         
-        if($expired){
+        if($expired && Auth::user()->role != 'Admin'){
             return redirect('employee-bonus-review-calculation')->with('warning', 'OPPS!!!Time of submission has expired.');
         }
         $currentLevel = EmployeeLevel::find($user->level);
