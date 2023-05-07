@@ -296,7 +296,7 @@ class EmployeeBonusCalculationController extends Controller
        
 
 
-        return redirect()->route('employee-bonus-reviews-calculation.index')->with('flash', 'review successfully submitted');
+        return redirect()->route('employee-bonus-reviews-calculation.index')->with('flash', 'Review successfully submitted');
     }
 
     private function get_rating($score) {
