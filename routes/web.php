@@ -114,4 +114,4 @@ Route::get('previous-bonus-review-calculation/{user}', [PreviousBonusReviewContr
 // Route::get('previous-bonus-review/{user}', [PreviousBonusReviewController::class,'bonusReview'])->name('previous-bonus-review.view');
 Route::post('previous-bonus-review-review/{user}', [PreviousBonusReviewController::class,'previousSalaryReviewUpdate'])->name('previous-bonus-review-calculation.store');
 // Route::post('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousBonusReviewUpdate'])->name('previous-bonus-reviews.store');
-URL::forceScheme('https');
+// URL::forceScheme('https');
