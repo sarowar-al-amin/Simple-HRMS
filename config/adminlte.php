@@ -442,12 +442,12 @@ return [
                 [
                     'text' => 'Employee Scoreboard',
                     'route' => 'scoreboard.show',
-                    'icon' => 'fas fa-fw fa-clock',
+                    'icon' => 'fas fa-fw fa-regular fa-clipboard',
                 ],
                 [
                     'text' =>'Resource Calender',
                     'route' => 'scoreboard.employeeList',
-                    'icon' => 'fas fa-fw fa-search-dollar',
+                    'icon' => 'fas fa-fw fa-brans fa-columns',
                 ],
                 // [
                 //     'text' =>'Bench Report',
