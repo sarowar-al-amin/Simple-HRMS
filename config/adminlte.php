@@ -260,7 +260,7 @@ return [
         // ],
         [
             'text'    => 'Dashboard',
-            'icon'    => 'fas fa-fw fa-user',
+            'icon'    => 'fas fa-fw fa-tachometer-alt',
             'submenu' => [
                 // [
                 //     'text' => 'level_one',
@@ -298,14 +298,14 @@ return [
 
                 ],
                 [
-                    'icon' => 'fas fa-fw fa-list',
+                    'icon' => 'fas fa-fw fa-solid fa-user',
                     'text' => 'Profile',
                     'route'  => 'home',
                     // 'can' => 'admin',
 
                 ],
                 [
-                    'icon' => 'fas fa-clock',
+                    'icon' => 'fas fa-chart-pie',
                     'text' => 'Overview',
                     'route'  => 'overview',
                     'can' => 'admin',
@@ -331,7 +331,7 @@ return [
                 [
                     'text' => 'Bonus Reviews',
                     'route' => 'bonus-reviews-index',
-                    'icon' => 'fas fa-fw fa-gift',
+                    'icon' => 'fas fa-fw fa-box',
                 ]
             ]
         ],
@@ -391,7 +391,7 @@ return [
         [
             'text' => 'Employee Review',
             'can' => 'admin',
-            'icon' => 'fas fa-fw fa-gift',
+            'icon' => 'fas fa-fw fa-gifts',
             'can' => 'review-employees',
             'submenu' => [
                 [
