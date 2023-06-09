@@ -82,9 +82,10 @@ class UserImport implements
                     // // 'promotion_22b' => $row['promotion_22b'],
                     'career_start_date' => $row['career_start_date'],
                     'experience' => $row['experience'],
-                    'q_2_oct_dec22_performance' => $row['q_2_oct_dec22_performance'],
-                    'q_1_jul_sep22_performance' => $row['q_1_jul_sep22_performance'],
-                    'promotion_23a' => $row['promotion_23a']
+                    'q_3_jan_mar23_performance' => $row['q_3_jan_mar23_performance'],
+                    // 'q_2_oct_dec22_performance' => $row['q_2_oct_dec22_performance'],
+                    // 'q_1_jul_sep22_performance' => $row['q_1_jul_sep22_performance'],
+                    // 'promotion_23a' => $row['promotion_23a']
 
                 ],
                 [
@@ -120,9 +121,10 @@ class UserImport implements
                     // // 'promotion_22b' => $row['promotion_22b'],
                     'career_start_date' => $row['career_start_date'],
                     'experience' => $row['experience'],
-                    'q_2_oct_dec22_performance' => $row['q_2_oct_dec22_performance'],
-                    'q_1_jul_sep22_performance' => $row['q_1_jul_sep22_performance'],
-                    'promotion_23a' => $row['promotion_23a']
+                    'q_3_jan_mar23_performance' => $row['q_3_jan_mar23_performance'],
+                    // 'q_2_oct_dec22_performance' => $row['q_2_oct_dec22_performance'],
+                    // 'q_1_jul_sep22_performance' => $row['q_1_jul_sep22_performance'],
+                    // 'promotion_23a' => $row['promotion_23a']
 
                 ]
             );

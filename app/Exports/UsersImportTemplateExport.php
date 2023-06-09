@@ -41,9 +41,10 @@ class UsersImportTemplateExport implements FromCollection, WithHeadings
             // 'promotion_22b',
             'career_start_date',
             'experience',
-            'q_2_oct_dec22_performance',
-            'q_1_jul_sep22_performance',
-            'promotion_23a'
+            // 'q_2_oct_dec22_performance',
+            // 'q_1_jul_sep22_performance',
+            'q_3_jan_mar23_performance',
+            // 'promotion_23a'
         ];
     }
     /**
