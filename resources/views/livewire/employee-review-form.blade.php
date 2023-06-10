@@ -183,7 +183,7 @@
                 </td>
             </tr>
             @else
-            <tr>
+            {{-- <tr>
                 <td>Recommended for Promotion<span class="required_color">*</span></td>
                 <td>
                     <select  name='promotion recommendation'>
@@ -192,7 +192,7 @@
                         @endforeach
                     </select>
                 </td>
-            </tr>
+            </tr> --}}
             @endif
 
             @if (auth()->user()->role != 'PM')
