@@ -24,6 +24,7 @@ use App\Http\Controllers\EmployeeSalaryReviewController;
 use App\Http\Controllers\EmployeeBonusCalculationController;
 use App\Http\Controllers\PreviousBonusAndSalaryReviewController;
 use App\Http\Controllers\PreviousBonusReviewController;
+use App\Http\Controllers\EmployeeActivationController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -114,4 +115,9 @@ Route::get('previous-bonus-review-calculation/{user}', [PreviousBonusReviewContr
 // Route::get('previous-bonus-review/{user}', [PreviousBonusReviewController::class,'bonusReview'])->name('previous-bonus-review.view');
 Route::post('previous-bonus-review-review/{user}', [PreviousBonusReviewController::class,'previousSalaryReviewUpdate'])->name('previous-bonus-review-calculation.store');
 // Route::post('previous-bonus-review/{user}', [PreviousBonusAndSalaryReviewController::class,'previousBonusReviewUpdate'])->name('previous-bonus-reviews.store');
+
+// Route to serve activation purpose 
+Route::get('employee-activation-deactivation',[EmployeeActivationController::class, 'index'])->name('activation.index');
+Route::post('employement-status/change',[EmployeeActivationController::class, 'update'])->name('deactivate.employment-status');
+Route::get('inactive-employees',[EmployeeActivationController::class, 'show'])->name('inactive.employeeList');
 // URL::forceScheme('https');

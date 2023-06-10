@@ -461,6 +461,28 @@ return [
                 // ],
             ]
         ],
+        [
+            'text' => 'Employee activation',
+            'icon' => 'fas fa-brands fa-ban',
+            'can' => 'admin',
+            'submenu' => [
+                [
+                    'text' => 'Change Activation',
+                    'route' => 'activation.index',
+                    'icon' => 'fas fa-brands fa-user-slash',
+                ],
+                [
+                    'text' =>'Inactive Employee List',
+                    'route' => 'inactive.employeeList',
+                    'icon' => 'fas fa-brands fa-users-slash',
+                ],
+                // [
+                //     'text' =>'Parmanent Deletion of a user',
+                //     'route' => 'scoreboard.employeeList',
+                //     'icon' => 'fas fa-solid fa-trash',
+                // ]
+            ]
+        ],
     ],
 
     /*
