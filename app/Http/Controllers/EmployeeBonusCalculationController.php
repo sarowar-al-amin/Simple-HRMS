@@ -24,6 +24,7 @@ class EmployeeBonusCalculationController extends Controller
         elseif(Auth::user()->role === 'Admin'){
             $employees = User::where('eligible_salary_review', 'Not eligible')
                                 ->where('eligible_bonus_review', 'eligible')
+                                ->where('state', 'active')
                                 ->orderBy('sbu')
                                 ->orderBy('pm')
                                 ->get();
@@ -31,6 +32,7 @@ class EmployeeBonusCalculationController extends Controller
         else{
             $employees = Auth::user()->role === 'SBU' ? User::where('eligible_salary_review', 'Not eligible')
                                                             ->where('eligible_bonus_review', 'eligible')
+                                                            ->where('state', 'active')
                                                             ->where(function($query){
                                                                 $query->where('sbu',Auth::user()->name)
                                                                       ->orWhere('pm', Auth::user()->name);
@@ -40,6 +42,7 @@ class EmployeeBonusCalculationController extends Controller
                                                             // ->where('sbu', Auth::user()->name)->orWhere('pm', Auth::user()->name)->get()->sortBy('pm') 
                                                             : User::where('eligible_salary_review', 'Not eligible')
                                                                     ->where('eligible_bonus_review', 'eligible')
+                                                                    ->where('state', 'active')
                                                                     ->where('pm', Auth::user()->name)
                                                                     ->get();
         }
