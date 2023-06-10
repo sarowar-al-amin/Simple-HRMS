@@ -26,10 +26,10 @@ class EmployeeReviewController extends Controller
             return redirect('login');
         }
         elseif(Auth::user()->role === 'Admin'){
-            $employees = User::orderBy('sbu')->orderBy('pm')->get();
+            $employees = User::where('state', 'active')->orderBy('sbu')->orderBy('pm')->get();
         }
         else{
-            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->get();
+            $employees = Auth::user()->role === 'SBU' ? User::where('sbu', Auth::user()->name)->where('state', 'active')->get()->sortBy('pm') : User::where('pm', Auth::user()->name)->where('state', 'active')->get();
         }
         // Select the latest salary view 
         $salary_review_id = SalaryReview::orderBy('start', 'desc')->first();
