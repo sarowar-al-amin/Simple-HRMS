@@ -182,7 +182,7 @@
                     </select>
                 </td>
             </tr>
-            @else
+            {{-- @else --}}
             {{-- <tr>
                 <td>Recommended for Promotion<span class="required_color">*</span></td>
                 <td>

@@ -154,5 +154,5 @@
         });
     </script> --}}
     <livewire:scripts />
-    <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
+    {{-- <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script> --}}
 @stop
