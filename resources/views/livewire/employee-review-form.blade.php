@@ -177,7 +177,7 @@
                 <td>
                     <select name='promotion recommendation'>
                         @foreach (['No', 'Yes'] as $rating)
-                            <option value={{ $rating }} {{ $review && ($review['sbu_promotion_recommendation'] === $rating || $review['pm_promotion_recommendation'] === $rating) ? 'selected' : '' }}>{{ $rating }}</option>
+                            <option value={{ $rating }} {{ $review && ($review['sbu_promotion_recommendation'] === $rating ) ? 'selected' : '' }}>{{ $rating }}</option>
                         @endforeach
                     </select>
                 </td>
