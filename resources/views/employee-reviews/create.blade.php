@@ -40,7 +40,7 @@
                 
                 <div class="row w-100">
                     <div class="col-10 w-100">
-                        <x-adminlte-profile-row-item title="Q1 (Jul-Sep ’22) Bonus Review"/> 
+                        <x-adminlte-profile-row-item title="Q3 (Jan-Mar’23) Performance Status"/> 
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
