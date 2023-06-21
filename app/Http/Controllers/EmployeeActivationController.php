@@ -59,8 +59,10 @@ class EmployeeActivationController extends Controller
     public function show()
     {
         //
-        $users = User::where('state', 'inactive')->get();
-        return $users;
+        $employees = User::where('state', 'inactive')->get();
+        return view('inactive.inactive-employee-list',[
+            'employees' => $employees
+        ]);
     }
 
     /**
