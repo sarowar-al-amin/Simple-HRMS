@@ -30,7 +30,7 @@
                 <x-adminlte-profile-row-item title="Eligibility Salary Review 23B" text="{{ $employee->eligible_salary_review ?? 'N/A' }}" size="11" />
                 <div class="row w-100">
                     <div class="col-10 w-100">
-                        <x-adminlte-profile-row-item title="Promotional Status 23A" text="{{ $lastPromotionStatus->sbu_promotion_recommendation ?? 'N/A' }}" size="12" />
+                        <x-adminlte-profile-row-item title="Promotional Status 23A" text="{{ $employee->promotion_23a ?? 'N/A' }}" size="12" />
                     </div>
                     <div class="col-2 w-100">
                         {{-- <a href="#">view details</a> --}}
@@ -60,9 +60,9 @@
                     {{-- <x-adminlte-profile-row-item title="Q4 (Apr-Jun ’22) Bonus Percentage" text="{{ $employee->q_4_april_jun_percentage ?? 'N/A' }}%" size="12"/>     --}}
                     <x-adminlte-profile-row-item title="Q3 (Jan-Mar ’22) Performance Status" text="{{ $employee->q_3_jan_mar_performance ?? 'N/A' }}" size="12"/>
                     {{-- <x-adminlte-profile-row-item title="Q3 (Jan-Mar ’22) Bonus Percentage" text="{{ $employee->q_3_jan_mar_percentage ?? 'N/A' }}%" size="12"/>  --}}
-                    <x-adminlte-profile-row-item title="Q2 (Oct-Dec ’21) Performance Status" text="{{ $employee->q_2_oct_dec_performance ?? 'N/A' }}" size="12"/>
+                    {{-- <x-adminlte-profile-row-item title="Q2 (Oct-Dec ’21) Performance Status" text="{{ $employee->q_2_oct_dec_performance ?? 'N/A' }}" size="12"/> --}}
                     {{-- <x-adminlte-profile-row-item title="Q2 (Oct-Dec ’21) Bonus Percentage" text="{{ $employee->q_2_oct_dec_percentage ?? 'N/A' }}%" size="12"/> --}}
-                    <x-adminlte-profile-row-item title="Q1 (Jul-Sep’21) Performance Status" text="{{ $employee->q_2_oct_dec_performance ?? 'N/A' }}" size="12"/>
+                    {{-- <x-adminlte-profile-row-item title="Q1 (Jul-Sep’21) Performance Status" text="{{ $employee->q_2_oct_dec_performance ?? 'N/A' }}" size="12"/> --}}
                     {{-- <x-adminlte-profile-row-item title="Q1 (Jul-Sep’21) Bonus Percentage" text="{{ $employee->q_1_jul_sep_percentage ?? 'N/A' }}%" size="12"/> --}}
             </x-adminlte-profile-widget>
         </x-adminlte-card>
